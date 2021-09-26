@@ -6,7 +6,7 @@
   <link href="http://haorical.xyz/atom.xml" rel="self"/>
   
   <link href="http://haorical.xyz/"/>
-  <updated>2021-09-26T17:27:49.754Z</updated>
+  <updated>2021-09-26T18:24:51.191Z</updated>
   <id>http://haorical.xyz/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客主站点关闭通知</title>
+    <link href="http://haorical.xyz/posts/9fc12a02/"/>
+    <id>http://haorical.xyz/posts/9fc12a02/</id>
+    <published>2021-09-26T18:13:29.000Z</published>
+    <updated>2021-09-26T18:24:51.191Z</updated>
+    
+    <content type="html"><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p><p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p><p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p><p><strong>哎！马老师，发生什么事了？</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/2021092701262</summary>
+      
+    
+    
+    
+    <category term="随笔" scheme="http://haorical.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>20210926</title>
@@ -534,27 +557,6 @@
     <category term="文件上传" scheme="http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     
     <category term="反序列化" scheme="http://haorical.xyz/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>58.245.43.163</title>
-    <link href="http://haorical.xyz/posts/b47b00b2/"/>
-    <id>http://haorical.xyz/posts/b47b00b2/</id>
-    <published>2021-08-18T03:35:54.000Z</published>
-    <updated>2021-08-26T17:42:22.897Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p><p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;这几把谁啊，真是闲的蛋疼&quot;&gt;&lt;a href=&quot;#这几把谁啊，真是闲的蛋疼&quot; class=&quot;headerlink&quot; title=&quot;这几把谁啊，真是闲的蛋疼&quot;&gt;&lt;/a&gt;这几把谁啊，真是闲的蛋疼&lt;/h1&gt;&lt;p&gt;一共访问了1700多次，合着跑字典呢&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-      
-    
-    
-    
     
   </entry>
   
