@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://haorical.xyz/posts/5106ce6b/</loc>
+    
+    <lastmod>2021-09-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://haorical.xyz/posts/9f6aba72/</loc>
     
     <lastmod>2021-09-27</lastmod>
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/c150e260/</loc>
+    <loc>http://haorical.xyz/posts/6dd4bc92/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/6dd4bc92/</loc>
+    <loc>http://haorical.xyz/posts/c150e260/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -191,13 +198,6 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/9c51da98/</loc>
-    
-    <lastmod>2021-08-26</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haorical.xyz/posts/e15b0610/</loc>
     
     <lastmod>2021-08-26</lastmod>
@@ -206,6 +206,13 @@
   
   <url>
     <loc>http://haorical.xyz/posts/3719f1b1/</loc>
+    
+    <lastmod>2021-08-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haorical.xyz/posts/9c51da98/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -268,13 +275,6 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/9f79bbb9/</loc>
-    
-    <lastmod>2021-08-26</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://haorical.xyz/posts/7be9f79f/</loc>
     
     <lastmod>2021-08-26</lastmod>
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/9d3f05e0/</loc>
+    <loc>http://haorical.xyz/posts/9f79bbb9/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/e38e795d/</loc>
+    <loc>http://haorical.xyz/posts/9d3f05e0/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -304,6 +304,13 @@
   
   <url>
     <loc>http://haorical.xyz/posts/2876c380/</loc>
+    
+    <lastmod>2021-08-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://haorical.xyz/posts/e38e795d/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -411,6 +418,13 @@
   
   <url>
     <loc>http://haorical.xyz/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-09-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://haorical.xyz/tags/SSTI/</loc>
     <lastmod>2021-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
