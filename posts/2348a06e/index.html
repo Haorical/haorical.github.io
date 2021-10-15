@@ -29,18 +29,22 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"haorical.xyz","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="ctf退役种子选手">
-<meta property="og:type" content="website">
-<meta property="og:title" content="中国熊猫的博客">
-<meta property="og:url" content="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/index.html">
+<meta name="description" content="[护网杯 2018]easy_tornado 模板注入  先看提示，发现hints和&#x2F;fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意 render是一个类似模板的东西，可以使用不同的参数来访问网页 在tornado模板中，存在一些可以访问的快速对象，例如 &amp;#123;&amp;#123;handler.settings&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20211015">
+<meta property="og:url" content="http://haorical.xyz/posts/2348a06e/index.html">
 <meta property="og:site_name" content="中国熊猫的博客">
-<meta property="og:description" content="ctf退役种子选手">
+<meta property="og:description" content="[护网杯 2018]easy_tornado 模板注入  先看提示，发现hints和&#x2F;fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意 render是一个类似模板的东西，可以使用不同的参数来访问网页 在tornado模板中，存在一些可以访问的快速对象，例如 &amp;#123;&amp;#123;handler.settings&amp;#125;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-15T15:27:55.403Z">
+<meta property="article:modified_time" content="2021-10-15T15:31:55.094Z">
 <meta property="article:author" content="Haorical">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="http://haorical.xyz/posts/2348a06e/">
 
 
 <script class="page-configurations">
@@ -48,11 +52,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>分类: ctf学习 | 中国熊猫的博客</title>
+<title>20211015 | 中国熊猫的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH7P85EXS0"></script>
     <script>
@@ -189,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -202,6 +206,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%A4%E7%BD%91%E6%9D%AF-2018-easy-tornado"><span class="nav-number">1.</span> <span class="nav-text">[护网杯 2018]easy_tornado</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -272,211 +277,197 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">ctf学习
-          <small>分类</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/2348a06e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20211015
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-10-15 23:27:55 / 修改时间：23:31:55" itemprop="dateCreated datePublished" datetime="2021-10-15T23:27:55+08:00">2021-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/2348a06e/" class="post-meta-item leancloud_visitors" data-flag-title="20211015" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/2348a06e/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/2348a06e/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>452</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
+<p>模板注入</p>
+</blockquote>
+<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
+<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
+<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
+<p>而RequestHandler.settings又指向self.application.settings</p>
+<p>所有handler.settings就指向RequestHandler.application.settings</p>
+<p>可以获得一些设置</p>
+<p>然后成功获得cookie_secret，md5获得hash值即可</p>
+<p>在msg页面可以实现模板注入</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-13T19:05:32+08:00"
-              content="2021-10-13">
-          10-13
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.jpg" alt="Haorical 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/bfdb9200/" itemprop="url">
-            <span itemprop="name">国庆赛部分赛题复现</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-11T23:41:41+08:00"
-              content="2021-10-11">
-          10-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/31200392/" itemprop="url">
-            <span itemprop="name">2021秋季赛部分wp</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-09-27T14:38:26+08:00"
-              content="2021-09-27">
-          09-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/9f6aba72/" itemprop="url">
-            <span itemprop="name">反弹shell测试</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-09-25T21:00:57+08:00"
-              content="2021-09-25">
-          09-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/367c8d9/" itemprop="url">
-            <span itemprop="name">蚁剑流量分析</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-20T00:41:29+08:00"
-              content="2021-08-20">
-          08-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/e15b0610/" itemprop="url">
-            <span itemprop="name">对web漏洞常见缩写的解释</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-06-17T19:35:13+08:00"
-              content="2021-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/63fc7f18/" itemprop="url">
-            <span itemprop="name">初夏赛复盘</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-06-02T00:12:01+08:00"
-              content="2021-06-02">
-          06-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/b061f28/" itemprop="url">
-            <span itemprop="name">CUMT初夏赛部分wp</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-04-20T17:13:41+08:00"
-              content="2021-04-20">
-          04-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/6dd4bc92/" itemprop="url">
-            <span itemprop="name">V&NCTF2021</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-03-29T20:04:56+08:00"
-              content="2021-03-29">
-          03-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/17e673fc/" itemprop="url">
-            <span itemprop="name">CUMTCTF春季赛部分writeup</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Haorical
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://haorical.xyz/posts/2348a06e/" title="20211015">http://haorical.xyz/posts/2348a06e/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ctf/" rel="tag"># ctf</a>
+              <a href="/tags/web/" rel="tag"># web</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/bfdb9200/" rel="prev" title="国庆赛部分赛题复现">
+                  <i class="fa fa-chevron-left"></i> 国庆赛部分赛题复现
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -669,6 +660,17 @@ if (document.querySelectorAll('.mermaid').length) {
 
 
 
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyvi2vgKd',
+        conf : '7f15583657b97e637a5ebc884f987611'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
 
   
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>

