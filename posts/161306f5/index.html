@@ -29,22 +29,20 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"haorical.xyz","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="BUUCTF[极客大挑战 2019]Secret File 主要就是文件包含和php伪协议  首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包 &lt;html&gt;     &lt;!--     secr3t.php             --&amp;gt">
+<meta name="description" content="失眠了，想了想不知道干什么 刚开始玩了会古墓丽影，不想玩了 想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了 现在博客Github上和服务器上的都能用 之所以保留Github是因为足够稳定，用的是一级域名，https:&#x2F;&#x2F;haorical.xyz 服务器用的阿里云，国内比较快，用的二级域名，http:&#x2F;&#x2F;blog.haorical.xyz 暂时没部署证书，以后再弄吧，现在不想弄了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210515">
-<meta property="og:url" content="http://haorical.xyz/posts/9d3f05e0/index.html">
+<meta property="og:title" content="20211031">
+<meta property="og:url" content="http://haorical.xyz/posts/161306f5/index.html">
 <meta property="og:site_name" content="中国熊猫的博客">
-<meta property="og:description" content="BUUCTF[极客大挑战 2019]Secret File 主要就是文件包含和php伪协议  首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包 &lt;html&gt;     &lt;!--     secr3t.php             --&amp;gt">
+<meta property="og:description" content="失眠了，想了想不知道干什么 刚开始玩了会古墓丽影，不想玩了 想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了 现在博客Github上和服务器上的都能用 之所以保留Github是因为足够稳定，用的是一级域名，https:&#x2F;&#x2F;haorical.xyz 服务器用的阿里云，国内比较快，用的二级域名，http:&#x2F;&#x2F;blog.haorical.xyz 暂时没部署证书，以后再弄吧，现在不想弄了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-15T08:41:50.000Z">
-<meta property="article:modified_time" content="2021-08-26T17:42:22.852Z">
+<meta property="article:published_time" content="2021-10-30T20:16:02.000Z">
+<meta property="article:modified_time" content="2021-10-30T20:24:04.558Z">
 <meta property="article:author" content="Haorical">
-<meta property="article:tag" content="ctf">
-<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://haorical.xyz/posts/9d3f05e0/">
+<link rel="canonical" href="http://haorical.xyz/posts/161306f5/">
 
 
 <script class="page-configurations">
@@ -56,7 +54,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>20210515 | 中国熊猫的博客</title>
+<title>20211031 | 中国熊猫的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH7P85EXS0"></script>
     <script>
@@ -193,7 +191,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -206,7 +204,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Secret-File"><span class="nav-number">1.</span> <span class="nav-text">BUUCTF[极客大挑战 2019]Secret File</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">2.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -288,7 +285,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/9d3f05e0/">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/161306f5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -301,7 +298,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210515
+          20211031
         </h1>
 
         <div class="post-meta-container">
@@ -311,28 +308,22 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-05-15 16:41:50" itemprop="dateCreated datePublished" datetime="2021-05-15T16:41:50+08:00">2021-05-15</time>
+      <time title="创建时间：2021-10-31 04:16:02 / 修改时间：04:24:04" itemprop="dateCreated datePublished" datetime="2021-10-31T04:16:02+08:00">2021-10-31</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
         </span>
     </span>
 
   
-    <span id="/posts/9d3f05e0/" class="post-meta-item leancloud_visitors" data-flag-title="20210515" title="阅读次数">
+    <span id="/posts/161306f5/" class="post-meta-item leancloud_visitors" data-flag-title="20211031" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -348,8 +339,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/posts/9d3f05e0/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/9d3f05e0/" itemprop="commentCount"></span>
+      <a title="changyan" href="/posts/161306f5/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/161306f5/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -362,7 +353,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>467</span>
+      <span>232</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -380,29 +371,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
-<p>主要就是文件包含和php伪协议</p>
-</blockquote>
-<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
-<pre><code>&lt;html&gt;
-    &lt;!--
-    secr3t.php        
-    --&gt;
-&lt;/html&gt;
-</code></pre>
-<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
-<p>构造payload:</p>
-<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
-</code></pre>
-<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
-<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
-<p>代码审计</p>
-</blockquote>
-<p>F12,提示source.php,打开代码审计</p>
-<p>payload:</p>
-<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
-</code></pre>
-<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
+        <p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a target="_blank" rel="noopener" href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
 
     </div>
 
@@ -434,7 +410,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://haorical.xyz/posts/9d3f05e0/" title="20210515">http://haorical.xyz/posts/9d3f05e0/</a>
+      <a href="http://haorical.xyz/posts/161306f5/" title="20211031">http://haorical.xyz/posts/161306f5/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -459,23 +435,16 @@
   </div>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/ctf/" rel="tag"># ctf</a>
-              <a href="/tags/web/" rel="tag"># web</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/743c31e9/" rel="prev" title="python学习笔记">
-                  <i class="fa fa-chevron-left"></i> python学习笔记
+                <a href="/posts/5df9dcd3/" rel="prev" title="20211018">
+                  <i class="fa fa-chevron-left"></i> 20211018
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/436545a/" rel="next" title="20210516">
-                  20210516 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
