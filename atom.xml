@@ -6,7 +6,7 @@
   <link href="http://haorical.xyz/atom.xml" rel="self"/>
   
   <link href="http://haorical.xyz/"/>
-  <updated>2021-11-18T15:20:40.710Z</updated>
+  <updated>2021-11-18T15:28:38.202Z</updated>
   <id>http://haorical.xyz/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git更新</title>
+    <link href="http://haorical.xyz/posts/bc46b23a/"/>
+    <id>http://haorical.xyz/posts/bc46b23a/</id>
+    <published>2021-11-18T15:23:34.000Z</published>
+    <updated>2021-11-18T15:28:38.202Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote><p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;因为vscode ssh要求服务器git得&amp;gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得</summary>
+      
+    
+    
+    
+    <category term="开发工具" scheme="http://haorical.xyz/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="git" scheme="http://haorical.xyz/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>20211118</title>
@@ -56,9 +81,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -75,9 +100,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -101,9 +126,9 @@
     <category term="ctf学习" scheme="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -202,9 +227,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -228,9 +253,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
     <category term="文件上传" scheme="http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     
@@ -256,9 +281,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -282,9 +307,9 @@
     <category term="ctf学习" scheme="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
     <category term="sql注入" scheme="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
@@ -308,9 +333,9 @@
     <category term="ctf学习" scheme="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -334,9 +359,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
     <category term="代码审计" scheme="http://haorical.xyz/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
@@ -364,9 +389,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
     <category term="反序列化" scheme="http://haorical.xyz/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
     
@@ -395,9 +420,9 @@
     <category term="ctf学习" scheme="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
     <category term="测试工具" scheme="http://haorical.xyz/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/"/>
     
@@ -446,9 +471,9 @@
     <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
     <category term="sql注入" scheme="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
@@ -473,9 +498,9 @@
     <category term="ctf学习" scheme="http://haorical.xyz/categories/ctf%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
     <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
     
   </entry>
   
@@ -501,34 +526,6 @@
     
     
     <category term="python" scheme="http://haorical.xyz/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>暑假总结</title>
-    <link href="http://haorical.xyz/posts/123f4dc2/"/>
-    <id>http://haorical.xyz/posts/123f4dc2/</id>
-    <published>2021-09-22T13:56:03.000Z</published>
-    <updated>2021-09-23T13:58:39.437Z</updated>
-    
-    <content type="html"><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p><ul><li><p>python入门到精通</p></li><li><p>数学建模学了一点点，matlab基本是会用了</p></li><li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p></li><li><p>折腾服务器，搭建了私有云</p></li><li><p>linux 使用的更熟练了，包括docker了等等</p></li><li><p>学会了git使用外加GitHub，之前不是很会</p></li><li><p>洛克王国天梯打到了高级段位</p></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;python入门到精通&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;数学建模学了一点点，matlab基本是会用了&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ctf把bugku上的web刷完了</summary>
-      
-    
-    
-    
-    <category term="随笔" scheme="http://haorical.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
-    
     
   </entry>
   

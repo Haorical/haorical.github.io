@@ -143,7 +143,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">59</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -217,7 +217,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -273,6 +273,130 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/2348a06e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2348a06e/" class="post-title-link" itemprop="url">20211015</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-15 23:27:55 / 修改时间：23:32:07" itemprop="dateCreated datePublished" datetime="2021-10-15T23:27:55+08:00">2021-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/2348a06e/" class="post-meta-item leancloud_visitors" data-flag-title="20211015" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/2348a06e/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/2348a06e/" class="cy_cmt_count" data-xid="posts/2348a06e/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>452</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
+<p>模板注入</p>
+</blockquote>
+<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
+<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
+<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
+<p>而RequestHandler.settings又指向self.application.settings</p>
+<p>所有handler.settings就指向RequestHandler.application.settings</p>
+<p>可以获得一些设置</p>
+<p>然后成功获得cookie_secret，md5获得hash值即可</p>
+<p>在msg页面可以实现模板注入</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1468,141 +1592,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/123f4dc2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/123f4dc2/" class="post-title-link" itemprop="url">暑假总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-09-22 21:56:03" itemprop="dateCreated datePublished" datetime="2021-09-22T21:56:03+08:00">2021-09-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-23 21:58:39" itemprop="dateModified" datetime="2021-09-23T21:58:39+08:00">2021-09-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/123f4dc2/" class="post-meta-item leancloud_visitors" data-flag-title="暑假总结" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/123f4dc2/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/123f4dc2/" class="cy_cmt_count" data-xid="posts/123f4dc2/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>190</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
-<ul>
-<li><p>python入门到精通</p>
-</li>
-<li><p>数学建模学了一点点，matlab基本是会用了</p>
-</li>
-<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
-</li>
-<li><p>折腾服务器，搭建了私有云</p>
-</li>
-<li><p>linux 使用的更熟练了，包括docker了等等</p>
-</li>
-<li><p>学会了git使用外加GitHub，之前不是很会</p>
-</li>
-<li><p>洛克王国天梯打到了高级段位</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1647,13 +1636,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">134k</span>
+    <span title="站点总字数">135k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:43</span>
+    <span title="站点阅读时长">3:44</span>
   </span>
 </div>
 <div class="busuanzi-count">

