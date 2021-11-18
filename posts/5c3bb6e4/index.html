@@ -29,18 +29,20 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"haorical.xyz","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="ctf退役种子选手">
-<meta property="og:type" content="website">
-<meta property="og:title" content="中国熊猫的博客">
-<meta property="og:url" content="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/index.html">
+<meta name="description" content="[MRCTF2020]你传你🐎呢上传.htaccess  上传shell.jpeg 直接扫目录即可，没有过滤，非常友善 var_dump(file_get_contents(&#39;&#x2F;flag&#39;));  [SUCTF 2019]CheckIn上传.user.ini不过是这样配置才能过 auto_prepend_file&#x3D;shell.jpeg  以前都是 auto_append_file">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20211118">
+<meta property="og:url" content="http://haorical.xyz/posts/5c3bb6e4/index.html">
 <meta property="og:site_name" content="中国熊猫的博客">
-<meta property="og:description" content="ctf退役种子选手">
+<meta property="og:description" content="[MRCTF2020]你传你🐎呢上传.htaccess  上传shell.jpeg 直接扫目录即可，没有过滤，非常友善 var_dump(file_get_contents(&#39;&#x2F;flag&#39;));  [SUCTF 2019]CheckIn上传.user.ini不过是这样配置才能过 auto_prepend_file&#x3D;shell.jpeg  以前都是 auto_append_file">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-18T12:06:19.000Z">
+<meta property="article:modified_time" content="2021-11-18T12:37:02.275Z">
 <meta property="article:author" content="Haorical">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://haorical.xyz/tags/sql%E6%B3%A8%E5%85%A5/">
+<link rel="canonical" href="http://haorical.xyz/posts/5c3bb6e4/">
 
 
 <script class="page-configurations">
@@ -48,11 +50,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>标签: sql注入 | 中国熊猫的博客</title>
+<title>20211118 | 中国熊猫的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH7P85EXS0"></script>
     <script>
@@ -189,7 +191,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -202,6 +204,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MRCTF2020-%E4%BD%A0%E4%BC%A0%E4%BD%A0%F0%9F%90%8E%E5%91%A2"><span class="nav-number">1.</span> <span class="nav-text">[MRCTF2020]你传你🐎呢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-CheckIn"><span class="nav-number">2.</span> <span class="nav-text">[SUCTF 2019]CheckIn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NCTF2019-Fake-XML-cookbook"><span class="nav-number">3.</span> <span class="nav-text">[NCTF2019]Fake XML cookbook</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -272,211 +275,184 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">sql注入
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/5c3bb6e4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20211118
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-11-18 20:06:19 / 修改时间：20:37:02" itemprop="dateCreated datePublished" datetime="2021-11-18T20:06:19+08:00">2021-11-18</time>
+    </span>
+
+  
+    <span id="/posts/5c3bb6e4/" class="post-meta-item leancloud_visitors" data-flag-title="20211118" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/5c3bb6e4/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/5c3bb6e4/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>223</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
+<p>上传shell.jpeg</p>
+<p>直接扫目录即可，没有过滤，非常友善</p>
+<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
+</code></pre>
+<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
+<pre><code>auto_prepend_file=shell.jpeg
+</code></pre>
+<p>以前都是</p>
+<pre><code>auto_append_file=1.txt
+</code></pre>
+<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-13T19:05:32+08:00"
-              content="2021-10-13">
-          10-13
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/alipay.jpg" alt="Haorical 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/bfdb9200/" itemprop="url">
-            <span itemprop="name">国庆赛部分赛题复现</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-09-26T23:58:03+08:00"
-              content="2021-09-26">
-          09-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2601fefd/" itemprop="url">
-            <span itemprop="name">20210926</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-09-04T10:20:10+08:00"
-              content="2021-09-04">
-          09-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/fa39fd53/" itemprop="url">
-            <span itemprop="name">20210904</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-20T23:05:08+08:00"
-              content="2021-08-20">
-          08-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/401ec127/" itemprop="url">
-            <span itemprop="name">202108203</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-06-17T19:35:13+08:00"
-              content="2021-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/63fc7f18/" itemprop="url">
-            <span itemprop="name">初夏赛复盘</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-26T20:22:41+08:00"
-              content="2021-05-26">
-          05-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2f1b0799/" itemprop="url">
-            <span itemprop="name">20210526</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-24T19:18:09+08:00"
-              content="2021-05-24">
-          05-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/c11566b5/" itemprop="url">
-            <span itemprop="name">20210524</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-22T21:19:32+08:00"
-              content="2021-05-22">
-          05-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2876c380/" itemprop="url">
-            <span itemprop="name">20210522</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-18T17:30:10+08:00"
-              content="2021-05-18">
-          05-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/e38e795d/" itemprop="url">
-            <span itemprop="name">20210518</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Haorical
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://haorical.xyz/posts/5c3bb6e4/" title="20211118">http://haorical.xyz/posts/5c3bb6e4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/cc84ab75/" rel="prev" title="20211117">
+                  <i class="fa fa-chevron-left"></i> 20211117
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -669,6 +645,17 @@ if (document.querySelectorAll('.mermaid').length) {
 
 
 
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyvi2vgKd',
+        conf : '7f15583657b97e637a5ebc884f987611'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
 
   
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>

