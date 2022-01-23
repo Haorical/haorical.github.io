@@ -4,7 +4,7 @@
   <url>
     <loc>http://haorical.xyz/posts/e8cf058b/</loc>
     
-    <lastmod>2022-01-18</lastmod>
+    <lastmod>2022-01-23</lastmod>
     
   </url>
   
@@ -331,14 +331,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/eb56ea0e/</loc>
+    <loc>http://haorical.xyz/posts/9c51da98/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/9c51da98/</loc>
+    <loc>http://haorical.xyz/posts/eb56ea0e/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -373,14 +373,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/b47b00b2/</loc>
+    <loc>http://haorical.xyz/posts/17e673fc/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/17e673fc/</loc>
+    <loc>http://haorical.xyz/posts/b47b00b2/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -408,14 +408,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/810f4ee1/</loc>
+    <loc>http://haorical.xyz/posts/9f79bbb9/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/9f79bbb9/</loc>
+    <loc>http://haorical.xyz/posts/810f4ee1/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -450,14 +450,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/2876c380/</loc>
+    <loc>http://haorical.xyz/posts/c11566b5/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
   </url>
   
   <url>
-    <loc>http://haorical.xyz/posts/c11566b5/</loc>
+    <loc>http://haorical.xyz/posts/2876c380/</loc>
     
     <lastmod>2021-08-26</lastmod>
     
@@ -508,14 +508,14 @@
   </url>
   
   <url>
-    <loc>http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
+    <loc>http://haorical.xyz/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</loc>
     <lastmod>2022-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://haorical.xyz/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</loc>
+    <loc>http://haorical.xyz/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2022-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -586,6 +586,13 @@
   
   <url>
     <loc>http://haorical.xyz/tags/server/</loc>
+    <lastmod>2022-01-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://haorical.xyz/tags/sql/</loc>
     <lastmod>2022-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
